@@ -22,3 +22,34 @@
 	width:400px;
 	height:200px;
 }
+
+#everyLiTag li{
+	list-style-type: none;
+}
+
+.a26{
+	width:80px;
+	height:80px;
+	background:red;
+	position:relative;
+	left:320px;
+}
+.wdate{
+	float:left;
+	margin-left:100px;
+	margin-top:-80px;
+}
+.wcontent{
+	float:left;
+	margin-left:420px;
+	margin-top:-835px;
+}
+.bianji{
+	font-size:14px;
+	padding: 3px 14px;
+	border: 1px solid red;
+	border-radius:10px;
+	float:left;
+	margin-left:680px;
+	margin-top:-800px;
+}

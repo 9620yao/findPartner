@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Words implements Serializable{//留言板
+	private static final long serialVersionUID = 3689509625432377305L;
 	private String wid;
 	private String waid;
 	private String wfrendid;
@@ -11,13 +12,14 @@ public class Words implements Serializable{//留言板
 	private String waddress;
 	private String wdate;
 	private List<Comments>comments;
-	//private Users users;
+	private List<Replys> replys;
 	
 	public Words() {
 	}
 	
+
 	public Words(String wid, String waid, String wfrendid, String wcontent, String waddress, String wdate,
-			List<Comments> comments, Users users) {
+			List<Comments> comments, List<Replys> replys) {
 		this.wid = wid;
 		this.waid = waid;
 		this.wfrendid = wfrendid;
@@ -25,9 +27,18 @@ public class Words implements Serializable{//留言板
 		this.waddress = waddress;
 		this.wdate = wdate;
 		this.comments = comments;
-		//this.users = users;
+		this.replys = replys;
 	}
 
+
+
+	public List<Replys> getReplys() {
+		return replys;
+	}
+
+	public void setReplys(List<Replys> replys) {
+		this.replys = replys;
+	}
 
 	public String getWid() {
 		return wid;
@@ -77,11 +88,12 @@ public class Words implements Serializable{//留言板
 	}
 
 
-
-
 	@Override
 	public String toString() {
 		return "\nWords [wid=" + wid + ", waid=" + waid + ", wfrendid=" + wfrendid + ", wcontent=" + wcontent
-				+ ", waddress=" + waddress + ", wdate=" + wdate + ", comments=" + comments + "]";
+				+ ", waddress=" + waddress + ", wdate=" + wdate + ", comments=" + comments + ", replys=" + replys + "]";
 	}
+
+	
+
 }

@@ -1,4 +1,4 @@
-package com.yc.ssm.aspect;
+/*package com.yc.ssm.aspect;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,3 +23,4 @@ public class GetUserAidAspect {
 	}
 
 }
+*/

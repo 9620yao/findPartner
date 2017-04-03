@@ -148,6 +148,16 @@ create table replys(
 	   otherreplystwo varchar2(40)
 );
 --create sequence seq_replys_rid start with 10000;
+select w.*,c.* from replys  where rcid in(
+	select c.cid from words w,comments c where w.wid=c.callid
+);
+
+select w.*,c.*,r.* 
+from  words w
+inner join comments c
+on w.wid=c.callid
+inner join replys r
+on c.cid=r.rcid
 
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
