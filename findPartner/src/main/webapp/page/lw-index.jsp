@@ -24,6 +24,9 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
@@ -70,14 +73,13 @@
 			<article class="am-g blog-entry-article">
 				<div class="editdiv">
 					<form id="myspeak" method="post">
-						<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4" cols="39"
-							placeholder="发表一个说说"></textarea>
-							<button onclick="addSpeak()">发表</button>
+						<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
+							cols="39" placeholder="发表一个说说"></textarea>
+						<button onclick="addSpeak()">发表</button>
 					</form>
 				</div>
 			</article>
-			<br>
-			<br>
+			<br> <br>
 
 			<article class="am-g blog-entry-article">
 				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
@@ -214,46 +216,109 @@
 				<h2 class="blog-text-center blog-title">
 					<span>About ME</span>
 				</h2>
-				<img src="assets/i/f14.jpg" alt="about me" class="blog-entry-img">
-				<p>妹纸</p>
-				<p>我是妹子UI，中国首个开源 HTML5 跨屏前端框架</p>
-				<p>我不想成为一个庸俗的人。十年百年后，当我们死去，质疑我们的人同样死去，后人看到的是裹足不前、原地打转的你，还是一直奔跑、走到远方的我？</p>
-			</div>
-			<div class="blog-sidebar-widget blog-bor">
-				<h2 class="blog-text-center blog-title">
-					<span>Contact ME</span>
-				</h2>
-				<p>
-					<a href=""><span
-						class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a> <a
-						href=""><span class="am-icon-github am-icon-fw blog-icon"></span></a>
-					<a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
-					<a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
-					<a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a>
-				</p>
-			</div>
-			<div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
-				<h2 class="blog-title">
-					<span>TAG cloud</span>
-				</h2>
-				<div class="am-u-sm-12 blog-clear-padding">
-					<a href="" class="blog-tag">amaze</a> <a href="" class="blog-tag">妹纸
-						UI</a> <a href="" class="blog-tag">HTML5</a> <a href=""
-						class="blog-tag">这是标签</a> <a href="" class="blog-tag">Impossible</a>
-					<a href="" class="blog-tag">开源前端框架</a>
+				<img src="images/not_pic.jpg" class="pic" width="100" height="100">
+				<p>个人简介</p>
+				<!-- 显示个人信息 -->
+				<div id="myself">
+					<!--个人简介 -->
+					<table style="margin-left: 10px;">
+						<tr>
+							<td>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：</td>
+							<td id="inickname"></td>
+						</tr>
+						<tr>
+							<td>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：</td>
+							<td id="iage"></td>
+						</tr>
+						<tr>
+							<td>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：</td>
+							<td id="ibirthday"></td>
+						</tr>
+						<tr>
+							<td>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：</td>
+							<td id="igender"></td>
+						</tr>
+						<tr>
+							<td>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：</td>
+							<td id="istar"></td>
+						</tr>
+						<tr>
+							<td>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：</td>
+							<td id="ihobby"></td>
+						</tr>
+						<tr>
+							<td>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;&nbsp;：</td>
+							<td id="ijob"></td>
+						</tr>
+						<tr>
+							<td>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司&nbsp;&nbsp;：</td>
+							<td id="icompany"></td>
+						</tr>
+						<tr>
+							<td>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校&nbsp;&nbsp;：</td>
+							<td id="ischool"></td>
+						</tr>
+						<tr>
+							<td>国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍&nbsp;&nbsp;：</td>
+							<td id="iastate"></td>
+						</tr>
+						<tr>
+							<td>现居地址：</td>
+							<td id="iaddress"></td>
+						</tr>
+						<tr>
+							<td>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡&nbsp;&nbsp;：</td>
+							<td id="ihometown"></td>
+						</tr>
+					</table>
+					<button onclick="add()">修改个人信息</button>
 				</div>
+				<!-- 显示个人信息 end -->
 			</div>
-			<div class="blog-sidebar-widget blog-bor">
-				<h2 class="blog-title">
-					<span>么么哒</span>
-				</h2>
-				<ul class="am-list">
-					<li><a href="#">每个人都有一个死角， 自己走不出来，别人也闯不进去。</a></li>
-					<li><a href="#">我把最深沉的秘密放在那里。</a></li>
-					<li><a href="#">你不懂我，我不怪你。</a></li>
-					<li><a href="#">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</a></li>
-				</ul>
+
+			<!-- addInfo修改个人信息 -->
+			<div id="addInfo">
+				<h1 id="opt_type">修改个人信息</h1>
+				<form id="updateUserInfo" method="post"
+					enctype="multipart/form-data">
+					<span>个人信息：<label></label></span>
+					<ul>
+						<li><input id="pictrue" type="file" name="picData"
+							onchange="chgPic(this)" /><br> <img
+							src="images/not_pic.jpg" class="pic" width="100" height="100"></li>
+						<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：<input
+							type="text" id="nickname" name="nickname"></li>
+						<li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：<input
+							type="text" id="age" name="age"></li>
+						<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
+							type="text" id="birthday" name="birthday"></li>
+						<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：<input
+							type="text" id="gender" name="gender">
+						</li>
+						<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
+							type="text" id="star" name="star"></li>
+						<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input
+							type="text" id="hobby" name="hobby"></li>
+						<li>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;&nbsp;：<input
+							type="text" id="job" name="job"></li>
+						<li>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司&nbsp;&nbsp;：<input
+							type="text" id="company" name="company"></li>
+						<li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校&nbsp;&nbsp;：<input
+							type="text" id="school" name="school"></li>
+						<li>现居地址：<input type="text" id="address" name="address"></li>
+						<li>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡&nbsp;&nbsp;：<input
+							type="text" id="hometown" name="hometown"></li>
+						<li>国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍&nbsp;&nbsp;：<input
+							type="text" id="astate" name="astate"></li>
+					</ul>
+					<!-- <a class="updateBtn" href="javascript:void(0)">修改</a> -->
+					<button>修改</button>
+					<button onclick="return addWinClose();">&nbsp;&nbsp;取
+						消&nbsp;&nbsp;</button>
+					&nbsp;&nbsp;
+				</form>
 			</div>
+			<!-- addInfo修改个人信息  end-->
 		</div>
 	</div>
 	<!-- content end -->
@@ -313,6 +378,8 @@
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/ueditor.config.js"></script>
