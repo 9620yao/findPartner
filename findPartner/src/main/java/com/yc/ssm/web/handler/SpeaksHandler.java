@@ -31,10 +31,11 @@ public class SpeaksHandler {
 	private SpeaksService speaksService;
 
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@RequestMapping(value = "list", method = RequestMethod.GET)
 	@ResponseBody
 	public List<Speaks> listSpeaks(Users users, HttpSession session) {
-		String speakman=(String) session.getAttribute(ServletUtil.USER_INFO);
+		LogManager.getLogger().debug("我进来了 listSpeaks");
+		String speakman="10000";
 		return speaksService.listSpeaks(speakman);
 	}
 

@@ -20,6 +20,4 @@ public class SpeaksServiceImpl implements SpeaksService {
 		return speaksMapper.findSpeaks(speakman);
 	}
 
-	
-
 }

@@ -1,4 +1,4 @@
-package com.yc.ssm.web.Fileter;
+/*package com.yc.ssm.web.Fileter;
 
 import java.io.IOException;
 
@@ -41,3 +41,4 @@ public class CheckLoginUserFilter extends AbstractFilter{
 	}
 
 }
+*/
