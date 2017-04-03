@@ -58,44 +58,40 @@
 
 	<div id="host">
 		<form action="words/findWords" method="POST">
-			<h4>留言</h4>
-			<label>编辑您的留言</label>
-
-			<c:forEach var="k" items="${ws}">
+			<label>显示您的留言</label>
+			<%-- <c:forEach var="k" items="${ws}">
 				<p>${k.wcontent}</p>
-			</c:forEach>
+			</c:forEach> --%>
 
-			<table>
+			<table border="1" ><!-- cellpadding="10"  -->
 				<c:forEach var="k" items="${ws}">
 					<tr>
-						<td>${k.wfrendid}</td>
-						<td>${k.wdate}</td>
+						<td colspan="2">${k.wfrendid}</td>
 					</tr>
-
 					<tr>
+						<td>${k.wdate}</td>
 						<td>${k.waddress}</td>
-						<td>${k.wcontent}</td>
+					</tr>
+					<tr>
+						<td colspan="2">${k.wcontent}<td>
 					</tr>
 				</c:forEach>
 			</table>
-			<input type="text" width=600px; height=400px; multiple="true" /> <input
-				type="submit" value="ll">
+			<a>编辑</a>
+			<button type="submit" width=100px; height=40px>发表留言</button> 
 		</form>
 	</div>
-
-	<div id="replyhost">
-		<h4>回复主人寄语</h4>
-		<label>回复主人寄语</label> <input type="text" width=600px; height=400px; />
+	<br><br>
+	<div id="comWords">
+		<label>评论留言</label> <textarea type="text" width=600px  height=100px></textarea>
+		<button type="submit">发表</button><button type="reset">取消</button>
 	</div>
-
-	<!--[if (gte IE 9)|!(IE)]><!-->
+	<br>
+	<div id="replyhost">
+		<label>回复评论</label> <textarea type="text" width=600px  height=100px></textarea>
+		<button type="submit">发表</button><button type="reset">取消</button>
+	</div>
 	<script src="assets/js/jquery.min.js"></script>
-	<!--<![endif]-->
-	<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
 </body>
 </html>

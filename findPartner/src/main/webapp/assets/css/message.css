@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+.personUi{
+	width:1100px;
+	height:900px;
+	border:1px solid red;
+	background-image: url(../i/f12.jpg) #ff8040 no-repeat;
+}
+
+#Userimag{
+	width:350px;
+	height:900px;
+	float: left;
+	margin-top: 10px;
+}
+
+#host input{
+	width:400px;
+	height:200px;
+}
+#replyhost input{
+	width:400px;
+	height:200px;
+}
