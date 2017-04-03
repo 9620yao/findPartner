@@ -281,7 +281,8 @@
 				<h1 id="opt_type">修改个人信息</h1>
 				<form id="updateUserInfo" method="post"
 					enctype="multipart/form-data">
-					<span>个人信息：<label></label></span>
+					<span>个人信息：</span> <input id="aid" name="aid" type="text"
+						style="display: block;" />
 					<ul>
 						<li><input id="pictrue" type="file" name="picData"
 							onchange="chgPic(this)" /><br> <img

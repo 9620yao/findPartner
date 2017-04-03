@@ -11,7 +11,7 @@ public class ServletUtil {
 	public static String UPLOAD_DIR;
 	public static String VIRTUAL_UPLOAD_DIR = "/upload03/";
 	
-	public static final String LOGINING_ID = "logining" ;// 登录用户的登录id
+	public static String LOGINING_ID = "logining" ;// 登录用户的登录id
 
 	public static File getUploadFile(String fileName) {
 		File file = new File(UPLOAD_DIR, fileName);// 上传文件

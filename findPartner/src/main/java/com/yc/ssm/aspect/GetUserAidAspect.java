@@ -1,4 +1,4 @@
-package com.yc.ssm.aspect;
+/*package com.yc.ssm.aspect;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,12 +14,13 @@ import com.yc.ssm.util.ServletUtil;
 @Component("getUserAidAspect")
 @Aspect
 public class GetUserAidAspect {
-	@Before("execution(* com.yc.ssm.service.impl.UsersServiceImpl.*(..))")
-	public void beforeMethodlogin(JoinPoint jpoint, HttpServletRequest request) {
+	
+	@Before("execution(* com.yc.ssm.service.impl.UsersServiceImpl.modifyUserInfo(..))")
+	public void beforeMethodlogin(JoinPoint jpoint) {
 		Users Users = (Users) jpoint.getArgs()[0];
 		LogManager.getLogger().debug("放入aid之前" + Users);
-		String alid = (String) request.getSession().getAttribute(ServletUtil.LOGINING_ID);
-		Users.setAid(alid);
+		Users.setAlid(ServletUtil.LOGINING_ID);
 	}
 
 }
+*/
