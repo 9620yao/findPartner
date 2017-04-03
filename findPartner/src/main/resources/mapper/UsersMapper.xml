@@ -3,8 +3,81 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.ssm.mapper.UsersMapper">
-	
+
 	<insert id="insertUsers" parameterType="String">
-		insert into users(aid,alid,nickname) values ('a'||seq_users_aid.nextval,#{_parameter},#{_parameter})
+		insert into
+		users(aid,alid,nickname) values
+		('a'||seq_users_aid.nextval,#{_parameter},#{_parameter})
 	</insert>
+
+	<resultMap type="Users" id="UsersMap">
+		<id column="aid" property="aid" />
+		<result column="nickname" property="nickname" />
+		<result column="age" property="age" />
+		<result column="birthday" property="birthday" />
+		<result column="photo" property="photo" />
+		<result column="star" property="star" />
+		<result column="hobby" property="hobby" />
+		<result column="job" property="job" />
+		<result column="company" property="company" />
+		<result column="school" property="school" />
+		<result column="address" property="address" />
+		<result column="hometown" property="hometown" />
+		<result column="picture" property="picture" />
+		<result column="astate" property="astate" />
+		<association property="partner" column="alid" javaType="Partner">
+			<id column="alid" property="lid" />
+			<result column="gender" property="gender" />
+		</association>
+	</resultMap>
+	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap">
+		select u.*,l.gender from users u,logining l where u.alid=l.lid and
+		u.alid=#{lid}
+	</select>
+
+	<update id="updateUserInfo" parameterType="Users">
+		update users
+		<trim prefix="set" suffixOverrides="," prefixOverrides=",">
+			<if test="nickname!=null">
+				nickname=#{nickname},
+			</if>
+			<if test="age!=null">
+				age=#{age},
+			</if>
+			<if test="birthday!=null">
+				birthday=#{birthday},
+			</if>
+			<if test="picture!=null">
+				picture=#{picture},
+			</if>
+			<if test="star!=null">
+				star=#{star},
+			</if>
+			<if test="hobby!=null">
+				hobby=#{hobby},
+			</if>
+			<if test="job!=null">
+				job=#{job},
+			</if>
+			<if test="company!=null">
+				company=#{company},
+			</if>
+			<if test="school!=null">
+				school=#{school},
+			</if>
+			<if test="address!=null">
+				address=#{address},
+			</if>
+			<if test="hometown!=null">
+				hometown=#{hometown},
+			</if>
+			<if test="astate!=null">
+				astate=#{astate}
+			</if>
+		</trim>
+		<where>
+			aid=#{aid}
+		</where>
+	</update>
+
 </mapper>
