@@ -72,10 +72,10 @@
 					<!-- <img src="assets/i/f6.jpg" alt="" class="am-u-sm-12"> -->
 				</div>
 				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">用户10001昵称</a></span> <span>2015/10/9发表时间</span>
-					<h1>
-						<a href="">我本楚狂人，凤歌笑孔丘。 我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变！ </a>
-					</h1>
+					<div>
+						<!-- 显示说说信息 -->
+					</div>
+					
 					<span><a href="" class="blog-color">article &nbsp;</a></span> <span>2015/10/9评论时间</span>
 					<p>我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变。</p>
 					<p>
@@ -258,5 +258,6 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
+	<script type="text/javascript" src="rel/js/speaks.js"></script>
 </body>
 </html>

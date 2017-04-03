@@ -20,24 +20,46 @@ function loadAdminInfo(){
 		}else{
 			$(".pic").attr("src", "images/not_pic.jpg");
 		}
-		//$("#inickname").append("<h2>1111</h2>");
-		$("#inickname").append(data.nickname);
-		$("#iage").append(data.age);
-		$("#ibirthday").append(data.birthday);
-		$("#igender").append(data.partner.gender);
-		$("#istar").append(data.star);
-		$("#ihobby").append(data.hobby);
-		$("#ijob").append(data.job);
-		$("#icompany").append(data.company);
-		$("#ischool").append(data.school);
-		$("#iastate").append(data.astate);
-		$("#iaddress").append(data.address);
-		$("#ihometown").append(data.hometown);
-		$("#iastate").append(data.astate);
+		showUser(data);
+		showUserinfo(data);
 	}, "json");
 }
 loadAdminInfo();
 
+function showUser(data){
+	//$("#inickname").append("<h2>1111</h2>");
+	$("#inickname").append(data.nickname);
+	$("#iage").append(data.age);
+	$("#ibirthday").append(data.birthday);
+	$("#igender").append(data.partner.gender);
+	$("#istar").append(data.star);
+	$("#ihobby").append(data.hobby);
+	$("#ijob").append(data.job);
+	$("#icompany").append(data.company);
+	$("#ischool").append(data.school);
+	$("#iastate").append(data.astate);
+	$("#iaddress").append(data.address);
+	$("#ihometown").append(data.hometown);
+	$("astate").append(data.astate);
+}
+
+
+function showUserinfo(data){
+	//$("#inickname").append("<h2>1111</h2>");
+	$("#nickname").append(data.nickname);
+	$("#age").append(data.age);
+	$("#birthday").append(data.birthday);
+	$("#gender").append(data.partner.gender);
+	$("#star").append(data.star);
+	$("#hobby").append(data.hobby);
+	$("#job").append(data.job);
+	$("#company").append(data.company);
+	$("#school").append(data.school);
+	$("#astate").append(data.astate);
+	$("#address").append(data.address);
+	$("#hometown").append(data.hometown);
+	$("astate").append(data.astate);
+}
 
 $('#addInfo').dialog({    
 	width:380,
@@ -54,6 +76,7 @@ $("#addInfo").dialog("close", true);
 
 
 function add(){
+	showUserinfo();
 	$("#addInfo").dialog("open", true);
 }
 

@@ -384,7 +384,7 @@
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/ueditor.all.min.js"</script>
+		src="rel/ueditor/ueditor.all.min.js"></script>
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" src="rel/js/index.js"></script>
