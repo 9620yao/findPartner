@@ -1,4 +1,5 @@
 package com.yc.ssm.entity;
+import com.yc.ssm.entity.Partner;
 
 public class Users {
 	private String aid;
@@ -16,13 +17,14 @@ public class Users {
 	private String hometown;
 	private String picture;
 	private String astate;
+	private Partner partner;
 
 	public Users() {
 	}
 
 	public Users(String aid, String alid, String nickname, String age, String birthday, String photo, String star,
 			String hobby, String job, String company, String school, String address, String hometown, String picture,
-			String astate) {
+			String astate, Partner partner) {
 		this.aid = aid;
 		this.alid = alid;
 		this.nickname = nickname;
@@ -38,6 +40,7 @@ public class Users {
 		this.hometown = hometown;
 		this.picture = picture;
 		this.astate = astate;
+		this.partner = partner;
 	}
 
 	public String getAid() {
@@ -160,12 +163,20 @@ public class Users {
 		this.astate = astate;
 	}
 
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
+	}
+
 	@Override
 	public String toString() {
-		return "\nAdmins [aid=" + aid + ", alid=" + alid + ", nickname=" + nickname + ", age=" + age + ", birthday="
+		return "\nUsers [aid=" + aid + ", alid=" + alid + ", nickname=" + nickname + ", age=" + age + ", birthday="
 				+ birthday + ", photo=" + photo + ", star=" + star + ", hobby=" + hobby + ", job=" + job + ", company="
 				+ company + ", school=" + school + ", address=" + address + ", hometown=" + hometown + ", picture="
-				+ picture + ", astate=" + astate + "]";
+				+ picture + ", astate=" + astate + ", Partner=" + partner + "]";
 	}
 
 }
