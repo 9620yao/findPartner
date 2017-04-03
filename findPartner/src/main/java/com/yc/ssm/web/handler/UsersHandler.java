@@ -25,14 +25,13 @@ public class UsersHandler {
 	@Autowired
 	private UsersService usersService;
 
+	//显示个人信息，通过logid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
 	public Users list(Partner partner, HttpSession session) {
 		LogManager.getLogger().debug("  list()进来了===》partner："+partner);
-		partner = (Partner) session.getAttribute(ServletUtil.LOGIN_USER);
-		String alid = partner.getLid();
+		String alid = (String) session.getAttribute(ServletUtil.LOGINING_ID);
 		Users users = usersService.listUsersInfos(alid);
-		session.setAttribute(ServletUtil.USER_INFO, users.getAid());
 		return users;
 	}
 

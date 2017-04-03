@@ -53,7 +53,7 @@ CREATE TABLE users(
 	   otheradminstwo varchar2(40)
 );
 --create sequence seq_admins_aid start with 10000;
-select * from users
+select * from users;
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
        aid varchar2(40),--用户编号
@@ -85,7 +85,8 @@ CREATE TABLE speaks(
 	   otherspeakstwo varchar2(40)
 );
 --create sequence seq_speaks_sid start with 10000;
-
+insert into SPEAKS(sid,content,speakman,senddate) values(seq_speaks_sid.nextval,'我是一个说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+select * from SPEAKS
 --相册集表(相册列表)
 CREATE TABLE album(
        abid VARCHAR2(40) PRIMARY KEY,--相册编号
