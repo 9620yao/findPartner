@@ -19,6 +19,7 @@ CREATE TABLE logining(
 	   otherlogtwo varchar2(40)
 );
 
+alter table logining add uname varchar2(20);
 --select * from logining where email= '290966751@qq.com'
 select * from logining;--
 --create sequence seq_logining_lid start with 1;   注册290966751@qq.com   123
@@ -122,7 +123,7 @@ CREATE TABLE words(
 	   otheralbumtwo varchar2(40)
 );
 --create sequence seq_words_wid start with 10000;
-
+select * from WORDS;
 --评论表（只包括 说说/相册/相片/留言 的单一评论）
 CREATE table comments(
        cid VARCHAR2(40) PRIMARY KEY,--评论编号

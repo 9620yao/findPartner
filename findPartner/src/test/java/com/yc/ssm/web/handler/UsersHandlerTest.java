@@ -25,13 +25,13 @@ public class UsersHandlerTest {
 		fail("Not yet implemented");
 	}
 	
-	@Test
+	/*@Test
 	public void adminInfo(){
 		Users admin=new Users();
 		admin=usersService.listUsersInfos("a10027");
 		System.out.println(admin);
 		assertNotNull(admin);
-	}
+	}*/
 	
 	@Test
 	public void testUpdateUserInfo(){

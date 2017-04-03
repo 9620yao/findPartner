@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.ssm.mapper.WordsMapper">
+
+	<resultMap type="Words" id="WordsMap">
+		<id column="wid" property="wid"/>
+		<result column="waid" property="waid"/>
+		<result column="wfrendid" property="wfrendid"/>
+		<result column="wcontent" property="wcontent"/>
+		<result column="waddress" property="waddress"/>
+		<result column="wdate" property="wdate"/>
+		
+		<collection property="comments" ofType="Comments">
+			<id column="cid" property="cid"/>
+			<result column="callid" property="callid"/>
+			<result column="detail" property="detail"/>
+			<result column="comuserid" property="comuserid"/>
+			<result column="comTime" property="comTime"/>
+		</collection>
+	</resultMap>
+		
+	<select id="findWords"  resultMap="WordsMap">
+			select w.*,c.* from words w,comments c 
+				where w.wid=c.callid
+	</select>
+	
+	 
+	<insert id="addWords" parameterType="Words">
+		insert into Words (wid,waid,wfrendid,wcontent,waddress,wdate)
+		values('w'||seq_words_wid.nextval,'a28',#{wfrendid},#{wcontent},#{waddress},to_char(sysdate,'yyyy-MM-dd'))
+	</insert>
+</mapper>

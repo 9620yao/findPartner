@@ -14,30 +14,28 @@ import javax.servlet.http.HttpSession;
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.util.ServletUtil;
 
-
-
 @WebFilter("/user/*")
-public class CheckLoginUserFilter extends AbstractFilter{
+public class CheckLoginUserFilter extends AbstractFilter {
 
 	@Override
 	public void doFilter(ServletRequest requset, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		HttpServletRequest  req =  (HttpServletRequest) requset;
-		HttpServletResponse  resp =  (HttpServletResponse) response;
+		HttpServletRequest req = (HttpServletRequest) requset;
+		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpSession Session = req.getSession();
 
-		Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);//loginUser
-		if(user==null){
-			if(Session.getAttribute("errorMsg") == null){
+		Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
+		if (user == null) {
+			if (Session.getAttribute("errorMsg") == null) {
 				Session.setAttribute("errorMsg", "请先登录！");
 			}
-			resp.sendRedirect(req.getServletContext().getContextPath()+"/page/lw-re.jsp");
+			resp.sendRedirect(req.getServletContext().getContextPath() + "/page/lw-re.jsp");
 			return;
 		}
+		//user不为空的时候取到登录id
 		Partner partner = (Partner) user;
-		String lid = partner.getLid();//取到loingid
-		Session.setAttribute(ServletUtil.LOGINING_ID, lid);
-		chain.doFilter(requset, response);//继续请求处理
+		ServletUtil.LOGINING_ID = partner.getLid();// 取到loingid
+		chain.doFilter(requset, response);// 继续请求处理
 	}
 
 }

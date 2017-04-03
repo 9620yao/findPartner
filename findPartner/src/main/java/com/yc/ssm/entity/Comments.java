@@ -1,15 +1,14 @@
 package com.yc.ssm.entity;
 
 public class Comments {
-	private String cid; // 评论编号
-	private String callid; // 说说/相册/相片/留言 的编号
-	private String detail; // 评论内容
-	private String comuserid; // 评论用户编号（谁评论的）
-	private String comTime; // 评论时间
-
+	private String cid;
+	private String callid;
+	private String detail;
+	private String comuserid;
+	private String comTime;
+	
 	public Comments() {
 	}
-
 	public Comments(String cid, String callid, String detail, String comuserid, String comTime) {
 		this.cid = cid;
 		this.callid = callid;
@@ -17,6 +16,7 @@ public class Comments {
 		this.comuserid = comuserid;
 		this.comTime = comTime;
 	}
+
 
 	public String getCid() {
 		return cid;
@@ -63,5 +63,6 @@ public class Comments {
 		return "\nComments [cid=" + cid + ", callid=" + callid + ", detail=" + detail + ", comuserid=" + comuserid
 				+ ", comTime=" + comTime + "]";
 	}
-
+	
+	
 }
