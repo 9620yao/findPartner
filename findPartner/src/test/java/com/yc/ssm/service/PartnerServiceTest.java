@@ -18,8 +18,8 @@ public class PartnerServiceTest {
 	@Test
 	public void testLogin() {
 		Partner partner=new Partner();
-		partner.setEmail("1820267872@qq.com");
-		partner.setPassword("woshisuli123");
+		partner.setEmail("2908683211@163.com");
+		partner.setPassword("a");
 		partner=partnerService.login(partner);
 		System.out.println(partner);
 		assertNotNull(partner);

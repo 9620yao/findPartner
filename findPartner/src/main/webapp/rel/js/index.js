@@ -14,20 +14,21 @@ function loadAdminInfo(){
 	$.get("user/getByid", function(data){
 		//alert("请求响应成功。。"+data);
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
-		$("#pictrue").val("");
-		if(data.picture){
-			$(".pic").attr("src", data.picture);
-		}else{
-			$(".pic").attr("src", "images/not_pic.jpg");
-		}
+
+		showUserInfo(data);
 		showUser(data);
-		showUserinfo(data);
 	}, "json");
 }
 loadAdminInfo();
 
-function showUser(data){
-	//$("#inickname").append("<h2>1111</h2>");
+//显示个人信息
+function showUserInfo(data){
+	$("#pictrue").val("");
+	if(data.picture){
+		$(".pic").attr("src", data.picture);
+	}else{
+		$(".pic").attr("src", "images/not_pic.jpg");
+	}
 	$("#inickname").append(data.nickname);
 	$("#iage").append(data.age);
 	$("#ibirthday").append(data.birthday);
@@ -40,25 +41,30 @@ function showUser(data){
 	$("#iastate").append(data.astate);
 	$("#iaddress").append(data.address);
 	$("#ihometown").append(data.hometown);
-	$("astate").append(data.astate);
+	$("#iastate").append(data.astate);
 }
 
-
-function showUserinfo(data){
-	//$("#inickname").append("<h2>1111</h2>");
-	$("#nickname").append(data.nickname);
-	$("#age").append(data.age);
-	$("#birthday").append(data.birthday);
-	$("#gender").append(data.partner.gender);
-	$("#star").append(data.star);
-	$("#hobby").append(data.hobby);
-	$("#job").append(data.job);
-	$("#company").append(data.company);
-	$("#school").append(data.school);
-	$("#astate").append(data.astate);
-	$("#address").append(data.address);
-	$("#hometown").append(data.hometown);
-	$("astate").append(data.astate);
+//显示个人信息
+function showUser(data){
+	$("#pictrue").val("");
+	if(data.picture){
+		$(".pic").attr("src", data.picture);
+	}else{
+		$(".pic").attr("src", "images/not_pic.jpg");
+	}
+	$("#nickname").val(data.nickname);
+	$("#age").val(data.age);
+	$("#birthday").val(data.birthday);
+	$("#gender").val(data.partner.gender);
+	$("#star").val(data.star);
+	$("#hobby").val(data.hobby);
+	$("#job").val(data.job);
+	$("#company").val(data.company);
+	$("#school").val(data.school);
+	$("#astate").val(data.astate);
+	$("#address").val(data.address);
+	$("#hometown").val(data.hometown);
+	$("#astate").val(data.astate);
 }
 
 $('#addInfo').dialog({    
