@@ -52,7 +52,7 @@ CREATE TABLE users(
 	   otheradminstwo varchar2(40)
 );
 --create sequence seq_admins_aid start with 10000;
-
+select * from users;
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
        aid varchar2(40),--用户编号

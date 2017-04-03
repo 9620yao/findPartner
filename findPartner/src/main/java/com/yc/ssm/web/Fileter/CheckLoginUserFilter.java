@@ -1,4 +1,4 @@
-/*package com.yc.ssm.web.Fileter;
+package com.yc.ssm.web.Fileter;
 
 import java.io.IOException;
 
@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.yc.ssm.entity.Partner;
 import com.yc.ssm.util.ServletUtil;
 
 
 
-@WebFilter("/*")
+@WebFilter("/user/*")
 public class CheckLoginUserFilter extends AbstractFilter{
 
 	@Override
@@ -23,21 +24,20 @@ public class CheckLoginUserFilter extends AbstractFilter{
 			throws IOException, ServletException {
 		HttpServletRequest  req =  (HttpServletRequest) requset;
 		HttpServletResponse  resp =  (HttpServletResponse) response;
-		String reqUriStr =  req.getRequestURI();
+		HttpSession Session = req.getSession();
 
-		if(reqUriStr.endsWith("list.jsp")){
-			Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);//loginUser
-			if(user==null){
-				HttpSession Session = req.getSession();
-				if(Session.getAttribute("errorMsg") == null){
-					Session.setAttribute("errorMsg", "请先登录！");
-				}
-				resp.sendRedirect(req.getServletContext().getContextPath()+"/page/login.jsp");
-				return;
-			}		
+		Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);//loginUser
+		if(user==null){
+			if(Session.getAttribute("errorMsg") == null){
+				Session.setAttribute("errorMsg", "请先登录！");
+			}
+			resp.sendRedirect(req.getServletContext().getContextPath()+"/page/lw-re.jsp");
+			return;
 		}
+		Partner partner = (Partner) user;
+		String lid = partner.getLid();//取到loingid
+		Session.setAttribute(ServletUtil.LOGINING_ID, lid);
 		chain.doFilter(requset, response);//继续请求处理
 	}
 
 }
-*/
