@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yc.ssm.entity.Speaks;
-import com.yc.ssm.entity.Users;
 import com.yc.ssm.mapper.SpeaksMapper;
 import com.yc.ssm.service.SpeaksService;
 @Service("speaksService")
