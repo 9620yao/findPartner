@@ -11,5 +11,4 @@ public interface PartnerService {
 
 	List<Partner> findEmail(Partner partner);
 
-
 }

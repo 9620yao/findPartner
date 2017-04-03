@@ -6,8 +6,8 @@ public interface UsersService {
 
 	boolean insertUsers(String alid);
 
-	Users listUsersInfos(String alid);
-
 	boolean modifyUserInfo(Users users);
+
+	Users listUsersInfo(String alid);
 
 }

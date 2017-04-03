@@ -1,6 +1,5 @@
 package com.yc.ssm.service.impl;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,20 +12,20 @@ public class UsersServiceImpl implements UsersService {
 
 	@Autowired
 	private UsersMapper UsersMapper;
-	
-	@Override
-	public boolean insertUsers(String alid) {
-		return UsersMapper.insertUsers(alid)>0;
-	}
 
 	@Override
-	public Users listUsersInfos(String alid) {
-		return UsersMapper.findUsersInfo(alid);
+	public boolean insertUsers(String alid) {
+		return UsersMapper.insertUsers(alid) > 0;
 	}
 
 	@Override
 	public boolean modifyUserInfo(Users users) {
-		return UsersMapper.updateUserInfo(users)>0;
+		return UsersMapper.updateUserInfo(users) > 0;
+	}
+
+	@Override
+	public Users listUsersInfo(String alid) {
+		return UsersMapper.findUsersInfo(alid);
 	}
 
 }

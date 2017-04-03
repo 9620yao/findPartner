@@ -64,8 +64,8 @@
 	</nav>
 	<hr>
 	<!-- nav end -->
-	
-	
+
+
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
 		<figure data-am-widget="figure"
@@ -258,5 +258,6 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/pinto.min.js"></script>
 	<script src="assets/js/img.js"></script>
+	<script src="rel/js/imgs.js"></script>
 </body>
 </html>

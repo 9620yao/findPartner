@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="gender" property="gender" />
 		</association>
 	</resultMap>
-	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap">
+	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap" useCache="false" flushCache="true">
 		select u.*,l.gender from users u,logining l where u.alid=l.lid and
 		u.alid=#{lid}
 	</select>

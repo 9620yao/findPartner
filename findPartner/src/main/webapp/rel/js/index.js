@@ -52,6 +52,8 @@ function showUser(data){
 	}else{
 		$(".pic").attr("src", "images/not_pic.jpg");
 	}
+	//alert(data.aid)
+	$("#aid").val(data.aid);
 	$("#nickname").val(data.nickname);
 	$("#age").val(data.age);
 	$("#birthday").val(data.birthday);
@@ -82,7 +84,7 @@ $("#addInfo").dialog("close", true);
 
 
 function add(){
-	showUserinfo();
+	$("#aid").hide();
 	$("#addInfo").dialog("open", true);
 }
 
@@ -102,7 +104,7 @@ $(".updateBtn").linkbutton({
 $("#updateUserInfo").form({
 	url:"user/update",    
     success:function(data){
-    	alert(JSON.stringify(data));
+    	//alert(JSON.stringify(data));
     	if(data == ""){
     		$.messager.alert('用户修改主','当前用户没有修改用户的权限 ！','warning');
     		$("#addInfo").dialog("close"); //关闭修改框
@@ -111,7 +113,7 @@ $("#updateUserInfo").form({
 
     	if(data.trim() == "true"){
     		$("#addInfo").dialog("close"); //关闭修改框
-    		$("#myself").datagrid("reload"); //刷新修改数据
+    		loadAdminInfo();
     	}else{
     		$.messager.show({
     			title:'修改信息',

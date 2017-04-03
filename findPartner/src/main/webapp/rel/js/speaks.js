@@ -3,9 +3,19 @@
 						<a href="">我本楚狂人，凤歌笑孔丘。 我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变！ </a>
 					</h1>*/
 function listSpeaks(){
-	$.get("speaks", function(data){
-		alert("请求响应成功。。"+data);
-		alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+	$.get("speaks/list", function(data){
+		var speaksStr = "";
+
+		for (var i = 0; i < data.length; i++) {
+			speaksStr+='<article class="am-g blog-entry-article"><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">';
+			speaksStr+=(data[i].files==null || data[i].files=="")?'':'<img src="'+data[i].files+'" alt="" class="am-u-sm-12">';
+			speaksStr+='</div><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text"><span><a href="" class="blog-color">'+data[i].users.nickname+'</a></span><span>'+data[i].senddate+'</span><h1>';
+			speaksStr+='<a href="">'+data[i].content+'</a></h1></div></article>';
+			//alert(data[i].files);
+			//alert( (data[i].files==null || data[i].files=="")? '':'<img src="'+data[i].files+'" alt="" class="am-u-sm-12">');
+		}
+		
+		$("#speaksInfo")[0].innerHTML = speaksStr;
 		
 	}, "json");
 }
