@@ -84,7 +84,6 @@
 							</c:forEach>
 						</ul>
 						<br>
-						
 						<ul class="huifu">
 							<c:forEach var="r" items="${k.replys}">
 							    <li style="color:blue;" class="huiaa26"></li>
@@ -97,10 +96,11 @@
 						</ul>
 				</c:forEach>
 			</ul>
+			<br>
+			<button type="submit" style="height:30px;margin-top:-160px;">查看留言以及回复评论</button>
 		</form>
 	</div>
 	<br>
-	<button type="submit" style="height:30px;margin-top:-260px;">查看留言以及回复评论</button>
 	<div id="leaveMsg">
 		<label style="color:#9c9c9c">发表留言</label>
 		<textarea type="text" style="width:500px" ></textarea>
