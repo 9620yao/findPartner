@@ -3,7 +3,7 @@
 						<a href="">我本楚狂人，凤歌笑孔丘。 我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变！ </a>
 					</h1>*/
 function listSpeaks(){
-	$.get("speaks/list", function(data){
+	$.post("speaks/list"/*, function(data){
 		var speaksStr = "";
 
 		for (var i = 0; i < data.length; i++) {
@@ -17,6 +17,6 @@ function listSpeaks(){
 		
 		$("#speaksInfo")[0].innerHTML = speaksStr;
 		
-	}, "json");
+	}*/, "json");
 }
 listSpeaks();

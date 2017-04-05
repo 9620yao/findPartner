@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>BLOG | Amaze UI Examples</title>
+<title>image | Amaze UI Examples</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="icon" type="image/png" href="assets/i/favicon.png">
@@ -28,7 +27,8 @@
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body id="blog">
+
+<body id="blog-article-sidebar">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
 			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
@@ -66,34 +66,137 @@
 	<!-- nav end -->
 
 	<!-- content srart -->
-	<div class="am-g am-g-fixed blog-fixed">
-		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
-			<!-- ModelAndView 循环开始 -->
-			<c:forEach var="k" items="${speaks}">
-				<article class="am-g blog-entry-article">
-					<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-						<!-- <img src="assets/i/f6.jpg" alt="" class="am-u-sm-12"> -->
-					</div>
-					<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-						<span><a href="" class="blog-color">用户${k.speakman}</a></span> <span>发表时间${k.senddate}</span>
-						<h1>
-							<a href="">说说内容${k.content}</a>
-						</h1>
-						<span><a href="" class="blog-color">article &nbsp;</a></span> <span>2015/10/9评论时间</span>
-						<p>我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变。</p>
-						<p>
-							<a href="" class="blog-continue">continue reading</a>
-						</p>
-					</div>
-				</article>
-			</c:forEach>
-			<!-- ModelAndView 循环结束  -->
-		</div>
+	<div class="am-g am-g-fixed blog-fixed blog-content">
+		<figure data-am-widget="figure"
+			class="am am-figure am-figure-default "
+			data-am-figure="{  pureview: 'true' }">
+			<div id="container">
+				<div>
+					<img src="images/01.jpg">
+					<h3>Agfa</h3>
+				</div>
+				<div>
+					<img src="images/02.jpg">
+					<h3>Auto</h3>
+				</div>
+				<div>
+					<img src="images/03.jpg">
+					<h3>Bald eagle</h3>
+				</div>
+				<div>
+					<img src="images/04.jpg">
+					<h3>Black swan</h3>
+				</div>
+				<div>
+					<img src="images/05.jpg">
+					<h3>Book shelf</h3>
+				</div>
+				<div>
+					<img src="images/06.jpg">
+					<h3>Camera</h3>
+				</div>
+				<div>
+					<img src="images/07.jpg">
+					<h3>Camera</h3>
+				</div>
+				<div>
+					<img src="images/25.jpg">
+					<h3>Vintage camera</h3>
+				</div>
+				<div>
+					<img src="images/09.jpg">
+					<h3>Coffee</h3>
+				</div>
+				<div>
+					<img src="images/10.jpg">
+					<h3>Cookies</h3>
+				</div>
+				<div>
+					<img src="images/11.jpg">
+					<h3>Cubes</h3>
+				</div>
+				<div>
+					<img src="images/12.jpg">
+					<h3>DJ</h3>
+				</div>
+				<div>
+					<img src="images/13.jpg">
+					<h3>Doors</h3>
+				</div>
+				<div>
+					<img src="images/14.jpg">
+					<h3>Matchbox</h3>
+				</div>
+				<div>
+					<img src="images/15.jpg">
+					<h3>Freiburg</h3>
+				</div>
+				<div>
+					<img src="images/16.jpg">
+					<h3>Henna</h3>
+				</div>
+				<div>
+					<img src="images/17.jpg">
+					<h3>Home office</h3>
+				</div>
+				<div>
+					<img src="images/18.jpg">
+					<h3>iPad</h3>
+				</div>
+				<div>
+					<img src="images/19.jpg">
+					<h3>Keyboard</h3>
+				</div>
+				<div>
+					<img src="images/20.jpg">
+					<h3>Lynx</h3>
+				</div>
+				<div>
+					<img src="images/21.jpg">
+					<h3>Mac</h3>
+				</div>
+				<div>
+					<img src="images/22.jpg">
+					<h3>Notebook</h3>
+				</div>
+				<div>
+					<img src="images/23.jpg">
+					<h3>Thoughts</h3>
+				</div>
+				<div>
+					<img src="images/24.jpg">
+					<h3>Office</h3>
+				</div>
+				<div>
+					<img src="images/25.jpg">
+					<h3>Children</h3>
+				</div>
+				<div>
+					<img src="images/26.jpg">
+					<h3>Portrait</h3>
+				</div>
+				<div>
+					<img src="images/27.jpg">
+					<h3>Startup</h3>
+				</div>
+				<div>
+					<img src="images/28.jpg">
+					<h3>Sun</h3>
+				</div>
+				<div>
+					<img src="images/29.jpg">
+					<h3>The Eiffel Tower</h3>
+				</div>
+				<div>
+					<img src="images/30.jpg">
+					<h3>Water drops</h3>
+				</div>
+
+			</div>
+		</figure>
 
 	</div>
 	<!-- content end -->
-
-
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -142,6 +245,7 @@
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
 
+
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
 	<!--<![endif]-->
@@ -151,6 +255,8 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="rel/js/speaks.js"></script>
+	<script src="assets/js/pinto.min.js"></script>
+	<script src="assets/js/img.js"></script>
+	<script src="rel/js/imgs.js"></script>
 </body>
 </html>

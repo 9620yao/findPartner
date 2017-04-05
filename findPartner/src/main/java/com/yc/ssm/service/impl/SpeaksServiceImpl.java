@@ -18,5 +18,7 @@ public class SpeaksServiceImpl implements SpeaksService {
 	public List<Speaks> listSpeaks(String speakman) {
 		return speaksMapper.findSpeaks(speakman);
 	}
+	
+	
 
 }
