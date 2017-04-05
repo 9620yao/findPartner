@@ -27,29 +27,134 @@
 	list-style-type: none;
 }
 
-.a26{
-	width:80px;
-	height:80px;
+.aaa26{
+	width:50px;
+	height:50px;
 	background:red;
+	border-radius:50%;
 	position:relative;
 	left:320px;
 }
+.name{
+	position:relative;
+	top:-50px;
+	left:60px;
+}
 .wdate{
+	font-size:13px;
 	float:left;
-	margin-left:100px;
-	margin-top:-80px;
+	margin-left:58px;
+	margin-top:-50px;
 }
 .wcontent{
+	width:500px;
 	float:left;
-	margin-left:420px;
-	margin-top:-835px;
+	margin-left:320px;
+	margin-top:-810px; 
+	border:none; 
 }
 .bianji{
-	font-size:14px;
-	padding: 3px 14px;
+	font-size:11px;
+	padding: 1px 10px;
 	border: 1px solid red;
 	border-radius:10px;
 	float:left;
-	margin-left:680px;
-	margin-top:-800px;
+	margin-left:520px;
+	margin-top:-784px;
+}
+.fabiao{
+	font-size:11px;
+	padding: 1px 10px;
+	border: 1px solid red;
+	border-radius:10px;
+	float:left;
+	margin-left:570px;
+	margin-top:-784px;
+}
+
+.pinglun,.huifu{
+	position:relative;
+	left:40px;
+	top:10px;
+}
+.aaa29{
+	width:50px;
+	height:50px;
+	background:red;
+	border-radius:50%;
+	position:relative;
+	left:290px;
+	top:8px;
+}
+.a29name{
+	position:relative;
+	top:-44px;
+	left:60px;
+}
+.wcontenta29{
+	width:500px;
+	border:none;
+	position:relative;
+	top:-10px;
+}
+#aa29{
+	position:relative;
+	left:290px;
+	top:-690px;
+}
+.bianjia29,.fabiaoa29{
+	font-size:11px;
+	padding: 1px 10px;
+	border: 1px solid red;
+	border-radius:10px;
+	position:relative;
+	top:12px;
+	left:-110px;
+}
+
+.huiaa26{
+	width:50px;
+	height:50px;
+	background:red;
+	border-radius:50%;
+	position:relative;
+	left:290px;
+	top:-68px;
+}
+.huiaa26name{
+	position:relative;
+	top:-120px;
+	left:60px;
+}
+.huiaa26wdate{
+	font-size:13px;
+	position:relative;
+	top:-120px;
+	left:60px;
+}
+.huiaa26edit{
+	width:500px; 
+	border:none; 
+	position:relative;
+	top:-110px;
+}
+.huibianjia26,.huifabiaoa26{
+	font-size:11px;
+	padding: 1px 10px;
+	border: 1px solid red;
+	border-radius:10px;
+	position:relative;
+	top:-88px;
+	left:-150px;
+}
+.fabiao-btn,.quxiao_btn{
+	font-size:11px;
+	padding: 1px 10px;
+	border: 1px solid #9c9c9c;
+	border-radius:10px;
+	color:#9c9c9c;
+	background:none;
+}
+#leaveMsg{
+	margin-top:-90px;
 }

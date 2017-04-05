@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		inner join comments c
 		on w.wid=c.callid
 		inner join replys r
-		on c.cid=r.rcid
+		on c.cid=r.rcid 
 	</select>
 
 

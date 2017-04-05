@@ -17,7 +17,6 @@ public class Words implements Serializable{//留言板
 	public Words() {
 	}
 	
-
 	public Words(String wid, String waid, String wfrendid, String wcontent, String waddress, String wdate,
 			List<Comments> comments, List<Replys> replys) {
 		this.wid = wid;

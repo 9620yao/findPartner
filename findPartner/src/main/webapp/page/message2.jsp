@@ -62,52 +62,68 @@
 			<%-- <c:forEach var="k" items="${ws}">
 				<p>${k.wcontent}</p>
 			</c:forEach> --%>
+			<!-- <input type=text style="display:none">input标签隐藏 -->
 
-			<table border="1" ><!-- cellpadding="10"  -->
+			<ul  id="everyLiTag">
 				<c:forEach var="k" items="${ws}">
-					<tr>
-						<td colspan="2">${k.wfrendid}</td>
-					</tr>
-					<tr>
-						<td>${k.wdate}</td>
-						<td>${k.waddress}</td>
-					</tr>
-					<tr>
-						<td colspan="2">${k.wcontent}<td>
-					</tr>
-					<c:forEach var="s" items="${k.comments}">
-					<tr>
-						<td colspan="2">${s.cid}<td>
-					</tr>
-					</c:forEach>
-					
-					<c:forEach var="r" items="${k.replys}">
-					<tr>
-						<td colspan="2">${r.rid}<td>
-					</tr>
-					</c:forEach>
+					<li style="color:blue;" class="a26">${k.wfrendid}</li>
+					<li style="color:grey;" class="wdate">${k.wdate}</li>
+					<%-- <li>${k.waddress}</li> --%>
+					<div style="width:800px" class="wcontent">${k.wcontent}</div>
+					<a class="bianji"  href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
+					<a class="fabiao" href="javascript:void(0)" " style="color:red;">发表</a>
+						<ul>
+							<c:forEach var="s" items="${k.comments}">
+								<li style="color:blue;">${s.comuserid}</li>
+								<li style="color:grey;">${s.comTime}</li>
+								<textarea style="width:500px">${s.detail}</textarea>
+								<a href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
+								<a href="javascript:void(0)"  style="color:red;">发表</a>
+							</c:forEach>
+						</ul>
+						<br>
+						<label>显示您的回复</label>
+						<ul>
+							<c:forEach var="r" items="${k.replys}">
+								<li style="color:blue;">${r.ruserid}</li>
+								<li style="color:grey;">${r.rtime}</li>
+								<textarea id="edit" name="edit" style="width:300px;height:150px;">${r.rcontent}</textarea>
+								<a href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
+								<a href="javascript:void(0)" style="color:red;">发表</a>
+							</c:forEach>
+						</ul>
 				</c:forEach>
-			</table>
-			<a href="#" onclick="add();">编辑</a>
-			<button type="submit" width=100px; height=40px>发表留言</button> 
+			</ul>
+			<button type="submit" width=100px; height=40px>查看留言以及回复评论</button>
 		</form>
 	</div>
-	<br><br>
+	<br>
+	<br>
+	<div id="leaveMsg">
+		<label>发表留言</label>
+		<textarea type="text" width=600px height=100px></textarea>
+		<button type="submit">发表</button>
+		<button type="reset">取消</button>
+	</div>
+	<br>
 	<div id="comWords">
-		<label>评论留言</label> <textarea type="text" width=600px  height=100px></textarea>
-		<button type="submit">发表</button><button type="reset">取消</button>
+		<label>评论留言</label>
+		<textarea type="text" width=600px height=100px></textarea>
+		<button type="submit">发表</button>
+		<button type="reset">取消</button>
 	</div>
 	<br>
 	<div id="replyhost">
-		<label>回复评论</label> <textarea type="text" width=600px  height=100px></textarea>
-		<button type="submit">发表</button><button type="reset">取消</button>
+		<label>回复评论</label>
+		<textarea type="text" width=600px height=100px></textarea>
+		<button type="submit">发表</button>
+		<button type="reset">取消</button>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/amazeui.min.js"></script>
-<!-- 	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.all.min.js"> </script>
 	<script type="text/javascript" charset="utf-8" src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
-	 -->
-	 <script type="text/javascript" src="rel/js/message.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+	<script type="text/javascript" src="rel/js/message.js"></script>
 </body>
 </html>
