@@ -11,23 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yc.ssm.entity.Users;
-import com.yc.ssm.entity.Speaks;
-import com.yc.ssm.service.SpeaksService;
-import com.yc.ssm.util.ServletUtil;
+import com.yc.ssm.entity.Comments;
+import com.yc.ssm.service.CommentsService;
 
-@Controller("speaksHandler")
-@RequestMapping("speaks")
-public class SpeaksHandler {
+@Controller("commentsHandler")
+@RequestMapping("comments")
+public class CommentsHandler {
 	@Autowired
-	private SpeaksService speaksService;
+	private CommentsService commentsService;
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Speaks> listSpeaks(Users users, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listSpeaks");
-		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks(speakman);// 所有的说说
+	public List<Comments> listComments(String sid, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listComments==== callid:"+sid);
+		return commentsService.listComments(sid);// 所有的评论
 	}
 
 }

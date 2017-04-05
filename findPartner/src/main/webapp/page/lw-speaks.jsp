@@ -68,28 +68,8 @@
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
-			<!-- ModelAndView 循环开始 -->
-			<c:forEach var="k" items="${speaks}">
-				<article class="am-g blog-entry-article">
-					<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-						<!-- <img src="assets/i/f6.jpg" alt="" class="am-u-sm-12"> -->
-					</div>
-					<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-						<span><a href="" class="blog-color">用户${k.speakman}</a></span> <span>发表时间${k.senddate}</span>
-						<h1>
-							<a href="">说说内容${k.content}</a>
-						</h1>
-						<span><a href="" class="blog-color">article &nbsp;</a></span> <span>2015/10/9评论时间</span>
-						<p>我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变。</p>
-						<p>
-							<a href="" class="blog-continue">continue reading</a>
-						</p>
-					</div>
-				</article>
-			</c:forEach>
-			<!-- ModelAndView 循环结束  -->
+			<!-- 显示说说 -->
 		</div>
-
 	</div>
 	<!-- content end -->
 
