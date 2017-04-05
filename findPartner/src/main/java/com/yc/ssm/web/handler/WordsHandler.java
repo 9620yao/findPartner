@@ -21,7 +21,7 @@ public class WordsHandler {
 	private WordsService wordsService;
 	
 	@RequestMapping("/findWords")
-	public ModelAndView findWords(Words words,Comments comments,HttpServletRequest request){
+	public ModelAndView findWords(Words words,HttpServletRequest request){
 		ModelAndView modelAndView=new ModelAndView();
 		List<Words> ws= wordsService.findWords(words);
 		modelAndView.addObject("ws",ws);

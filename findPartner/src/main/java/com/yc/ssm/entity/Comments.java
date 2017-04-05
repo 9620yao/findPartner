@@ -1,6 +1,11 @@
 package com.yc.ssm.entity;
 
-public class Comments {
+import java.io.Serializable;
+
+public class Comments implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String cid;
 	private String callid;
 	private String detail;

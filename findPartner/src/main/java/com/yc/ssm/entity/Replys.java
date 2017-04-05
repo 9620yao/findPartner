@@ -1,6 +1,11 @@
 package com.yc.ssm.entity;
 
-public class Replys {
+import java.io.Serializable;
+
+public class Replys implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String rid; // 回复编号
 	private String rcid; // 评论编号
 	private String ruserid; // 当前回复用户的编号

@@ -19,7 +19,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findSpeaks" parameterType="string" resultType="com.yc.ssm.entity.Speaks">
 		select * from speaks where speakman = #{_parameter}
 	</select>
-	
-
 
 </mapper>

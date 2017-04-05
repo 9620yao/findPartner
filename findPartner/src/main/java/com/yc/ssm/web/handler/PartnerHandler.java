@@ -53,8 +53,8 @@ public class PartnerHandler {
 		Integer yzm = RandomNumUtil.getRandomNumber();// 生成六位不重复随机数
 		request.getSession().setAttribute("yzm", yzm.toString());
 		
-		/*SendMailutil.activeAccountMail(mailSender,"findPartner注册验证信息",
-		"您的验证码是："+yzm+",请认真确认后在是您的操作之后，在执行操作","15675456193@163.com",email);*/
+		SendMailutil.activeAccountMail(mailSender,"findPartner注册验证信息",
+		"您的验证码是："+yzm+",请认真确认后在是您的操作之后，在执行操作","15675456193@163.com",email);
 		 
 		out.print(yzm);
 		out.flush();

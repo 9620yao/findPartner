@@ -20,8 +20,10 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
---select * from logining where email= '290966751@qq.com'
+--select * from logining where email= '1234567382@qq.com'
+--select * from users where alid= 'a33'
 select * from logining;--
+--alid:a33 aid:a10001
 --create sequence seq_logining_lid start with 1;   注册290966751@qq.com   123
 -- 10008 15214336294 2908683211@163.com 6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2 NXI   女      2017-03-28 NULL        NULL
 
@@ -149,6 +151,16 @@ create table replys(
 	   otherreplystwo varchar2(40)
 );
 --create sequence seq_replys_rid start with 10000;
+select w.*,c.* from replys  where rcid in(
+	select c.cid from words w,comments c where w.wid=c.callid
+);
+
+select w.*,c.*,r.* 
+from  words w
+inner join comments c
+on w.wid=c.callid
+inner join replys r
+on c.cid=r.rcid
 
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
