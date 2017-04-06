@@ -3,15 +3,16 @@ function listSpeaks(){
 	$.post("speaks/list", function(data){
 		//alert(data);
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+		alert(JSON.stringify(data.rows));
 		var speaksStr = "";
-		for (var i = 0; i < data.length; i++) {
+		for (var i = 0; i < data.rows.length; i++) {
 			speaksStr+='<article class="am-g blog-entry-article"><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">';
-			speaksStr+=(data[i].files==null || data[i].files=="")?'':'<img src="'+data[i].files+'" alt="" class="am-u-sm-12">';
-			speaksStr+='</div><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text"><span><a href="" class="blog-color">'+data[i].users.nickname+'</a></span><span>'+data[i].senddate+'</span><h1>';
-			speaksStr+='<a href="">'+data[i].content+'</a></h1>';
+			speaksStr+=(data.rows[i].files==null || data.rows[i].files=="")?'':'<img src="'+data.rows[i].files+'" alt="" class="am-u-sm-12">';
+			speaksStr+='</div><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text"><span><a href="" class="blog-color">用户名</a></span><span>'+data.rows[i].senddate+'</span><h1>';
+			speaksStr+='<a href="">'+data.rows[i].content+'</a></h1>';
 			speaksStr+='<div class="comment"></div></div></article>';
 			//alert(data[i].sid);
-			comments(data[i].sid);//取到所有的说说编号
+			comments(data.rows[i].sid);//取到所有的说说编号
 		}
 		$("#speaksInfo")[0].innerHTML = speaksStr;
 	}, "json");

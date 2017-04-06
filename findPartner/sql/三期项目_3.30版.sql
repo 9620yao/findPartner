@@ -33,7 +33,8 @@ select * from logining;--
 select seq_users_aid.nextval from dual connect by level < 50;
 select * from users where alid =  (select lid from logining where email= '275966751@qq.com') 
 
---select * from logining where email= '290966751@qq.com'
+--select * from logining where email= '19216815@qq.com' --a10032
+select * from users where alid ='a10032' --a10056
 --个人信息表
 CREATE TABLE users(
        aid VARCHAR2(40) PRIMARY KEY,--用户编号
@@ -165,3 +166,5 @@ on c.cid=r.rcid
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。
+select count(1) total,ceil(count(1) / pageSize) totalPage, currPage, pageSize,speakman from speaks
+	where speakman= 'a10056' order by speakman  

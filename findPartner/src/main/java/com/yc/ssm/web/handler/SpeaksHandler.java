@@ -1,6 +1,5 @@
 package com.yc.ssm.web.handler;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Users;
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.service.SpeaksService;
 import com.yc.ssm.util.ServletUtil;
@@ -24,10 +24,10 @@ public class SpeaksHandler {
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Speaks> listSpeaks(Users users, HttpServletRequest request) {
+	public PaginationBean<Speaks> listSpeaks(String page, String rows, Users users, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listSpeaks");
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks(speakman);// 所有的说说
+		return speaksService.listSpeaks(speakman,page,rows);// 所有的说说
 	}
 
 }
