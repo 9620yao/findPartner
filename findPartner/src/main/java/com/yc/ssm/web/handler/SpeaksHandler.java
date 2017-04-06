@@ -28,7 +28,7 @@ public class SpeaksHandler {
 	public PaginationBean<Speaks> listSpeaks(String page, String rows, Users users, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listSpeaks");
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks(speakman,page,rows);// 所有的说说
+		return speaksService.listSpeaks("a10056",page,rows);// 所有的说说
 	}
 	
 	
