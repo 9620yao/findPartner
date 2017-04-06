@@ -24,4 +24,5 @@ public class SpeaksServiceImpl implements SpeaksService {
 		System.out.println("增加说说");
 		return speaksMapper.addSpeaks(speaks)>0;
 	}
+
 }

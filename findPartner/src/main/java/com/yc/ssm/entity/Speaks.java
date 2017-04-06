@@ -11,8 +11,6 @@ public class Speaks {// 说说
 	public Speaks() {
 	}
 
-	
-
 	public Speaks(String sid, String content, String speakman, String files, String senddate, Users users) {
 		this.sid = sid;
 		this.content = content;
@@ -21,8 +19,6 @@ public class Speaks {// 说说
 		this.senddate = senddate;
 		this.users = users;
 	}
-
-
 
 	public String getSid() {
 		return sid;
@@ -64,27 +60,18 @@ public class Speaks {// 说说
 		this.senddate = senddate;
 	}
 
-	
 	public Users getUsers() {
 		return users;
 	}
 
-
-
 	public void setUsers(Users users) {
 		this.users = users;
 	}
-
-
 
 	@Override
 	public String toString() {
 		return "\nSpeaks [sid=" + sid + ", content=" + content + ", speakman=" + speakman + ", files=" + files
 				+ ", senddate=" + senddate + ", users=" + users + "]";
 	}
-
-	
-
-	
 
 }

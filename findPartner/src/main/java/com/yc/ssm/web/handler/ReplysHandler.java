@@ -11,22 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yc.ssm.entity.Users;
-import com.yc.ssm.entity.Speaks;
-import com.yc.ssm.service.SpeaksService;
-import com.yc.ssm.util.ServletUtil;
+import com.yc.ssm.entity.Replys;
+import com.yc.ssm.service.ReplysService;
 
-@Controller("speaksHandler")
-@RequestMapping("speaks")
-public class SpeaksHandler {
+@Controller("replysHandler")
+@RequestMapping("replys")
+public class ReplysHandler {
 	@Autowired
-	private SpeaksService speaksService;
+	private ReplysService replysService;
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Speaks> listSpeaks(Users users, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listSpeaks");
-		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks(speakman);// 所有的说说
+	public List<Replys> listReplys(String cid, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listReplys==== callid:" + cid);
+		return replysService.listreplys(cid);// 所有的回复
 	}
+
 }
