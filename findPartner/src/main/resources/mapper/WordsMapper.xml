@@ -40,7 +40,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        where waid in( select waid from words) 
 	</select>
 
-
 	<insert id="addWords" parameterType="Words">
 		insert into Words
 		(wid,waid,wfrendid,wcontent,waddress,wdate)

@@ -11,7 +11,7 @@ import com.yc.ssm.service.PartnerService;
 
 @Service("partnerService")
 public class PartnerServiceImpl implements PartnerService {
-	
+
 	@Autowired
 	private PartnerMapper partnerMapper;
 
@@ -22,12 +22,17 @@ public class PartnerServiceImpl implements PartnerService {
 
 	@Override
 	public boolean register(Partner partner) {
-		return partnerMapper.insertPar(partner)>0;
+		return partnerMapper.insertPar(partner) > 0;
 	}
 
 	@Override
 	public List<Partner> findEmail(Partner partner) {
 		return partnerMapper.fingEmail(partner);
+	}
+
+	@Override
+	public boolean updatePwd(Partner partner) {
+		return partnerMapper.modifyPwd(partner) > 0;
 	}
 
 }

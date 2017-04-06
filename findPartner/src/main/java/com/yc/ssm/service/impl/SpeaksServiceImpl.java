@@ -18,17 +18,23 @@ public class SpeaksServiceImpl implements SpeaksService {
 
 	@Override
 	public PaginationBean<Speaks> listSpeaks(String speakman, String page, String rows) {
-		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		PaginationBean<Speaks> pBean = new PaginationBean<Speaks>();
-		if(page!=null){
+		if (page != null) {
 			pBean.setCurrPage(Integer.parseInt(page));
 		}
-		if(rows!=null){
+		if (rows != null) {
 			pBean.setPageSize(Integer.parseInt(rows));
 		}
 		map.put("speakman", speakman);
 		map.put("pBean", pBean);
 		return speaksMapper.PbeanSpeaks(map);
+	}
+
+	@Override
+	public boolean add(Speaks speaks) {
+		System.out.println("增加说说");
+		return speaksMapper.addSpeaks(speaks) > 0;
 	}
 
 }

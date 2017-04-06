@@ -5,15 +5,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.yc.ssm.mapper.SpeaksMapper">
 	<resultMap type="PaginationBean" id="PaginationBeanMap">
 		<collection property="rows"
-			column="{pageSize=pageSize,currPage=currPage,speakman=speakman}" ofType="com.yc.ssm.entity.Speaks"
-			select="GetPartTea" />
+			column="{pageSize=pageSize,currPage=currPage,speakman=speakman}"
+			ofType="com.yc.ssm.entity.Speaks" select="GetPartTea" />
 	</resultMap>
-
+	
 	<select id="PbeanSpeaks" parameterType="java.util.Map"
-		resultMap="PaginationBeanMap">
-		select count(1) total,ceil(count(1) / ${pBean.pageSize})
+		resultMap="PaginationBeanMap" useCache="false" flushCache="true">
+		select
+		count(1) total,ceil(count(1) / ${pBean.pageSize})
 		totalPage,${pBean.currPage}
-		currPage,${pBean.pageSize} pageSize,#{speakman} speakman 
+		currPage,${pBean.pageSize}
+		pageSize,#{speakman} speakman
 		from
 		speaks where
 		speakman=#{speakman}
@@ -31,4 +33,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		* ${pageSize}
 	</select>
 
+	<insert id="addSpeaks" parameterType="Speaks">
+		insert into
+		speaks(sid,content,speakman,senddate)
+		values('s'||seq_speaks_sid.nextval,#{content},#{speakman}
+		,to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+	</insert>
 </mapper>

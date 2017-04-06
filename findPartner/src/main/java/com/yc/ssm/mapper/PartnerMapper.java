@@ -11,4 +11,6 @@ public interface PartnerMapper {
 	int insertPar(Partner partner);
 	
 	List<Partner> fingEmail(Partner partner);
+
+	int modifyPwd(Partner partner);
 }

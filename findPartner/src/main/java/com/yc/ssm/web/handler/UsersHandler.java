@@ -2,6 +2,7 @@ package com.yc.ssm.web.handler;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
+import com.yc.ssm.service.PartnerService;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.ServletUtil;
 
@@ -23,6 +26,9 @@ public class UsersHandler {
 
 	@Autowired
 	private UsersService usersService;
+
+	@Autowired
+	private PartnerService partnerService;
 
 	// 显示个人信息，通过logid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
@@ -52,6 +58,22 @@ public class UsersHandler {
 			System.out.println("上传图片==》" + users);
 		}
 		return usersService.modifyUserInfo(users);
+	}
+
+	// 修改密码
+	@RequestMapping(value = "mofifyPwd", method = RequestMethod.POST)
+	public String modifyPwd(Partner partner, String newPassword, HttpServletRequest request) {
+		LogManager.getLogger().debug("partner====>" + partner + "newPassword==>" + newPassword);
+		if (partnerService.login(partner) == null) {
+			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
+			return "/page/lw-modifyPwd.jsp";
+		} else {
+			partner.setPassword(newPassword);
+			partner.setLid(ServletUtil.LOGINING_ID);
+			partnerService.updatePwd(partner);
+			return "redirect:/page/lw-log.jsp";
+		}
+
 	}
 
 }

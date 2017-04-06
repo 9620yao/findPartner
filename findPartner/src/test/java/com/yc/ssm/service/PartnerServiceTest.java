@@ -34,5 +34,15 @@ public class PartnerServiceTest {
 		System.out.println(partner);
 		assertNotNull(partner);
 	}
+	
+	@Test
+	public void modifyPwd(){
+		Partner partner=new Partner();
+		partner.setLid("28");
+		partner.setPassword("aa");
+		boolean result=partnerService.updatePwd(partner);
+		assertEquals(true, result);
+		
+	}
 
 }

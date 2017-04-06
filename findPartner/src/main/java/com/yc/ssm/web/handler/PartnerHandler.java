@@ -13,12 +13,12 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.service.PartnerService;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.RandomNumUtil;
-import com.yc.ssm.util.SendMailutil;
 import com.yc.ssm.util.ServletUtil;
 
 @Controller("partnerHandler")
@@ -81,5 +81,7 @@ public class PartnerHandler {
 		}
 		return "/page/lw-re.jsp";
 	}
+	
+	
 
 }

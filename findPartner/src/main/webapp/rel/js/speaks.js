@@ -1,9 +1,27 @@
+var ue=UE.getEditor('ueditor');
+
+$("#myspeak").form({
+	url:"speaks/insert",       
+	success:function(data){
+    	 if(data){
+    		 listSpeaks();
+         }else{
+         	$.messager.alert('增加說說','增加說說失敗！','error');
+         }
+    }
+});
+function addSpeak(){
+	//alert(ue.getContentTxt());
+	$("#content").val(ue.getContentTxt());
+	$("#myspeak").submit();
+}
+
 listSpeaks();
 function listSpeaks(){
 	$.post("speaks/list", function(data){
 		//alert(data);
-		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
-		alert(JSON.stringify(data.rows));
+		alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+		//alert(JSON.stringify(data.rows));
 		var speaksStr = "";
 		for (var i = 0; i < data.rows.length; i++) {
 			speaksStr+='<article class="am-g blog-entry-article"><div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">';
@@ -47,3 +65,40 @@ function replys(cid){
 		
 	}, "json");
 }
+listSpeaks();
+$('#speakComments').dialog({    
+	width:380,
+	height:500,
+	left:500,
+	top:300,
+	title:'',
+	border:false,
+	modal: true
+});
+
+$("#speakComments").dialog("close", true);
+
+
+function comments(sid){
+	$("#speakComments").dialog("open", true);
+	$.get("speaks/"+sid, function(data){
+		//alert("请求响应成功。。"+data);
+		//alert(JSON.stringify(data));
+		var commentsStr = "";
+		for (var i = 0; i < data.length; i++) {
+			commentsStr+='<div style="float:left;">';
+			commentsStr+=(data[i].files==null || data[i].files=="")?'':'<img src="'+data[i].users.picture+'">';
+			commentsStr+='<div style="float:left;"><span>'+data[i].users.nickname+'</span><span>'+data[i].detail+'</span><br>';
+			commentsStr+='<span>'+data[i].comTime+'</span>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">回复</a><br></div>';
+		}
+		
+		$("#commentsInfo")[0].innerHTML = commentsStr;
+		
+	}, "json");
+}
+
+function addWinClose(){
+	$("#speakComments").dialog("close", true);
+	return false;
+}
+

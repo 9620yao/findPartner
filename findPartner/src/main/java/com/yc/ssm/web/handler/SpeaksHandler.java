@@ -2,6 +2,7 @@ package com.yc.ssm.web.handler;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,15 @@ public class SpeaksHandler {
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
 		return speaksService.listSpeaks(speakman,page,rows);// 所有的说说
 	}
-
+	
+	
+	@RequestMapping(value = "insert", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean insertSpeaks(Speaks speaks,HttpSession session) {
+		LogManager.getLogger().debug("insertSpeaks ==要插入一条说说::"+speaks);
+		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
+		speaks.setSpeakman(speakman);
+		return speaksService.add(speaks);
+		//return false;
+	}
 }

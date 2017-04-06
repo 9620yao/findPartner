@@ -58,7 +58,6 @@ public class Speaks {// 说说
 		this.senddate = senddate;
 	}
 
-
 	@Override
 	public String toString() {
 		return "\nSpeaks [sid=" + sid + ", content=" + content + ", speakman=" + speakman + ", files=" + files
