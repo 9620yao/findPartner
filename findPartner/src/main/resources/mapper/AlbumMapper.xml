@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yc.ssm.mapper.AlbumMapper">
+
+	<select id="listAlbum" parameterType="string" resultType="com.yc.ssm.entity.Album">
+		select * from album where aaid = #{_parameter}
+	</select>
+</mapper>

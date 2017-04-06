@@ -8,6 +8,7 @@ public class ServletUtil {
 	public static String DEPLOY_NAME;
 
 	public static final String USER_INFO = "userInfo";
+	public static final String USERAID = "useraid";
 	public static String UPLOAD_DIR;
 	public static String VIRTUAL_UPLOAD_DIR = "/upload03/";
 	

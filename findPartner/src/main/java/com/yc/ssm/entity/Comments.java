@@ -7,19 +7,18 @@ import java.util.List;
  * @author Administrator
  *
  */
-public class Comments {
+
+
+public class Comments{
 	private String cid;
 	private String callid;
 	private String detail;
 	private String comuserid;
 	private String comTime;
 	private Users users;
-	
+
 	public Comments() {
 	}
-	
-	
-
 	public Comments(String cid, String callid, String detail, String comuserid, String comTime, Users users) {
 		this.cid = cid;
 		this.callid = callid;
@@ -68,7 +67,7 @@ public class Comments {
 	public void setComTime(String comTime) {
 		this.comTime = comTime;
 	}
-	
+
 
 	public Users getUsers() {
 		return users;
@@ -86,13 +85,13 @@ public class Comments {
 				+ ", comTime=" + comTime + ", users=" + users + "]";
 	}
 
-	
 
 
-	
 
 
-	
-	
-	
+
+
+
+
+
 }

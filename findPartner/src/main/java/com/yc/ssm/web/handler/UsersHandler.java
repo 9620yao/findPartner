@@ -17,7 +17,7 @@ import com.yc.ssm.entity.Users;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.ServletUtil;
 
-@Controller("UsersHandler")
+@Controller("usersHandler")
 @RequestMapping("user")
 public class UsersHandler {
 
@@ -27,8 +27,13 @@ public class UsersHandler {
 	// 显示个人信息，通过logid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
-	public Users list() {
-		return usersService.listUsersInfo(ServletUtil.LOGINING_ID);
+	public Users list(HttpSession session) {
+		Users users = usersService.listUsersInfo(ServletUtil.LOGINING_ID);
+		if (users != null) {
+			// 取到用户id放到session会话里面
+			session.setAttribute(ServletUtil.USERAID, users.getAid());
+		}
+		return users;
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)

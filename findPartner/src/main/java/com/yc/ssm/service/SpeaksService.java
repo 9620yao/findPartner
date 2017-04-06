@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.yc.ssm.entity.Comments;
 import com.yc.ssm.entity.Speaks;
-import com.yc.ssm.entity.Users;
 
 public interface SpeaksService {
 	
@@ -13,5 +12,6 @@ public interface SpeaksService {
 	List<Comments> listComments(String callid);
 	
 	
+	boolean add(Speaks speaks);
 
 }

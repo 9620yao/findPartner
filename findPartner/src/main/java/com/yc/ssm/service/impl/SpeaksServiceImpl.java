@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.yc.ssm.entity.Comments;
 import com.yc.ssm.entity.Speaks;
-import com.yc.ssm.entity.Users;
 import com.yc.ssm.mapper.SpeaksMapper;
 import com.yc.ssm.service.SpeaksService;
 @Service("speaksService")
@@ -19,6 +18,12 @@ public class SpeaksServiceImpl implements SpeaksService {
 	@Override
 	public List<Speaks> listSpeaks(String speakman) {
 		return speaksMapper.findSpeaks(speakman);
+	}
+	
+	@Override
+	public boolean add(Speaks speaks) {
+		System.out.println("增加说说");
+		return speaksMapper.addSpeaks(speaks)>0;
 	}
 
 	@Override

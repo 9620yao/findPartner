@@ -20,10 +20,14 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
+<<<<<<< HEAD
 insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='61';
 select * from logining where email= '290966751@qq.com'
+--select * from logining where email= '1234567382@qq.com'
+--select * from users where alid= 'a33'
 select * from logining;--
+--alid:a33 aid:a10001
 --create sequence seq_logining_lid start with 1;   注册290966751@qq.com   123
 -- 10008 15214336294 2908683211@163.com 6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2 NXI   女      2017-03-28 NULL        NULL
 
@@ -88,7 +92,7 @@ CREATE TABLE speaks(
 	   otherspeakstwo varchar2(40)
 );
 --create sequence seq_speaks_sid start with 10000;
-insert into SPEAKS(sid,content,speakman,senddate) values(seq_speaks_sid.nextval,'我是一个说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是一个说说','a10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 select * from SPEAKS
 --相册集表(相册列表)
 CREATE TABLE album(
@@ -102,6 +106,7 @@ CREATE TABLE album(
 	   otheralbumone VARCHAR2(40),
 	   otheralbumtwo varchar2(40)
 );
+--select * from album where alid = 'a10056';
 --create sequence seq_album_alid start with 10000;
 
 --相册-图片（某相册下的所有图片）
@@ -152,10 +157,25 @@ create table replys(
 	   otherreplysone VARCHAR2(40),
 	   otherreplystwo varchar2(40)
 );
+<<<<<<< HEAD
 create sequence seq_replys_rid start with 10000;
 insert into REPLYS(rid,rcid,ruserid,rtargetid,rcontent,rtime) values(seq_replys_rid.nextval,'10000','10000','a10000','我是评论的回复',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 select * from REPLYS;
 select * from COMMENTS,REPLYS where COMMENTS.CID=REPLYS.RCID and COMMENTS.CALLID='10020'
+=======
+--create sequence seq_replys_rid start with 10000;
+select w.*,c.* from replys  where rcid in(
+	select c.cid from words w,comments c where w.wid=c.callid
+);
+
+select w.*,c.*,r.* 
+from  words w
+inner join comments c
+on w.wid=c.callid
+inner join replys r
+on c.cid=r.rcid
+
+>>>>>>> branch 'master' of ssh://git@github.com/9620yao/findPartner.git
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。

@@ -1,7 +1,5 @@
 package com.yc.ssm.aspect;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.logging.log4j.LogManager;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

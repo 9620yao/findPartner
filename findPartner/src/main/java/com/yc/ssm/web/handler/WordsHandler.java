@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.yc.ssm.entity.Comments;
 import com.yc.ssm.entity.Words;
 import com.yc.ssm.service.WordsService;
 import com.yc.ssm.util.ServletUtil;
@@ -21,7 +20,7 @@ public class WordsHandler {
 	private WordsService wordsService;
 	
 	@RequestMapping("/findWords")
-	public ModelAndView findWords(Words words,Comments comments,HttpServletRequest request){
+	public ModelAndView findWords(Words words,HttpServletRequest request){
 		ModelAndView modelAndView=new ModelAndView();
 		List<Words> ws= wordsService.findWords(words);
 		modelAndView.addObject("ws",ws);
