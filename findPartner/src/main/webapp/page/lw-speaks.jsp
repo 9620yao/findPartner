@@ -27,6 +27,9 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
 </head>
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
@@ -66,13 +69,14 @@
 	<!-- nav end -->
 
 	<article class="am-g blog-entry-article">
-				<div class="editdiv">
-					<form id="myspeak" method="post">
-						<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
-							cols="39" placeholder="发表一个说说"></textarea>
-						<button onclick="addSpeak()">发表</button>
-					</form>
-				</div>
+		<div class="editdiv">
+			<form id="myspeak" method="post">
+				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
+					placeholder="发表一个说说"></textarea>
+				<input name="content" id="content" type="hidden">
+				<button onclick="return addSpeak()">发表</button>
+			</form>
+		</div>
 	</article>
 
 	<!-- content srart -->
@@ -131,9 +135,14 @@
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" src="rel/js/speaks.js"></script>
 </body>
 </html>

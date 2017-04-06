@@ -6,6 +6,11 @@ create sequence seq_words_wid start with 10000;--留言表
 create sequence seq_comments_cid start with 10000;--评论表
 create sequence seq_replys_rid start with 10000;--回复表
 
+
+	insert into speaks(sid,content,speakman,files,senddate)
+		values('s'||seq_speaks_sid.nextval,'aaaaaaa','a28'
+		,'',to_char(sysdate,'yyyy-MM-dd'))
+		select * from SPEAKS
 --登录注册表
 CREATE TABLE logining(
        lid VARCHAR2(40) PRIMARY KEY,
