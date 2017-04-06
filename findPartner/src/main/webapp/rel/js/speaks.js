@@ -99,5 +99,3 @@ function addWinClose(){
 	return false;
 }
 
-=======
->>>>>>> branch 'master' of ssh://git@github.com/9620yao/findPartner.git

@@ -136,3 +136,10 @@ $(function(){
 	$(this).css("background-color","green");
 	})
 	});
+$("#modifyPwd").dialog({
+	title:"",
+	border:false,
+	modal:true,
+	width:200,
+	top:80
+});
