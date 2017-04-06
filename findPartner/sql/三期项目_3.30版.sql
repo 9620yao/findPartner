@@ -22,7 +22,7 @@ CREATE TABLE logining(
 alter table logining add uname varchar2(20);
 <<<<<<< HEAD
 insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
-update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='61';
+update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='1';
 select * from logining where email= '290966751@qq.com'
 --select * from logining where email= '1234567382@qq.com'
 --select * from users where alid= 'a33'

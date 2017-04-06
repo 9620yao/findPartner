@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="modifyPwd">
-				<form method="post" id="modifyForm" action="partner/mofifyPwd">
+				<form method="post" id="modifyForm" action="user/mofifyPwd">
 					<p>
 						<label style="color: red;">${errorMsg}&nbsp;</label>
 					</p>
