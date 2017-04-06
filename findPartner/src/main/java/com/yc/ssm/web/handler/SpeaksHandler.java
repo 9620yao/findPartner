@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yc.ssm.entity.Users;
+import com.yc.ssm.entity.Comments;
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.service.PartnerService;
@@ -37,6 +38,13 @@ public class SpeaksHandler {
 		LogManager.getLogger().debug("我进来了 listSpeaks");
 		String speakman="10000";
 		return speaksService.listSpeaks(speakman);
+	}
+	
+	@RequestMapping(value="/{callid}", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Comments> listComments(@PathVariable("callid")String callid) {
+		LogManager.getLogger().debug("我进来了 listComments");
+		return speaksService.listComments(callid);
 	}
 
 	

@@ -24,6 +24,9 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
@@ -65,13 +68,22 @@
 	<!-- nav end -->
 
 	<!-- content srart -->
+	<!-- 添加说说 -->
+	<div id="addSpeaks">
+		
+	</div>
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
 			<!--显示说说信息  -->
-
+		</div>
+	</div>
+	<!-- 评论说说 -->
+	<div id="speakComments">
+		<h1>评论详情</h1>
+		<div id="commentsInfo">
 			
 		</div>
-
+		<button onclick="return addWinClose();">&nbsp;&nbsp;退出&nbsp;&nbsp;</button>
 	</div>
 	<!-- content end -->
 
@@ -126,6 +138,8 @@
 
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>

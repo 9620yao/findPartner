@@ -14,4 +14,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="fingEmail" parameterType="Partner" resultType="Partner">
 		select * from logining where email=#{email}
 	</select>
+	
+	<update id="modifyPwd" parameterType="Partner">
+		update LOGINING set password=#{password} where email=#{email} 
+	</update>
 </mapper>

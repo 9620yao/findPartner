@@ -1,22 +1,33 @@
 package com.yc.ssm.entity;
 
+import java.util.List;
+
+/**
+ * 评论
+ * @author Administrator
+ *
+ */
 public class Comments {
 	private String cid;
 	private String callid;
 	private String detail;
 	private String comuserid;
 	private String comTime;
+	private Users users;
 	
 	public Comments() {
 	}
-	public Comments(String cid, String callid, String detail, String comuserid, String comTime) {
+	
+	
+
+	public Comments(String cid, String callid, String detail, String comuserid, String comTime, Users users) {
 		this.cid = cid;
 		this.callid = callid;
 		this.detail = detail;
 		this.comuserid = comuserid;
 		this.comTime = comTime;
+		this.users = users;
 	}
-
 
 	public String getCid() {
 		return cid;
@@ -57,12 +68,31 @@ public class Comments {
 	public void setComTime(String comTime) {
 		this.comTime = comTime;
 	}
+	
+
+	public Users getUsers() {
+		return users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "\nComments [cid=" + cid + ", callid=" + callid + ", detail=" + detail + ", comuserid=" + comuserid
-				+ ", comTime=" + comTime + "]";
+				+ ", comTime=" + comTime + ", users=" + users + "]";
 	}
+
+	
+
+
+	
+
+
+	
 	
 	
 }

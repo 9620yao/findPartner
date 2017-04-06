@@ -20,7 +20,9 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
---select * from logining where email= '290966751@qq.com'
+insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='61';
+select * from logining where email= '290966751@qq.com'
 select * from logining;--
 --create sequence seq_logining_lid start with 1;   注册290966751@qq.com   123
 -- 10008 15214336294 2908683211@163.com 6f9b0a55df8ac28564cb9f63a10be8af6ab3f7c2 NXI   女      2017-03-28 NULL        NULL
@@ -53,6 +55,7 @@ CREATE TABLE users(
 	   otheradminstwo varchar2(40)
 );
 --create sequence seq_admins_aid start with 10000;
+insert into USERS(aid,alid) values(seq_users_aid.nextval,'61');
 select * from users;
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
@@ -134,8 +137,10 @@ CREATE table comments(
 	   othercommentsone VARCHAR2(40),
 	   othercommentstwo varchar2(40)	   
        );
---create sequence seq_comments_cid start with 10000;
-
+create sequence seq_comments_cid start with 10000;
+insert into COMMENTS(cid,callid,detail,comuserid,comTime) values(seq_comments_cid.nextval,'10020','我是说说的评论','a10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into COMMENTS(cid,callid,detail,comuserid,comTime) values(seq_comments_cid.nextval,'10020','我是说说的第二条评论','10020',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+select * from COMMENTS;
 --回复表（包括对评论的回复，以及对回复的回复）
 create table replys(
        rid varchar2(40) primary key,--回复编号
@@ -147,8 +152,10 @@ create table replys(
 	   otherreplysone VARCHAR2(40),
 	   otherreplystwo varchar2(40)
 );
---create sequence seq_replys_rid start with 10000;
-
+create sequence seq_replys_rid start with 10000;
+insert into REPLYS(rid,rcid,ruserid,rtargetid,rcontent,rtime) values(seq_replys_rid.nextval,'10000','10000','a10000','我是评论的回复',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+select * from REPLYS;
+select * from COMMENTS,REPLYS where COMMENTS.CID=REPLYS.RCID and COMMENTS.CALLID='10020'
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。

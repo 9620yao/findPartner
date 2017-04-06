@@ -1,5 +1,7 @@
 package com.yc.ssm.entity;
 
+import java.util.List;
+
 public class Speaks {// 说说
 	private String sid; // 说说编号
 	private String content; // 说说内容
@@ -10,9 +12,7 @@ public class Speaks {// 说说
 
 	public Speaks() {
 	}
-
 	
-
 	public Speaks(String sid, String content, String speakman, String files, String senddate, Users users) {
 		this.sid = sid;
 		this.content = content;
