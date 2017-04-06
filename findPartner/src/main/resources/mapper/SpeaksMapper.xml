@@ -13,14 +13,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="nickname" property="nickname"/>
 		</association>
 	</resultMap>
-	<select id="findSpeaks" parameterType="string" resultMap="SpeaksMap">
+	<select id="findSpeaks" parameterType="string" resultMap="SpeaksMap" useCache="false" flushCache="true">
 		select * from users u join speaks s on s.speakman=#{speakman} and u.aid=s.speakman
 	</select>
 	
 
 	<insert id="addSpeaks" parameterType="Speaks">
-		insert into speaks(sid,content,speakman,files,senddate)
+		insert into speaks(sid,content,speakman,senddate)
 		values('s'||seq_speaks_sid.nextval,#{content},#{speakman}
-		,#{files},to_char(sysdate,'yyyy-MM-dd'))
+		,to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 	</insert>
 </mapper>

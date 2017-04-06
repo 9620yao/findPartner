@@ -19,7 +19,6 @@ import com.yc.ssm.entity.Partner;
 import com.yc.ssm.service.PartnerService;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.RandomNumUtil;
-import com.yc.ssm.util.SendMailutil;
 import com.yc.ssm.util.ServletUtil;
 
 @Controller("partnerHandler")

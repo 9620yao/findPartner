@@ -33,7 +33,6 @@ public class SpeaksServiceTest {
 	}
 	public void testAddSpeaks() {
 		Speaks speaks=new Speaks();
-		speaks.setSid("s10002");
 		speaks.setContent("我是用户a28，我发表了一篇说说");
 		speaks.setSpeakman("a28");
 		speaks.setFiles("");

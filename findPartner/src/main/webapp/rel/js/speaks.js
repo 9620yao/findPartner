@@ -1,12 +1,19 @@
-UE.getEditor('fdesc');
-function myadd(){
-	alert(1111);
-}
+var ue=UE.getEditor('ueditor');
 
-
-//点击提交的时候
+$("#myspeak").form({
+	url:"speaks/insert",       
+	success:function(data){
+    	 if(data){
+    		 listSpeaks();
+         }else{
+         	$.messager.alert('增加說說','增加說說失敗！','error');
+         }
+    }
+});
 function addSpeak(){
-	alert(1111);
+	//alert(ue.getContentTxt());
+	$("#content").val(ue.getContentTxt());
+	$("#myspeak").submit();
 }
 
 /*<span><a href="" class="blog-color">用户10001昵称</a></span> <span>2015/10/9发表时间</span>
