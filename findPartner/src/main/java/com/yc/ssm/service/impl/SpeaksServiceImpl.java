@@ -18,5 +18,10 @@ public class SpeaksServiceImpl implements SpeaksService {
 	public List<Speaks> listSpeaks(String speakman) {
 		return speaksMapper.findSpeaks(speakman);
 	}
-
+	
+	@Override
+	public boolean add(Speaks speaks) {
+		System.out.println("增加说说");
+		return speaksMapper.addSpeaks(speaks)>0;
+	}
 }

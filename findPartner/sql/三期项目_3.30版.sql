@@ -87,7 +87,7 @@ CREATE TABLE speaks(
 	   otherspeakstwo varchar2(40)
 );
 --create sequence seq_speaks_sid start with 10000;
-insert into SPEAKS(sid,content,speakman,senddate) values(seq_speaks_sid.nextval,'我是一个说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是一个说说','a10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 select * from SPEAKS
 --相册集表(相册列表)
 CREATE TABLE album(

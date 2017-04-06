@@ -1,3 +1,14 @@
+UE.getEditor('fdesc');
+function myadd(){
+	alert(1111);
+}
+
+
+//点击提交的时候
+function addSpeak(){
+	alert(1111);
+}
+
 /*<span><a href="" class="blog-color">用户10001昵称</a></span> <span>2015/10/9发表时间</span>
 					<h1>
 						<a href="">我本楚狂人，凤歌笑孔丘。 我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变！ </a>

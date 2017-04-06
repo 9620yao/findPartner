@@ -29,5 +29,4 @@ public class SpeaksHandler {
 		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
 		return speaksService.listSpeaks(speakman);
 	}
-
 }

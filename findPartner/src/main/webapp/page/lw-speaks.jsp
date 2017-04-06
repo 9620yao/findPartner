@@ -64,18 +64,23 @@
 	<hr>
 	<!-- nav end -->
 
+	<article class="am-g blog-entry-article">
+				<div class="editdiv">
+					<form id="myspeak" method="post">
+						<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
+							cols="39" placeholder="发表一个说说"></textarea>
+						<button onclick="addSpeak()">发表</button>
+					</form>
+				</div>
+	</article>
+
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
 			<!--显示说说信息  -->
-
-			
 		</div>
-
 	</div>
 	<!-- content end -->
-
-
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -123,16 +128,11 @@
 		<div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
-
-	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
-	<!--<![endif]-->
-	<!--[if lte IE 8 ]>
-<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
-<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
-<![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" src="rel/js/speaks.js"></script>
 </body>
 </html>
