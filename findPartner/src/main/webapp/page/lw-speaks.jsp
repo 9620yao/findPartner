@@ -25,6 +25,9 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
@@ -80,8 +83,13 @@
 	</article>
 
 	<!-- content srart -->
+	<!-- 添加说说 -->
+	<div id="addSpeaks">
+		
+	</div>
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
+
 			<!-- 显示说说 -->
 		</div>
 	</div>
@@ -134,6 +142,14 @@
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<!--<![endif]-->
+	<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>

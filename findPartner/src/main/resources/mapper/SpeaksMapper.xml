@@ -17,6 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from users u join speaks s on s.speakman=#{speakman} and u.aid=s.speakman
 	</select>
 	
+
 	<insert id="addSpeaks" parameterType="Speaks">
 		insert into speaks(sid,content,speakman,senddate)
 		values('s'||seq_speaks_sid.nextval,#{content},#{speakman}

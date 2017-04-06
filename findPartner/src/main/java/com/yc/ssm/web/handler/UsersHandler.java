@@ -2,6 +2,7 @@ package com.yc.ssm.web.handler;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.ServletUtil;
@@ -53,5 +55,21 @@ public class UsersHandler {
 		}
 		return usersService.modifyUserInfo(users);
 	}
+	
+	/*//修改密码
+		@RequestMapping(value = "mofifyPwd", method = RequestMethod.POST)
+		@ResponseBody
+		public String modifyPwd(Partner partner,String newPassword,HttpServletRequest request) {
+			System.out.println("partner====>" + partner+"newPassword==>"+newPassword);
+			if (partnerService.login(partner) == null) {
+				request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
+				return "/page/lw-modifyPwd.jsp";
+			} else {
+				//String aid=request.getSession().getAttribute()
+				partnerService.updatePwd(partner);
+				return "redirect:/page/lw-index.jsp";
+			}
+			
+		}*/
 
 }

@@ -30,4 +30,10 @@ public class PartnerServiceImpl implements PartnerService {
 		return partnerMapper.fingEmail(partner);
 	}
 
+	@Override
+	public Partner updatePwd(Partner partner) {
+		
+		return partnerMapper.modifyPwd(partner);
+	}
+
 }

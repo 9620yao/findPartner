@@ -40,6 +40,9 @@
 <!--
   <link rel="canonical" href="http://www.example.com/">
   -->
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
@@ -88,6 +91,7 @@
 						录</button>
 					<p class="am-animation-slide-bottom log-animation-delay">
 						<a href="#">忘记密码?</a>
+						
 					</p>
 					<div
 						class="am-btn-group  am-animation-slide-bottom log-animation-delay-b">
@@ -101,6 +105,7 @@
 					</div>
 				</form>
 			</div>
+			
 		</div>
 		<footer class="log-footer"> © 2014 AllMobilize, Inc. Licensed
 			under MIT license. </footer>
@@ -116,6 +121,9 @@
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
+
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>
 </body>
