@@ -25,7 +25,6 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
-<<<<<<< HEAD
 insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='1';
 select * from logining where email= '290966751@qq.com'
@@ -42,7 +41,8 @@ select * from logining;--
 select seq_users_aid.nextval from dual connect by level < 50;
 select * from users where alid =  (select lid from logining where email= '275966751@qq.com') 
 
---select * from logining where email= '290966751@qq.com'
+--select * from logining where email= '19216815@qq.com' --a10032
+select * from users where alid ='a10032' --a10056
 --个人信息表
 CREATE TABLE users(
        aid VARCHAR2(40) PRIMARY KEY,--用户编号
@@ -162,12 +162,10 @@ create table replys(
 	   otherreplysone VARCHAR2(40),
 	   otherreplystwo varchar2(40)
 );
-<<<<<<< HEAD
 create sequence seq_replys_rid start with 10000;
 insert into REPLYS(rid,rcid,ruserid,rtargetid,rcontent,rtime) values(seq_replys_rid.nextval,'10000','10000','a10000','我是评论的回复',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 select * from REPLYS;
 select * from COMMENTS,REPLYS where COMMENTS.CID=REPLYS.RCID and COMMENTS.CALLID='10020'
-=======
 --create sequence seq_replys_rid start with 10000;
 select w.*,c.* from replys  where rcid in(
 	select c.cid from words w,comments c where w.wid=c.callid
@@ -184,7 +182,5 @@ on c.cid=r.rcid
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。
-select * from logining where email = '1820267872@qq.com' --lid  1
-select * from users where alid = '1' --10000
-select * from speaks where speakman = '10000' --10000 10020
-select * from comments where callid = '10020' 
+select count(1) total,ceil(count(1) / pageSize) totalPage, currPage, pageSize,speakman from speaks
+	where speakman= 'a10056' order by speakman  

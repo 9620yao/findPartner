@@ -107,6 +107,22 @@
 		</div>
 	</div>
 	<!-- content end -->
+
+	<!-- 分页start -->
+	<div>
+		<ul data-am-widget="pagination"
+			class="am-pagination am-pagination-select">
+			<li class="am-pagination-prev "><a href="javascript:void(0)" class="">上一页</a></li>
+			<li class="am-pagination-select"><select>
+					<option value="#" class="">1 /</option>
+					<option value="#" class="">2 /</option>
+					<option value="#" class="">3 /</option>
+			</select></li>
+			<li class="am-pagination-next "><a href="javascript:void(0)" class="">下一页</a></li>
+		</ul>
+	</div>
+	<!-- 分页end -->
+
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
