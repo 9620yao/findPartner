@@ -93,35 +93,9 @@
 
 			<!-- 显示说说 -->
 		</div>
-		<div id="page">
-			<%-- <label>每页<input size="1" value="${userBean.pageSize }"/>条，当前第${ userBean.currPage}页，共${userBean.totalPage }页</label>
-			<a href="javascript:void(0)" onclick="listUsers(1)">首页</a>
-			<a href="javascript:void(0)" onclick="listUsers(${userBean.currPage-1 })">上一页</a>
-			<a href="javascript:void(0)" onclick="listUsers(${userBean.currPage+1 })">下一页</a>
-			<a href="javascript:void(0)" onclick="listUsers(${userBean.totalPage })">尾页</a> --%>
-			<label>每页<input size="1" value="5"/>条，当前第&nbsp;&nbsp; 页，共&nbsp;&nbsp;页</label>
-			<a href="javascript:void(0)">首页</a>
-			<a href="javascript:void(0)">上一页</a>
-			<a href="javascript:void(0)">下一页</a>
-			<a href="javascript:void(0)">尾页</a>
-		</div>
+		<div id="page"></div>
 	</div>
 	<!-- content end -->
-
-	<!-- 分页start -->
-	<div>
-		<ul data-am-widget="pagination"
-			class="am-pagination am-pagination-select">
-			<li class="am-pagination-prev "><a href="javascript:void(0)" class="">上一页</a></li>
-			<li class="am-pagination-select"><select>
-					<option value="#" class="">1 /</option>
-					<option value="#" class="">2 /</option>
-					<option value="#" class="">3 /</option>
-			</select></li>
-			<li class="am-pagination-next "><a href="javascript:void(0)" class="">下一页</a></li>
-		</ul>
-	</div>
-	<!-- 分页end -->
 
 	<footer class="blog-footer">
 		<div

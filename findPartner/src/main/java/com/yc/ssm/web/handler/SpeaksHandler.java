@@ -1,12 +1,15 @@
 package com.yc.ssm.web.handler;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,12 +28,13 @@ public class SpeaksHandler {
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Speaks> listSpeaks(String page, String rows, Users users, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listSpeaks");
+	public PaginationBean<Speaks> listSpeaks(Integer currPage,Users users, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage="+currPage);
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks("a10056",page,rows);// 所有的说说
+		PaginationBean<Speaks> userBean= speaksService.listSpeaks(speakman,String.valueOf(currPage),"5");// 所有的说说
+		request.getSession().setAttribute("userBean", userBean);
+		return userBean;
 	}
-	
 	
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	@ResponseBody
