@@ -1,4 +1,4 @@
-function add(){
+/*function add(){
 	UE.getEditor('edit');//<textarea>转变成副文本编辑工具
 	$("#host").dialog("open", true);
 }
@@ -12,7 +12,7 @@ $('#host').dialog({
 	title:'',
 	border:false,
 	modal: true
-});
+});*/
 /*$(function(){
     $('#myForm').submit();
 })*/
@@ -20,3 +20,70 @@ $('#host').dialog({
 window.onload= function(){
    document.getElementById('myForm').submit();
 }*/
+
+listWords();
+function listWords(){
+	$.post("words/list", function(data){
+		// alert(data);
+		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
+		// alert(JSON.stringify(data.rows));
+		var wordsStr = "";
+		for (var i = 0; i < data.rows.length; i++) {
+			wordsStr+='<div id="host" style="margin-top: 3%;"><div class="showwords"><ul id="everyLiTag">';
+			wordsStr+='<li style="color: blue;" class="aaa26">'+data.rows[i].waid+'</li>';
+			wordsStr+='<li style="color: blue;" class="name">'+data.rows[i].wfrendid+'</li>';
+			wordsStr+='<li style="color: grey;" class="wdate">'+data.rows[i].wdate+'</li>';
+			wordsStr+='<li><span>'+data.rows[i].wcontent+'</span></li></ul></div>';
+			wordsStr+='<div class="showcomment"></div><div class="showreplys"></div></div>';
+			// alert(data.rows[i].wid);
+			comments(data.rows[i].wid);//取到所有的说说编号
+		}
+		//alert(wordsStr);
+		$("#hostAll")[0].innerHTML = wordsStr;
+	}, "json");
+}
+//根据说说编号去查说说下的评论
+function comments(sid){
+	//alert(sid);
+	$.post("comments/list",{"sid":sid}, function(data){
+		if(data==null || data==""){
+			return false;
+		}
+		//alert(data);
+		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+		var commentStr = "";
+		for (var i = 0; i < data.length; i++) {
+			commentStr+='<ul class="pinglun"><li style="color: blue;" class="aaa29"></li>';
+			commentStr+='<li style="color: blue;" class="a29name">评论用户'+data[i].comuserid+'</li>';
+			commentStr+='<li style="color: grey;" class="wdate" id="aa29">评论时间:'+data[i].comTime+'</li>';
+			commentStr+='<li><span class="wcontenta29">'+data[i].detail+'</span></li></ul>';
+			replys(data[i].cid);//取到所有的评论编号
+			//alert(data[i].cid);
+		}
+		$(".showcomment")[0].innerHTML = commentStr;
+	}, "json");
+}
+
+//根据评论编号，找到评论编号下的所有回复
+function replys(cid){
+	//alert(cid);
+	$.post("replys/list",{"cid":cid}, function(data){
+		if(data==null || data==""){
+			return false;
+		}
+		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+		var replysStr = "";
+		for (var i = 0; i < data.length; i++) {
+			replysStr+='<ul class="huifu"><li style="color: blue;" class="huiaa26">'+data[i].ruserid+'</li>';
+			replysStr+='<li style="color: blue;" class="huiaa26name"><a href="javascript:void(0)">@用户:'+data[i].rtargetid+'</a></li>';
+			replysStr+='<li style="color: grey;" class="huiaa26wdate">回复时间:'+data[i].rtime+'</li>';
+			replysStr+='<li><span id="edit" name="edit" class="huiaa26edit">'+data[i].rcontent+'</span></li></ul>';
+			//replysStr+='<p><a href="">用户:'+data[i].ruserid+'</a><a href="">@用户:'+data[i].rtargetid+'</a></p>';
+			//replysStr+='<p><h2>'+data[i].rcontent+'</h2> <span>回复时间:'+data[i].rtime+'</span></p>';
+		}
+		$(".showreplys")[0].innerHTML = replysStr;
+	}, "json");
+}
+
+
+

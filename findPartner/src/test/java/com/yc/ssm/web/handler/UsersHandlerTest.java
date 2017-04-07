@@ -16,44 +16,41 @@ import com.yc.ssm.entity.Words;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.service.WordsService;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
 public class UsersHandlerTest {
 
 	@Autowired
 	private UsersService usersService;
-	
+
 	@Autowired
 	private WordsService wordsService;
+
 	@Test
 	public void test() {
 		fail("Not yet implemented");
 	}
-	
-	/*@Test
-	public void adminInfo(){
-		Users admin=new Users();
-		admin=usersService.listUsersInfos("a10027");
-		System.out.println(admin);
-		assertNotNull(admin);
-	}*/
-	
+
+	/*
+	 * @Test public void adminInfo(){ Users admin=new Users();
+	 * admin=usersService.listUsersInfos("a10027"); System.out.println(admin);
+	 * assertNotNull(admin); }
+	 */
+
 	@Test
-	public void testUpdateUserInfo(){
-		Partner partner=new Partner();
-		Users users=new Users("10000", "1", "suli", "18", "", "", "", "", "", "", "", "", "", "", "", partner);
-		boolean result=usersService.modifyUserInfo(users);
+	public void testUpdateUserInfo() {
+		Partner partner = new Partner();
+		Users users = new Users("10000", "1", "suli", "18", "", "", "", "", "", "", "", "", "", "", "", partner);
+		boolean result = usersService.modifyUserInfo(users);
 		assertEquals(true, result);
 	}
-	
-	@Test
-	public void testWords(){
-		
-		List<Words> ws= wordsService.findWords(new Words());
+
+	/*@Test
+	public void testWords() {
+
+		List<Words> ws = wordsService.findWords(new Words());
 		System.out.println(ws);
-		
-		
+
 	}
-	
+*/
 }

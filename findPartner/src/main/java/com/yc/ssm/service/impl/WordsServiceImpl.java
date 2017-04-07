@@ -1,10 +1,13 @@
 package com.yc.ssm.service.impl;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.ssm.entity.PaginationBean;
+import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.entity.Words;
 import com.yc.ssm.mapper.WordsMapper;
 import com.yc.ssm.service.WordsService;
@@ -20,15 +23,24 @@ public class WordsServiceImpl implements WordsService {
 	}
 
 	@Override
-	public List<Words> findWords(Words words) {
-		System.out.println("查询留言");
-		return wordsMapper.findWords(words);
-	}
-	
-	@Override
 	public boolean add(Words words) {
 		System.out.println("增加留言");
 		return wordsMapper.addWords(words)>0;
+	}
+
+	@Override
+	public PaginationBean<Words> listWords(String waid, String page, String rows) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		PaginationBean<Speaks> pBean = new PaginationBean<Speaks>();
+		if (page != null) {
+			pBean.setCurrPage(Integer.parseInt(page));
+		}
+		if (rows != null) {
+			pBean.setPageSize(Integer.parseInt(rows));
+		}
+		map.put("waid", waid);
+		map.put("pBean", pBean);
+		return wordsMapper.PbeanWords(map);
 	}
 
 }

@@ -18,13 +18,11 @@ public class WordsServiceTest {
 	@Autowired
 	private WordsService wordsService;
 
-	@Test
-	public void testFindWords() {
-		Words words=new Words();
-		List<Words> ws=wordsService.findWords(words);
-		System.out.println(ws);
-		assertNotNull(ws);
-	}
+	/*
+	 * @Test public void testFindWords() { Words words=new Words(); List<Words>
+	 * ws=wordsService.findWords(words); System.out.println(ws);
+	 * assertNotNull(ws); }
+	 */
 	@Test
 	public void testAdd() {
 		Words words=new Words();

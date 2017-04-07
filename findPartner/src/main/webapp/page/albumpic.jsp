@@ -26,6 +26,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/albumpic.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -65,138 +66,24 @@
 	<hr>
 	<!-- nav end -->
 
-	<!-- content srart -->
+	<!-- content 展示图片 srart -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
-		<figure data-am-widget="figure"
-			class="am am-figure am-figure-default "
-			data-am-figure="{  pureview: 'true' }">
-			<div id="container">
+		<div id="albumpicdiv">
+			<div class="box">
 				<div>
-					<img src="images/01.jpg">
-					<h3>Agfa</h3>
+					<p><a href="javascripte:void(0)">相册</a> | <a href="javascripte:void(0)">当前相册</a></p>
 				</div>
-				<div>
-					<img src="images/02.jpg">
-					<h3>Auto</h3>
+				<div id="imgs" class="imgs">
+					<img src="images/1.jpg" layer-pname="代码笔记 - 1"> <img
+						src="images/2.jpg" layer-pname="代码笔记 - 2"> <img
+						src="images/3.jpg" layer-pname="代码笔记 - 3"> <img
+						src="images/4.jpg" layer-pname="代码笔记 - 4">
 				</div>
-				<div>
-					<img src="images/03.jpg">
-					<h3>Bald eagle</h3>
-				</div>
-				<div>
-					<img src="images/04.jpg">
-					<h3>Black swan</h3>
-				</div>
-				<div>
-					<img src="images/05.jpg">
-					<h3>Book shelf</h3>
-				</div>
-				<div>
-					<img src="images/06.jpg">
-					<h3>Camera</h3>
-				</div>
-				<div>
-					<img src="images/07.jpg">
-					<h3>Camera</h3>
-				</div>
-				<div>
-					<img src="images/25.jpg">
-					<h3>Vintage camera</h3>
-				</div>
-				<div>
-					<img src="images/09.jpg">
-					<h3>Coffee</h3>
-				</div>
-				<div>
-					<img src="images/10.jpg">
-					<h3>Cookies</h3>
-				</div>
-				<div>
-					<img src="images/11.jpg">
-					<h3>Cubes</h3>
-				</div>
-				<div>
-					<img src="images/12.jpg">
-					<h3>DJ</h3>
-				</div>
-				<div>
-					<img src="images/13.jpg">
-					<h3>Doors</h3>
-				</div>
-				<div>
-					<img src="images/14.jpg">
-					<h3>Matchbox</h3>
-				</div>
-				<div>
-					<img src="images/15.jpg">
-					<h3>Freiburg</h3>
-				</div>
-				<div>
-					<img src="images/16.jpg">
-					<h3>Henna</h3>
-				</div>
-				<div>
-					<img src="images/17.jpg">
-					<h3>Home office</h3>
-				</div>
-				<div>
-					<img src="images/18.jpg">
-					<h3>iPad</h3>
-				</div>
-				<div>
-					<img src="images/19.jpg">
-					<h3>Keyboard</h3>
-				</div>
-				<div>
-					<img src="images/20.jpg">
-					<h3>Lynx</h3>
-				</div>
-				<div>
-					<img src="images/21.jpg">
-					<h3>Mac</h3>
-				</div>
-				<div>
-					<img src="images/22.jpg">
-					<h3>Notebook</h3>
-				</div>
-				<div>
-					<img src="images/23.jpg">
-					<h3>Thoughts</h3>
-				</div>
-				<div>
-					<img src="images/24.jpg">
-					<h3>Office</h3>
-				</div>
-				<div>
-					<img src="images/25.jpg">
-					<h3>Children</h3>
-				</div>
-				<div>
-					<img src="images/26.jpg">
-					<h3>Portrait</h3>
-				</div>
-				<div>
-					<img src="images/27.jpg">
-					<h3>Startup</h3>
-				</div>
-				<div>
-					<img src="images/28.jpg">
-					<h3>Sun</h3>
-				</div>
-				<div>
-					<img src="images/29.jpg">
-					<h3>The Eiffel Tower</h3>
-				</div>
-				<div>
-					<img src="images/30.jpg">
-					<h3>Water drops</h3>
-				</div>
-
 			</div>
-		</figure>
-
+		</div>
 	</div>
-	<!-- content end -->
+	<!-- content 展示图片 end -->
+
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -255,8 +142,9 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
-	<script src="assets/js/pinto.min.js"></script>
-	<script src="assets/js/img.js"></script>
-	<script src="rel/js/imgs.js"></script>
+	<script src="rel/layer/jquery.js?v=1.83.min"></script>
+	<script src="rel/layer/layer.min.js"></script>
+	<script src="rel/js/albumpic.js"></script>
+
 </body>
 </html>
