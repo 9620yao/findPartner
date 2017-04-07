@@ -184,3 +184,7 @@ on c.cid=r.rcid
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。
+select * from logining where email = '1820267872@qq.com' --lid  1
+select * from users where alid = '1' --10000
+select * from speaks where speakman = '10000' --10000 10020
+select * from comments where callid = '10020' 

@@ -30,6 +30,7 @@
 	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/speak.css">
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
 <link type="text/css" rel="stylesheet"
 	href="easyui/themes/default/easyui.css">
@@ -91,6 +92,18 @@
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
 
 			<!-- 显示说说 -->
+		</div>
+		<div id="page">
+			<%-- <label>每页<input size="1" value="${userBean.pageSize }"/>条，当前第${ userBean.currPage}页，共${userBean.totalPage }页</label>
+			<a href="javascript:void(0)" onclick="listUsers(1)">首页</a>
+			<a href="javascript:void(0)" onclick="listUsers(${userBean.currPage-1 })">上一页</a>
+			<a href="javascript:void(0)" onclick="listUsers(${userBean.currPage+1 })">下一页</a>
+			<a href="javascript:void(0)" onclick="listUsers(${userBean.totalPage })">尾页</a> --%>
+			<label>每页<input size="1" value="5"/>条，当前第&nbsp;&nbsp; 页，共&nbsp;&nbsp;页</label>
+			<a href="javascript:void(0)">首页</a>
+			<a href="javascript:void(0)">上一页</a>
+			<a href="javascript:void(0)">下一页</a>
+			<a href="javascript:void(0)">尾页</a>
 		</div>
 	</div>
 	<!-- content end -->
