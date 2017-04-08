@@ -20,10 +20,10 @@ $('#host').dialog({
 window.onload= function(){
    document.getElementById('myForm').submit();
 }*/
-
-listWords();
-function listWords(){
-	$.post("words/list", function(data){
+var currPage = 1;
+listWords(currPage);
+function listWords(currPage){
+	$.post("words/list",{"currPage":currPage}, function(data){
 		// alert(data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		// alert(JSON.stringify(data.rows));
@@ -40,6 +40,13 @@ function listWords(){
 		}
 		//alert(wordsStr);
 		$("#hostAll")[0].innerHTML = wordsStr;
+		var pagination="";
+		pagination+='<label>每页5条，当前第'+currPage+' 页，共'+data.totalPage+' 页</label>';
+		pagination+='<a href="javascript:void(0)" onclick="listWords(1)">首页</a>';
+		pagination+='<a href="javascript:void(0)" onclick="listWords('+(data.currPage==1?1:(data.currPage-1))+')">上一页</a>';
+		pagination+='<a href="javascript:void(0)" onclick="listWords('+(data.currPage==data.totalPage?data.currPage:(data.currPage+1))+')">下一页</a>';
+		pagination+='<a href="javascript:void(0)" onclick="listWords('+data.totalPage+')">尾页</a>';
+		$("#page")[0].innerHTML = pagination;
 	}, "json");
 }
 //根据说说编号去查说说下的评论

@@ -9,5 +9,7 @@ public interface UsersMapper {
 	Users findUsersInfo(String alid);
 
 	int updateUserInfo(Users users);
+
+	Users findUsersInfoByAid(String aid);
 	
 }

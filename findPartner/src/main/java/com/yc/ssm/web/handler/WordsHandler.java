@@ -21,10 +21,10 @@ public class WordsHandler {
 
 	@RequestMapping("list")
 	@ResponseBody
-	public PaginationBean<Words> listWords(String page, String rows, HttpServletRequest request) {
+	public PaginationBean<Words> listWords(Integer currPage, String rows, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listWords");
 		String waid = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return wordsService.listWords(waid, page, rows);
+		return wordsService.listWords(waid,String.valueOf(currPage),"5");
 	}
 
 	@RequestMapping("addWords")
