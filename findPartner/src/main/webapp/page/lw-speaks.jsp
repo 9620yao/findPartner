@@ -79,7 +79,7 @@
 				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
 					placeholder="发表一个说说"></textarea>
 				<input name="content" id="content" type="hidden">
-				<button onclick="return addSpeak()">发表</button>
+				<a href="javascript:void(0)" onclick="return addSpeak()">发表</a>
 			</form>
 		</div>
 	</article>

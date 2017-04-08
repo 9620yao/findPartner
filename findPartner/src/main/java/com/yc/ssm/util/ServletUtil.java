@@ -10,6 +10,7 @@ public class ServletUtil {
 	public static final String USER_INFO = "userInfo";
 	public static final String USERAID = "useraid";
 	public static final String FRIENDAID = "friendaid";//好友编号
+	public static final String ALBUMABID = "albumabid";//相册编号
 	public static String UPLOAD_DIR;
 	public static String VIRTUAL_UPLOAD_DIR = "/upload03/";
 	
