@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Partner;
+import com.yc.ssm.entity.Users;
 import com.yc.ssm.service.PartnerService;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.RandomNumUtil;
@@ -40,6 +41,11 @@ public class PartnerHandler {
 			return "/page/lw-log.jsp";
 		} else {
 			request.getSession().setAttribute(ServletUtil.LOGIN_USER, partner);
+			Users users = usersService.listUsersInfo(partner.getLid());
+			if (users != null) {
+				// 取到用户id放到session会话里面
+				request.getSession().setAttribute(ServletUtil.USERAID, users.getAid());
+			}
 			return "redirect:/page/lw-index.jsp";
 		}
 	}

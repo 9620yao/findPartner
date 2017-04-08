@@ -30,15 +30,12 @@ public class UsersHandler {
 	@Autowired
 	private PartnerService partnerService;
 
-	// 显示个人信息，通过logid取到个人信息
+	// 显示个人信息，通过aid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
 	public Users list(HttpSession session) {
-		Users users = usersService.listUsersInfo(ServletUtil.LOGINING_ID);
-		if (users != null) {
-			// 取到用户id放到session会话里面
-			session.setAttribute(ServletUtil.USERAID, users.getAid());
-		}
+		String aid=(String) session.getAttribute(ServletUtil.USERAID);//取到用户id
+		Users users = usersService.listUsersInfoByAid(aid);
 		return users;
 	}
 

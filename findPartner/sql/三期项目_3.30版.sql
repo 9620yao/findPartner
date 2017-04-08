@@ -40,6 +40,7 @@ select * from logining;--
 --select * from users;
 select seq_users_aid.nextval from dual connect by level < 50;
 select * from users where alid =  (select lid from logining where email= '275966751@qq.com') 
+select * from users u ,logining l where u.aid='10000' and u.alid = l.lid
 
 --select * from logining where email= '19216815@qq.com' --a10032
 select * from users where alid ='a10032' --a10056
@@ -142,7 +143,13 @@ CREATE TABLE words(
 	   otheralbumone VARCHAR2(40),
 	   otheralbumtwo varchar2(40)
 );
---create sequence seq_words_wid start with 10000;
+create sequence seq_words_wid start with 10000;
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第一条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第二条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第三条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第四条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第五条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第六条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 select * from WORDS;
 --评论表（只包括 说说/相册/相片/留言 的单一评论）
 CREATE table comments(
