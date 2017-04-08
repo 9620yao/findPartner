@@ -75,6 +75,9 @@ CREATE TABLE friends(
 	   otherfriendstwo varchar2(40)
 );
 select * from friends;
+select * from users u where u.aid in (select f.fid from friends f where f.aid='10000')
+insert into friends(aid,fid) values('10000','10020');
+insert into friends(aid,fid) values('10000','a10000');
 
 --其他好友表（某用户和没关注的好友）--在两个好友没关注的时候，联系在一起
 CREATE TABLE friendothers(

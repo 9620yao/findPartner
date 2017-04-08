@@ -5,7 +5,7 @@ var currPage = 1;
 function listSpeaks(currPage) {
 	$.post("speaks/list",
 			{
-				"currPage" : currPage
+		"currPage" : currPage
 			},
 			function(data) {
 				// alert(data);
@@ -24,22 +24,16 @@ function listSpeaks(currPage) {
 					speaksStr += '<a href="">' + data.rows[i].content
 					+ '</a></h1>';
 					speaksStr += '<div class="comment"></div></div></article>';
-
-					// alert(data[i].sid);
-					comments(data.rows[i].sid);// 取到所有的说说编号
+					//alert(data[i].sid);
+					comments(data.rows[i].sid);//取到所有的说说编号
 				}
 				$("#speaksInfo")[0].innerHTML = speaksStr;
-				var pagination = "";
-				pagination += '<label>每页5条，当前第' + currPage + ' 页，共'
-				+ data.totalPage + ' 页</label>';
-				pagination += '<a href="javascript:void(0)" onclick="listSpeaks(1)">首页</a>';
-				pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-					+ (data.currPage == 1 ? 1 : (data.currPage - 1))
-					+ ')">上一页</a>';
-				pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-					+ (data.currPage + 1) + ')">下一页</a>';
-				pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-					+ data.totalPage + ')">尾页</a>';
+				var pagination="";
+				pagination+='<label>每页5条，当前第'+currPage+' 页，共'+data.totalPage+' 页</label>';
+				pagination+='<a href="javascript:void(0)" onclick="listSpeaks(1)">首页</a>';
+				pagination+='<a href="javascript:void(0)" onclick="listSpeaks('+(data.currPage==1?1:(data.currPage-1))+')">上一页</a>';
+				pagination+='<a href="javascript:void(0)" onclick="listSpeaks('+(data.currPage==data.totalPage?data.currPage:(data.currPage+1))+')">下一页</a>';
+				pagination+='<a href="javascript:void(0)" onclick="listSpeaks('+data.totalPage+')">尾页</a>';
 				$("#page")[0].innerHTML = pagination;
 			}, "json");
 
