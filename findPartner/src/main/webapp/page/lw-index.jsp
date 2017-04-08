@@ -50,7 +50,7 @@
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
 				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li><a href="javascript:void(0)">发现好友</a></li>
+				<li><a href="page/lw-friend.jsp">我的好友</a></li>
 				<!-- <li><a href="page/message.jsp">日志</a></li> -->
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>

@@ -28,12 +28,10 @@ public class SpeaksHandler {
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Speaks> listSpeaks(Integer currPage,Users users, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage="+currPage);
+	public PaginationBean<Speaks> listSpeaks(Integer currPage, Users users, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage=" + currPage);
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		PaginationBean<Speaks> userBean= speaksService.listSpeaks(speakman,String.valueOf(currPage),"5");// 所有的说说
-		request.getSession().setAttribute("userBean", userBean);
-		return userBean;
+		return speaksService.listSpeaks(speakman, String.valueOf(currPage), "5");
 	}
 	
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
