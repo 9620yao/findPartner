@@ -67,11 +67,11 @@
 	<!-- content srart data-am-figure="{  pureview: 'true' }" -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
 		<div id="container">
-			<div>
-				<img onclick="openpic()" src="images/01.jpg">
+			<!-- <div>
+				<img onclick="openpic(111)" src="images/01.jpg">
 				<h3>Agfa</h3>
 			</div>
-			<!--img end  -->
+			img end  -->
 		</div>
 	</div>
 	<!-- content end -->

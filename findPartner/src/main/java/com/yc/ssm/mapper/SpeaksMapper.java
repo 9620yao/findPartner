@@ -7,11 +7,10 @@ import com.yc.ssm.entity.Speaks;
 
 public interface SpeaksMapper {
 
-
 	PaginationBean<Speaks> PbeanSpeaks(Map<String, Object> map);
-	//List<Speaks> findSpeaks(String speakman);
-	
-	//增加说说
+	// List<Speaks> findSpeaks(String speakman);
+
+	// 增加说说
 	int addSpeaks(Speaks speaks);
 
 }

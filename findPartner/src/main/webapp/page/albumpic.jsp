@@ -71,13 +71,17 @@
 		<div id="albumpicdiv">
 			<div class="box">
 				<div>
-					<p><a href="javascripte:void(0)">相册</a> | <a href="javascripte:void(0)">当前相册</a></p>
+					<p>
+						<a href="page/lw-img.jsp">相册</a> | <a
+							href="#">当前相册</a>
+					</p>
 				</div>
+				<!-- 展示相册下面的图片 -->
 				<div id="imgs" class="imgs">
-					<img src="images/1.jpg" layer-pname="代码笔记 - 1"> <img
+					<!-- <img src="images/1.jpg"> <img
 						src="images/2.jpg" layer-pname="代码笔记 - 2"> <img
 						src="images/3.jpg" layer-pname="代码笔记 - 3"> <img
-						src="images/4.jpg" layer-pname="代码笔记 - 4">
+						src="images/4.jpg" layer-pname="代码笔记 - 4"> -->
 				</div>
 			</div>
 		</div>

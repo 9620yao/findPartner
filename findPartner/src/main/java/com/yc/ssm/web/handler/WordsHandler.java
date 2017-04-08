@@ -24,7 +24,7 @@ public class WordsHandler {
 	public PaginationBean<Words> listWords(String page, String rows, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listWords");
 		String waid = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return wordsService.listWords("a10056", page, rows);
+		return wordsService.listWords(waid, page, rows);
 	}
 
 	@RequestMapping("addWords")

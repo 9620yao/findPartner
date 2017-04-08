@@ -10,23 +10,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.yc.ssm.entity.Album;
-import com.yc.ssm.service.AlbumService;
+import com.yc.ssm.entity.Albumpic;
+import com.yc.ssm.service.AlbumpicService;
 import com.yc.ssm.util.ServletUtil;
 
-@Controller("albumHandler")
-@RequestMapping("album")
-public class AlbumHandler {
+@Controller("albumpicHandler")
+@RequestMapping("albumpic")
+public class AlbumpicHandler {
 
 	@Autowired
-	private AlbumService albumService;
+	private AlbumpicService albumpicService;
 
 	@RequestMapping("list")
 	@ResponseBody
-	public List<Album> list(HttpSession session) {
-		String aaid = (String) session.getAttribute(ServletUtil.USERAID);
-		LogManager.getLogger().debug("我是Album list() 我进来了");
-		return albumService.listAlbum(aaid);
+	public List<Albumpic> listAlbumpic(HttpSession session) {
+		String abid = (String) session.getAttribute(ServletUtil.ALBUMABID);
+		LogManager.getLogger().debug(" listAlbumpic()进来了.....,abid: " + abid);
+		return albumpicService.listApic(abid);
 	}
-
 }

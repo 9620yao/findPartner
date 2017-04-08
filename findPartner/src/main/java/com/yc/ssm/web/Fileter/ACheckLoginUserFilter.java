@@ -15,7 +15,7 @@ import com.yc.ssm.entity.Partner;
 import com.yc.ssm.util.ServletUtil;
 
 @WebFilter("/user/*")
-public class CheckLoginUserFilter extends AbstractFilter {
+public class ACheckLoginUserFilter extends AbstractFilter {
 
 	@Override
 	public void doFilter(ServletRequest requset, ServletResponse response, FilterChain chain)
