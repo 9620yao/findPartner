@@ -3,41 +3,37 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.ssm.mapper.WordsMapper">
-	<cache></cache>
-	<resultMap type="Words" id="WordsMap">
-		<id column="wid" property="wid" />
-		<result column="waid" property="waid" />
-		<result column="wfrendid" property="wfrendid" />
-		<result column="wcontent" property="wcontent" />
-		<result column="waddress" property="waddress" />
-		<result column="wdate" property="wdate" />
-
-		<collection property="comments" ofType="Comments">
-			<id column="cid" property="cid" />
-			<result column="callid" property="callid" />
-			<result column="detail" property="detail" />
-			<result column="comuserid" property="comuserid" />
-			<result column="comTime" property="comTime" />
-		</collection>
-
-		<collection property="replys" ofType="Replys">
-			<id column="rid" property="rid" />
-			<result column="rcid" property="rcid" />
-			<result column="ruserid" property="ruserid" />
-			<result column="rtargetid" property="rtargetid" />
-			<result column="rcontent" property="rcontent" />
-			<result column="rtime" property="rtime" />
-		</collection>
+	<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage,waid=waid}" ofType="com.yc.ssm.entity.Words"
+			select="GetPartTea" />
 	</resultMap>
 
-	<select id="findWords" resultMap="WordsMap">
-		select w.*,c.*,r.*
-		from words w
-		inner join comments c
-		on w.wid=c.callid
-		inner join replys r
-		on c.cid=r.rcid
-       where waid in( select waid from words) 
+	<select id="PbeanWords" parameterType="java.util.Map" resultMap="PaginationBeanMap"
+		useCache="false" flushCache="true">
+		select
+		count(1) total,ceil(count(1) /
+		${pBean.pageSize})
+		totalPage,${pBean.currPage}
+		currPage,${pBean.pageSize}
+		pageSize,#{waid} waid
+		from
+		words where
+		waid=#{waid}
+	</select>
+
+	<select id="GetPartTea" resultType="com.yc.ssm.entity.Words">
+		select t.* from (
+		select
+		n.*,rownum rn from (
+		select * from words where
+		waid=#{waid}) n
+		where
+		${currPage} *
+		${pageSize} >= rownum) t where
+		rn > (${currPage}-1)
+		*
+		${pageSize}
 	</select>
 
 	<insert id="addWords" parameterType="Words">

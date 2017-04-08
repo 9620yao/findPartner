@@ -31,7 +31,7 @@ public class SpeaksHandler {
 	public PaginationBean<Speaks> listSpeaks(Integer currPage, Users users, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage=" + currPage);
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.USERAID);
-		return speaksService.listSpeaks(speakman, String.valueOf(currPage), "5");
+		return speaksService.listSpeaks(speakman,String.valueOf(currPage),"5");
 	}
 	
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
