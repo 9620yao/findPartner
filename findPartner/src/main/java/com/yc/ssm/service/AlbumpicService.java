@@ -8,4 +8,6 @@ public interface AlbumpicService {
 
 	List<Albumpic> listApic(String abid);// 取到相册下的图片
 
+	boolean newpic(String abid, String picPath);
+
 }

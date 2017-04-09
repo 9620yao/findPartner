@@ -26,6 +26,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/friend.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -70,10 +71,9 @@
 	<hr>
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
-		<div id="container">
+		<div id="myfriend">
 			<!-- 好友列表 -->
 		</div>
-
 	</div>
 	<!-- content end -->
 	<footer class="blog-footer">
@@ -83,9 +83,9 @@
 				<h3>模板简介</h3>
 				<p class="am-text-sm">
 					这是一个使用amazeUI做的简单的前端模板。<br> 博客/ 资讯类 前端模板 <br>
-					支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br>
-					<br> Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售
-					Amaze UI 及其副本。
+					支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br> <br>
+					Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 Amaze UI
+					及其副本。
 				</p>
 			</div>
 			<div class="am-u-sm-12 am-u-md-4- am-u-lg-4">

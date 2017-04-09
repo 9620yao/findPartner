@@ -34,9 +34,9 @@ public class UsersHandler {
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
 	public Users list(HttpSession session) {
-		String aid=(String) session.getAttribute(ServletUtil.USERAID);//取到用户id
-		Users users = usersService.listUsersInfoByAid(aid);
-		return users;
+		String aid = (String) session.getAttribute(ServletUtil.FINALAID);//取到用户id
+		LogManager.getLogger().debug("ServletUtil.FINALAID==>"+aid);
+		return usersService.listUsersInfoByAid(aid);
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)

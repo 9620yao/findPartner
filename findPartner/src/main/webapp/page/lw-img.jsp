@@ -45,13 +45,14 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li><a href="page/lw-friend.jsp">我的好友</a></li>
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li><a class="myfriend" href="page/lw-friend.jsp">我的好友</a></li>
 				<!-- <li><a href="page/message.jsp">日志</a></li> -->
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>
 				<li><a href="page/lw-img.jsp">相册</a></li>
-				<li><a href="page/lw-modifyPwd.jsp">修改密码</a></li>
+				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
@@ -67,7 +68,12 @@
 
 	<!-- content srart data-am-figure="{  pureview: 'true' }" -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
+		<button class="addimgs" onclick="addImgs()" style="width: 8%;margin-left: 5%;">创建相册</button>
 		<div id="container">
+			<!-- 如果用户没有相册 默认显示添加图片 -->
+			<div>
+				<img onclick="addImgs()" src="images/not_imgs.png">
+			</div>
 			<!-- <div>
 				<img onclick="openpic(111)" src="images/01.jpg">
 				<h3>Agfa</h3>

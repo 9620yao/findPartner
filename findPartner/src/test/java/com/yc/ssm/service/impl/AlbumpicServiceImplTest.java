@@ -26,5 +26,12 @@ public class AlbumpicServiceImplTest {
 		System.out.println(list);
 		assertNotNull(list);
 	}
-
+	
+	@Test
+	public void testNewPic() {
+		boolean result = albumpicService.newpic("asf", "asdfa");
+		System.out.println(result);
+		assertNotNull(result);
+	}
+	
 }

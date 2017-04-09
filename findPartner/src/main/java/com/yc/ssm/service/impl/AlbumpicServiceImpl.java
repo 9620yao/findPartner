@@ -20,4 +20,12 @@ public class AlbumpicServiceImpl implements AlbumpicService {
 		return albumpicMapper.listApic(abid);
 	}
 
+	@Override
+	public boolean newpic(String abid, String picPath) {
+		Albumpic albumpic = new Albumpic();
+		albumpic.setAbid(abid);
+		albumpic.setApic(picPath);
+		return albumpicMapper.addpic(albumpic) > 0;
+	}
+
 }

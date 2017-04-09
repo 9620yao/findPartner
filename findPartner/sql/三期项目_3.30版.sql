@@ -119,9 +119,11 @@ CREATE TABLE album(
 	   otheralbumone VARCHAR2(40),
 	   otheralbumtwo varchar2(40)
 );
---select * from album where alid = 'a10056';
---create sequence seq_album_alid start with 10000;
+--select * from album where aaid = 'a10057'; --ab10040
 
+
+--create sequence seq_album_alid start with 10000;
+select * from albumpic where abid = 'ab10040'
 --相册-图片（某相册下的所有图片）
 create table albumpic(
 	   abid VARCHAR2(40),--相册编号
