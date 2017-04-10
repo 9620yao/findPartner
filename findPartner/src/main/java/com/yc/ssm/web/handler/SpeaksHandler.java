@@ -39,6 +39,5 @@ public class SpeaksHandler {
 		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
 		speaks.setSpeakman(speakman);
 		return speaksService.add(speaks);
-		//return false;
 	}
 }

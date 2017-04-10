@@ -1,14 +1,9 @@
 package com.yc.ssm.entity;
-
-import java.util.List;
-
 /**
  * 评论
  * @author Administrator
  *
  */
-
-
 public class Comments{
 	private String cid;
 	private String callid;

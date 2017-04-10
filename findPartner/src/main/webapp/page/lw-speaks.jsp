@@ -77,7 +77,7 @@
 				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
 					placeholder="发表一个说说"></textarea>
 				<input name="content" id="content" type="hidden">
-				<button onclick="return addSpeak()">发表</button>
+				<input type="button" onclick="return addSpeak()" value="发表"/> 
 			</form>
 		</div>
 	</article>

@@ -59,72 +59,68 @@
 	<div id="host">
 		<form action="words/findWords" method="POST" id="myForm">
 			<label>显示您的留言</label>
-			<%-- <c:forEach var="k" items="${ws}">
-				<p>${k.wcontent}</p>
-			</c:forEach> --%>
-			<!-- <input type=text style="display:none">input标签隐藏 -->
+			<div id="everyLiTag">
+					<!-- 显示留言 -->
+					<div id="wordsInfo">
+						<span style="color: blue;" class="aaa26">被留言的用户</span>
+						<span style="color: blue;" id="wfrendid" name="wfrendid">留言人</span>
+						<span style="color: grey;" class="wdate" id="wdate" name="wdate">留言日期</span>
+						<span id="waddress" name="waddress">留言地址</span>
+						<textarea class="wcontent" id="wcontent" name="wcontent">留言内容</textarea>
+					</div>
+					<div class="comment">
+							<input style="color: blue;" class="aaa29"/>
+							<span style="color: blue;" class="a29name">${s.comuserid}</span>
+							<span style="color: grey;" class="wdate" id="wcontent" name="wcontent">评论时间</span>
+							<textarea class="wcontenta29" id="detail" name="detail">评论内容</textarea>
+					</div>
+					<br>
 
-			<ul  id="everyLiTag">
-				<c:forEach var="k" items="${ws}">
-				    <li style="color:blue;" class="aaa26"></li>
-					<li style="color:blue;" class="name">${k.wfrendid}</li>
-					<li style="color:grey;" class="wdate">${k.wdate}</li>
-					<%-- <li>${k.waddress}</li> --%>
-					<textarea  class="wcontent">${k.wcontent}</textarea>
-					<a class="bianji"  href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
-					<a class="fabiao" href="javascript:void(0)" " style="color:red;">发表</a>
-						<ul class="pinglun">
-							<c:forEach var="s" items="${k.comments}">
-							    <li style="color:blue;" class="aaa29"></li>
-								<li style="color:blue;" class="a29name">${s.comuserid}</li>
-								<li style="color:grey;" class="wdate" id='aa29'>${s.comTime}</li>
-								<textarea class="wcontenta29">${s.detail}</textarea>
-								<a class="bianjia29" href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
-								<a class="fabiaoa29" href="javascript:void(0)"  style="color:red;">发表</a>
-							</c:forEach>
-						</ul>
-						<br>
-						<ul class="huifu">
-							<c:forEach var="r" items="${k.replys}">
-							    <li style="color:blue;" class="huiaa26"></li>
-								<li style="color:blue;" class="huiaa26name">${r.ruserid}</li>
-								<li style="color:grey;" class="huiaa26wdate">${r.rtime}</li>
-								<textarea id="edit" name="edit" class="huiaa26edit">${r.rcontent}</textarea>
-								<a class="huibianjia26" href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
-								<a class="huifabiaoa26" href="javascript:void(0)" style="color:red;">发表</a>
-							</c:forEach>
-						</ul>
-				</c:forEach>
-			</ul>
+					<div class="huifu">
+							<span style="color: blue;" class="huiaa26name"></span>
+							<span style="color: grey;" class="huiaa26wdate"></span>
+							<input id="edit" name="edit" class="huiaa26edit">
+							<a class="huibianjia26" href="javascript:void(0)"
+								onclick="add();" style="color: red;">编辑</a>
+							<a class="huifabiaoa26" href="javascript:void(0)"
+								style="color: red;">发表</a>
+					</div>
+			</div>
 			<br>
-			<button type="submit" style="height:30px;margin-top:-160px;">查看留言以及回复评论</button>
+			<button   style="height: 30px; margin-top: -160px;">查看留言以及回复评论</button>
 		</form>
 	</div>
 	<br>
 	<div id="leaveMsg">
-		<label style="color:#9c9c9c">发表留言</label>
-		<textarea type="text" style="width:500px" ></textarea>
+		<label style="color: #9c9c9c">发表留言</label>
+
+		<textarea id="ueditor" name="ueditor" type="text" style="width: 300px"></textarea>
 		<button type="submit" class="fabiao-btn">发表</button>
 		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<br>
 	<div id="comWords">
-		<label style="color:#9c9c9c">评论留言</label>
-		<textarea type="text" style="width:500px"></textarea>
+		<label style="color: #9c9c9c">评论留言</label>
+		<textarea id="ueditor" name="ueditor" type="text" style="width: 500px"></textarea>
 		<button type="submit" class="fabiao-btn">发表</button>
 		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<br>
 	<div id="replyhost">
-		<label style="color:#9c9c9c">回复评论</label>
-		<textarea type="text" style="width:500px"></textarea>
+		<label style="color: #9c9c9c">回复评论</label>
+		<textarea id="ueditor" name="ueditor" type="text" style="width: 500px"></textarea>
 		<button type="submit" class="fabiao-btn">发表</button>
 		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.all.min.js"> </script>
-	<script type="text/javascript" charset="utf-8" src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.all.min.js">
+		
+	</script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="rel/js/message.js"></script>
 </body>
