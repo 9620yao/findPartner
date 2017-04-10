@@ -7,4 +7,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listAlbum" parameterType="string" resultType="com.yc.ssm.entity.Album">
 		select * from album where aaid = #{_parameter}
 	</select>
+	
+	<select id="fpByabid" parameterType="string" resultType="com.yc.ssm.entity.Album">
+		select * from album where abid = #{_parameter}
+	</select>
+	
+	<insert id="addAlbum" parameterType="com.yc.ssm.entity.Album">
+		insert into album values('ab'||seq_album_abid.nextval,#{abname},#{aaid},#{alcontent},
+		'',to_char(sysdate,'yyyy-MM-dd hh:mm:ss'),'','','')
+	</insert>
+	
+	<update id="updateAheader" parameterType="java.util.Map" >
+		update album set aheader = #{picPath} where abid = #{abid}
+	</update>
+	
 </mapper>

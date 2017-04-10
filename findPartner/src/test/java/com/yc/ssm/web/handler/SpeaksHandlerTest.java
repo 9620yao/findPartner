@@ -30,7 +30,7 @@ public class SpeaksHandlerTest {
 	private ReplysService replysService;
 	
 	
-	@Test
+	/*@Test
 	public void testListSpeaks() {
 		//取到当前用户下的所有说说
 		List<Speaks> listspeacks =  speaksService.listSpeaks("a10056");
@@ -56,7 +56,7 @@ public class SpeaksHandlerTest {
 				}
 			}
 		}
-	}
+	}*/
 
 }
 

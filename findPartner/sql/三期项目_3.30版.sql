@@ -25,10 +25,10 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
-<<<<<<< HEAD
-insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
-update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='61';
+insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17873235243','245336543@qq.com','c99e178d83cdfea3c167bc1d15f9b47ff8f80145','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='1';
 select * from logining where email= '290966751@qq.com'
+insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17382489362','142535325@qq.com','c99e178d83cdfea3c167bc1d15f9b47ff8f80145','女',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));--81 
 --select * from logining where email= '1234567382@qq.com'
 --select * from users where alid= 'a33'
 select * from logining;--
@@ -41,8 +41,10 @@ select * from logining;--
 --select * from users;
 select seq_users_aid.nextval from dual connect by level < 50;
 select * from users where alid =  (select lid from logining where email= '275966751@qq.com') 
+select * from users u ,logining l where u.aid='10000' and u.alid = l.lid
 
---select * from logining where email= '290966751@qq.com'
+--select * from logining where email= '19216815@qq.com' --a10032
+select * from users where alid ='a10032' --a10056
 --个人信息表
 CREATE TABLE users(
        aid VARCHAR2(40) PRIMARY KEY,--用户编号
@@ -65,7 +67,11 @@ CREATE TABLE users(
 );
 --create sequence seq_admins_aid start with 10000;
 insert into USERS(aid,alid) values(seq_users_aid.nextval,'61');
+insert into USERS(aid,alid) values(seq_users_aid.nextval,'30');
+insert into USERS(aid,alid,hobby,address) values(seq_users_aid.nextval,'82','唱歌','湖南长沙');
 select * from users;
+update users set hobby='唱歌',address='湖南长沙' where aid='10000';
+
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
        aid varchar2(40),--用户编号
@@ -74,7 +80,22 @@ CREATE TABLE friends(
 	   otherfriendsone VARCHAR2(40),
 	   otherfriendstwo varchar2(40)
 );
-select * from friends;
+select * from friends where aid='10000';
+select * from users u where u.aid in (select f.fid from friends f where f.aid='10000')
+insert into friends(aid,fid) values('10040','10020');
+insert into friends(aid,fid) values('10000','a10000');
+
+select u.hobby from users u where u.aid='10000'
+select * from users u where u.aid not in (select f.fid from friends f where f.aid='10000') and u.aid!='10000'  --查找用户除好友列表以外的用户信息
+select * from users u where u.aid not in (select f.fid from friends f where f.aid='10000') and u.aid!='10000' and u.address like '%'||(select u.address from users u where u.aid='10000')||'%'
+
+select fid from friends where aid='10000'
+--
+select * from FRIENDS 
+select aid from FRIENDS f where f.fid='10020' and aid not in (select fid from FRIENDS f where f.aid='10020')  --10000  10040  10041  他人的好友列表有我
+--select fid from FRIENDS f where f.aid='10020'  --我的好友列表  10041  10000
+--select fid from FRIENDS f where f.aid not in (select aid from FRIENDS f where f.fid='a10000')--10000 10041
+--select * from FRIENDS where fid='10020' and aid in (select aid from FRIENDS f where f.fid='10020')
 
 --其他好友表（某用户和没关注的好友）--在两个好友没关注的时候，联系在一起
 CREATE TABLE friendothers(
@@ -97,7 +118,11 @@ CREATE TABLE speaks(
 	   otherspeakstwo varchar2(40)
 );
 --create sequence seq_speaks_sid start with 10000;
-insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是一个说说','a10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是第三条说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是第四条说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是第无条说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是第六条说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into SPEAKS(sid,content,speakman,senddate) values('s'||seq_speaks_sid.nextval,'我是第七条说说','10000',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 select * from SPEAKS
 --相册集表(相册列表)
 CREATE TABLE album(
@@ -111,9 +136,11 @@ CREATE TABLE album(
 	   otheralbumone VARCHAR2(40),
 	   otheralbumtwo varchar2(40)
 );
---select * from album where alid = 'a10056';
---create sequence seq_album_alid start with 10000;
+--select * from album where aaid = 'a10057'; --ab10040
 
+
+--create sequence seq_album_alid start with 10000;
+select * from albumpic where abid = 'ab10040'
 --相册-图片（某相册下的所有图片）
 create table albumpic(
 	   abid VARCHAR2(40),--相册编号
@@ -135,7 +162,13 @@ CREATE TABLE words(
 	   otheralbumone VARCHAR2(40),
 	   otheralbumtwo varchar2(40)
 );
---create sequence seq_words_wid start with 10000;
+create sequence seq_words_wid start with 10000;
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第一条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第二条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第三条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第四条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第五条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into WORDS(wid,waid,wfrendid,wcontent,wdate) values('w'||seq_words_wid.nextval,'10000','10020','我是第六条留言',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 select * from WORDS;
 --评论表（只包括 说说/相册/相片/留言 的单一评论）
 CREATE table comments(
@@ -162,12 +195,10 @@ create table replys(
 	   otherreplysone VARCHAR2(40),
 	   otherreplystwo varchar2(40)
 );
-<<<<<<< HEAD
 create sequence seq_replys_rid start with 10000;
 insert into REPLYS(rid,rcid,ruserid,rtargetid,rcontent,rtime) values(seq_replys_rid.nextval,'10000','10000','a10000','我是评论的回复',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 select * from REPLYS;
 select * from COMMENTS,REPLYS where COMMENTS.CID=REPLYS.RCID and COMMENTS.CALLID='10020'
-=======
 --create sequence seq_replys_rid start with 10000;
 select w.*,c.* from replys  where rcid in(
 	select c.cid from words w,comments c where w.wid=c.callid
@@ -184,3 +215,5 @@ on c.cid=r.rcid
 ---------------------------------------------------------------------
 --说说/相册/相片/留言等表，共用评论表和回复表。
 --说说/相册/相片/留言的主键，既编码用字符串和序列拼接，用来避免冲突。
+select count(1) total,ceil(count(1) / pageSize) totalPage, currPage, pageSize,speakman from speaks
+	where speakman= 'a10056' order by speakman  

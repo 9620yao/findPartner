@@ -11,6 +11,6 @@ public interface PartnerService {
 
 	List<Partner> findEmail(Partner partner);
 
-	Partner updatePwd(Partner partner);
+	boolean updatePwd(Partner partner);
 
 }

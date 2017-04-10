@@ -1,17 +1,16 @@
 package com.yc.ssm.mapper;
 
-import java.util.List;
+import java.util.Map;
 
-import com.yc.ssm.entity.Comments;
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Speaks;
 
 public interface SpeaksMapper {
 
-	List<Speaks> findSpeaks(String speakman);
-	
-	//增加说说
-	int addSpeaks(Speaks speaks);
+	PaginationBean<Speaks> PbeanSpeaks(Map<String, Object> map);
+	// List<Speaks> findSpeaks(String speakman);
 
-	List<Comments> listComments(String callid);
+	// 增加说说
+	int addSpeaks(Speaks speaks);
 
 }

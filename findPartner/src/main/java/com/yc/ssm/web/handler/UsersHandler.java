@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
+import com.yc.ssm.service.PartnerService;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.ServletUtil;
 
@@ -26,16 +27,16 @@ public class UsersHandler {
 	@Autowired
 	private UsersService usersService;
 
-	// 显示个人信息，通过logid取到个人信息
+	@Autowired
+	private PartnerService partnerService;
+
+	// 显示个人信息，通过aid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
 	public Users list(HttpSession session) {
-		Users users = usersService.listUsersInfo(ServletUtil.LOGINING_ID);
-		if (users != null) {
-			// 取到用户id放到session会话里面
-			session.setAttribute(ServletUtil.USERAID, users.getAid());
-		}
-		return users;
+		String aid = (String) session.getAttribute(ServletUtil.FINALAID);//取到用户id
+		LogManager.getLogger().debug("ServletUtil.FINALAID==>"+aid);
+		return usersService.listUsersInfoByAid(aid);
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
@@ -55,21 +56,23 @@ public class UsersHandler {
 		}
 		return usersService.modifyUserInfo(users);
 	}
+
+	// 修改密码
+	@RequestMapping(value = "mofifyPwd", method = RequestMethod.POST)
+	public String modifyPwd(Partner partner, String newPassword, HttpServletRequest request) {
+		LogManager.getLogger().debug("partner====>" + partner + "newPassword==>" + newPassword);
+		if (partnerService.login(partner) == null) {
+			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
+			return "/page/lw-modifyPwd.jsp";
+		} else {
+			partner.setPassword(newPassword);
+			partner.setLid(ServletUtil.LOGINING_ID);
+			partnerService.updatePwd(partner);
+			return "redirect:/page/lw-log.jsp";
+		}
+
+	}
 	
-	/*//修改密码
-		@RequestMapping(value = "mofifyPwd", method = RequestMethod.POST)
-		@ResponseBody
-		public String modifyPwd(Partner partner,String newPassword,HttpServletRequest request) {
-			System.out.println("partner====>" + partner+"newPassword==>"+newPassword);
-			if (partnerService.login(partner) == null) {
-				request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
-				return "/page/lw-modifyPwd.jsp";
-			} else {
-				//String aid=request.getSession().getAttribute()
-				partnerService.updatePwd(partner);
-				return "redirect:/page/lw-index.jsp";
-			}
-			
-		}*/
+	
 
 }

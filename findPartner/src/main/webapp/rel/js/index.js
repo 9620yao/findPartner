@@ -1,3 +1,25 @@
+GetFinallyAid();
+function GetFinallyAid(){
+	$.post("friend/finalAid",function(data){
+		alert(data);
+		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
+		//alert(data.finalaid);
+		if(data.finalaid=="-1"){
+			$("#myfriend").show();
+			$(".updatepwd").show();
+			$(".updatebtn").show();
+			$(".homepage").attr("href","page/lw-index.jsp");
+			$(".homepage").val("个人中心");
+		}else{
+			$("#myfriend").hide();
+			$(".updatepwd").hide();
+			$(".updatebtn").hide();
+			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);
+			$(".homepage").html("他的主页");
+		}
+	},"json")
+}
+
 UE.getEditor('fdesc');
 function myadd(){
 	alert(1111);
@@ -73,7 +95,7 @@ $('#addInfo').dialog({
 	width:380,
 	height:500,
 	left:500,
-	top:800,
+	top:300,
 	title:'',
 	border:false,
 	modal: true
@@ -103,28 +125,28 @@ $(".updateBtn").linkbutton({
 
 $("#updateUserInfo").form({
 	url:"user/update",    
-    success:function(data){
-    	//alert(JSON.stringify(data));
-    	if(data == ""){
-    		$.messager.alert('用户修改主','当前用户没有修改用户的权限 ！','warning');
-    		$("#addInfo").dialog("close"); //关闭修改框
-    		return ;
-    	}
+	success:function(data){
+		//alert(JSON.stringify(data));
+		if(data == ""){
+			$.messager.alert('用户修改主','当前用户没有修改用户的权限 ！','warning');
+			$("#addInfo").dialog("close"); //关闭修改框
+			return ;
+		}
 
-    	if(data.trim() == "true"){
-    		$("#addInfo").dialog("close"); //关闭修改框
-    		loadAdminInfo();
-    	}else{
-    		$.messager.show({
-    			title:'修改信息',
-    			msg:'修改失败！！！',
-    			showType:'show',
-    			style:{
-    				top:document.body.scrollTop+document.documentElement.scrollTop,
-    			}
-    		});
-    	}
-    } 
+		if(data.trim() == "true"){
+			$("#addInfo").dialog("close"); //关闭修改框
+			loadAdminInfo();
+		}else{
+			$.messager.show({
+				title:'修改信息',
+				msg:'修改失败！！！',
+				showType:'show',
+				style:{
+					top:document.body.scrollTop+document.documentElement.scrollTop,
+				}
+			});
+		}
+	} 
 });
 function chgPic(obj){
 	$(".pic").attr("src", window.URL.createObjectURL(obj.files[0]));
@@ -132,14 +154,7 @@ function chgPic(obj){
 
 $(function(){
 	$("#head li a").on("click",function(){
-	$("#head li a").css("background-color","white");
-	$(this).css("background-color","green");
+		$("#head li a").css("background-color","white");
+		$(this).css("background-color","green");
 	})
-	});
-$("#modifyPwd").dialog({
-	title:"",
-	border:false,
-	modal:true,
-	width:200,
-	top:80
 });

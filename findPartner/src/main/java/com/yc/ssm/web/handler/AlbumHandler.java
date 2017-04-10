@@ -20,13 +20,25 @@ public class AlbumHandler {
 
 	@Autowired
 	private AlbumService albumService;
-	
+
 	@RequestMapping("list")
 	@ResponseBody
-	public List<Album> list(HttpSession session){
-		String aaid = (String) session.getAttribute(ServletUtil.USERAID);
+	public List<Album> list(HttpSession session) {
+		String aaid = (String) session.getAttribute(ServletUtil.FINALAID);
 		LogManager.getLogger().debug("我是Album list() 我进来了");
 		return albumService.listAlbum(aaid);
+	}
+
+	@RequestMapping("newimgs")
+	public String NewImgs(Album Album, HttpSession session) {
+		String aaid = (String) session.getAttribute(ServletUtil.FINALAID);
+		LogManager.getLogger().debug("我是Album list() 我进来了 aaid:" + aaid);
+		Album.setAaid(aaid);
+		if (albumService.addAlbum(Album)) {
+			session.setAttribute(ServletUtil.NEWIMGS_ERROR, "添加相册失败，请确认后添加...");
+			return "redirect:/page/lw-img.jsp";
+		}
+		return "redirect:/page/new-imgs.jsp";
 	}
 
 }

@@ -26,4 +26,11 @@ public class EncryptAspect {
 		LogManager.getLogger().debug("对密码加密前==》" + partner);
 		partner.setPassword(Encrypt.md5AndSha(partner.getPassword()));
 	}
+	
+	@Before("execution(* com.yc.ssm.service.impl.PartnerServiceImpl.updatePwd(..))")
+	public void beforeMethodModifyPwd(JoinPoint jpoint) {
+		Partner partner = (Partner) jpoint.getArgs()[0];
+		LogManager.getLogger().debug("对密码加密前==》" + partner);
+		partner.setPassword(Encrypt.md5AndSha(partner.getPassword()));
+	}
 }

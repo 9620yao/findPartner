@@ -30,6 +30,7 @@
 	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/speak.css">
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
 <link type="text/css" rel="stylesheet"
 	href="easyui/themes/default/easyui.css">
@@ -51,13 +52,21 @@
 		</button>
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
-			<ul class="am-nav am-nav-pills am-topbar-nav">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li><a href="javascript:void(0)">发现好友</a></li>
-				<!-- <li><a href="page/message.jsp">日志</a></li> -->
+			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
+					class="am-dropdown-toggle" data-am-dropdown-toggle
+					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
+				</a>
+					<ul class="am-dropdown-content">
+						<li><a href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a href="page/lw-findFriend.jsp">添加好友</a></li>
+					</ul></li>
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>
 				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
@@ -76,14 +85,14 @@
 			<form id="myspeak" method="post">
 				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
 					placeholder="发表一个说说"></textarea>
-				<input name="content" id="content" type="hidden">
-				<input type="button" onclick="return addSpeak()" value="发表"/> 
+				<input name="content" id="content" type="hidden"> <a
+					href="javascript:void(0)" onclick="return addSpeak()">发表</a>
 			</form>
 		</div>
 	</article>
 
 	<!-- content srart -->
-	<!-- 添加说说 -->
+	<!-- <!-- 添加说说 -->
 	<div id="addSpeaks">
 		
 	</div>
@@ -92,8 +101,10 @@
 
 			<!-- 显示说说 -->
 		</div>
+		<div id="page"></div>
 	</div>
 	<!-- content end -->
+
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">

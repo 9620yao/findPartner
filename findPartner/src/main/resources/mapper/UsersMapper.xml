@@ -79,5 +79,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			aid=#{aid}
 		</where>
 	</update>
+	
+	<select id="findUsersInfoByAid" parameterType="string" resultMap="UsersMap">
+		select * from users u ,logining l where u.aid=#{aid} and u.alid = l.lid
+	</select>
 
 </mapper>

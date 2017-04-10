@@ -10,4 +10,6 @@ public interface UsersService {
 
 	Users listUsersInfo(String alid);
 
+	Users listUsersInfoByAid(String aid);
+
 }

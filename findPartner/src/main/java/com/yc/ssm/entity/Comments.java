@@ -1,10 +1,13 @@
 package com.yc.ssm.entity;
+
 /**
  * 评论
+ * 
  * @author Administrator
  *
  */
-public class Comments{
+
+public class Comments {
 	private String cid;
 	private String callid;
 	private String detail;
@@ -14,6 +17,7 @@ public class Comments{
 
 	public Comments() {
 	}
+
 	public Comments(String cid, String callid, String detail, String comuserid, String comTime, Users users) {
 		this.cid = cid;
 		this.callid = callid;
@@ -63,7 +67,6 @@ public class Comments{
 		this.comTime = comTime;
 	}
 
-
 	public Users getUsers() {
 		return users;
 	}
@@ -72,21 +75,10 @@ public class Comments{
 		this.users = users;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "\nComments [cid=" + cid + ", callid=" + callid + ", detail=" + detail + ", comuserid=" + comuserid
 				+ ", comTime=" + comTime + ", users=" + users + "]";
 	}
-
-
-
-
-
-
-
-
-
 
 }

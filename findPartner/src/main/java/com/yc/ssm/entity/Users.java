@@ -1,10 +1,7 @@
 package com.yc.ssm.entity;
 
+public class Users {
 
-import java.util.List;
-
-public class Users{
-	
 	private String aid;
 	private String alid;
 	private String nickname;
@@ -21,12 +18,10 @@ public class Users{
 	private String picture;
 	private String astate;
 	private Partner partner;
-	
-	public Users() {
-		
-	}
 
-	
+	public Users() {
+
+	}
 
 	public Users(String aid, String alid, String nickname, String age, String birthday, String photo, String star,
 			String hobby, String job, String company, String school, String address, String hometown, String picture,
@@ -48,8 +43,6 @@ public class Users{
 		this.astate = astate;
 		this.partner = partner;
 	}
-
-
 
 	public String getAid() {
 		return aid;
@@ -178,9 +171,6 @@ public class Users{
 	public void setPartner(Partner partner) {
 		this.partner = partner;
 	}
-	
-	
-
 
 	@Override
 	public String toString() {
@@ -189,18 +179,5 @@ public class Users{
 				+ company + ", school=" + school + ", address=" + address + ", hometown=" + hometown + ", picture="
 				+ picture + ", astate=" + astate + ", partner=" + partner + "]";
 	}
-
-
-
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 
 }

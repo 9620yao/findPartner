@@ -16,6 +16,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<update id="modifyPwd" parameterType="Partner">
-		update LOGINING set password=#{password} where email=#{email} 
+		update LOGINING set password=#{password} where lid=#{lid} 
 	</update>
 </mapper>

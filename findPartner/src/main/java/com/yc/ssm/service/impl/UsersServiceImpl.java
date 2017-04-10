@@ -28,4 +28,10 @@ public class UsersServiceImpl implements UsersService {
 		return UsersMapper.findUsersInfo(alid);
 	}
 
+	@Override
+	public Users listUsersInfoByAid(String aid) {
+		// TODO Auto-generated method stub
+		return UsersMapper.findUsersInfoByAid(aid);
+	}
+
 }

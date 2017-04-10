@@ -8,4 +8,9 @@ public interface AlbumService {
 
 	List<Album> listAlbum(String aaid);
 
+	boolean addAlbum(Album album);
+
+	Album fpByabid(String abid);// 根据相册编号去该相册
+
+	boolean updateAheader(String abid, String picPath);
 }
