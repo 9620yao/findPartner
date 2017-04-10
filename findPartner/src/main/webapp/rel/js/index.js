@@ -1,17 +1,17 @@
 GetFinallyAid();
 function GetFinallyAid(){
 	$.post("friend/finalAid",function(data){
-		//alert(data);
+		alert(data);
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		//alert(data.finalaid);
 		if(data.finalaid=="-1"){
-			$(".myfriend").show();
+			$("#myfriend").show();
 			$(".updatepwd").show();
 			$(".updatebtn").show();
 			$(".homepage").attr("href","page/lw-index.jsp");
 			$(".homepage").val("个人中心");
 		}else{
-			$(".myfriend").hide();
+			$("#myfriend").hide();
 			$(".updatepwd").hide();
 			$(".updatebtn").hide();
 			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);

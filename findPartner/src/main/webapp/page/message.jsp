@@ -33,9 +33,9 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-<<<<<<< HEAD
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li class="am-dropdown" data-am-dropdown><a
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
 					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
@@ -159,7 +159,7 @@
 				<h1>我们站在巨人的肩膀上</h1>
 				<h3>Heroes</h3>
 				<p>
-					<ul>
+				<ul>
 					<li>jQuery</li>
 					<li>Zepto.js</li>
 					<li>Seajs</li>
@@ -172,16 +172,16 @@
 		<div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
-	
+
 	<script src="assets/js/jquery.min.js"></script>
-					<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/ueditor.all.min.js"></script>
+		src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
+		src="rel/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="rel/js/message.js"></script>
 
-				</body>
+</body>
 </html>
