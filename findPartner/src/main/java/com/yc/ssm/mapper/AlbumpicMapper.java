@@ -8,4 +8,6 @@ public interface AlbumpicMapper {
 
 	List<Albumpic> listApic(String abid);
 
+	int addpic(Albumpic albumpic);
+
 }

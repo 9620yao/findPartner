@@ -33,6 +33,7 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
+<<<<<<< HEAD
 				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
 				<li class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
@@ -45,7 +46,7 @@
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>
 				<li><a href="page/lw-img.jsp">相册</a></li>
-				<li><a href="page/lw-modifyPwd.jsp">修改密码</a></li>
+				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">

@@ -9,7 +9,7 @@ function loadFriendsInfo(){
 				friendList+=data[i].picture==null?'<img onclick="showuser(\''+data[i].aid+'\')" src="images/not_pic.jpg">':'<img onclick="showuser(\''+data[i].aid+'\')" src="'+data[i].picture+'">';
 				friendList+='<h3>'+data[i].nickname+'</h3></div>';
 		}
-		$("#container")[0].innerHTML = friendList;
+		$("#myfriend")[0].innerHTML = friendList;
 
 
 	}, "json");

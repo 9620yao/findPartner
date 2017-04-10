@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="rel/css/albumpic.css">
+<link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -47,13 +48,14 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li><a href="page/lw-friend.jsp">我的好友</a></li>
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li><a class="myfriend" href="page/lw-friend.jsp">我的好友</a></li>
 				<!-- <li><a href="page/message.jsp">日志</a></li> -->
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>
 				<li><a href="page/lw-img.jsp">相册</a></li>
-				<li><a href="page/lw-modifyPwd.jsp">修改密码</a></li>
+				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
@@ -67,14 +69,72 @@
 	<hr>
 	<!-- nav end -->
 
+	<!-- 模态框 start 
+	Button trigger modal
+	<button type="button" class="btn btn-primary btn-lg"
+		data-toggle="modal" data-target="#myModal">Launch demo modal
+	</button> -->
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">添加图片</h4>
+				</div>
+				<!-- 添加图片 start -->
+				<div class="modal-body">
+					<form action="albumpic/newpic" method="post"
+						enctype="multipart/form-data">
+						<%-- <p>
+							<label style="color: red;">${errorNewimgs}</label>
+						</p> --%>
+						<p>
+							<input id="pictrue" type="file" name="picData"
+								onchange="chgPic(this)" />
+						</p>
+						<p>
+							<img src="images/not_pic.jpg" class="pic" width="100"
+								height="100">
+						</p>
+						<p>
+							<button>添加</button>
+						</p>
+					</form>
+				</div>
+				<!-- 添加图片 end -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end  -->
+
 	<!-- content 展示图片 srart -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
 		<div id="albumpicdiv">
 			<div class="box">
 				<div>
 					<p>
-						<a href="page/lw-img.jsp">相册</a> | <a
-							href="#">当前相册</a>
+						<a href="page/lw-img.jsp">相册</a> | &nbsp;&nbsp;<a href="#">当前相册</a>
+						<button data-toggle="modal" data-target="#myModal"
+							class="addimgbtn">上传图片</button>
+					</p>
+				</div>
+				<div id="imgnotnull">
+					<p>
+						<input class="newimgbtn" type="button" data-toggle="modal"
+							data-target="#myModal" value="上传图片">
+					</p>
+					<p>
+						<img class="newimg" src="images/not_albumpic.png"
+							data-toggle="modal" data-target="#myModal">
 					</p>
 				</div>
 				<!-- 展示相册下面的图片 -->
@@ -140,6 +200,7 @@
 
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>

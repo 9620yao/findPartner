@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.yc.ssm.entity.Partner;
 import com.yc.ssm.util.ServletUtil;
 
 @WebFilter("/user/*")
@@ -32,9 +31,6 @@ public class CheckLoginUserFilter extends AbstractFilter {
 			resp.sendRedirect(req.getServletContext().getContextPath() + "/page/lw-re.jsp");
 			return;
 		}
-		/*//user不为空的时候取到登录id
-		Partner partner = (Partner) user;
-		ServletUtil.LOGINING_ID = partner.getLid();// 取到loingid*/
 		chain.doFilter(requset, response);// 继续请求处理
 	}
 

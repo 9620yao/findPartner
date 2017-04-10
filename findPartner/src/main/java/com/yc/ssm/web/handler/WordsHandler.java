@@ -23,7 +23,7 @@ public class WordsHandler {
 	@ResponseBody
 	public PaginationBean<Words> listWords(Integer currPage, String rows, HttpServletRequest request) {
 		LogManager.getLogger().debug("我进来了 listWords");
-		String waid = (String) request.getSession().getAttribute(ServletUtil.USERAID);
+		String waid = (String) request.getSession().getAttribute(ServletUtil.FINALAID);
 		return wordsService.listWords(waid,String.valueOf(currPage),"5");
 	}
 

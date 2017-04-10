@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html>
 <head>
@@ -11,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>BLOG | Amaze UI Examples</title>
+<title>image | Amaze UI Examples</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <link rel="icon" type="image/png" href="assets/i/favicon.png">
@@ -25,20 +24,14 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<link rel="stylesheet" href="rel/css/speak.css">
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" href="rel/css/new-imgs.css">
 </head>
-<body id="blog">
+
+<body id="blog-article-sidebar">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
-			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
 			<h2 class="am-hide-sm-only">findPartner | 校园首个交互网站</h2>
 		</div>
 	</header>
@@ -53,15 +46,10 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li class="am-dropdown" data-am-dropdown><a
-					class="am-dropdown-toggle" data-am-dropdown-toggle
-					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
-				</a>
-					<ul class="am-dropdown-content">
-						<li><a href="page/lw-friend.jsp">我的好友</a></li>
-						<li><a href="page/lw-findFriend.jsp">添加好友</a></li>
-					</ul></li>
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li><a class="myfriend" href="page/lw-friend.jsp">我的好友</a></li>
+				<!-- <li><a href="page/message.jsp">日志</a></li> -->
 				<li><a href="page/lw-speaks.jsp">说说</a></li>
 				<li><a href="page/message.jsp">留言</a></li>
 				<li><a href="page/lw-img.jsp">相册</a></li>
@@ -79,30 +67,36 @@
 	<hr>
 	<!-- nav end -->
 
-	<article class="am-g blog-entry-article">
-		<div class="editdiv">
-			<form id="myspeak" method="post">
-				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
-					placeholder="发表一个说说"></textarea>
-				<input name="content" id="content" type="hidden">
-				<a href="javascript:void(0)" onclick="return addSpeak()">发表</a>
-			</form>
-		</div>
-	</article>
 
 	<!-- content srart -->
-	<!-- <!-- 添加说说 -->
-	<div id="addSpeaks">
-		
-	</div> -->
 	<div class="am-g am-g-fixed blog-fixed">
-		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
-
-			<!-- 显示说说 -->
+		<div class="am-u-md-8 am-u-sm-12">
+			<article class="am-g blog-entry-article">
+				<!-- 新建相册 start -->
+				<div style="margin-left: 3%;" id="builtimgs">
+					<form action="album/newimgs" method="post">
+						<p>
+							<label style="color: red;">${errorNewimgs}</label>
+						</p>
+						<p>
+							<a href="page/lw-img.jsp">取消</a><span>新建相册</sapn>
+						</p>
+						<p>
+							<input name="abname" placeholder="标题" type="text" required="required">
+						</p>
+						<p>
+							<textarea name="alcontent" rows="1" cols="30" placeholder="描述"></textarea>
+						</p>
+						<p>
+							<button>添加</button>
+						</p>
+					</form>
+				</div>
+			</article>
 		</div>
-		<div id="page"></div>
 	</div>
-	<!-- content end -->
+
+	<!-- 新建相册 end -->
 
 	<footer class="blog-footer">
 		<div
@@ -151,9 +145,10 @@
 		<div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
+
+
+	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
@@ -161,14 +156,6 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
-	<script type="text/javascript" src="rel/js/speaks.js"></script>
+	<script src="rel/js/new-imgs.js"></script>
 </body>
 </html>
