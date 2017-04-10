@@ -73,7 +73,7 @@ $('#addInfo').dialog({
 	width:380,
 	height:500,
 	left:500,
-	top:800,
+	top:300,
 	title:'',
 	border:false,
 	modal: true

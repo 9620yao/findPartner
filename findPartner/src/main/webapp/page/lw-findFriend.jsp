@@ -1,28 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-<base href="${deployName}">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>留言板</title>
-<link rel="stylesheet" href="assets/css/message.css">
-<link rel="stylesheet" type="text/css"
+<base href="${deployName }">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>image | Amaze UI Examples</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="assets/i/favicon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="apple-touch-icon-precomposed"
+	href="assets/i/app-icon72x72@2x.png">
+<meta name="msapplication-TileImage"
+	content="assets/i/app-icon72x72@2x.png">
+<meta name="msapplication-TileColor" content="#0e90d2">
+<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
+<link type="text/css" rel="stylesheet"
 	href="easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
-<body>
+
+<body id="blog-article-sidebar">
+	<!-- header start -->
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
-			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
-			<h2 class="am-hide-sm-only">findPartner | 校园首个交互网站</h2>
+			<img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" />
+			<h2 class="am-hide-sm-only">中国首个开源 HTML5 跨屏前端框架</h2>
 		</div>
 	</header>
+	<!-- header end -->
 	<hr>
+
 	<!-- nav start -->
 	<nav class="am-g am-g-fixed blog-fixed blog-nav">
 		<button
@@ -48,82 +67,30 @@
 				<li><a href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
-				role="search">
+				id="findFriendForm" role="search" method="POST">
 				<div class="am-form-group">
-					<input type="text" class="am-form-field am-input-sm"
-						placeholder="搜索">
+					<input type="text" class="am-form-field am-input-sm" id="aid"
+						name="aid" placeholder="请输入对方账号">
+					<button>查找</button>
 				</div>
 			</form>
 		</div>
 	</nav>
-	<hr>
 	<!-- nav end -->
+	<hr>
+	<!-- content srart -->
+	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendIntro()">系统推荐好友</a><br/>
+	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendReq()">好友请求</a>
+	<div style="margin-left: 400px;">
+		<!-- 推荐好友 -->
 
-	<div id="Userimag" style="margin-left: 7%">
-		<label>个人照片</label>
-		<p>
-			<img src="assets/i/b3.jpg" width=100px; height=100px;>
-		</p>
+		<div id="friend">
+			<!-- <img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3>
+			<img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3>
+			<img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3> -->
+		</div>
 	</div>
-
-	<!-- hostAll start -->
-	<div id="hostAll" style="margin-top: 3%;">
-		<!-- <hr>
-		<div id="host">
-			<div class="showwords">
-				<ul id="everyLiTag">
-					<li style="color: blue;" class="aaa26">用户头像</li>
-					<li style="color: blue;" class="name">好友编号</li>
-					<li style="color: grey;" class="wdate">留言时间</li>
-					<li><span>留言内容</span></li>
-				</ul>
-			</div>
-			<div class="showcomment">
-				<ul class="pinglun">
-					<li style="color: blue;" class="aaa29"></li>
-					<li style="color: blue;" class="a29name">评论编号</li>
-					<li style="color: grey;" class="wdate" id='aa29'>评论时间</li>
-					<li><span class="wcontenta29">评论内容</span></li>
-					<textarea class="wcontenta29">评论内容</textarea>
-				</ul>
-			</div>
-			<div class="showreplys">
-				<ul class="huifu">
-					<li style="color: blue;" class="huiaa26"></li>
-					<li style="color: blue;" class="huiaa26name">回复编号</li>
-					<li style="color: grey;" class="huiaa26wdate">回复时间</li>
-					<textarea id="edit" name="edit" class="huiaa26edit">回复内容</textarea>
-				</ul>
-			</div>
-		</div> -->
-		<a class="huibianjia26" href="javascript:void(0)" onclick="add();"
-			style="color: black; margin-left: 20%;">评论</a>
-	</div>
-	<div id="page"></div>
-	<!-- hostAll end -->
-
-
-	<!-- <div id="leaveMsg">
-		<label style="color: #9c9c9c">发表留言</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div>
-	<br>
-	<div id="comWords">
-		<label style="color: #9c9c9c">评论留言</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div>
-	<br>
-	<div id="replyhost">
-		<label style="color: #9c9c9c">回复评论</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div> -->
-
+	<!-- content end -->
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -158,7 +125,7 @@
 				<h1>我们站在巨人的肩膀上</h1>
 				<h3>Heroes</h3>
 				<p>
-					<ul>
+				<ul>
 					<li>jQuery</li>
 					<li>Zepto.js</li>
 					<li>Seajs</li>
@@ -171,16 +138,21 @@
 		<div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
-	
-	<script src="assets/js/jquery.min.js"></script>
-					<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript" charset="utf-8"
-						src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
-	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="rel/js/message.js"></script>
 
-				</body>
+
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<script src="assets/js/jquery.min.js"></script>
+	<!--<![endif]-->
+	<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script src="assets/js/amazeui.min.js"></script>
+	<script src="assets/js/pinto.min.js"></script>
+	<script src="assets/js/img.js"></script>
+	<script type="text/javascript" src="rel/js/findFriends.js"></script>
+</body>
 </html>

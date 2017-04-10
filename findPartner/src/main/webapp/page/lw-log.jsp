@@ -90,7 +90,7 @@
 						class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay">登
 						录</button>
 					<p class="am-animation-slide-bottom log-animation-delay">
-						<a href="#">忘记密码?</a>
+						<a href="page/forgetPassword.jsp">忘记密码?</a>
 						
 					</p>
 					<div

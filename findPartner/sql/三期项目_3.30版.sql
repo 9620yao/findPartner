@@ -25,9 +25,10 @@ CREATE TABLE logining(
 );
 
 alter table logining add uname varchar2(20);
-insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17682778726','290966751@qq.com','aa','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
+insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17873235243','245336543@qq.com','c99e178d83cdfea3c167bc1d15f9b47ff8f80145','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));
 update LOGINING set password='c99e178d83cdfea3c167bc1d15f9b47ff8f80145' where lid='1';
 select * from logining where email= '290966751@qq.com'
+insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17382489362','142535325@qq.com','c99e178d83cdfea3c167bc1d15f9b47ff8f80145','女',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));--81 
 --select * from logining where email= '1234567382@qq.com'
 --select * from users where alid= 'a33'
 select * from logining;--
@@ -66,7 +67,11 @@ CREATE TABLE users(
 );
 --create sequence seq_admins_aid start with 10000;
 insert into USERS(aid,alid) values(seq_users_aid.nextval,'61');
+insert into USERS(aid,alid) values(seq_users_aid.nextval,'30');
+insert into USERS(aid,alid,hobby,address) values(seq_users_aid.nextval,'82','唱歌','湖南长沙');
 select * from users;
+update users set hobby='唱歌',address='湖南长沙' where aid='10000';
+
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
        aid varchar2(40),--用户编号
@@ -75,10 +80,22 @@ CREATE TABLE friends(
 	   otherfriendsone VARCHAR2(40),
 	   otherfriendstwo varchar2(40)
 );
-select * from friends;
+select * from friends where aid='10000';
 select * from users u where u.aid in (select f.fid from friends f where f.aid='10000')
-insert into friends(aid,fid) values('10000','10020');
+insert into friends(aid,fid) values('10040','10020');
 insert into friends(aid,fid) values('10000','a10000');
+
+select u.hobby from users u where u.aid='10000'
+select * from users u where u.aid not in (select f.fid from friends f where f.aid='10000') and u.aid!='10000'  --查找用户除好友列表以外的用户信息
+select * from users u where u.aid not in (select f.fid from friends f where f.aid='10000') and u.aid!='10000' and u.address like '%'||(select u.address from users u where u.aid='10000')||'%'
+
+select fid from friends where aid='10000'
+--
+select * from FRIENDS 
+select aid from FRIENDS f where f.fid='10020' and aid not in (select fid from FRIENDS f where f.aid='10020')  --10000  10040  10041  他人的好友列表有我
+--select fid from FRIENDS f where f.aid='10020'  --我的好友列表  10041  10000
+--select fid from FRIENDS f where f.aid not in (select aid from FRIENDS f where f.fid='a10000')--10000 10041
+--select * from FRIENDS where fid='10020' and aid in (select aid from FRIENDS f where f.fid='10020')
 
 --其他好友表（某用户和没关注的好友）--在两个好友没关注的时候，联系在一起
 CREATE TABLE friendothers(

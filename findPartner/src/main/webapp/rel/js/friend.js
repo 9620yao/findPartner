@@ -6,7 +6,7 @@ function loadFriendsInfo(){
 		var friendList="";
 		for (var i = 0; i < data.length; i++) {
 			friendList+='<div>'
-				friendList+=data[i].picture==null?'<img onclick="showuser(\''+data[i].aid+'\')" src="images/not_pic.jpg">':'<img onclick="showuser(\''+data[i].aid+'\')" src='+data[i].picture+'>';
+				friendList+=data[i].picture==null?'<img onclick="showuser(\''+data[i].aid+'\')" src="images/not_pic.jpg">':'<img onclick="showuser(\''+data[i].aid+'\')" src="'+data[i].picture+'">';
 				friendList+='<h3>'+data[i].nickname+'</h3></div>';
 		}
 		$("#container")[0].innerHTML = friendList;
@@ -23,3 +23,4 @@ function showuser(date){
 		window.open(url);
 	}
 }
+

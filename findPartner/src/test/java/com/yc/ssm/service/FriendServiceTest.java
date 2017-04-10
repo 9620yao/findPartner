@@ -24,5 +24,28 @@ public class FriendServiceTest {
 		assertNotNull(users);
 		
 	}
+	
+	@Test
+	public void testAddFriend() {
+		boolean result=friendService.insertFriend("10000", "10040");
+		assertEquals(true, result);
+		
+	}
+	
+	@Test
+	public void testListFriendsReq() {
+		List<Users> users=friendService.listFrienfReq("10020");
+		System.out.println(users);
+		assertNotNull(users);
+		
+	}
+	
+	@Test
+	public void testListFriendsIntro() {
+		List<Users> users=friendService.listIntroFriend("10000");
+		System.out.println(users);
+		assertNotNull(users);
+		
+	}
 
 }
