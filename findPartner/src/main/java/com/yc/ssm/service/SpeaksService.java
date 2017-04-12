@@ -15,4 +15,5 @@ public interface SpeaksService {
 
 	String findSid();
 
+	PaginationBean<Speaks> listAllSpeaks(String page, String rows);
 }

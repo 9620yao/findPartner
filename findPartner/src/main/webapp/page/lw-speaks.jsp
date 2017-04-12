@@ -85,8 +85,8 @@
 			<form id="myspeak" method="post">
 				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
 					placeholder="发表一个说说"></textarea>
-				<input name="content" id="content" type="hidden">
-				<a href="javascript:void(0)" onclick="return addSpeak()">发表</a>
+				<input name="content" id="content" type="hidden"> <a
+					href="javascript:void(0)" onclick="return addSpeak()">发表</a>
 			</form>
 		</div>
 	</article>
@@ -95,7 +95,7 @@
 	<!-- <!-- 添加说说 -->
 	<div id="addSpeaks">
 		
-	</div> -->
+	</div>
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
 

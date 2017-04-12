@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.ssm.entity.Comments;
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Speaks;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,23 +26,29 @@ public class SpeaksServiceTest {
 	 * assertNotNull(speaks); <<<<<<< HEAD }
 	 */
 
-	/*@Test
-	public void testListComments() {
-		List<Comments> comments = speaksService.listComments("10020");
-		System.out.println(comments);
-		assertNotNull(comments);
-	}*/
+	/*
+	 * @Test public void testListComments() { List<Comments> comments =
+	 * speaksService.listComments("10020"); System.out.println(comments);
+	 * assertNotNull(comments); }
+	 */
 
 	public void testAddSpeaks() {
-		Speaks speaks=new Speaks();
+		Speaks speaks = new Speaks();
 		speaks.setContent("我是用户a28，我发表了一篇说说");
 		speaks.setSpeakman("a28");
 		speaks.setFiles("");
 		speaks.getSenddate();
-		//speaks.getSenddate();
-		boolean ss=speaksService.add(speaks);
+		// speaks.getSenddate();
+		boolean ss = speaksService.add(speaks);
 		System.out.println(speaks);
 		assertNotNull(speaks);
+	}
+
+	@Test
+	public void testListSpeaks() {
+		PaginationBean<Speaks> ss = speaksService.listAllSpeaks("1", "5");
+		System.out.println(ss);
+		assertNotNull(ss);
 	}
 
 }

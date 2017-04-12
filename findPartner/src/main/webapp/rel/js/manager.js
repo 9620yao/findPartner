@@ -15,12 +15,6 @@ $(".treeNav").tree({
 			$("#main").tabs('close', nodeContent)
 		}
 		
-		$("#main").tabs('add',{
-			title: nodeContent,
-			content: "<h1 style='text-align:center;'>" + nodeContent + "</h1>",
-			iconCls:"icon-mini-add",
-			closable:true,
-		});
 		if(nodeContent=="用户信息"){
 			$("#main").tabs('add',{
 				title:nodeContent,
@@ -28,6 +22,13 @@ $(".treeNav").tree({
 				href:"back/users_info.jsp",
 				iconCls:"icon-mini-add",
 				closable:true
+			});
+		}else if(nodeContent == "说说信息"){
+			$("#main").tabs('add',{
+				title: nodeContent,
+				href:"back/speaks_info.jsp",
+				iconCls:"icon-mini-add",
+				closable:true,
 			});
 		}
 	}

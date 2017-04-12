@@ -5,14 +5,14 @@ function GetFinallyAid(){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		//alert(data.finalaid);
 		if(data.finalaid=="-1"){
-			$("#myfriend").show();
+			$(".myfriend").show();
 			$(".updatepwd").show();//修改密码按钮
 			$(".homepage").attr("href","page/lw-index.jsp");
 			$(".homepage").val("个人中心");
 			//$(".updatebtn").show();//修改个人信息按钮
 			$(".editdiv").show();
 		}else{
-			$("#myfriend").hide();
+			$(".myfriend").hide();
 			$(".updatepwd").hide();
 			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);
 			$(".homepage").html("他的主页");

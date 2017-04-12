@@ -66,58 +66,60 @@
 
 			<ul  id="everyLiTag">
 				<c:forEach var="k" items="${ws}">
-					<li style="color:blue;" class="a26">${k.wfrendid}</li>
+				    <li style="color:blue;" class="aaa26"></li>
+					<li style="color:blue;" class="name">${k.wfrendid}</li>
 					<li style="color:grey;" class="wdate">${k.wdate}</li>
 					<%-- <li>${k.waddress}</li> --%>
-					<div style="width:800px" class="wcontent">${k.wcontent}</div>
+					<textarea  class="wcontent">${k.wcontent}</textarea>
 					<a class="bianji"  href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
 					<a class="fabiao" href="javascript:void(0)" " style="color:red;">发表</a>
-						<ul>
+						<ul class="pinglun">
 							<c:forEach var="s" items="${k.comments}">
-								<li style="color:blue;">${s.comuserid}</li>
-								<li style="color:grey;">${s.comTime}</li>
-								<textarea style="width:500px">${s.detail}</textarea>
-								<a href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
-								<a href="javascript:void(0)"  style="color:red;">发表</a>
+							    <li style="color:blue;" class="aaa29"></li>
+								<li style="color:blue;" class="a29name">${s.comuserid}</li>
+								<li style="color:grey;" class="wdate" id='aa29'>${s.comTime}</li>
+								<textarea class="wcontenta29">${s.detail}</textarea>
+								<a class="bianjia29" href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
+								<a class="fabiaoa29" href="javascript:void(0)"  style="color:red;">发表</a>
 							</c:forEach>
 						</ul>
 						<br>
-						<label>显示您的回复</label>
-						<ul>
+						<ul class="huifu">
 							<c:forEach var="r" items="${k.replys}">
-								<li style="color:blue;">${r.ruserid}</li>
-								<li style="color:grey;">${r.rtime}</li>
-								<textarea id="edit" name="edit" style="width:300px;height:150px;">${r.rcontent}</textarea>
-								<a href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
-								<a href="javascript:void(0)" style="color:red;">发表</a>
+							    <li style="color:blue;" class="huiaa26"></li>
+								<li style="color:blue;" class="huiaa26name">${r.ruserid}</li>
+								<li style="color:grey;" class="huiaa26wdate">${r.rtime}</li>
+								<textarea id="edit" name="edit" class="huiaa26edit">${r.rcontent}</textarea>
+								<a class="huibianjia26" href="javascript:void(0)" onclick="add();" style="color:red;">编辑</a>
+								<a class="huifabiaoa26" href="javascript:void(0)" style="color:red;">发表</a>
 							</c:forEach>
 						</ul>
 				</c:forEach>
 			</ul>
-			<button type="submit" width=100px; height=40px>查看留言以及回复评论</button>
+			<br>
+			<button type="submit" style="height:30px;margin-top:-160px;">查看留言以及回复评论</button>
 		</form>
 	</div>
 	<br>
-	<br>
 	<div id="leaveMsg">
-		<label>发表留言</label>
-		<textarea type="text" width=600px height=100px></textarea>
-		<button type="submit">发表</button>
-		<button type="reset">取消</button>
+		<label style="color:#9c9c9c">发表留言</label>
+		<textarea type="text" style="width:500px" ></textarea>
+		<button type="submit" class="fabiao-btn">发表</button>
+		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<br>
 	<div id="comWords">
-		<label>评论留言</label>
-		<textarea type="text" width=600px height=100px></textarea>
-		<button type="submit">发表</button>
-		<button type="reset">取消</button>
+		<label style="color:#9c9c9c">评论留言</label>
+		<textarea type="text" style="width:500px"></textarea>
+		<button type="submit" class="fabiao-btn">发表</button>
+		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<br>
 	<div id="replyhost">
-		<label>回复评论</label>
-		<textarea type="text" width=600px height=100px></textarea>
-		<button type="submit">发表</button>
-		<button type="reset">取消</button>
+		<label style="color:#9c9c9c">回复评论</label>
+		<textarea type="text" style="width:500px"></textarea>
+		<button type="submit" class="fabiao-btn">发表</button>
+		<button type="reset" class="quxiao_btn">取消</button>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="rel/ueditor/ueditor.config.js"></script>
