@@ -48,11 +48,11 @@
 					<li><span>用户添加</span></li>
 				</ul>
 			</div>
-			<div title="XXX管理" data-options="iconCls:'icon-mini-add'">
+			<div title="说说管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
-					<li><span>XXX信息</span></li>
-					<li><span>XXX编辑</span></li>
-					<li><span>XXX添加</span></li>
+					<li><span>说说信息</span></li>
+					<li><span>说说编辑</span></li>
+					<li><span>说说添加</span></li>
 				</ul>
 			</div>
 			<div title="YYY管理" data-options="iconCls:'icon-mini-add'">

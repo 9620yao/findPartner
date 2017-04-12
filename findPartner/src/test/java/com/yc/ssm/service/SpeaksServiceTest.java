@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.ssm.entity.Comments;
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Speaks;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -19,11 +20,11 @@ public class SpeaksServiceTest {
 	@Autowired
 	private SpeaksService speaksService;
 
-	/*
-	 * @Test public void testListSpeaksInfos() { List<Speaks>
-	 * speaks=speaksService.listSpeaks("10000"); System.out.println(speaks);
-	 * assertNotNull(speaks); <<<<<<< HEAD }
-	 */
+	
+	/*  @Test public void testListSpeaksInfos() { List<Speaks>
+	  speaks=speaksService.listSpeaks("10000"); System.out.println(speaks);
+	  assertNotNull(speaks); <<<<<<< HEAD }*/
+	 
 
 	/*@Test
 	public void testListComments() {
@@ -42,6 +43,13 @@ public class SpeaksServiceTest {
 		boolean ss=speaksService.add(speaks);
 		System.out.println(speaks);
 		assertNotNull(speaks);
+	}
+	
+	@Test
+	public void testListSpeaks(){
+		PaginationBean<Speaks> ss=speaksService.listSpeaks("1", "5");
+		System.out.println(ss);
+		assertNotNull(ss);
 	}
 
 }

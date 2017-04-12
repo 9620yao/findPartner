@@ -10,4 +10,6 @@ public interface SpeaksService {
 	// List<Speaks> listSpeaks(String speakman);
 
 	PaginationBean<Speaks> listSpeaks(String speakman, String page, String rows);
+
+	PaginationBean<Speaks> listSpeaks(String page, String rows);
 }

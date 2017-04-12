@@ -37,4 +37,16 @@ public class SpeaksServiceImpl implements SpeaksService {
 		return speaksMapper.addSpeaks(speaks) > 0;
 	}
 
+	@Override
+	public PaginationBean<Speaks> listSpeaks(String page, String rows) {
+		PaginationBean<Speaks> pBean=new PaginationBean<Speaks>();
+		if(page!=null){
+			pBean.setCurrPage(Integer.parseInt(page));
+		}
+		if(rows!=null){
+			pBean.setPageSize(Integer.parseInt(rows));
+		}
+		return speaksMapper.showSpeaks(pBean);
+	}
+
 }

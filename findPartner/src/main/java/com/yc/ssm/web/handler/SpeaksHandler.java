@@ -29,6 +29,13 @@ public class SpeaksHandler {
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.FINALAID);
 		return speaksService.listSpeaks(speakman, String.valueOf(currPage), "5");
 	}
+	
+	@RequestMapping(value = "showSpeaks", method = RequestMethod.POST)
+	@ResponseBody
+	public PaginationBean<Speaks> showAllSpeaks(String page,String rows) {
+		LogManager.getLogger().debug("我进来了 showAllSpeaks==>currPage=" + page);
+		return speaksService.listSpeaks(page,rows);
+	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
 	@ResponseBody
