@@ -21,11 +21,20 @@ public class AlbumpicServiceImpl implements AlbumpicService {
 	}
 
 	@Override
-	public boolean newpic(String abid, String picPath) {
+	public boolean newpic(String abid, String picPath, String date) {
 		Albumpic albumpic = new Albumpic();
 		albumpic.setAbid(abid);
 		albumpic.setApic(picPath);
+		albumpic.setApicdate(date);
 		return albumpicMapper.addpic(albumpic) > 0;
+	}
+
+	@Override
+	public Albumpic HpAlbumpic(String abid, String apicdate) {
+		Albumpic albumpic = new Albumpic();
+		albumpic.setAbid(abid);
+		albumpic.setApicdate(apicdate);
+		return albumpicMapper.HpAlbumpic(albumpic);
 	}
 
 }

@@ -13,4 +13,6 @@ public interface AlbumService {
 	Album fpByabid(String abid);// 根据相册编号去该相册
 
 	boolean updateAheader(String abid, String picPath);
+
+	void updateAldate(String abid,String aldate);
 }

@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			column="{pageSize=pageSize,currPage=currPage,speakman=speakman}"
 			ofType="com.yc.ssm.entity.Speaks" select="GetPartTea" />
 	</resultMap>
-	
+
 	<select id="PbeanSpeaks" parameterType="java.util.Map"
 		resultMap="PaginationBeanMap" useCache="false" flushCache="true">
 		select
@@ -39,4 +39,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values('s'||seq_speaks_sid.nextval,#{content},#{speakman}
 		,to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
 	</insert>
+
+	<select id="findSid" resultType="string">
+		select max(sid) sid from speaks
+	</select>
+
+	<select id="findSpeaks" parameterType="java.util.Map" resultType="com.yc.ssm.entity.Speaks">
+		select * from speaks where
+		sid = #{sid} and speakman=#{speakman}
+	</select>
+	
 </mapper>

@@ -14,11 +14,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="addAlbum" parameterType="com.yc.ssm.entity.Album">
 		insert into album values('ab'||seq_album_abid.nextval,#{abname},#{aaid},#{alcontent},
-		'',to_char(sysdate,'yyyy-MM-dd hh:mm:ss'),'','','')
+		'',to_char(sysdate,'yyyy-MM-dd hh:mi:ss'),'','','')
 	</insert>
 	
 	<update id="updateAheader" parameterType="java.util.Map" >
 		update album set aheader = #{picPath} where abid = #{abid}
+	</update>
+	
+	<update id="updateAldate" parameterType="java.util.Map" >
+		update album set aldate = #{aldate} where abid = #{abid}
 	</update>
 	
 </mapper>
