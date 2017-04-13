@@ -40,4 +40,12 @@ public class AlbumServiceImpl implements AlbumService {
 		return albumMapper.updateAheader(map)>0;
 	}
 
+	@Override
+	public void updateAldate(String abid,String aldate) {
+		Map<String,String> map  = new HashMap<String,String>();
+		map.put("abid", abid);
+		map.put("aldate", aldate);
+		albumMapper.updateAldate(map);
+	}
+
 }

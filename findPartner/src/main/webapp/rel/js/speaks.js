@@ -31,6 +31,9 @@ function listSpeaks(currPage) {
 		"currPage" : currPage
 			},
 			function(data) {
+				if(data==null||data==""){
+					return false;
+				}
 				// alert(data);
 				// alert(JSON.stringify(data)); //JSON.stringify()
 				// ,把json对象转换成json字符串
@@ -52,7 +55,7 @@ function listSpeaks(currPage) {
 				}
 				$("#speaksInfo")[0].innerHTML = speaksStr;
 				var pagination="";
-				pagination+='<label>每页5条，当前第'+currPage+' 页，共'+data.totalPage+' 页</label>';
+				pagination+='<label>当前第'+currPage+' 页，共'+data.totalPage+' 页</label>';
 				pagination+='<a href="javascript:void(0)" onclick="listSpeaks(1)">首页</a>';
 				pagination+='<a href="javascript:void(0)" onclick="listSpeaks('+(data.currPage==1?1:(data.currPage-1))+')">上一页</a>';
 				pagination+='<a href="javascript:void(0)" onclick="listSpeaks('+(data.currPage==data.totalPage?data.currPage:(data.currPage+1))+')">下一页</a>';

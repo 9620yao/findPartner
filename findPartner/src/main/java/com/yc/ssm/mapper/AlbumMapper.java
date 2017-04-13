@@ -14,4 +14,6 @@ public interface AlbumMapper {
 	Album fpByabid(String abid);
 
 	int updateAheader(Map<String, String> map);
+
+	void updateAldate(Map<String, String> map);
 }

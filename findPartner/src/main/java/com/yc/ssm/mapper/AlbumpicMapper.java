@@ -10,4 +10,6 @@ public interface AlbumpicMapper {
 
 	int addpic(Albumpic albumpic);
 
+	Albumpic HpAlbumpic(Albumpic albumpic);
+
 }

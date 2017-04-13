@@ -15,4 +15,8 @@ public interface SpeaksMapper {
 	// 增加说说
 	int addSpeaks(Speaks speaks);
 
+	Speaks findSpeaks(Map<String, String> map);
+
+	String findSid();
+
 }
