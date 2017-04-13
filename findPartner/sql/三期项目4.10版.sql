@@ -93,10 +93,9 @@ create table albumpic(
      abid VARCHAR2(40),--相册编号
      apic VARCHAR2(500),--图片   （多图片）
      apiccontent VARCHAR2(500),--图片描述
-     otheralbumpicone VARCHAR2(40),
+     apicdate VARCHAR2(40),--修改为 图片上传时间
      otheralbumpictwo varchar2(40)
 );
-
 --select * from words;
 --留言表
 CREATE TABLE words(
