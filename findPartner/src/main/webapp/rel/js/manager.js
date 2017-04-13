@@ -30,6 +30,13 @@ $(".treeNav").tree({
 				iconCls:"icon-mini-add",
 				closable:true,
 			});
+		}else if(nodeContent == "留言信息"){
+			$("#main").tabs('add',{
+				title: nodeContent,
+				href:"back/words_info.jsp",
+				iconCls:"icon-mini-add",
+				closable:true,
+			});
 		}
 	}
 });

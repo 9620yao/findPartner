@@ -34,7 +34,7 @@ public class SpeaksHandler {
 	@ResponseBody
 	public PaginationBean<Speaks> showAllSpeaks(String page,String rows) {
 		LogManager.getLogger().debug("我进来了 showAllSpeaks==>currPage=" + page);
-		return speaksService.listSpeaks(page,rows);
+		return speaksService.listAllSpeaks(page,rows);
 	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)

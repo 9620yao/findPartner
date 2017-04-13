@@ -38,7 +38,7 @@ public class SpeaksServiceImpl implements SpeaksService {
 	}
 
 	@Override
-	public PaginationBean<Speaks> listSpeaks(String page, String rows) {
+	public PaginationBean<Speaks> listAllSpeaks(String page, String rows) {
 		PaginationBean<Speaks> pBean=new PaginationBean<Speaks>();
 		if(page!=null){
 			pBean.setCurrPage(Integer.parseInt(page));

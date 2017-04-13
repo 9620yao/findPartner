@@ -11,5 +11,5 @@ public interface SpeaksService {
 
 	PaginationBean<Speaks> listSpeaks(String speakman, String page, String rows);
 
-	PaginationBean<Speaks> listSpeaks(String page, String rows);
+	PaginationBean<Speaks> listAllSpeaks(String page, String rows);
 }

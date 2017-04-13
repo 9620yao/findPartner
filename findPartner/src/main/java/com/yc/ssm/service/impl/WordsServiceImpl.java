@@ -43,4 +43,15 @@ public class WordsServiceImpl implements WordsService {
 		return wordsMapper.PbeanWords(map);
 	}
 
+	@Override
+	public PaginationBean<Words> listAllWords(String page, String rows) {
+		PaginationBean<Words> pBean=new PaginationBean<Words>();
+		if(page!=null){
+			pBean.setCurrPage(Integer.parseInt(page));
+		}
+		if(rows!=null){
+			pBean.setPageSize(Integer.parseInt(rows));
+		}
+		return wordsMapper.showWords(pBean);
+	}
 }

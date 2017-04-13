@@ -55,11 +55,11 @@
 					<li><span>说说添加</span></li>
 				</ul>
 			</div>
-			<div title="YYY管理" data-options="iconCls:'icon-mini-add'">
+			<div title="留言管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
-					<li><span>YYY信息</span></li>
-					<li><span>YYY编辑</span></li>
-					<li><span>YYY添加</span></li>
+					<li><span>留言信息</span></li>
+					<li><span>留言编辑</span></li>
+					<li><span>留言添加</span></li>
 				</ul>
 			</div>
 		</div>

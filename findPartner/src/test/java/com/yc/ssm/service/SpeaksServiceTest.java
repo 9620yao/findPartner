@@ -2,7 +2,6 @@ package com.yc.ssm.service;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yc.ssm.entity.Comments;
 import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Speaks;
 
@@ -41,13 +39,13 @@ public class SpeaksServiceTest {
 		speaks.getSenddate();
 		//speaks.getSenddate();
 		boolean ss=speaksService.add(speaks);
-		System.out.println(speaks);
-		assertNotNull(speaks);
+		System.out.println(ss);
+		assertNotNull(ss);
 	}
 	
 	@Test
-	public void testListSpeaks(){
-		PaginationBean<Speaks> ss=speaksService.listSpeaks("1", "5");
+	public void testListAllSpeaks(){
+		PaginationBean<Speaks> ss=speaksService.listAllSpeaks("1", "5");
 		System.out.println(ss);
 		assertNotNull(ss);
 	}

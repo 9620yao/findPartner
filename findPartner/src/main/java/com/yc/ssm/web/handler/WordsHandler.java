@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Words;
@@ -26,6 +27,13 @@ public class WordsHandler {
 		return wordsService.listWords(waid, String.valueOf(currPage), "5");
 	}
 
+	@RequestMapping(value = "showWords", method = RequestMethod.POST)
+	@ResponseBody
+	public PaginationBean<Words> showAllWords(String page,String rows) {
+		LogManager.getLogger().debug("我进来了 showAllWords==>currPage=" + page);
+		return wordsService.listAllWords(page,rows);
+	}
+	
 	@RequestMapping("addWords")
 	public String add(Words words) {
 		if (wordsService.add(words)) {
