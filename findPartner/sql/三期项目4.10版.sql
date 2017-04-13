@@ -95,7 +95,6 @@ create table albumpic(
      apicdate VARCHAR2(40),--修改为 图片上传时间
      otheralbumpictwo varchar2(40)
 );
-
 --select * from words;
 --留言表
 CREATE TABLE words(

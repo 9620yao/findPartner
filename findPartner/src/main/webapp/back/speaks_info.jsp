@@ -22,7 +22,7 @@
 			</p>
 			<p>
 				<label> 内容 </label>
-				<div id="icontent" style="width: 700px; height: 200px; border: 1px solid gray; overflow: scroll;"></div>
+				<div id="icontent" style="width: 300px; height: 100px; border: 1px solid gray; overflow: scroll;"></div>
 			</p>
 			
 			<p>
