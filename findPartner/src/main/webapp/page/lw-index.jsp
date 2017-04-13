@@ -342,6 +342,7 @@
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="rel/layer/jquery.js?v=1.83.min"></script>
 	<script src="rel/layer/layer.min.js"></script>
+	<script type="text/javascript" src="rel/js/hpindex.js"></script>
 	<script type="text/javascript" src="rel/js/index.js"></script>
 	<script type="text/javascript" src="rel/js/indexpic.js"></script>
 </body>

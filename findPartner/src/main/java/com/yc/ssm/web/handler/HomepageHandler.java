@@ -27,5 +27,13 @@ public class HomepageHandler {
 		LogManager.getLogger().debug("我是 List<Homepage> 我进来了,hpuseid:" + hpuseid);
 		return homepageService.pbHomepage(hpuseid, String.valueOf(currPage), "10");
 	}
+	
+	@RequestMapping("selflist")
+	@ResponseBody
+	public PaginationBean<Homepage> selflist(Integer currPage, HttpSession session) {
+		String hpuseid = (String) session.getAttribute(ServletUtil.FINALAID);
+		LogManager.getLogger().debug("我是 List<Homepage> 我进来了,hpuseid:" + hpuseid);
+		return homepageService.selflist(hpuseid, String.valueOf(currPage), "10");
+	}
 
 }
