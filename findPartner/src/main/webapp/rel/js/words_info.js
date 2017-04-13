@@ -7,7 +7,7 @@ $('#wordsInfo').datagrid({
 	pagination :true,
     columns:[[    
         {field:'wid',title:'编号',width:50,align:'center'},    
-        {field:'iwfrendid',title:'留言人',width:50,align:'center'},
+        {field:'wfrendid',title:'留言人',width:50,align:'center'},
         {field:'wcontent',title:'内容',width:100,align:'center'},   
         {field:'waddress',title:'地址',width:100,align:'center'},
         {field:'wdate',title:'时间',width:100,align:'center'},
