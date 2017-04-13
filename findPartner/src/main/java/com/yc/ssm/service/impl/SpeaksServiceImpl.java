@@ -33,8 +33,31 @@ public class SpeaksServiceImpl implements SpeaksService {
 
 	@Override
 	public boolean add(Speaks speaks) {
-		System.out.println("增加说说");
 		return speaksMapper.addSpeaks(speaks) > 0;
+	}
+
+	@Override
+	public String findSid() {
+		return speaksMapper.findSid();
+	}
+
+	@Override
+	public Speaks findSpeaks(String sid, String speakman) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("sid", sid);
+		map.put("speakman", speakman);
+		return speaksMapper.findSpeaks(map);
+	}
+
+	public PaginationBean<Speaks> listAllSpeaks(String page, String rows) {
+		PaginationBean<Speaks> pBean = new PaginationBean<Speaks>();
+		if (page != null) {
+			pBean.setCurrPage(Integer.parseInt(page));
+		}
+		if (rows != null) {
+			pBean.setPageSize(Integer.parseInt(rows));
+		}
+		return speaksMapper.showSpeaks(pBean);
 	}
 
 }

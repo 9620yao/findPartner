@@ -53,8 +53,9 @@
 
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li class="am-dropdown" data-am-dropdown><a
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
 					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
@@ -84,8 +85,8 @@
 			<form id="myspeak" method="post">
 				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
 					placeholder="发表一个说说"></textarea>
-				<input name="content" id="content" type="hidden">
-				<a href="javascript:void(0)" onclick="return addSpeak()">发表</a>
+				<input name="content" id="content" type="hidden"> <a
+					href="javascript:void(0)" onclick="return addSpeak()">发表</a>
 			</form>
 		</div>
 	</article>
@@ -94,7 +95,7 @@
 	<!-- <!-- 添加说说 -->
 	<div id="addSpeaks">
 		
-	</div> -->
+	</div>
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
 

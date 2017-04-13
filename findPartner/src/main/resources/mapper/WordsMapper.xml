@@ -41,4 +41,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(wid,waid,wfrendid,wcontent,waddress,wdate)
 		values('w'||seq_words_wid.nextval,'a28',#{wfrendid},#{wcontent},#{waddress},to_char(sysdate,'yyyy-MM-dd'))
 	</insert>
+	
+	<resultMap type="PaginationBean" id="PBMap">
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage}" ofType="com.yc.ssm.entity.Words"
+			select="GetPartWords" />
+	</resultMap>
+
+	<select id="showWords" parameterType="PaginationBean" resultMap="PBMap"
+		useCache="false" flushCache="true">
+		select
+		count(1) total,ceil(count(1) /
+		${pageSize})
+		totalPage,${currPage}
+		currPage,${pageSize}
+		pageSize
+		from
+		words 
+	</select>
+
+	<select id="GetPartWords" resultType="com.yc.ssm.entity.Words">
+		select t.* from (
+		select
+		n.*,rownum rn from (
+		select * from words) n
+		where
+		${currPage} * ${pageSize} >= rownum) t 
+		where rn > (${currPage}-1)*${pageSize}
+	</select>
 </mapper>

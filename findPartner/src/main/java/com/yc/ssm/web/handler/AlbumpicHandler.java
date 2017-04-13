@@ -1,6 +1,8 @@
 package com.yc.ssm.web.handler;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,6 +21,7 @@ import com.yc.ssm.entity.Album;
 import com.yc.ssm.entity.Albumpic;
 import com.yc.ssm.service.AlbumService;
 import com.yc.ssm.service.AlbumpicService;
+import com.yc.ssm.service.HomepageService;
 import com.yc.ssm.util.ServletUtil;
 
 @Controller("albumpicHandler")
@@ -30,6 +33,9 @@ public class AlbumpicHandler {
 
 	@Autowired
 	private AlbumService albumService;
+	
+	@Autowired
+	private HomepageService homepageService;
 
 	@RequestMapping("list")
 	@ResponseBody
@@ -53,12 +59,18 @@ public class AlbumpicHandler {
 				e.printStackTrace();
 			}
 			LogManager.getLogger().debug("上传图片==》" + picPath);
-			if (albumpicService.newpic(abid, picPath)) {// 添加成功
-				Album Album = albumService.fpByabid(abid);//根据用户编号去取该相册
+			//取到系统时间
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+			String date = df.format(new Date());// new Date()为获取当前系统时间
+			if (albumpicService.newpic(abid, picPath,date)) {// 添加成功
+				Album Album = albumService.fpByabid(abid);// 根据相册编号去取该相册
 				if (Album != null) {
+					// 把该图片的相册编号，以及用户编号，还有图片上传时间存到主页表中
+					homepageService.addhompage(abid, Album.getAaid(),date);	
 					String aheader = Album.getAheader();
-					if (aheader == null) {// 当刚上传的图片的相册没有头图片的话上传该图片为相册头图片
-						albumService.updateAheader(abid,picPath);
+					// 当刚上传的图片的相册没有头图片的话上传该图片为相册头图片
+					if (aheader == null) {
+						albumService.updateAheader(abid, picPath);
 					}
 				}
 				return "redirect:/page/albumpic.jsp?abid=" + abid;
@@ -66,4 +78,12 @@ public class AlbumpicHandler {
 		}
 		return "redirect:/page/albumpic.jsp?abid=" + abid;
 	}
+	
+	@RequestMapping("hpalbumpic")
+	@ResponseBody
+	public Albumpic HpAlbumpic(String abid,String apicdate,HttpSession session) {
+		LogManager.getLogger().debug(" listAlbumpic()进来了.....,abid: " + abid+",apicdate:"+apicdate);
+		return albumpicService.HpAlbumpic(abid,apicdate);
+	}
+	
 }

@@ -11,5 +11,8 @@ public interface WordsService {
 	boolean add(Words words);
 	
 	PaginationBean<Words> listWords(String waid, String page, String rows);
+	
+	PaginationBean<Words> listAllWords(String page, String rows);
+
 
 }

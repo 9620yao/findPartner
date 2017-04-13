@@ -9,7 +9,7 @@ public interface FriendMapper {
 
 	List<Users> listFriendsInfo(String aid);
 
-	int addFriend(Map map);
+	int addFriend(Map<String,String> map);
 
 	List<Users> findFriendReq(String aid);
 

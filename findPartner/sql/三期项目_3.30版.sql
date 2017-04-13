@@ -109,7 +109,7 @@ CREATE TABLE friendothers(
 	   otherfriendsone VARCHAR2(40),
 	   otherfriendstwo varchar2(40)
 );
-
+select * from speaks;
 --说说表
 CREATE TABLE speaks(
        sid  VARCHAR2(40) PRIMARY KEY,--说说编号

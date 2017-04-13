@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yc.ssm.entity.Album;
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.mapper.AlbumMapper;
 import com.yc.ssm.service.AlbumService;
 
@@ -38,6 +39,26 @@ public class AlbumServiceImpl implements AlbumService {
 		map.put("abid", abid);
 		map.put("picPath", picPath);
 		return albumMapper.updateAheader(map)>0;
+	}
+
+	@Override
+	public void updateAldate(String abid,String aldate) {
+		Map<String,String> map  = new HashMap<String,String>();
+		map.put("abid", abid);
+		map.put("aldate", aldate);
+		albumMapper.updateAldate(map);
+	}
+
+	@Override
+	public PaginationBean<Album> listAllAlbums(String page, String rows) {
+		PaginationBean<Album> pBean=new PaginationBean<Album>();
+		if(page!=null){
+			pBean.setCurrPage(Integer.parseInt(page));
+		}
+		if(rows!=null){
+			pBean.setPageSize(Integer.parseInt(rows));
+		}
+		return albumMapper.showAlbum(pBean);
 	}
 
 }

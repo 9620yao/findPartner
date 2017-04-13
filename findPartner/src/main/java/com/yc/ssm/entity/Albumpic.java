@@ -4,14 +4,16 @@ public class Albumpic {// 相册集
 	private String abid; // 相册编号
 	private String apic; // 图片
 	private String apiccontent; // 图片描述
+	private String apicdate; // 图片上传时间
 
 	public Albumpic() {
 	}
 
-	public Albumpic(String abid, String apic, String apiccontent) {
+	public Albumpic(String abid, String apic, String apiccontent, String apicdate) {
 		this.abid = abid;
 		this.apic = apic;
 		this.apiccontent = apiccontent;
+		this.apicdate = apicdate;
 	}
 
 	public String getAbid() {
@@ -38,9 +40,18 @@ public class Albumpic {// 相册集
 		this.apiccontent = apiccontent;
 	}
 
+	public String getApicdate() {
+		return apicdate;
+	}
+
+	public void setApicdate(String apicdate) {
+		this.apicdate = apicdate;
+	}
+
 	@Override
 	public String toString() {
-		return "\nAlbumpic [abid=" + abid + ", apic=" + apic + ", apiccontent=" + apiccontent + "]";
+		return "\nAlbumpic [abid=" + abid + ", apic=" + apic + ", apiccontent=" + apiccontent + ", apicdate=" + apicdate
+				+ "]";
 	}
 
 }

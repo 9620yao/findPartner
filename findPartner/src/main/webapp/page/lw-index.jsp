@@ -30,7 +30,7 @@
 	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<link rel="stylesheet" href="rel/css/speak.css">
+<link rel="stylesheet" href="rel/css/index.css">
 </head>
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
@@ -51,8 +51,9 @@
 		<!--工具栏  -->
 		<div class="am-collapse am-topbar-collapse" id="blog-collapse">
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
-				<li class="am-active"><a href="page/lw-index.jsp">个人中心</a></li>
-				<li class="am-dropdown" data-am-dropdown><a
+				<li class="am-active"><a class="homepage"
+					href="page/lw-index.jsp">个人中心</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
 					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
@@ -89,136 +90,77 @@
 					</form>
 				</div>
 			</article>
-			<br> <br>
 
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<!-- <img src="assets/i/f10.jpg" alt="" class="am-u-sm-12"> -->
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article &nbsp;</a></span> <span>
-						@amazeUI &nbsp;</span> <span>2015/10/9</span>
-					<h1>
-						<a href="">我本楚狂人，凤歌笑孔丘</a>
-					</h1>
-					<p>我们一直在坚持着，不是为了改变这个世界，而是希望不被这个世界所改变。</p>
-					<p>
-						<a href="" class="blog-continue">continue reading</a>
+			<!-- start -->
+			<div id="showspeak">
+				<!--<div>
+					<img style="width: 20px; height: 20px;" src="images/01.jpg">
+					<a href="javascript:void(0)">用户名：</a>
+					<div class="demoEdit" contenteditable="true">我发表的说说2222222222222222222222222222222</div>
+					<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
+						onclick="addcom()" href="javascript:void(0)"
+						style="margin-left: 5%;">评论</a>
 					</p>
+				</div> -->
+				<!-- 评论 start -->
+				<!-- <div class="comment" style="margin-left: 5%;">
+					<div>
+						<img style="width: 20px; height: 20px;" src="images/01.jpg">
+						<a href="javascript:void(0)">用户名：</a>
+						<div class="demoEdit" contenteditable="true">
+							我是评论撒旦发射点发的发生暗室逢灯 暗室逢灯爱少2222222222222222222222222222222</div>
+						<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
+							onclick="addrep()" href="javascript:void(0)"
+							style="margin-left: 5%;">回复</a>
+					</div>
+					
+					回复 start
+					<div id="reply" style="margin-left: 5%;">
+						<div>
+							<img style="width: 20px; height: 20px;" src="images/01.jpg">
+							<a href="javascript:void(0)">用户名</a> 回复 <a
+								href="javascript:void(0)">用户名</a>:
+							<div class="demoEdit" contenteditable="true">
+								我是回复撒旦发射点发的发生暗室逢灯 暗室逢灯爱少2222222222222222222222222222222</div>
+							<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
+								onclick="addrep()" href="javascript:void(0)"
+								style="margin-left: 5%;">回复</a>
+						</div>
+					</div> -->
+				<!-- 回复end -->
+				<!-- <!-- <div style="margin-top: 2%;display: none;" class="showreply">
+						<div class="demoEdit" contenteditable="true"></div>
+						<button onclick="closerep()">提交</button>
+					</div>
 				</div>
-			</article>
+				评论 end
+				<div style="margin-top: 2%;display: none;" class="showcomment">
+					<div class="demoEdit" contenteditable="true"></div>
+					<button onclick="closecom()">提交</button>
+				</div> -->
 
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f6.jpg" alt="" class="am-u-sm-12">
+				<div id="showimgspic">
+					<!-- <div>
+						<img style="width: 20px; height: 20px;" src="images/01.jpg">
+						<a href="javascript:void(0)">用户名：</a>
+						<br>
+						<span style="margin-left: 5%;">2017年8.8.8</span>
+						展示相册下面的图片
+						<div id="imgs" class="imgs">
+							<img src="images/1.jpg">
+						</div>
+						<p style="margin-left: 3%;">
+							上传图片到《<a href="javascript:void(0)">相册</a>》
+						</p>
+					</div> -->
 				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>@amazeUI
-						&nbsp;</span> <span>2015/10/9</span>
-					<h1>
-						<a href="">世间所有的相遇，都是久别重逢。</a>
-					</h1>
-					<p>你可以选择在原处不停地跟周遭不解的人解释你为何这么做，让他们理解你，你可以选择什么都不讲，自顾自往前走。</p>
-					<p>
-						<a href="" class="blog-continue">continue</a>
-					</p>
-				</div>
-			</article>
 
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f12.jpg" alt="" class="am-u-sm-12">
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>@amazeUI</span>
-					<span>2015/10/9</span>
-					<h1>
-						<a href="">陌上花开，可缓缓归矣。</a>
-					</h1>
-					<p>那时候刚好下着雨，柏油路面湿冷冷的，还闪烁着青、黄、红颜色的灯火。我们就在骑楼下躲雨，看绿色的邮筒孤独地站在街的对面。
-					</p>
-					<p>
-						<a href="" class="blog-continue">continue</a>
-					</p>
-				</div>
-			</article>
+			</div>
+			<!-- end -->
 
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f22.jpg" alt="" class="am-u-sm-12">
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>@amazeUI</span>
-					<span>2015/10/9</span>
-					<h1>
-						<a href="">爱自己是终生浪漫的开始</a>
-					</h1>
-					<p>the whole of life becomes an act of letting go, but what
-						always hurts the most is not taking a moment to say goodbye</p>
-					<p>
-						<a href="" class="blog-continue">continue</a>
-					</p>
-				</div>
-			</article>
-
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f18.jpg" alt="" class="am-u-sm-12">
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>
-						@amazeUI &nbsp;</span> <span>2015/10/9</span>
-					<h1>
-						<a href="">My dear amazeUI, Hello </a>
-					</h1>
-					<p>那时候刚好下着雨，柏油路面湿冷冷的，还闪烁着青、黄、红颜色的灯火。我们就在骑楼下躲雨，看绿色的邮筒孤独地站在街的对面。
-					</p>
-					<p>
-						<a href="" class="blog-continue">continue reading</a>
-					</p>
-				</div>
-			</article>
-
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f20.jpg" alt="" class="am-u-sm-12">
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>
-						@amazeUI &nbsp;</span> <span>2015/10/9</span>
-					<h1>
-						<a href="">My way or the highway</a>
-					</h1>
-					<p>A big wind rises， clouds are driven away. Home am Inow the
-						world is under my sway. Where are brave men to guard the four
-						frontiers today！</p>
-					<p>
-						<a href="" class="blog-continue">continue reading</a>
-					</p>
-				</div>
-			</article>
-
-			<article class="am-g blog-entry-article">
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img">
-					<img src="assets/i/f19.jpg" alt="" class="am-u-sm-12">
-				</div>
-				<div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
-					<span><a href="" class="blog-color">article&nbsp;</a></span> <span>
-						@amazeUI &nbsp;</span> <span>2015/10/9</span>
-					<h1>
-						<a href="">一想到你，我这张丑脸上就泛起微笑</a>
-					</h1>
-					<p>那一天我二十一岁，在我一生的黄金时代。我有好多奢望。我想爱，想吃，还想在一瞬间变成天上半明半暗的云。</p>
-					<p>
-						<a href="" class="blog-continue">continue reading</a>
-					</p>
-				</div>
-			</article>
-
-			<ul class="am-pagination">
-				<li class="am-pagination-prev"><a href="">&laquo; Prev</a></li>
-				<li class="am-pagination-next"><a href="">Next &raquo;</a></li>
-			</ul>
+			<!-- 分页显示数据 start -->
+			<div id="page"></div>
+			<!-- 分页显示数据 end -->
 		</div>
 
 		<div class="am-u-md-4 am-u-sm-12 blog-sidebar">
@@ -398,6 +340,9 @@
 		src="rel/ueditor/ueditor.all.min.js"></script>
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
+	<script src="rel/layer/jquery.js?v=1.83.min"></script>
+	<script src="rel/layer/layer.min.js"></script>
 	<script type="text/javascript" src="rel/js/index.js"></script>
+	<script type="text/javascript" src="rel/js/indexpic.js"></script>
 </body>
 </html>

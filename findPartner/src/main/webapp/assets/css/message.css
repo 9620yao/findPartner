@@ -26,6 +26,9 @@
 #everyLiTag li{
 	list-style-type: none;
 }
+li{
+	list-style-type: none;
+}
 
 .aaa26{
 	width:50px;
@@ -33,7 +36,7 @@
 	background:red;
 	border-radius:50%;
 	position:relative;
-	left:320px;
+	left:260px;
 }
 .name{
 	position:relative;
@@ -72,7 +75,7 @@
 	margin-top:-784px;
 }
 
-.pinglun,.huifu{
+.comment,.huifu{
 	position:relative;
 	left:40px;
 	top:10px;
@@ -80,7 +83,7 @@
 .aaa29{
 	width:50px;
 	height:50px;
-	background:red;
+	background:#ff8080;
 	border-radius:50%;
 	position:relative;
 	left:290px;
@@ -158,3 +161,20 @@
 #leaveMsg{
 	margin-top:-90px;
 }
+
+/* #host{
+	border: 1px solid red;
+} */
+.showwords{
+		border: 1px solid #00ff80;
+		height:100px;
+} 
+.showcomment {
+	border: 1px solid #ff0000;
+		height:100px;
+}
+.showreplys{
+	border: 1px solid #ff00ff;
+		height:100px;
+}
+
