@@ -15,12 +15,6 @@ $(".treeNav").tree({
 			$("#main").tabs('close', nodeContent)
 		}
 		
-		$("#main").tabs('add',{
-			title: nodeContent,
-			content: "<h1 style='text-align:center;'>" + nodeContent + "</h1>",
-			iconCls:"icon-mini-add",
-			closable:true,
-		});
 		if(nodeContent=="用户信息"){
 			$("#main").tabs('add',{
 				title:nodeContent,

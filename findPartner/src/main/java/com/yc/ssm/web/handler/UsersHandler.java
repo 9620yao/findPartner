@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
 import com.yc.ssm.service.PartnerService;
@@ -71,6 +72,14 @@ public class UsersHandler {
 			return "redirect:/page/lw-log.jsp";
 		}
 
+	}
+	
+	@RequestMapping(value = "mlist", method = RequestMethod.POST)
+	@ResponseBody
+	public PaginationBean<Users> listUsers(@RequestParam(value="rows",required=false)String rows,@RequestParam(value="page",required=false)String page) {
+		LogManager.getLogger().debug("我进来了listUsers==》 ,rows="+rows+"，page="+page);
+		return usersService.listUsers(rows, page);
+		//return null;
 	}
 	
 	
