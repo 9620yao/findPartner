@@ -41,8 +41,7 @@ public class UsersHandler {
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	@ResponseBody
-	public boolean modify(@RequestParam("picData") MultipartFile picData, Users users, HttpSession session) {
+	public String modify(@RequestParam("picData") MultipartFile picData, Users users, HttpSession session) {
 		LogManager.getLogger().debug("picData==>" + picData, "user==>" + users);
 		if (picData != null && !picData.isEmpty()) {
 			String picPath = null;
@@ -55,7 +54,8 @@ public class UsersHandler {
 			users.setPicture(picPath);
 			System.out.println("上传图片==》" + users);
 		}
-		return usersService.modifyUserInfo(users);
+		usersService.modifyUserInfo(users);
+		return "redirect:/page/lw-index.jsp";
 	}
 
 	// 修改密码
@@ -79,7 +79,6 @@ public class UsersHandler {
 	public PaginationBean<Users> listUsers(@RequestParam(value="rows",required=false)String rows,@RequestParam(value="page",required=false)String page) {
 		LogManager.getLogger().debug("我进来了listUsers==》 ,rows="+rows+"，page="+page);
 		return usersService.listUsers(rows, page);
-		//return null;
 	}
 	
 	
