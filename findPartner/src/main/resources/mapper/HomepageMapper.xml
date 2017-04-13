@@ -33,10 +33,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 		n.*,rownum rn from (
 		select * from homepage where
-		hpuseid=#{hpuseid} order by hpdate desc) n
+		hpuseid=#{hpuseid}
+		order by hpdate desc) n
 		where ${currPage} *
-		${pageSize} >= rownum) t where
+		${pageSize} >= rownum) t
+		where
 		rn > (${currPage}-1)
+		* ${pageSize}
+	</select>
+
+	<resultMap type="PaginationBean" id="selfPaginationBeanMap">
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage,hpuseid=hpuseid}"
+			ofType="com.yc.ssm.entity.Homepage" select="selfGetPartTea" />
+	</resultMap>
+
+	<select id="selflist" parameterType="java.util.Map" resultMap="selfPaginationBeanMap"
+		useCache="false" flushCache="true">
+		select
+		count(1) total,ceil(count(1) /
+		${pBean.pageSize})
+		totalPage,${pBean.currPage}
+		currPage,${pBean.pageSize}
+		pageSize,#{hpuseid} hpuseid
+		from
+		homepage
+		where
+		hpuseid in (
+		select distinct (aid)
+		from friends
+		where aid in
+		(select
+		fid from friends where aid = #{hpuseid})
+		and fid = #{hpuseid}
+		or aid =
+		#{hpuseid}
+		)
+	</select>
+
+	<select id="selfGetPartTea" resultType="com.yc.ssm.entity.Homepage">
+		select t.* from (
+		select
+		n.*,rownum rn from (
+		select * from homepage where
+		hpuseid in (
+		select
+		distinct (aid)
+		from friends
+		where aid in
+		(select fid from friends where
+		aid = #{hpuseid})
+		and fid = #{hpuseid}
+		or aid = #{hpuseid}
+		)
+		order by
+		hpdate desc) n
+		where ${currPage} *
+		${pageSize} >= rownum) t
+		where
+		rn >
+		(${currPage}-1)
 		* ${pageSize}
 	</select>
 

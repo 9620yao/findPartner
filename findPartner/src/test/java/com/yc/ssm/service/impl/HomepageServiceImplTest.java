@@ -20,4 +20,9 @@ public class HomepageServiceImplTest {
 		System.out.println(homepageService.pbHomepage("a10056", "1", "10"));
 	}
 
+	@Test
+	public void testselflist() {
+		System.out.println(homepageService.selflist("a10056", "1", "10"));
+	}
+
 }

@@ -3,6 +3,7 @@ package com.yc.ssm.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Users;
 import com.yc.ssm.mapper.UsersMapper;
 import com.yc.ssm.service.UsersService;
@@ -30,8 +31,21 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public Users listUsersInfoByAid(String aid) {
-		// TODO Auto-generated method stub
 		return UsersMapper.findUsersInfoByAid(aid);
+	}
+
+	@Override
+	public PaginationBean<Users> listUsers(String rows, String page) {
+		PaginationBean<Users> pb=new PaginationBean<Users>();
+		if(page!=null){
+			pb.setCurrPage(Integer.parseInt(page));
+		}
+		if(rows!=null){
+			pb.setPageSize(Integer.parseInt(rows));
+		}
+		
+		pb=UsersMapper.partUsers(pb);
+		return pb;
 	}
 
 }

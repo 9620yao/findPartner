@@ -16,24 +16,39 @@
 	<div id="usersDetail">
 		<form action="#" method="post">
 			<p>
-				<label> 编号 </label> <input id="aid"/>
+				<label> 编号 </label> <input id="iaid"/>
 			</p>
 			<p>
-				<label> 昵称 </label> <input id="nickname"/>
+				<label> 昵称 </label> <input id="inickname"/>
 			</p>
 			<p>
-				<label> 邮箱 </label> <input id="email"/>
+				<label> 性别 </label> <input id="igender"/>
+			</p>
+			<p>
+				<label> 邮箱 </label> <input id="iemail"/>
+			</p>
+			<p>
+				<label> 生日 </label> <input id="ibirthday"/>
+			</p>
+			<p>
+				<label> 星座 </label> <input id="istar"/>
+			</p>
+			<p>
+				<label> 愛好 </label> <input id="ihobby"/>
 			</p>
 			<p>
 				<label> 头像 </label>
-				<img src="" style="width:100px;height:100px" id="picture">
+				<img src="" style="width:100px;height:100px" id="ipicture">
 			</p>
 			<p>
-				<label> 注册时间 </label><input id="regdate"/>
+				<label> 注册时间 </label><input id="iregdate"/>
 			</p>
 			<input type="submit" value="提交"/> <input type="reset" value="重置"/>
 		</form>
 	</div>
+	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" src="rel/js/users_info.js"></script>
 </body>
 </html>

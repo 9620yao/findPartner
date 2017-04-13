@@ -11,4 +11,6 @@ public interface HomepageMapper {
 
 	PaginationBean<Homepage> pblist(Map<String, Object> map);
 
+	PaginationBean<Homepage> selflist(Map<String, Object> map);
+
 }

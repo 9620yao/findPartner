@@ -30,8 +30,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			<result column="gender" property="gender" />
 		</association>
 	</resultMap>
-	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap" useCache="false" flushCache="true">
-		select u.*,l.gender from users u,logining l where u.alid=l.lid and
+	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap"
+		useCache="false" flushCache="true">
+		select u.*,l.gender from users u,logining
+		l where u.alid=l.lid and
 		u.alid=#{lid}
 	</select>
 
@@ -79,9 +81,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			aid=#{aid}
 		</where>
 	</update>
-	
-	<select id="findUsersInfoByAid" parameterType="string" resultMap="UsersMap">
-		select * from users u ,logining l where u.aid=#{aid} and u.alid = l.lid
+
+	<select id="findUsersInfoByAid" parameterType="string"
+		resultMap="UsersMap">
+		select * from users u ,logining l where u.aid=#{aid} and
+		u.alid = l.lid
+	</select>
+
+	<!-- 分页查询 -->
+	<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<id column="total" property="total"></id><!-- id表示主键 主键相同 结果相同 -->
+		<id column="totalPage" property="totalPage"></id>
+		<collection property="rows" ofType="Users">
+			<id column="aid" property="aid" />
+			<result column="nickname" property="nickname" />
+			<result column="age" property="age" />
+			<result column="birthday" property="birthday" />
+			<result column="star" property="star" />
+			<result column="hobby" property="hobby" />
+			<result column="job" property="job" />
+			<result column="picture" property="picture" />
+			<association property="partner" column="alid" javaType="Partner">
+				<id column="alid" property="lid" />
+				<result column="gender" property="gender" />
+				<result column="email" property="email" />
+				<result column="regdate" property="regdate" />
+			</association>
+		</collection>
+	</resultMap>
+	<select id="partUsers" parameterType="PaginationBean"
+		resultMap="PaginationBeanMap">
+		select ${currPage} currPage,${pageSize} pageSize,
+		(select count(1) from users u,logining
+		l where u.alid=l.lid)total,
+		(select ceil(count(1) / ${pageSize}) from users u,logining
+		l where u.alid=l.lid)totalPage,t.*
+		from ( select n.*,rownum rn from
+		(select u.*,l.* from users u,logining
+		l where u.alid=l.lid) n where ${currPage} *${pageSize}>=rownum) t where
+		rn>(${currPage}-1) * ${pageSize}
 	</select>
 
 </mapper>

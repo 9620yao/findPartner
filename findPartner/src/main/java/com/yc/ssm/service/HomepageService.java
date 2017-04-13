@@ -9,4 +9,6 @@ public interface HomepageService {
 
 	PaginationBean<Homepage> pbHomepage(String hpuseid, String currPage, String pageSize);
 
+	PaginationBean<Homepage> selflist(String hpuseid, String currPage, String pageSize);
+
 }

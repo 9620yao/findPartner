@@ -71,7 +71,6 @@ insert into USERS(aid,alid) values(seq_users_aid.nextval,'30');
 insert into USERS(aid,alid,hobby,address) values(seq_users_aid.nextval,'82','唱歌','湖南长沙');
 select * from users;
 update users set hobby='唱歌',address='湖南长沙' where aid='10000';
-
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
        aid varchar2(40),--用户编号
@@ -93,6 +92,10 @@ select fid from friends where aid='10000'
 --
 select * from FRIENDS 
 select aid from FRIENDS f where f.fid='10020' and aid not in (select fid from FRIENDS f where f.aid='10020')  --10000  10040  10041  他人的好友列表有我
+select fid from FRIENDS where aid='10000' and fid in(select aid from FRIENDS where fid='10000');--显示与10000用户互加的好友
+select f.fid from FRIENDS f where f.aid='10000' and f.fid in(select f.aid from FRIENDS where f.fid='10000')
+select aid from FRIENDS where fid='10000';
+
 --select fid from FRIENDS f where f.aid='10020'  --我的好友列表  10041  10000
 --select fid from FRIENDS f where f.aid not in (select aid from FRIENDS f where f.fid='a10000')--10000 10041
 --select * from FRIENDS where fid='10020' and aid in (select aid from FRIENDS f where f.fid='10020')
