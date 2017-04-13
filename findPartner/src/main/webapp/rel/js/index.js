@@ -248,17 +248,17 @@ $('#addInfo').dialog({
 	modal : true
 });
 
-$("#addInfo").dialog("close", true);
+//$("#addInfo").dialog("close", true);
 
-function add() {
+/*function add() {
 	$("#aid").hide();
 	$("#addInfo").dialog("open", true);
-}
+}*/
 
-function addWinClose() {
+/*function addWinClose() {
 	$("#addInfo").dialog("close", true);
 	return false;
-}
+}*/
 
 $(".updateBtn").linkbutton({
 	iconCls : "icon-ok",
@@ -267,7 +267,7 @@ $(".updateBtn").linkbutton({
 	}
 });
 
-$("#updateUserInfo").form(
+/*$("#updateUserInfo").form(
 		{
 			url : "user/update",
 			success : function(data) {
@@ -293,7 +293,7 @@ $("#updateUserInfo").form(
 					});
 				}
 			}
-		});
+		});*/
 function chgPic(obj) {
 	$(".pic").attr("src", window.URL.createObjectURL(obj.files[0]));
 }

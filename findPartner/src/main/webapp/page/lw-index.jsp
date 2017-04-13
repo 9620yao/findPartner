@@ -31,6 +31,7 @@
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="rel/css/index.css">
+<link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
@@ -223,15 +224,27 @@
 							<td id="ihometown"></td>
 						</tr>
 					</table>
-					<button class="updatebtn" onclick="add()">修改个人信息</button>
+					<button class="updatebtn" data-toggle="modal" data-target="#myModal">修改个人信息</button>
 				</div>
 				<!-- 显示个人信息 end -->
 			</div>
-
-			<!-- addInfo修改个人信息 -->
+			
+			<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
+				</div>
+				<!-- addInfo修改个人信息 -->
 			<div id="addInfo">
 				<h1 id="opt_type">修改个人信息</h1>
-				<form id="updateUserInfo" method="post"
+				<form action="user/update" id="updateUserInfo" method="post"
 					enctype="multipart/form-data">
 					<span>个人信息：</span> <input id="aid" name="aid" type="text"
 						style="display: block;" />
@@ -266,12 +279,18 @@
 					</ul>
 					<!-- <a class="updateBtn" href="javascript:void(0)">修改</a> -->
 					<button>修改</button>
-					<button onclick="return addWinClose();">&nbsp;&nbsp;取
-						消&nbsp;&nbsp;</button>
-					&nbsp;&nbsp;
 				</form>
 			</div>
 			<!-- addInfo修改个人信息  end-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end  -->
+
+			
 		</div>
 	</div>
 	<!-- content end -->
@@ -325,6 +344,7 @@
 
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>

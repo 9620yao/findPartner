@@ -41,7 +41,6 @@ CREATE TABLE users(
      otheradminsone VARCHAR2(40),
      otheradminstwo varchar2(40)
 );
-
 --select * from friends;
 --好友关注表（某用户下的所有好友）
 CREATE TABLE friends(
@@ -93,7 +92,7 @@ create table albumpic(
      abid VARCHAR2(40),--相册编号
      apic VARCHAR2(500),--图片   （多图片）
      apiccontent VARCHAR2(500),--图片描述
-     otheralbumpicone VARCHAR2(40),
+     apicdate VARCHAR2(40),--修改为 图片上传时间
      otheralbumpictwo varchar2(40)
 );
 
@@ -109,7 +108,7 @@ CREATE TABLE words(
      otheralbumone VARCHAR2(40),
      otheralbumtwo varchar2(40)
 );
-
+select * from WORDS
 --评论表（只包括 说说/相册/相片/留言 的单一评论）
 CREATE table comments(
        cid VARCHAR2(40) PRIMARY KEY,--评论编号
