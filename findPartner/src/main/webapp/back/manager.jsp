@@ -62,6 +62,13 @@
 					<li><span>留言添加</span></li>
 				</ul>
 			</div>
+			<div title="相册管理" data-options="iconCls:'icon-mini-add'">
+				<ul class="treeNav">
+					<li><span>相册信息</span></li>
+					<li><span>相册编辑</span></li>
+					<li><span>相册添加</span></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<div data-options="region:'center', title:'主界面', tools: [{    

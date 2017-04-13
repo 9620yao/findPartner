@@ -3,6 +3,7 @@ package com.yc.ssm.service;
 import java.util.List;
 
 import com.yc.ssm.entity.Album;
+import com.yc.ssm.entity.PaginationBean;
 
 public interface AlbumService {
 
@@ -15,4 +16,7 @@ public interface AlbumService {
 	boolean updateAheader(String abid, String picPath);
 
 	void updateAldate(String abid,String aldate);
+	
+	PaginationBean<Album> listAllAlbums(String page, String rows);
+
 }

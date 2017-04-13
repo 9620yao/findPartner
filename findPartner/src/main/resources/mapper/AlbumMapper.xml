@@ -25,4 +25,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update album set aldate = #{aldate} where abid = #{abid}
 	</update>
 	
+	<resultMap type="PaginationBean" id="PBMap">
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage}" ofType="com.yc.ssm.entity.Album"
+			select="GetAllAlbums" />
+	</resultMap>
+	<select id="showAlbum" parameterType="PaginationBean"
+		resultMap="PBMap" useCache="false" flushCache="true">
+		select count(1) total,
+		ceil(count(1)/${pageSize}) totalPage
+		,${pageSize} pageSize ,${currPage}
+		currPage from album
+	</select>
+	<select id="GetAllAlbums" resultType="com.yc.ssm.entity.Album">
+		select t.* from (
+		select
+		n.*,rownum rn from (
+		select * from album) n
+		where ${currPage} *
+		${pageSize} >= rownum) t where
+		rn > (${currPage}-1)
+		* ${pageSize}
+	</select>
+	
 </mapper>

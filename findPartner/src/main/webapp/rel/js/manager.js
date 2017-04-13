@@ -37,6 +37,13 @@ $(".treeNav").tree({
 				iconCls:"icon-mini-add",
 				closable:true,
 			});
+		}else if(nodeContent == "相册信息"){
+			$("#main").tabs('add',{
+				title: nodeContent,
+				href:"back/album_info.jsp",
+				iconCls:"icon-mini-add",
+				closable:true,
+			});
 		}
 	}
 });

@@ -1,145 +1,144 @@
-create sequence seq_logining_lid start with 10000;--×¢²á
-create sequence seq_users_aid start with 10000;--¸öÈËĞÅÏ¢±í
-create sequence seq_speaks_sid start with 10000;--ËµËµ±í
-create sequence seq_album_abid start with 10000;--Ïà²á±í
-create sequence seq_words_wid start with 10000;--ÁôÑÔ±í
-create sequence seq_comments_cid start with 10000;--ÆÀÂÛ±í
-create sequence seq_replys_rid start with 10000;--»Ø¸´±í
+create sequence seq_logining_lid start with 10000;--æ³¨å†Œ
+create sequence seq_users_aid start with 10000;--ä¸ªäººä¿¡æ¯è¡¨
+create sequence seq_speaks_sid start with 10000;--è¯´è¯´è¡¨
+create sequence seq_album_abid start with 10000;--ç›¸å†Œè¡¨
+create sequence seq_words_wid start with 10000;--ç•™è¨€è¡¨
+create sequence seq_comments_cid start with 10000;--è¯„è®ºè¡¨
+create sequence seq_replys_rid start with 10000;--å›å¤è¡¨
 
 --------select * from logining;-----
---µÇÂ¼×¢²á±í
+--ç™»å½•æ³¨å†Œè¡¨
 CREATE TABLE logining(
        lid VARCHAR2(40) PRIMARY KEY,
-       phone VARCHAR2(20),--µç»°£¨×¢²á£©
-       email VARCHAR2(20),--ÓÊÏä£¨×¢²á£©
-       password varchar2(50) not null,--ÃÜÂë
-       uname varchar2(20) not null,--ÓÃ»§ÕæÊµĞÕÃû
-       gender varchar2(4) default 'ÄĞ' check(gender in('ÄĞ','Å®')),    --ĞÔ±ğ
-       regdate varchar2(20),--×¢²áÊ±¼ä
+       phone VARCHAR2(20),--ç”µè¯ï¼ˆæ³¨å†Œï¼‰
+       email VARCHAR2(20),--é‚®ç®±ï¼ˆæ³¨å†Œï¼‰
+       password varchar2(50) not null,--å¯†ç 
+       uname varchar2(20) not null,--ç”¨æˆ·çœŸå®å§“å
+       gender varchar2(4) default 'ç”·' check(gender in('ç”·','å¥³')),    --æ€§åˆ«
+       regdate varchar2(20),--æ³¨å†Œæ—¶é—´
      otherlogone varchar2(40),
      otherlogtwo varchar2(40)
 );
 
 ---select * from users
---¸öÈËĞÅÏ¢±í
+--ä¸ªäººä¿¡æ¯è¡¨
 CREATE TABLE users(
-       aid VARCHAR2(40) PRIMARY KEY,--ÓÃ»§±àºÅ
-     alid VARCHAR2(40) constraint fk_alid references logining(lid),--×¢²áid£¬°ÑËùÓĞĞÅÏ¢ÁªÏµÆğÀ´ £¨Íâ¼üÔ¼Êø£©
-       nickname VARCHAR2(40),--ÓÃ»§êÇ³Æ£¨Ä¬ÈÏÎªÓÃ»§±àºÅ»òÕß×¢²áµÄÓÊÏäºÅ»òÕß×¢²áµÄÊÖ»úºÅ£©
-       age int check(age between 6 and 100),--ÄêÁä £¨¼ì²éÔ¼Êø£©
-       birthday varchar2(20),--ÉúÈÕ ------------------------date
-     photo varchar2(200),--¸öÈËÕÕÆ¬
-       star VARCHAR2(50),--ĞÇ×ù
-       hobby VARCHAR2(50),--°®ºÃ
-       job VARCHAR2(50),--¹¤×÷
-       company VARCHAR2(50),--¹«Ë¾
-       school VARCHAR2(50),--Ñ§Ğ£
-       address VARCHAR2(100),--ÏÖ¾ÓµØÖ·
-       hometown VARCHAR2(100),--¼ÒÏç
-       picture varchar2(100),--Í·Ïñ
-       astate VARCHAR2(200),--¹ú¼®(state)
+       aid VARCHAR2(40) PRIMARY KEY,--ç”¨æˆ·ç¼–å·
+     alid VARCHAR2(40) constraint fk_alid references logining(lid),--æ³¨å†Œidï¼ŒæŠŠæ‰€æœ‰ä¿¡æ¯è”ç³»èµ·æ¥ ï¼ˆå¤–é”®çº¦æŸï¼‰
+       nickname VARCHAR2(40),--ç”¨æˆ·æ˜µç§°ï¼ˆé»˜è®¤ä¸ºç”¨æˆ·ç¼–å·æˆ–è€…æ³¨å†Œçš„é‚®ç®±å·æˆ–è€…æ³¨å†Œçš„æ‰‹æœºå·ï¼‰
+       age int check(age between 6 and 100),--å¹´é¾„ ï¼ˆæ£€æŸ¥çº¦æŸï¼‰
+       birthday varchar2(20),--ç”Ÿæ—¥ ------------------------date
+     photo varchar2(200),--ä¸ªäººç…§ç‰‡
+       star VARCHAR2(50),--æ˜Ÿåº§
+       hobby VARCHAR2(50),--çˆ±å¥½
+       job VARCHAR2(50),--å·¥ä½œ
+       company VARCHAR2(50),--å…¬å¸
+       school VARCHAR2(50),--å­¦æ ¡
+       address VARCHAR2(100),--ç°å±…åœ°å€
+       hometown VARCHAR2(100),--å®¶ä¹¡
+       picture varchar2(100),--å¤´åƒ
+       astate VARCHAR2(200),--å›½ç±(state)
      otheradminsone VARCHAR2(40),
      otheradminstwo varchar2(40)
 );
 
 --select * from friends;
---ºÃÓÑ¹Ø×¢±í£¨Ä³ÓÃ»§ÏÂµÄËùÓĞºÃÓÑ£©
+--å¥½å‹å…³æ³¨è¡¨ï¼ˆæŸç”¨æˆ·ä¸‹çš„æ‰€æœ‰å¥½å‹ï¼‰
 CREATE TABLE friends(
-       aid varchar2(40),--ÓÃ»§±àºÅ
-       fid varchar2(40),--ºÃÓÑ±àºÅ
-     sure varchar2(40) default '-0' check(sure in('-0','-1')),   --ÊÇ·ñÆÁ±Î£¬Ä¬ÈÏ0Îª²»ÆÁ±Î£¬1ÎªÆÁ±Î
+       aid varchar2(40),--ç”¨æˆ·ç¼–å·
+       fid varchar2(40),--å¥½å‹ç¼–å·
+     sure varchar2(40) default '-0' check(sure in('-0','-1')),   --æ˜¯å¦å±è”½ï¼Œé»˜è®¤0ä¸ºä¸å±è”½ï¼Œ1ä¸ºå±è”½
      otherfriendsone VARCHAR2(40),
      otherfriendstwo varchar2(40)
 );
 
---ÆäËûºÃÓÑ±í£¨Ä³ÓÃ»§ºÍÃ»¹Ø×¢µÄºÃÓÑ£©--ÔÚÁ½¸öºÃÓÑÃ»¹Ø×¢µÄÊ±ºò£¬ÁªÏµÔÚÒ»Æğ
+--å…¶ä»–å¥½å‹è¡¨ï¼ˆæŸç”¨æˆ·å’Œæ²¡å…³æ³¨çš„å¥½å‹ï¼‰--åœ¨ä¸¤ä¸ªå¥½å‹æ²¡å…³æ³¨çš„æ—¶å€™ï¼Œè”ç³»åœ¨ä¸€èµ·
 CREATE TABLE friendothers(
-       aid varchar2(40),--ÓÃ»§±àºÅ
-       fid varchar2(40),--ºÃÓÑ±àºÅ
-     othersure varchar2(40) default '-0' check(othersure in('-0','-1')),   --ÊÇ·ñÆÁ±Î£¬Ä¬ÈÏ0Îª²»ÆÁ±Î£¬1ÎªÆÁ±Î£¨ÆÁ±Î¼È¼ÓÎªºÚÃû£©
-     otherfriend varchar2(40) default '-0' check(otherfriend in('-0','-1')),--ÊÇ·ñÎªÄ°ÉúÈË£¬Ä¬ÈÏ0Îª²»ÊÇ£¬1ÎªÄ°ÉúÈË
+       aid varchar2(40),--ç”¨æˆ·ç¼–å·
+       fid varchar2(40),--å¥½å‹ç¼–å·
+     othersure varchar2(40) default '-0' check(othersure in('-0','-1')),   --æ˜¯å¦å±è”½ï¼Œé»˜è®¤0ä¸ºä¸å±è”½ï¼Œ1ä¸ºå±è”½ï¼ˆå±è”½æ—¢åŠ ä¸ºé»‘åï¼‰
+     otherfriend varchar2(40) default '-0' check(otherfriend in('-0','-1')),--æ˜¯å¦ä¸ºé™Œç”Ÿäººï¼Œé»˜è®¤0ä¸ºä¸æ˜¯ï¼Œ1ä¸ºé™Œç”Ÿäºº
      otherfriendsone VARCHAR2(40),
      otherfriendstwo varchar2(40)
 );
 
 --select * from speaks;
---ËµËµ±í
+--è¯´è¯´è¡¨
 CREATE TABLE speaks(
-       sid  VARCHAR2(40) PRIMARY KEY,--ËµËµ±àºÅ
-       content VARCHAR2(500),--ËµËµÄÚÈİ
-       speakman VARCHAR2(40),--ËµËµ·¢±íÈË  (¹ØÁªµ½ÓÃ»§)
-       files VARCHAR2(500),--ÉÏ´«ÎÄ¼ş£¬ÊÓÆµ£¬ÒôÀÖµÈ
-       senddate varchar2(20),--·¢ËµËµÈÕÆÚ
+       sid  VARCHAR2(40) PRIMARY KEY,--è¯´è¯´ç¼–å·
+       content VARCHAR2(500),--è¯´è¯´å†…å®¹
+       speakman VARCHAR2(40),--è¯´è¯´å‘è¡¨äºº  (å…³è”åˆ°ç”¨æˆ·)
+       files VARCHAR2(500),--ä¸Šä¼ æ–‡ä»¶ï¼Œè§†é¢‘ï¼ŒéŸ³ä¹ç­‰
+       senddate varchar2(20),--å‘è¯´è¯´æ—¥æœŸ
      otherspeaksone VARCHAR2(40),
      otherspeakstwo varchar2(40)
 );
 
 --select * from album
---Ïà²á¼¯±í(Ïà²áÁĞ±í)
+--ç›¸å†Œé›†è¡¨(ç›¸å†Œåˆ—è¡¨)
 CREATE TABLE album(
-       abid VARCHAR2(40) PRIMARY KEY,--Ïà²á±àºÅ
-       abname VARCHAR2(50),--Ïà²áÃû³Æ
-       aaid VARCHAR2(40), --Ïà²á·¢±íÈË
-       alcontent VARCHAR2(500),--Ïà²áÄÚÈİ£¨Ïà²áÃèÊö£©
-       allocation VARCHAR2(100),--Ïà²áÉÏ´«Î»ÖÃ
-       aldate varchar2(20), --Ïà²áÉÏ´«Ê±¼ä
-     aheader VARCHAR2(500),--Ïà²á×îÍâÃæÏÔÊ¾µÄÍ¼Æ¬£¨¿ÉÒÔÊÇ¸ÃÏà²áÏÂµÄÍ¼Æ¬£¬Ò²¿ÉÒÔÊ¹ÓÃ»§×Ô¶¨ÒåµÄÍ¼Æ¬£©
+       abid VARCHAR2(40) PRIMARY KEY,--ç›¸å†Œç¼–å·
+       abname VARCHAR2(50),--ç›¸å†Œåç§°
+       aaid VARCHAR2(40), --ç›¸å†Œå‘è¡¨äºº
+       alcontent VARCHAR2(500),--ç›¸å†Œå†…å®¹ï¼ˆç›¸å†Œæè¿°ï¼‰
+       allocation VARCHAR2(100),--ç›¸å†Œä¸Šä¼ ä½ç½®
+       aldate varchar2(20), --ç›¸å†Œä¸Šä¼ æ—¶é—´
+     aheader VARCHAR2(500),--ç›¸å†Œæœ€å¤–é¢æ˜¾ç¤ºçš„å›¾ç‰‡ï¼ˆå¯ä»¥æ˜¯è¯¥ç›¸å†Œä¸‹çš„å›¾ç‰‡ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨æˆ·è‡ªå®šä¹‰çš„å›¾ç‰‡ï¼‰
      otheralbumone VARCHAR2(40),
      otheralbumtwo varchar2(40)
 );
-
 --select * from albumpic;
---Ïà²á-Í¼Æ¬£¨Ä³Ïà²áÏÂµÄËùÓĞÍ¼Æ¬£©
+--ç›¸å†Œ-å›¾ç‰‡ï¼ˆæŸç›¸å†Œä¸‹çš„æ‰€æœ‰å›¾ç‰‡ï¼‰
 create table albumpic(
-     abid VARCHAR2(40),--Ïà²á±àºÅ
-     apic VARCHAR2(500),--Í¼Æ¬   £¨¶àÍ¼Æ¬£©
-     apiccontent VARCHAR2(500),--Í¼Æ¬ÃèÊö
+     abid VARCHAR2(40),--ç›¸å†Œç¼–å·
+     apic VARCHAR2(500),--å›¾ç‰‡   ï¼ˆå¤šå›¾ç‰‡ï¼‰
+     apiccontent VARCHAR2(500),--å›¾ç‰‡æè¿°
      otheralbumpicone VARCHAR2(40),
      otheralbumpictwo varchar2(40)
 );
 
 --select * from words;
---ÁôÑÔ±í
+--ç•™è¨€è¡¨
 CREATE TABLE words(
-       wid VARCHAR2(40) PRIMARY KEY,--Ïà²á±àºÅ
-       waid VARCHAR2(40) CONSTRAINTS fk_words_waid REFERENCES users(aid), --ÓÃ»§±àºÅ
-     wfrendid VARCHAR2(20), --ÁôÑÔÈË(Ë­ÔÚÁôÑÔ)
-       wcontent VARCHAR2(500),--ÁôÑÔÄÚÈİ
-       waddress VARCHAR2(50),--ÁôÑÔÈËËùÔÚÎ»ÖÃ
-       wdate varchar2(20), --ÁôÑÔÊ±¼ä
+       wid VARCHAR2(40) PRIMARY KEY,--ç›¸å†Œç¼–å·
+       waid VARCHAR2(40) CONSTRAINTS fk_words_waid REFERENCES users(aid), --ç”¨æˆ·ç¼–å·
+     wfrendid VARCHAR2(20), --ç•™è¨€äºº(è°åœ¨ç•™è¨€)
+       wcontent VARCHAR2(500),--ç•™è¨€å†…å®¹
+       waddress VARCHAR2(50),--ç•™è¨€äººæ‰€åœ¨ä½ç½®
+       wdate varchar2(20), --ç•™è¨€æ—¶é—´
      otheralbumone VARCHAR2(40),
      otheralbumtwo varchar2(40)
 );
 
---ÆÀÂÛ±í£¨Ö»°üÀ¨ ËµËµ/Ïà²á/ÏàÆ¬/ÁôÑÔ µÄµ¥Ò»ÆÀÂÛ£©
+--è¯„è®ºè¡¨ï¼ˆåªåŒ…æ‹¬ è¯´è¯´/ç›¸å†Œ/ç›¸ç‰‡/ç•™è¨€ çš„å•ä¸€è¯„è®ºï¼‰
 CREATE table comments(
-       cid VARCHAR2(40) PRIMARY KEY,--ÆÀÂÛ±àºÅ
-       callid VARCHAR2(40),--ËµËµ/Ïà²á/ÏàÆ¬/ÁôÑÔ µÄ±àºÅ
-       detail VARCHAR2(200),--ÆÀÂÛÄÚÈİ
-       comuserid  VARCHAR2(200),--ÆÀÂÛÓÃ»§±àºÅ
-       comTime varchar2(20),--ÆÀÂÛÊ±¼ä
+       cid VARCHAR2(40) PRIMARY KEY,--è¯„è®ºç¼–å·
+       callid VARCHAR2(40),--è¯´è¯´/ç›¸å†Œ/ç›¸ç‰‡/ç•™è¨€ çš„ç¼–å·
+       detail VARCHAR2(200),--è¯„è®ºå†…å®¹
+       comuserid  VARCHAR2(200),--è¯„è®ºç”¨æˆ·ç¼–å·
+       comTime varchar2(20),--è¯„è®ºæ—¶é—´
      othercommentsone VARCHAR2(40),
      othercommentstwo varchar2(40)     
 );
 
 select * from replys;
---»Ø¸´±í£¨°üÀ¨¶ÔÆÀÂÛµÄ»Ø¸´£¬ÒÔ¼°¶Ô»Ø¸´µÄ»Ø¸´£©
+--å›å¤è¡¨ï¼ˆåŒ…æ‹¬å¯¹è¯„è®ºçš„å›å¤ï¼Œä»¥åŠå¯¹å›å¤çš„å›å¤ï¼‰
 create table replys(
-       rid varchar2(40) primary key,--»Ø¸´±àºÅ
-       rcid varchar2(40) CONSTRAINTS fk_replys_cid REFERENCES comments(cid),--(ÆÀÂÛ±àºÅ)
-       ruserid varchar2(40),--µ±Ç°»Ø¸´ÓÃ»§µÄ±àºÅ  
-       rtargetid varchar2(40),--Ä¿±êÓÃ»§±àºÅ
-       rcontent varchar2(500),--»Ø¸´ÄÚÈİ
-       rtime varchar2(20),--»Ø¸´Ê±¼ä
+       rid varchar2(40) primary key,--å›å¤ç¼–å·
+       rcid varchar2(40) CONSTRAINTS fk_replys_cid REFERENCES comments(cid),--(è¯„è®ºç¼–å·)
+       ruserid varchar2(40),--å½“å‰å›å¤ç”¨æˆ·çš„ç¼–å·  
+       rtargetid varchar2(40),--ç›®æ ‡ç”¨æˆ·ç¼–å·
+       rcontent varchar2(500),--å›å¤å†…å®¹
+       rtime varchar2(20),--å›å¤æ—¶é—´
      otherreplysone VARCHAR2(40),
      otherreplystwo varchar2(40)
 );
 
---Ö÷Ò³ÏÔÊ¾
+--ä¸»é¡µæ˜¾ç¤º
 create table homepage(
-       hpid varchar2(40),--ÓÃÀ´´æ·ÅËµËµ/Í¼Æ¬µÄ±àºÅ
-       hpuseid varchar2(40),--ÓÃÀ´´æ·ÅËµËµ/Í¼Æ¬·¢±íÈËµÄ±àºÅ
-       hpdate varchar2(40),--ÓÃÀ´´æ·ÅËµËµ/Í¼Æ¬ µÄ·¢±íÊ±¼ä
+       hpid varchar2(40),--ç”¨æ¥å­˜æ”¾è¯´è¯´/å›¾ç‰‡çš„ç¼–å·
+       hpuseid varchar2(40),--ç”¨æ¥å­˜æ”¾è¯´è¯´/å›¾ç‰‡å‘è¡¨äººçš„ç¼–å·
+       hpdate varchar2(40),--ç”¨æ¥å­˜æ”¾è¯´è¯´/å›¾ç‰‡ çš„å‘è¡¨æ—¶é—´
        otherreplysone VARCHAR2(40),
        otherreplystwo varchar2(40)
 );
@@ -148,4 +147,4 @@ select * from speaks
 select * from album
 insert into homepage values('ab10000','a10056','2017-04-07 12:21:20','','')
 
---aaid ÓÃ»§±àºÅ a10056 a10057 a10055
+--aaid ç”¨æˆ·ç¼–å· a10056 a10057 a10055
