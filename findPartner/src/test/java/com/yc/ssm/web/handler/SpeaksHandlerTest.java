@@ -63,5 +63,13 @@ public class SpeaksHandlerTest {
 			homepageService.addhompage(outspeaks.getSid(), outspeaks.getSpeakman(), outspeaks.getSenddate());
 		}
 	}*/
+	
+	@Test
+	public void testFindByUnclearNames() {
+		Speaks speaks=new Speaks();
+		speaks.setSpeakman("a2");
+		List<Speaks> ss=speaksService.findSpeaksInfoByName(speaks);
+		System.out.println(ss);
+	}
 
 }

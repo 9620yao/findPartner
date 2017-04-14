@@ -1,6 +1,7 @@
 package com.yc.ssm.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,11 @@ public class SpeaksServiceImpl implements SpeaksService {
 			pBean.setPageSize(Integer.parseInt(rows));
 		}
 		return speaksMapper.showSpeaks(pBean);
+	}
+
+	@Override
+	public List<Speaks> findSpeaksInfoByName(Speaks speaks) {
+		return speaksMapper.findByName(speaks);
 	}
 
 }
