@@ -10,6 +10,11 @@
 	href="easyui/themes/default/easyui.css">
 </head>
 <body>
+	<div id="search">
+		<input id="selectName" value="姓名/时间查询">
+		<input id="paramter" name="paramter">
+		<input value="查询" type="button" onclick="unclearQuery()"/>
+	</div>
 	<table id="albumInfo"></table>
 	<div id="albumDetail">
 		<form action="#" method="post">
@@ -25,7 +30,7 @@
 			</p>
 			<p>
 				<label> 内容 </label>
-				<div id="ialcontent" style="width: 700px; height: 200px; border: 1px solid gray; overflow: scroll;"></div>
+				<div id="ialcontent" style="width: 400px; height: 100px; border: 1px solid gray; overflow: scroll;"></div>
 			</p>
 			
 			<p>

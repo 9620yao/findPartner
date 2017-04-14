@@ -72,7 +72,7 @@ CREATE TABLE speaks(
      otherspeaksone VARCHAR2(40),
      otherspeakstwo varchar2(40)
 );
-
+select * from speaks where speakman like '%a2%' or senddate like '%8%';
 --select * from album
 --相册集表(相册列表)
 CREATE TABLE album(
@@ -95,7 +95,6 @@ create table albumpic(
      apicdate VARCHAR2(40),--修改为 图片上传时间
      otheralbumpictwo varchar2(40)
 );
-
 --select * from words;
 --留言表
 CREATE TABLE words(

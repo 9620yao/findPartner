@@ -1,5 +1,7 @@
 package com.yc.ssm.web.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -63,4 +65,12 @@ public class SpeaksHandler {
 		return speaksService.findSpeaks(sid, speakman);
 	}
 
+	
+	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Speaks> findByUnclearNames(Speaks speaks) {
+		speaks.setSenddate("%"+speaks.getSpeakman()+"%");		
+		speaks.setSpeakman("%"+speaks.getSpeakman()+"%");
+		return speaksService.findSpeaksInfoByName(speaks);
+	}
 }

@@ -1,5 +1,6 @@
 package com.yc.ssm.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import com.yc.ssm.entity.PaginationBean;
@@ -13,6 +14,9 @@ public interface WordsMapper {
 	PaginationBean<Words> PbeanWords(Map<String, Object> map);
 	
 	PaginationBean<Words> showWords(PaginationBean<Words> pb);
+	
+	List<Words> findByName(Words Words);
+
 
 
 }

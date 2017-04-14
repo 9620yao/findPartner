@@ -42,4 +42,19 @@ public class HomepageServiceImpl implements HomepageService {
 		return homepageMapper.pblist(map);
 	}
 
+	@Override
+	public PaginationBean<Homepage> selflist(String hpuseid, String currPage, String pageSize) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		PaginationBean<Speaks> pBean = new PaginationBean<Speaks>();
+		if (currPage != null) {
+			pBean.setCurrPage(Integer.parseInt(currPage));
+		}
+		if (pageSize != null) {
+			pBean.setPageSize(Integer.parseInt(pageSize));
+		}
+		map.put("hpuseid", hpuseid);
+		map.put("pBean", pBean);
+		return homepageMapper.selflist(map);
+	}
+
 }

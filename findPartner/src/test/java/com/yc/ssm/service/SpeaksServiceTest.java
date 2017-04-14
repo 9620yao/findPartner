@@ -6,6 +6,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -47,6 +49,13 @@ public class SpeaksServiceTest {
 		PaginationBean<Speaks> ss = speaksService.listAllSpeaks("1", "5");
 		System.out.println(ss);
 		assertNotNull(ss);
+	}
+	
+	@Test
+	public void testFindSpeaks() {
+		ApplicationContext ac=new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
+		ac.getBean("");
+		System.out.println();
 	}
 
 }
