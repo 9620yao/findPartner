@@ -160,7 +160,8 @@
 			<!-- end -->
 
 			<!-- 分页显示数据 start -->
-			<div id="page"></div>
+			<div id="page">
+			</div>
 			<!-- 分页显示数据 end -->
 		</div>
 

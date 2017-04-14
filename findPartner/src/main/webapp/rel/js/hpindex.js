@@ -35,6 +35,12 @@ function showhomepage(currPage) {
 					return false;
 				}
 				homepage(data);
+				
+				var pagination = "";
+				pagination += '<div><a href="javascript:void(0)" onclick="showhomepage('
+				+ (data.currPage == data.totalPage ? data.currPage
+						: (data.currPage + 1)) + ')">点击加载更多</a></div>';
+				$("#page")[0].innerHTML = pagination;
 			}, "json");
 }
 
@@ -49,6 +55,17 @@ function selfhomepage(currPage) {
 					return false;
 				}
 				homepage(data);
+				
+				var pagination = "";
+				var click = '';
+				console.info(data.currPage+"|"+data.totalPage);
+				if(data.currPage == data.totalPage){
+					click = '';
+				}else{
+					click = ' onclick="selfhomepage('+ (data.currPage+1)+')'
+				}
+				pagination += '<div><a class="addmore" href="javascript:void(0)" '+click+'>点击加载更多</a></div>';
+				$("#page")[0].innerHTML = pagination;
 			}, "json");
 }
 
@@ -61,19 +78,6 @@ function homepage(data){
 		findspeack(data.rows[i].hpid,data.rows[i].hpuseid,data.rows[i].hpdate);
 		findalbumpic(data.rows[i].hpid,data.rows[i].hpuseid,data.rows[i].hpdate);
 	}
-	var pagination = "";
-	pagination += '<label>当前第' + currPage + ' 页，共'
-	+ data.totalPage + ' 页</label>';
-	pagination += '<a href="javascript:void(0)" onclick="listSpeaks(1)">首页</a>';
-	pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-		+ (data.currPage == 1 ? 1 : (data.currPage - 1))
-		+ ')">上一页</a>';
-	pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-		+ (data.currPage == data.totalPage ? data.currPage
-				: (data.currPage + 1)) + ')">下一页</a>';
-	pagination += '<a href="javascript:void(0)" onclick="listSpeaks('
-		+ data.totalPage + ')">尾页</a>';
-	$("#page")[0].innerHTML = pagination;
 }
 
 //同步发送请求
