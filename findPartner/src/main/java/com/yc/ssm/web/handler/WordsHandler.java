@@ -1,5 +1,7 @@
 package com.yc.ssm.web.handler;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.logging.log4j.LogManager;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.ssm.entity.PaginationBean;
+import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.entity.Words;
 import com.yc.ssm.service.WordsService;
 import com.yc.ssm.util.ServletUtil;
@@ -41,6 +44,14 @@ public class WordsHandler {
 		} else {
 			return "redirect:/page/lw-index.jsp";
 		}
+	}
+	
+	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Words> findByUnclearNames(Words words) {
+		words.setWfrendid("%"+words.getWfrendid()+"%");		
+		words.setWdate("%"+words.getWfrendid()+"%");
+		return wordsService.findWordsInfoByName(words);
 	}
 
 }

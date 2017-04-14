@@ -19,4 +19,7 @@ public interface AlbumMapper {
 	void updateAldate(Map<String, String> map);
 
 	PaginationBean<Album> showAlbum(PaginationBean<Album> pBean);
+	
+	List<Album> findByName(Album album);
+
 }

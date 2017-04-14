@@ -1,6 +1,7 @@
 package com.yc.ssm.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,10 @@ public class WordsServiceImpl implements WordsService {
 			pBean.setPageSize(Integer.parseInt(rows));
 		}
 		return wordsMapper.showWords(pBean);
+	}
+
+	@Override
+	public List<Words> findWordsInfoByName(Words words) {
+		return wordsMapper.findByName(words);
 	}
 }

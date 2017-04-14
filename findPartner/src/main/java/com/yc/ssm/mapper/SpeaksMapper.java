@@ -1,5 +1,6 @@
 package com.yc.ssm.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import com.yc.ssm.entity.PaginationBean;
@@ -18,5 +19,7 @@ public interface SpeaksMapper {
 	Speaks findSpeaks(Map<String, String> map);
 
 	String findSid();
+	
+	List<Speaks> findByName(Speaks speaks);
 
 }

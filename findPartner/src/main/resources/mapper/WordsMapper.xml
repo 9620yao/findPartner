@@ -69,4 +69,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		${currPage} * ${pageSize} >= rownum) t 
 		where rn > (${currPage}-1)*${pageSize}
 	</select>
+	
+	
+	<select id="findByName" parameterType="Words" resultType="Words">
+		select * from words where wfrendid like #{wfrendid} or wdate like #{wfrendid}
+	</select>
 </mapper>

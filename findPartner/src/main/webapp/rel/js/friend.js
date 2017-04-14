@@ -5,12 +5,12 @@ function loadFriendsInfo(){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		var friendList="";
 		for (var i = 0; i < data.length; i++) {
-			friendList+='<div>'
-				friendList+=data[i].picture==null?'<img onclick="showuser(\''+data[i].aid+'\')" src="images/not_pic.jpg">':'<img onclick="showuser(\''+data[i].aid+'\')" src="'+data[i].picture+'">';
-				friendList+='<h3>'+data[i].nickname+'</h3></div>';
+			friendList+='<div class="testdiv" style="float:left;margin-left:20px;">';
+			friendList+=data[i].picture==null?'<img style="width:100px;height:100px;border:none;" onclick="showuser(\''+data[i].aid+'\')" src="images/not_pic.jpg">':'<img style="width:100px;height:100px;border:none;" onclick="showuser(\''+data[i].aid+'\')" src="'+data[i].picture+'">';
+			friendList+='</div><div style="float:left;margin-left:5px;"><h3 style="color:green;">'+data[i].nickname+'</h3>';
+			friendList+='<span style="display:block;">'+data[i].address+'</span><span style="display:block;margin-left:3px;">'+data[i].star+'</span></div>'
 		}
 		$("#myfriend")[0].innerHTML = friendList;
-
 
 	}, "json");
 }

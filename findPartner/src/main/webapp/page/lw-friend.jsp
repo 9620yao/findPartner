@@ -26,7 +26,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<link rel="stylesheet" href="rel/css/friend.css">
+<!-- <link rel="stylesheet" href="rel/css/friend.css"> -->
 </head>
 
 <body id="blog-article-sidebar">
@@ -76,8 +76,8 @@
 	<!-- nav end -->
 	<hr>
 	<!-- content srart -->
-	<div class="am-g am-g-fixed blog-fixed blog-content">
-		<div id="myfriend">
+	<div style="margin-left:200px;">
+		<div id="myfriend"  style="width:500px;height:800px;">
 			<!-- 好友列表 -->
 		</div>
 	</div>

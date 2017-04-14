@@ -61,4 +61,9 @@ public class AlbumServiceImpl implements AlbumService {
 		return albumMapper.showAlbum(pBean);
 	}
 
+	@Override
+	public List<Album> findAlbumInfoByName(Album album) {
+		return albumMapper.findByName(album);
+	}
+
 }

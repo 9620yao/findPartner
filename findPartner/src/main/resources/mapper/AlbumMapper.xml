@@ -48,4 +48,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		* ${pageSize}
 	</select>
 	
+	
+	<select id="findByName" parameterType="Album" resultType="Album">
+		select * from album where aaid like #{aaid} or aldate like #{aaid}
+	</select>
 </mapper>

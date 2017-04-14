@@ -58,6 +58,15 @@ function showUser(data) {
 	$("#astate").val(data.astate);
 }
 
+
+
+$(".updateBtn").linkbutton({
+	iconCls : "icon-ok",
+	onClick : function() {
+		$("#updateUserInfo").submit();
+	}
+});
+
 function chgPic(obj) {
 	$(".pic").attr("src", window.URL.createObjectURL(obj.files[0]));
 }

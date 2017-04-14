@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.yc.ssm.entity.Album;
 import com.yc.ssm.entity.PaginationBean;
+import com.yc.ssm.entity.Words;
 
 public interface AlbumService {
 
@@ -18,5 +19,8 @@ public interface AlbumService {
 	void updateAldate(String abid,String aldate);
 	
 	PaginationBean<Album> listAllAlbums(String page, String rows);
+	
+	List<Album> findAlbumInfoByName(Album album);
+
 
 }

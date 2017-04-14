@@ -71,4 +71,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		rn > (${currPage}-1)
 		* ${pageSize}
 	</select>
+	
+	<select id="findByName" parameterType="Speaks" resultType="Speaks">
+		select * from speaks where speakman like #{speakman} or senddate like #{speakman}
+	</select>
+	
+	
 </mapper>

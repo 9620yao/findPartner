@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="${deployName }">
+<base href="${deployName}">
 <meta charset="UTF-8">
 <title>说说管理</title>
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
@@ -10,6 +10,13 @@
 	href="easyui/themes/default/easyui.css">
 </head>
 <body>
+	<div id="search">
+		<select id="selectName">
+			<option value="姓名/时间查询" id="findByName" selected="selected">姓名/时间查询</option>
+		</select>	
+		<input id="paramter" name="paramter">
+		<input value="查询" type="button" onclick="unclearQuery()"/>
+	</div>
 	<table id="speaksInfo"></table>
 	<div id="speaksDetail">
 		<form action="#" method="post">

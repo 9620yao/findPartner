@@ -50,7 +50,7 @@ CREATE TABLE friends(
      otherfriendsone VARCHAR2(40),
      otherfriendstwo varchar2(40)
 );
-
+select * from FRIENDS;
 --其他好友表（某用户和没关注的好友）--在两个好友没关注的时候，联系在一起
 CREATE TABLE friendothers(
        aid varchar2(40),--用户编号
@@ -72,7 +72,7 @@ CREATE TABLE speaks(
      otherspeaksone VARCHAR2(40),
      otherspeakstwo varchar2(40)
 );
-
+select * from speaks where speakman like '%a2%' or senddate like '%8%';
 --select * from album
 --相册集表(相册列表)
 CREATE TABLE album(
