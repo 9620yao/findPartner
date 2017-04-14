@@ -238,27 +238,7 @@ function showUser(data) {
 	$("#astate").val(data.astate);
 }
 
-$('#addInfo').dialog({
-	width : 380,
-	height : 500,
-	left : 500,
-	top : 300,
-	title : '',
-	border : false,
-	modal : true
-});
 
-//$("#addInfo").dialog("close", true);
-
-/*function add() {
-	$("#aid").hide();
-	$("#addInfo").dialog("open", true);
-}*/
-
-/*function addWinClose() {
-	$("#addInfo").dialog("close", true);
-	return false;
-}*/
 
 $(".updateBtn").linkbutton({
 	iconCls : "icon-ok",
@@ -267,33 +247,6 @@ $(".updateBtn").linkbutton({
 	}
 });
 
-/*$("#updateUserInfo").form(
-		{
-			url : "user/update",
-			success : function(data) {
-				// alert(JSON.stringify(data));
-				if (data == "") {
-					$.messager.alert('用户修改主', '当前用户没有修改用户的权限 ！', 'warning');
-					$("#addInfo").dialog("close"); // 关闭修改框
-					return;
-				}
-
-				if (data.trim() == "true") {
-					$("#addInfo").dialog("close"); // 关闭修改框
-					loadAdminInfo();
-				} else {
-					$.messager.show({
-						title : '修改信息',
-						msg : '修改失败！！！',
-						showType : 'show',
-						style : {
-							top : document.body.scrollTop
-							+ document.documentElement.scrollTop,
-						}
-					});
-				}
-			}
-		});*/
 function chgPic(obj) {
 	$(".pic").attr("src", window.URL.createObjectURL(obj.files[0]));
 }
