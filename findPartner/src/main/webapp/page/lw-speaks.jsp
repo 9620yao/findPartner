@@ -80,25 +80,22 @@
 	<hr>
 	<!-- nav end -->
 
-	<article class="am-g blog-entry-article">
-		<div class="editdiv">
-			<form id="myspeak" method="post">
-				<textarea id="ueditor" name="ueditor" rows="4" cols="39"
-					placeholder="发表一个说说"></textarea>
-				<input name="content" id="content" type="hidden"> <a
-					href="javascript:void(0)" onclick="return addSpeak()">发表</a>
-			</form>
-		</div>
-	</article>
-
 	<!-- content srart -->
 	<!-- <!-- 添加说说 -->
-	<div id="addSpeaks">
-		
-	</div>
+	<div id="addSpeaks"></div>
 	<div class="am-g am-g-fixed blog-fixed">
-		<div class="am-u-md-12 am-u-sm-12" id="speaksInfo">
-
+		<div class="am-u-md-12 am-u-sm-12">
+			<article class="am-g blog-entry-article">
+				<div class="editdiv" style="width: 60%;margin-left: 2.5%;">
+					<form id="myspeak" method="post">
+						<textarea id="ueditor" name="ueditor" rows="4" cols="39"
+							placeholder="发表一个说说"></textarea>
+						<input name="content" id="content" type="hidden"> <a
+							href="javascript:void(0)" onclick="return addSpeak()">发表</a>
+					</form>
+				</div>
+			</article>
+			<div id="speaksInfo"></div>
 			<!-- 显示说说 -->
 		</div>
 		<div id="page"></div>

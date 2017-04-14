@@ -32,7 +32,7 @@ public class HomepageHandler {
 	@ResponseBody
 	public PaginationBean<Homepage> selflist(Integer currPage, HttpSession session) {
 		String hpuseid = (String) session.getAttribute(ServletUtil.FINALAID);
-		LogManager.getLogger().debug("我是 List<Homepage> 我进来了,hpuseid:" + hpuseid);
+		LogManager.getLogger().debug("我是 List<Homepage> 我进来了,hpuseid:" + hpuseid+",currPage:"+currPage);
 		return homepageService.selflist(hpuseid, String.valueOf(currPage), "10");
 	}
 

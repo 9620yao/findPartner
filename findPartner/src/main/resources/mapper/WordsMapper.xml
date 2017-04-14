@@ -39,7 +39,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="addWords" parameterType="Words">
 		insert into Words
 		(wid,waid,wfrendid,wcontent,waddress,wdate)
-		values('w'||seq_words_wid.nextval,'a28',#{wfrendid},#{wcontent},#{waddress},to_char(sysdate,'yyyy-MM-dd'))
+		values('w'||seq_words_wid.nextval,'a28',#{wfrendid},#{wcontent},#{waddress},to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'))
 	</insert>
 	
 	<resultMap type="PaginationBean" id="PBMap">

@@ -20,4 +20,9 @@ public class CommentsServiceImpl implements CommentsService {
 		return commentsMapper.listComments(callid);
 	}
 
+	@Override
+	public void addComments(Comments comments) {
+		commentsMapper.addComments(comments);
+	}
+
 }

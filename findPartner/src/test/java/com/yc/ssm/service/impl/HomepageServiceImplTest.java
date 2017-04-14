@@ -17,12 +17,12 @@ public class HomepageServiceImplTest {
 
 	@Test
 	public void testPbHomepage() {
-		System.out.println(homepageService.pbHomepage("a10056", "1", "10"));
+		System.out.println(homepageService.pbHomepage("a10056", "2", "10"));
 	}
 
 	@Test
 	public void testselflist() {
-		System.out.println(homepageService.selflist("a10056", "2", "10"));
+		System.out.println(homepageService.selflist("a10056", "1", "10"));
 	}
 
 }

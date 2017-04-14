@@ -8,4 +8,6 @@ public interface CommentsMapper {
 
 	List<Comments> listComments(String callid);
 
+	int addComments(Comments comments);
+
 }
