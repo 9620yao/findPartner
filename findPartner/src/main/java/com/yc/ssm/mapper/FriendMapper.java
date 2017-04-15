@@ -14,5 +14,7 @@ public interface FriendMapper {
 	List<Users> findFriendReq(String aid);
 
 	List<Users> findIntroFriend(String aid);
+	//取到请求添加你为好友的人数
+	int listCountReq(String aid);
 
 }

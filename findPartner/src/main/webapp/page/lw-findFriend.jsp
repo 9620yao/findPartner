@@ -81,7 +81,7 @@
 	<hr>
 	<!-- content srart -->
 	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendIntro()">系统推荐好友</a><br/>
-	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendReq()">好友请求</a>
+	<div id="RequestFriend"></div>
 	<div style="margin-left: 400px;">
 		<!-- 推荐好友 -->
 		

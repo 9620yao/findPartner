@@ -88,5 +88,13 @@ public class FriendHandler {
 		// useraid或者finalaid为空
 		return map;
 	}
+	//取到请求添加你为好友的人数
+	@RequestMapping(value = "reqCount", method = RequestMethod.GET)
+	@ResponseBody
+	public int reqCount(HttpSession session){
+		LogManager.getLogger().debug("我进来了 friendReq ");
+		String aid = (String) session.getAttribute(ServletUtil.USERAID);
+		return friendService.countReq(aid);
+	}
 
 }

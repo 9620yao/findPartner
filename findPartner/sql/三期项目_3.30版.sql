@@ -82,8 +82,10 @@ CREATE TABLE friends(
 );
 select * from friends where fid='10000';
 select * from users u where u.aid in (select f.fid from friends f where f.aid='10000')
-insert into friends(aid,fid) values('10040','10020');
+insert into friends(aid,fid) values('10020','a10081');
 insert into friends(aid,fid) values('10000','a10000');
+
+select count(aid) from FRIENDS f where f.fid='a10081' and aid not in (select fid from FRIENDS f where f.aid='a10081')
 
 select u.hobby from users u where u.aid='10000'
 select * from users u where u.aid not in (select f.fid from friends f where f.aid='10000') and u.aid!='10000'  --查找用户除好友列表以外的用户信息

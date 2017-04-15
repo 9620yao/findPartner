@@ -19,4 +19,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from users u where u.aid not in (select f.fid from friends f where f.aid=#{aid}) and u.aid!=#{aid} and u.address like '%'||(select u.address from users u where u.aid=#{aid})||'%'
 	</select>
 	
+	<select id="listCountReq" parameterType="string" resultType="int">
+		select count(aid) from FRIENDS f where f.fid=#{aid} and aid not in (select fid from FRIENDS f where f.aid=#{aid})
+	</select>
+	
 </mapper>

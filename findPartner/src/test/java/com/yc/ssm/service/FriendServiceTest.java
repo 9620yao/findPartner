@@ -47,5 +47,13 @@ public class FriendServiceTest {
 		assertNotNull(users);
 		
 	}
+	
+
+	@Test
+	public void testListCount(){
+		int count=friendService.countReq("a10081");
+		System.out.println(count);
+		assertNotNull(count);
+	}
 
 }
