@@ -259,9 +259,6 @@
 							type="text" id="age" name="age"></li>
 						<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
 							type="text" id="birthday" name="birthday"></li>
-						<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：<input
-							type="text" id="gender" name="gender">
-						</li>
 						<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
 							type="text" id="star" name="star"></li>
 						<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input

@@ -56,7 +56,6 @@ function showUser(data) {
 	$("#nickname").val(data.nickname);
 	$("#age").val(data.age);
 	$("#birthday").val(data.birthday);
-	$("#gender").val(data.partner.gender);
 	$("#star").val(data.star);
 	$("#hobby").val(data.hobby);
 	$("#job").val(data.job);
@@ -68,14 +67,6 @@ function showUser(data) {
 	$("#astate").val(data.astate);
 }
 
-
-
-$(".updateBtn").linkbutton({
-	iconCls : "icon-ok",
-	onClick : function() {
-		$("#updateUserInfo").submit();
-	}
-});
 
 function chgPic(obj) {
 	$(".pic").attr("src", window.URL.createObjectURL(obj.files[0]));

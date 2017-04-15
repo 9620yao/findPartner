@@ -45,12 +45,13 @@
 	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/register.css">
 </head>
 <body>
 	<header>
-		<div class="log-header">
+		<div class="log-header" id="log-name">
 			<h1>
-				<a href="/">Amaze UI</a>
+				<a href="/">findPartner</a>
 			</h1>
 		</div>
 		<div class="log-re">
@@ -61,8 +62,8 @@
 	<div class="log">
 		<div class="am-g">
 			<div
-				class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content">
-				<h1 class="log-title am-animation-slide-top">AmazeUI</h1>
+				class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content" id="log-register">
+				<h1 class="log-title am-animation-slide-top">findPartner</h1>
 				<br>
 				<form class="am-form" id="log-form" action="partner/register" method="post">
 					<p>
@@ -73,6 +74,19 @@
 							data-validation-message="请输入正确邮箱地址" placeholder="邮箱" required />
 						<span class="am-input-group-label log-icon am-radius"><i
 							class="am-icon-user am-icon-sm am-icon-fw"></i></span>
+					</div>
+					<br>
+					<div class="am-input-group am-radius am-animation-slide-left" >
+						<input name="uname" type="text" class="am-radius" size="32"
+							data-validation-message="请输入您的真实姓名" placeholder="真实姓名" required />
+					</div>
+					<br>
+					<div class="am-input-group am-radius am-animation-slide-left">
+						<select
+							name="gender" id="gender" class="xla_k" style="width:250px;">
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select>
 					</div>
 					<br>
 					<div
@@ -109,21 +123,9 @@
 						class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay-b">注
 						册</button>
 					<br>
-					<div
-						class="am-btn-group am-animation-slide-bottom log-animation-delay-b">
-						<p>支持第三方注册</p>
-						<a href="#" class="am-btn am-btn-secondary am-btn-sm"><i
-							class="am-icon-github am-icon-sm"></i> Github</a> <a href="#"
-							class="am-btn am-btn-success am-btn-sm"><i
-							class="am-icon-google-plus-square am-icon-sm"></i> Google+</a> <a
-							href="#" class="am-btn am-btn-primary am-btn-sm"><i
-							class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>
-					</div>
 				</form>
 			</div>
 		</div>
-		<footer class="log-footer"> © 2014 AllMobilize, Inc. Licensed
-			under MIT license. </footer>
 	</div>
 
 

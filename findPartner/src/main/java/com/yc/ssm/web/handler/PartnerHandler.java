@@ -67,8 +67,8 @@ public class PartnerHandler {
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	@Transactional
-	public String add(Partner partner, HttpServletRequest request) {// 注册
-		LogManager.getLogger().debug("partner:" + partner);
+	public String add(Partner partner,String uname,String gender, HttpServletRequest request) {// 注册
+		LogManager.getLogger().debug("partner:" + partner+"uname:"+uname+"gender:"+gender);
 		List<Partner> listmail = partnerService.findEmail(partner);// 判断是否被注册
 		if (listmail.size() > 0) {// 返回值大于0
 			request.getSession().setAttribute("emailError", "该邮箱已经注册！！！");
