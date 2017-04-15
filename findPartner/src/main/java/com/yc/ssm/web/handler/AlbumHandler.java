@@ -53,8 +53,8 @@ public class AlbumHandler {
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Album> findByUnclearNames(Album album) {
-		album.setAaid("%" + album.getAaid() + "%");
-		album.setAldate("%" + album.getAaid() + "%");
+		album.setAaid(album.getAaid());
+		album.setAldate(album.getAaid());
 		return albumService.findAlbumInfoByName(album);
 	}
 

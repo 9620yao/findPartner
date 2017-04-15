@@ -48,8 +48,8 @@ public class WordsHandler {
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Words> findByUnclearNames(Words words) {
-		words.setWfrendid("%" + words.getWfrendid() + "%");
-		words.setWdate("%" + words.getWfrendid() + "%");
+		words.setWfrendid(words.getWfrendid());
+		words.setWdate(words.getWfrendid());
 		return wordsService.findWordsInfoByName(words);
 	}
 

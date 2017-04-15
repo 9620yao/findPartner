@@ -71,7 +71,7 @@
 	<hr style="border:1 dotted red" id="link" class="link">
 	<!-- hostAll start -->
 	<div id="hostAll" style="margin-top: 3%;">
-			<div class="showwords">
+		<!-- 	<div class="showwords">
 				<img src="images/01.jpg"  class="wordUserPic picSize" /> 
 				<span class="name">留言编号李文文</span>&nbsp;:
 				<br> 
@@ -99,7 +99,7 @@
 				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
 			</div>
 			<hr style="border:1 dotted red" id="link" class="link">
-	
+	 -->
 		<div id="leaveMsg">
 			<textarea style="width: 397px" id="" class="textareaStyle">回复：</textarea>
 			<br>
