@@ -3,6 +3,7 @@ package com.yc.ssm.web.handler;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,14 +36,16 @@ public class WordsHandler {
 		LogManager.getLogger().debug("我进来了 showAllWords==>currPage=" + page);
 		return wordsService.listAllWords(page, rows);
 	}
-
-	@RequestMapping("addWords")
-	public String add(Words words) {
-		if (wordsService.add(words)) {
-			return "redirect:/page/message.jsp";
-		} else {
-			return "redirect:/page/lw-index.jsp";
-		}
+	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String addWords(Words words,HttpSession session) {
+		LogManager.getLogger().debug("我进来了 addWords==>words:" + words);
+		String wfrendid = (String) session.getAttribute(ServletUtil.USERAID);
+		String waid = (String) session.getAttribute(ServletUtil.FINALAID);
+		words.setWfrendid(wfrendid);
+		words.setWaid(waid);
+		wordsService.add(words);
+		return "redirect:/page/message.jsp";
 	}
 
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)

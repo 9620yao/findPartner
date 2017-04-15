@@ -6,12 +6,15 @@
 <html>
 <head>
 <base href="${deployName}">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>留言板</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>index | findPartner</title>
 <link rel="stylesheet" href="rel/css/message.css">
-<link rel="stylesheet" type="text/css"
-	href="easyui/themes/default/easyui.css">
-<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 </head>
@@ -60,53 +63,87 @@
 	<hr>
 	<!-- nav end -->
 
-	<div class="editdiv">
-		<span class="yourWords">发表您的留言&nbsp;|&nbsp;<img src="images/wordsMini.png"></span>
-		<br><form id="myspeak" method="post">
-			<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
-							cols="39" placeholder="发表一个留言"></textarea>
-				<button onclick="addSpeak()" class="speakbtn">发表</button>
+	<div id="divword" style="width: 60%; margin-left: 20%;"">
+		<form id="myword" method="post" action="words/add">
+			<textarea id="ueditor" name="ueditor" rows="3" cols="39"
+				placeholder="发表一个留言"></textarea>
+			<input name="wcontent" id="wcontent" type="hidden"> <a
+				onclick="addword()" class="speakbtn">发表</a>
 		</form>
-	</div><br>
-	<hr style="border:1 dotted red" id="link" class="link">
-	<!-- hostAll start -->
-	<div id="hostAll" style="margin-top: 3%;">
-			<!-- <div class="showwords">
-				<img src="images/01.jpg"  class="wordUserPic picSize" /> 
-				<span class="name">留言编号李文文</span>&nbsp;:
-				<br> 
-				<p class="wContent fontColor">我来看看你了！我来留言了，我是留言内容</p> 
-				<span style="color: grey;" class="wdate">2017-04-14</span> 
-				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
-			</div>
-			<hr style="border:1 dotted" id="link">
-			<div class="showcomment">
-				<img src="images/02.jpg"  class="comUserPic picSize" />
-				<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;: 
-				<br> 
-				<p class="commContent fontColor">我看到留言内容了，我来评论一下，哈哈，我是评论内容</p>
-				<span style="color: grey;" class="commTime" id='commTime'>2017-04-15</span>
-				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
-			</div>
-			<br>
-			<div class="showreplys">
-				<img src="images/03.jpg"  class="replyUserPic picSize"/>
-				<span style="color: #CC8F14;" class="replayId name">回复编号苏苏</span> &nbsp;回复
-				<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;: 
-				<br> 
-				<p id="edit" name="edit" class="replayContent fontColor">你这样评论啊，我看到评论内容了，我来回复一下</p>
-				<span style="color: grey;" class="replayTime">2017-04-15</span> 
-				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
-			</div>
-			<hr style="border:1 dotted red" id="link" class="link"> -->
-		<br>
 	</div>
-	
-	
 	<br>
-	<div id="page"></div>
-	<!-- hostAll end -->
-	
+	<hr style="border: 1 dotted red" id="link" class="link">
+
+	<div>
+		<!-- 留言 start -->
+		<div id="hostAll" style="margin-top: 3%;"></div>
+		<!-- 留言 end -->
+
+		<!-- 分页 start -->
+		<div style="margin-left: 20%; margin-top: 3%;" id="page"></div>
+		<!-- 分页 end -->
+	</div>
+
+	<!-- Modal comment -->
+	<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="modal-title" id="myModalLabel">添加评论</span>
+				</div>
+				<div id="comentInfo">
+					<div class="showcomment"">
+						<form id="faddcomment" action="comments/add" method="post">
+							<input name="callid" class="callid" type="hidden"> <input
+								name="detail" class="detail" type="hidden">
+							<div class="democomment" contenteditable="true"></div>
+							<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end comment -->
+
+	<!-- Modal reply -->
+	<div class="modal fade" id="addreply" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="modal-title" id="myModalLabel">添加回复</span>
+				</div>
+				<div id="comentInfo">
+					<form id="rform" action="replys/add" method="post">
+						<input name="rcid" class="rcid" type="hidden"> <input
+							name="rtargetid" class="rtargetid" type="hidden"> <input
+							name="rcontent" class="rcontent" type="hidden">
+						<div class="democomment" contenteditable="true"></div>
+						<a onclick="Getrcontent()" href="javascript:void(0)">提交</a>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end reply -->
+
+
 	<footer class="blog-footer">
 		<div
 			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
@@ -155,8 +192,7 @@
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
@@ -171,6 +207,5 @@
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="rel/js/message.js"></script>
-
 </body>
 </html>

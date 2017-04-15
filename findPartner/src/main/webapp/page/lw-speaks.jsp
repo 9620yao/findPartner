@@ -25,15 +25,9 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="rel/css/speak.css">
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body id="blog">
@@ -215,8 +209,6 @@
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
@@ -224,8 +216,6 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"
