@@ -1,0 +1,66 @@
+#editWords{
+	border: solid 1px #c0c0c0;
+	margin-left:180px;
+	width:640px;
+	heigth:60px;
+}
+#hostAll{
+	border: solid 1px #c0c0c0;
+	width:640px;
+	margin-left:180px;
+}
+#leaveMsg{
+	margin-top:25px;
+	margin-left:120px;
+}
+.showwords{
+	margin-left:50px;
+}
+.showcomment{
+	margin-left:92px;
+}
+.showreplys{
+	margin-left:130px;
+}
+.link{
+	margin-left:120px;
+	margin-right:120px;
+}
+#page{
+	height:100px;
+}
+
+.name{
+	color:#CC8F14;
+}
+
+.picSize{
+	width:50px;
+	height:50px;
+	border-radius:50%;
+}
+
+.fontColor{
+	color:#403E39;
+}
+.sayWords{
+	background-color: #E6B85C;
+	color:white;
+	border-color: #E6B85C;
+	margin-left:348px;
+}
+
+.editdiv{
+	margin-left:180px;
+	margin-right:220px;
+}
+.speakbtn{
+	background-color: #E6B85C;
+	color:white;
+	margin-left:1px;
+	margin-top:3px;
+}
+.yourWords{
+	font-size:14px;
+	margin-bottom: 5px;
+}

@@ -8,7 +8,7 @@
 <base href="${deployName}">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>留言板</title>
-<link rel="stylesheet" href="assets/css/message.css">
+<link rel="stylesheet" href="rel/css/message.css">
 <link rel="stylesheet" type="text/css"
 	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
@@ -60,80 +60,115 @@
 	<hr>
 	<!-- nav end -->
 
-	<div id="Userimag" style="margin-left: 7%">
-		<!-- <label>个人照片</label>
-		<p>
-			<img src="assets/i/b3.jpg" width=100px; height=100px;>
-		</p> -->
-	</div>
-
+	<div class="editdiv">
+		<span class="yourWords">发表您的留言&nbsp;|&nbsp;<img src="images/wordsMini.png"></span>
+		<br><form id="myspeak" method="post">
+			<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
+							cols="39" placeholder="发表一个留言"></textarea>
+				<button onclick="addSpeak()" class="speakbtn">发表</button>
+		</form>
+	</div><br>
+	<hr style="border:1 dotted red" id="link" class="link">
 	<!-- hostAll start -->
 	<div id="hostAll" style="margin-top: 3%;">
-		<!-- <hr>
-		<div id="host">
 			<div class="showwords">
-				<ul id="everyLiTag">
-					<li style="color: blue;" class="aaa26">用户头像</li>
-					<li style="color: blue;" class="name">好友编号</li>
-					<li><span>留言内容</span></li>
-					<li style="color: grey;" class="wdate">留言时间</li>
-					<a>回复</a>
-				</ul>
+				<img src="images/01.jpg"  class="wordUserPic picSize" /> 
+				<span class="name">留言编号李文文</span>&nbsp;:
+				<br> 
+				<p class="wContent fontColor">我来看看你了！我来留言了，我是留言内容</p> 
+				<span style="color: grey;" class="wdate">2017-04-14</span> 
+				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
 			</div>
+			<hr style="border:1 dotted" id="link">
 			<div class="showcomment">
-				<ul class="pinglun">
-					<li style="color: blue;" class="aaa29"></li>
-					<li style="color: blue;" class="a29name">评论编号</li>
-					<li style="color: grey;" class="wdate" id='aa29'>评论时间</li>
-					<li><span class="wcontenta29">评论内容</span></li>
-					<textarea class="wcontenta29">评论内容</textarea>
-				</ul>
+				<img src="images/02.jpg"  class="comUserPic picSize" />
+				<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;: 
+				<br> 
+				<p class="commContent fontColor">我看到留言内容了，我来评论一下，哈哈，我是评论内容</p>
+				<span style="color: grey;" class="commTime" id='commTime'>2017-04-15</span>
+				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
 			</div>
+			<br>
 			<div class="showreplys">
-				<ul class="huifu">
-					<li style="color: blue;" class="huiaa26"></li>
-					<li style="color: blue;" class="huiaa26name">回复编号</li>
-					<li style="color: grey;" class="huiaa26wdate">回复时间</li>
-					<textarea id="edit" name="edit" class="huiaa26edit">回复内容</textarea>
-				</ul>
+				<img src="images/03.jpg"  class="replyUserPic picSize"/>
+				<span style="color: #CC8F14;" class="replayId name">回复编号苏苏</span> &nbsp;回复
+				<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;: 
+				<br> 
+				<p id="edit" name="edit" class="replayContent fontColor">你这样评论啊，我看到评论内容了，我来回复一下</p>
+				<span style="color: grey;" class="replayTime">2017-04-15</span> 
+				<a href="javascript:void(0)" class="name">&nbsp;回复</a>
 			</div>
-		</div> -->
-		<a class="huibianjia26" href="javascript:void(0)" onclick="add();"
-			style="color: black; margin-left: 20%;">评论</a>
-
+			<hr style="border:1 dotted red" id="link" class="link">
+	
+		<div id="leaveMsg">
+			<textarea style="width: 397px" id="" class="textareaStyle">回复：</textarea>
+			<br>
+			<input type="button"  value="发表" class="sayWords"><br>
+		</div>
+		<br>
 	</div>
-	<br><br><br><br>
-	<div id="leaveMsg">
-		<label style="color: #9c9c9c">发表留言</label>
-		<textarea type="text" style="width: 500px"></textarea>
-	</div>
-	<br><br><br><br>
+	
+	
+	<br>
 	<div id="page"></div>
 	<!-- hostAll end -->
-
-	<!-- 
-	<div id="leaveMsg">
-		<label style="color: #9c9c9c">发表留言</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div>
-	<br>
-	<div id="comWords">
-		<label style="color: #9c9c9c">评论留言</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div>
-	<br>
-	<div id="replyhost">
-		<label style="color: #9c9c9c">回复评论</label>
-		<textarea type="text" style="width: 500px"></textarea>
-		<button type="submit" class="fabiao-btn">发表</button>
-		<button type="reset" class="quxiao_btn">取消</button>
-	</div> -->
-
+	
+	<footer class="blog-footer">
+		<div
+			class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
+			<div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+				<h3>模板简介</h3>
+				<p class="am-text-sm">
+					这是一个使用amazeUI做的简单的前端模板。<br> 博客/ 资讯类 前端模板 <br>
+					支持响应式，多种布局，包括主页、文章页、媒体页、分类页等<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br> <br>
+					Amaze UI 使用 MIT 许可证发布，用户可以自由使用、复制、修改、合并、出版发行、散布、再授权及贩售 Amaze UI
+					及其副本。
+				</p>
+			</div>
+			<div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+				<h3>社交账号</h3>
+				<p>
+					<a href=""><span
+						class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+					<a href=""><span
+						class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a> <a
+						href=""><span
+						class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a> <a
+						href=""><span
+						class="am-icon-reddit am-icon-fw blog-icon blog-icon"></span></a> <a
+						href=""><span
+						class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span></a>
+				</p>
+				<h3>Credits</h3>
+				<p>我们追求卓越，然时间、经验、能力有限。Amaze UI
+					有很多不足的地方，希望大家包容、不吝赐教，给我们提意见、建议。感谢你们！</p>
+			</div>
+			<div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+				<h1>我们站在巨人的肩膀上</h1>
+				<h3>Heroes</h3>
+				<p>
+				<ul>
+					<li>jQuery</li>
+					<li>Zepto.js</li>
+					<li>Seajs</li>
+					<li>LESS</li>
+					<li>...</li>
+				</ul>
+				</p>
+			</div>
+		</div>
+		<div class="blog-text-center">© 2015 AllMobilize, Inc. Licensed
+			under MIT license. Made with love By LWXYFER</div>
+	</footer>
 	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<!--<![endif]-->
+	<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/ueditor.config.js"></script>
 	<script type="text/javascript" charset="utf-8"

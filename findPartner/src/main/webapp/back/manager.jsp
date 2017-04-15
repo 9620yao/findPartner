@@ -6,9 +6,10 @@
 <base href="${deployName }">
 <meta charset="UTF-8">
 <title>后台管理</title>
-<link rel="shortcut icon" href="images/favicon.ico" />
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet" href="easyui/themes/default/easyui.css">
+<link type="text/css" rel="stylesheet"
+	href="easyui/themes/default/easyui.css">
+<link rel="shortcut icon" href="images/favicon.ico" />
 <link href="rel/css/manager.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="easyui-layout">
@@ -74,7 +75,7 @@
 	<div data-options="region:'center', title:'主界面', tools: [{    
 	    iconCls:'icon-full', handler:function(){full();}},
 	    {iconCls:'icon-unfull', handler:function(){unfull();}}]">
-		<div id="main" style="width: 500px; height: 250px;">
+		<div id="main" style="width: 500px; height: 400px;">
 			<div title="欢迎"  data-options="iconCls:'icon-mini-add'">
 				<h1 style="width: 100%; text-align: center; margin-top: 80px">
 					<label> 欢迎【<span>${loginUser.uname}</span>】使用findPartner系统
@@ -108,8 +109,8 @@
 			<p><a id="modifyBtn" href="javascript:void(0)">修 改</a><a id="closeBtn" href="javascript:void(0)">关 闭</a></p>
 		</form>
 	</div>
-
-	<script src="assets/js/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="easyui/jquery.min.js"></script>
 	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" src="rel/js/manager.js"></script>

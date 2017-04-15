@@ -7,9 +7,6 @@
 <base href="${deployName }">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 </head>
 <body>
 	<table id="dg"></table>
@@ -46,9 +43,6 @@
 			<input type="submit" value="提交"/> <input type="reset" value="重置"/>
 		</form>
 	</div>
-	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" src="rel/js/users_info.js"></script>
 </body>
 </html>
