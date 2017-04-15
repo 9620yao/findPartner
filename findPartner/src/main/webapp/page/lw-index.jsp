@@ -266,9 +266,12 @@
 							<span class="modal-title" id="myModalLabel">添加回复</span>
 						</div>
 						<div id="comentInfo">
-							<form action="" method="post">
+							<form id="rform" action="replys/add" method="post">
+								<input name="rcid" class="rcid" type="hidden">
+								<input name="rtargetid" class="rtargetid" type="hidden">
+								<input name="rcontent" class="rcontent" type="hidden">
 								<div class="democomment" contenteditable="true"></div>
-								<button>提交</button>
+								<a onclick="Getrcontent()" href="javascript:void(0)">提交</a>
 							</form>
 						</div>
 						<div class="modal-footer">

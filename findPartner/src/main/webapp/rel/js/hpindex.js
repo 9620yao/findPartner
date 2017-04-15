@@ -134,7 +134,7 @@ function comments(sid) {
 			commentStr += '<br><span style="margin-left: 5%;">'+data[i].comTime+'</span>';
 			commentStr += '<div class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
 			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
-			commentStr += '<a href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
+			commentStr += '<a onclick="addcr(\''+data[i].cid+'\',\''+data[i].comuserid+'\')" href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			commentStr += ' data-target="#addreply">回复</a>';
 			commentStr += '</div><div class="reply'+data[i].cid+'" style="margin-left: 5%;"></div>';
 			replys(data[i].cid);// 取到所有的评论编号
@@ -162,12 +162,41 @@ function replys(cid) {
 			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
 			replysStr += '<div class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
 			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
-			replysStr += '<a href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
+			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			replysStr += ' data-target="#addreply">回复</a></div>';
+			replysStr += '<div class="reply'+data[i].rid+'"></div>';
+			replys(data[i].rid);
 		}
 		$(".reply"+cid)[0].innerHTML = replysStr;
 	}, "json");
 }
+
+/*//根据回复编号，找到回复编号下的所有回复
+function forreplys(cid) {
+	// alert(cid);
+	$.post("replys/list", {
+		"cid" : cid
+	}, function(data) {
+		if (data == null || data == "") {
+			return false;
+		}
+		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
+		var replysStr = "";
+		for (var i = 0; i < data.length; i++) {
+			replysStr += '<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
+			replysStr += '<a href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
+			replysStr += '<a href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
+			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
+			replysStr += '<div class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
+			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
+			replysStr += ' data-target="#addreply">回复</a></div>';
+			replysStr += '<div class="reply'+data[i].rid+'" style="margin-left: 5%;"></div>';
+			replys(data[i].rid);
+		}
+		$(".reply"+cid)[0].innerHTML = replysStr;
+	}, "json");
+}*/
 
 function findalbumpic(abid,speakman,apicdate){
 	$.ajax({
@@ -202,17 +231,6 @@ function addcomment(obj){
 	$(".callid").attr("value",obj);
 }
 
-/*$("#faddcomment").form({
-	url : "",
-	success : function(data) {
-		if (data) {
-			//listSpeaks();
-			alert(data);
-		} else {
-			$.messager.alert('增加說說', '增加說說失敗！', 'error');
-		}
-	}
-});*/
 
 //点击提交
 function Getdetail(){
@@ -222,3 +240,23 @@ function Getdetail(){
 	$("#faddcomment").submit();
 }
 
+//点击评论的回复
+function addcr(cid,comuserid){
+	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
+	$(".rcid").val(cid);
+	$(".rtargetid").val(comuserid);
+}
+
+//点击回复的回复
+function addreplys(rid,ruserid){
+	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
+	$(".rcid").val(rid);
+	$(".rtargetid").val(ruserid);
+}
+
+function Getrcontent(){
+	var text = $(".democomment").text();
+	//alert(text);
+	$(".rcontent").val(text);
+	$("#rform").submit();
+}

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.ssm.entity.PaginationBean;
-import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.entity.Words;
 import com.yc.ssm.service.WordsService;
 import com.yc.ssm.util.ServletUtil;
@@ -32,11 +31,11 @@ public class WordsHandler {
 
 	@RequestMapping(value = "showWords", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Words> showAllWords(String page,String rows) {
+	public PaginationBean<Words> showAllWords(String page, String rows) {
 		LogManager.getLogger().debug("我进来了 showAllWords==>currPage=" + page);
-		return wordsService.listAllWords(page,rows);
+		return wordsService.listAllWords(page, rows);
 	}
-	
+
 	@RequestMapping("addWords")
 	public String add(Words words) {
 		if (wordsService.add(words)) {
@@ -45,12 +44,12 @@ public class WordsHandler {
 			return "redirect:/page/lw-index.jsp";
 		}
 	}
-	
+
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Words> findByUnclearNames(Words words) {
-		words.setWfrendid("%"+words.getWfrendid()+"%");		
-		words.setWdate("%"+words.getWfrendid()+"%");
+		words.setWfrendid("%" + words.getWfrendid() + "%");
+		words.setWdate("%" + words.getWfrendid() + "%");
 		return wordsService.findWordsInfoByName(words);
 	}
 
