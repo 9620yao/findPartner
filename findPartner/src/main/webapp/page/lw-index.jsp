@@ -25,9 +25,6 @@
 <meta name="msapplication-TileImage"
 	content="assets/i/app-icon72x72@2x.png">
 <meta name="msapplication-TileColor" content="#0e90d2">
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="rel/css/index.css">
@@ -343,15 +340,7 @@
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/ueditor.config.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/ueditor.all.min.js"></script>
-	<script type="text/javascript" charset="utf-8"
-		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="rel/layer/jquery.js?v=1.83.min"></script>
 	<script src="rel/layer/layer.min.js"></script>
 	<script type="text/javascript" src="rel/js/hpindex.js"></script>
