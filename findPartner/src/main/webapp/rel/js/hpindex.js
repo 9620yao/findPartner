@@ -73,7 +73,6 @@ function selfhomepage(currPage) {
 			}, "json");
 }
 
-
 //避免重复调用
 function homepage(data){
 	//alert(JSON.stringify(data)); // JSON.stringify()
@@ -100,8 +99,8 @@ function findspeack(sid,speakman,senddate){
 			//console.info(data);
 			var speaksStr = "";
 			//alert(data);
-			speaksStr+='<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			speaksStr+='<a href="javascript:void(0)">'+data.speakman+'</a>';
+			speaksStr+='<div><img class="uPic'+data.speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			speaksStr+='<a class="uname'+data.speakman+'" href="javascript:void(0)">'+data.speakman+'</a>';
 			speaksStr+='<br><span style="margin-left: 5%;">'+data.senddate+'</span>';
 			speaksStr+='<div class="demoEdit" contenteditable="true">'+data.content+'</div>';
 			speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
@@ -113,6 +112,7 @@ function findspeack(sid,speakman,senddate){
 			//alert(speaksStr);
 			$("#showspeak").append(speaksStr);
 			//$("#showspeak")[0].innerHTML = speaksStr;
+			openPicture(''+data.speakman+'');
 		}
 	});
 }
@@ -129,8 +129,8 @@ function comments(sid) {
 		//alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var commentStr = "";
 		for (var i = 0; i < data.length; i++) {
-			commentStr += '<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			commentStr += '<a href="javascript:void(0)">'+data[i].comuserid+'</a>';
+			commentStr += '<div><img class="uPic'+data[i].comuserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			commentStr += '<a class="uname'+data[i].comuserid+'" href="javascript:void(0)">'+data[i].comuserid+'</a>';
 			commentStr += '<br><span style="margin-left: 5%;">'+data[i].comTime+'</span>';
 			commentStr += '<div class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
 			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
@@ -138,6 +138,7 @@ function comments(sid) {
 			commentStr += ' data-target="#addreply">回复</a>';
 			commentStr += '</div><div class="reply'+data[i].cid+'" style="margin-left: 5%;"></div>';
 			replys(data[i].cid);// 取到所有的评论编号
+			openPicture(''+data[i].comuserid+'');
 		}
 		//alert($(".comment"+sid)[0].innerHTML);
 		$(".comment"+sid)[0].innerHTML = commentStr;
@@ -156,9 +157,9 @@ function replys(cid) {
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
-			replysStr += '<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			replysStr += '<a href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
-			replysStr += '<a href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
+			replysStr += '<div><img class="uPic'+data[i].ruserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			replysStr += '<a class="uname'+data[i].ruserid+'" href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
+			replysStr += '<a class="uname'+data[i].rtargetid+'" href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
 			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
 			replysStr += '<div class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
 			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
@@ -166,6 +167,7 @@ function replys(cid) {
 			replysStr += ' data-target="#addreply">回复</a></div>';
 			replysStr += '<div class="reply'+data[i].rid+'"></div>';
 			replys(data[i].rid);
+			openPicture(''+data[i].ruserid+'');
 		}
 		$(".reply"+cid)[0].innerHTML = replysStr;
 	}, "json");
@@ -185,14 +187,15 @@ function findalbumpic(abid,speakman,apicdate){
 			}
 			//alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 			var imgpic = "";
-			imgpic+='<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			imgpic+='<a href="javascript:void(0)">'+speakman+'</a>';
+			imgpic+='<div><img class="uPic'+speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			imgpic+='<a class="uname'+speakman+'" href="javascript:void(0)">'+speakman+'</a>';
 			imgpic+='<br><span style="margin-left: 5%;">'+data.apicdate+'</span>';
 			imgpic+='<div id="imgs" class="imgs">';
 			imgpic+='<img src="'+data.apic+'">';
 			imgpic+='</div><p style="margin-left: 3%;">上传图片到《';
 			imgpic+='<a  href="javascript:void(0)">相册'+data.abid+'</a>》</p></div>';
 			$("#showspeak").append(imgpic);
+			openPicture(''+speakman+'');
 		}
 	});
 }
@@ -233,3 +236,18 @@ function Getrcontent(){
 	$(".rcontent").val(text);
 	$("#rform").submit();
 }
+
+//获取用户头像，昵称
+function openPicture(aid){
+	//alert(date);
+	$.post("user/aid",{"aid":aid},function(data){
+		if(data==null||data==""){
+			return false;
+		}
+		//alert(JSON.stringify(data));
+		//alert($(".uname"+data.aid).val(data.nickname));
+		$(".uPic"+data.aid).attr("src",data.picture==null||data.picture==""?"images/timg.jpg":data.picture);
+		$(".uname"+data.aid).html(data.nickname);
+	},"JSON")
+}
+

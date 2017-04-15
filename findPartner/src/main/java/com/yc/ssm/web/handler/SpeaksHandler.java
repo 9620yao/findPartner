@@ -67,8 +67,8 @@ public class SpeaksHandler {
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Speaks> findByUnclearNames(Speaks speaks) {
-		speaks.setSenddate("%"+speaks.getSpeakman()+"%");		
-		speaks.setSpeakman("%"+speaks.getSpeakman()+"%");
+		speaks.setSenddate(speaks.getSpeakman());		
+		speaks.setSpeakman(speaks.getSpeakman());
 		return speaksService.findSpeaksInfoByName(speaks);
 	}
 }
