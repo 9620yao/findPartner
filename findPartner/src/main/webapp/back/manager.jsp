@@ -45,29 +45,21 @@
 			<div title="用户管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>用户信息</span></li>
-					<li><span>用户编辑</span></li>
-					<li><span>用户添加</span></li>
 				</ul>
 			</div>
 			<div title="说说管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>说说信息</span></li>
-					<li><span>说说编辑</span></li>
-					<li><span>说说添加</span></li>
 				</ul>
 			</div>
 			<div title="留言管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>留言信息</span></li>
-					<li><span>留言编辑</span></li>
-					<li><span>留言添加</span></li>
 				</ul>
 			</div>
 			<div title="相册管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>相册信息</span></li>
-					<li><span>相册编辑</span></li>
-					<li><span>相册添加</span></li>
 				</ul>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
 package com.yc.ssm.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +48,11 @@ public class UsersServiceImpl implements UsersService {
 		
 		pb=UsersMapper.partUsers(pb);
 		return pb;
+	}
+
+	@Override
+	public List<Users> findUsersByAid(String aid) {
+		return UsersMapper.listUserByAid(aid);
 	}
 
 }

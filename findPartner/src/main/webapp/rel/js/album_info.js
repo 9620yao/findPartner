@@ -1,7 +1,7 @@
 $('#albumInfo').datagrid({    
 	url:'album/showAlbums',  
 	fitColumns:true,
-	fit:true,
+	//fit:true,
 	singleSelect:true,
 	border:false,
 	pagination :true,

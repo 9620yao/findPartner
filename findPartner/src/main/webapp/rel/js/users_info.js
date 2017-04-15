@@ -19,7 +19,7 @@
 $("#dg").datagrid({
 	url : 'user/mlist',
 	fitColumns:true,
-	fit:true,
+	//fit:true,
 	pagination:true,
 	singleSelect:true,
 	columns:[[    
@@ -79,7 +79,54 @@ function showDetail(index){
 	$("#ipicture").attr("src",row.picture=="" ? "images/not_pic.jpg":row.picture);
 }
 
-
+function unclearQuery(){
+	var select=$("#selectName").val();
+	var param=$("#paramter").val();
+	$('#dg').datagrid({    
+		url:'user/find?aid='+param,
+		fitColumns:true,
+		//fit:true,
+		pagination:true,
+		singleSelect:true,
+		columns:[[    
+		          {field:'aid',title:'编号',width:50,align:'center'},
+		          {field:'nickname',title:'昵称',width:50,align:'center'},
+		          {field:'gender',title:'性别',width:50,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  return row.partner.gender;
+		        	  }
+		          }, 
+		          {field:'email',title:'邮箱',width:100,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  return row.partner.email;
+		        	  }
+		          },
+		          {field:'birthday',title:'生日',width:50,align:'center'},
+		          {field:'star',title:'星座',width:50,align:'center'},
+		          {field:'hobby',title:'愛好',width:50,align:'center'},
+		          {field:'picture',title:'头像',width:100,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  if(value == null){
+		        			  return "<img width='100' src='images/not_pic.jpg'/>"
+		        		  }else{
+		        			  return "<img width='100' src='" + value + "'/>"
+		        		  }
+		        	  }
+		          },
+		          {field:'regdate',title:'注册时间',width:50,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  return row.partner.regdate;
+		        	  }
+		          },
+		          {field:'operator',title:'操作',width:50,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>'+
+		        		  '<script>$(".detailBtn").linkbutton({iconCls:"icon-search"});</script>';
+		        	  }
+		          }
+		    ]],     
+	}); 
+}
 
 
 
