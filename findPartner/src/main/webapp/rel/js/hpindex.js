@@ -107,7 +107,7 @@ function findspeack(sid,speakman,senddate){
 			speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
 			speaksStr+='<a onclick="addcomment(\''+data.sid+'\')" href="javascript:void(0)" style="margin-left: 5%;" data-toggle="modal"';
 			speaksStr+=' data-target="#addcoment">评论</a></p>';
-			speaksStr+='</div><div class="comment'+data.sid+'" style="margin-left: 5%;"><div>';
+			speaksStr+='</div><div class="comment'+data.sid+'" style="margin-left: 5%;"></div>';
 			//alert(data[i].sid);
 			comments(data.sid);//取到所有的说说编号
 			//alert(speaksStr);
@@ -171,33 +171,6 @@ function replys(cid) {
 	}, "json");
 }
 
-/*//根据回复编号，找到回复编号下的所有回复
-function forreplys(cid) {
-	// alert(cid);
-	$.post("replys/list", {
-		"cid" : cid
-	}, function(data) {
-		if (data == null || data == "") {
-			return false;
-		}
-		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
-		var replysStr = "";
-		for (var i = 0; i < data.length; i++) {
-			replysStr += '<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			replysStr += '<a href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
-			replysStr += '<a href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
-			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
-			replysStr += '<div class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
-			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
-			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
-			replysStr += ' data-target="#addreply">回复</a></div>';
-			replysStr += '<div class="reply'+data[i].rid+'" style="margin-left: 5%;"></div>';
-			replys(data[i].rid);
-		}
-		$(".reply"+cid)[0].innerHTML = replysStr;
-	}, "json");
-}*/
-
 function findalbumpic(abid,speakman,apicdate){
 	$.ajax({
 		type: "POST",
@@ -213,7 +186,7 @@ function findalbumpic(abid,speakman,apicdate){
 			//alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 			var imgpic = "";
 			imgpic+='<div><img style="width: 20px; height: 20px;" src="images/01.jpg">';
-			imgpic+='<a href="javascript:void(0)">用户名：</a>';
+			imgpic+='<a href="javascript:void(0)">'+speakman+'</a>';
 			imgpic+='<br><span style="margin-left: 5%;">'+data.apicdate+'</span>';
 			imgpic+='<div id="imgs" class="imgs">';
 			imgpic+='<img src="'+data.apic+'">';
