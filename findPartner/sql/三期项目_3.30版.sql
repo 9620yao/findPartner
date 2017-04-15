@@ -23,6 +23,7 @@ CREATE TABLE logining(
 	   otherlogone varchar2(40),
 	   otherlogtwo varchar2(40)
 );
+select * from LOGINING
 
 alter table logining add uname varchar2(20);
 insert into LOGINING(lid,phone,email,password,gender,regdate) values(seq_logining_lid.nextval,'17873235243','245336543@qq.com','c99e178d83cdfea3c167bc1d15f9b47ff8f80145','男',to_char(sysdate,'yyyy-MM-dd HH:mi:ss'));

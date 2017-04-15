@@ -88,8 +88,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		(select fid from friends where
 		aid = #{hpuseid})
 		and fid = #{hpuseid}
-		or aid = #{hpuseid}
-		)
+		) or hpuseid = #{hpuseid} 
 		order by
 		hpdate desc) n
 		where ${currPage} *

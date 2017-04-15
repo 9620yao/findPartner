@@ -44,8 +44,7 @@ public class SpeaksHandler {
 	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	@ResponseBody
-	public boolean insertSpeaks(Speaks speaks, HttpSession session) {
+	public String insertSpeaks(Speaks speaks, HttpSession session) {
 		LogManager.getLogger().debug("insertSpeaks ==要插入一条说说::" + speaks);
 		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
 		speaks.setSpeakman(speakman);
@@ -53,9 +52,8 @@ public class SpeaksHandler {
 			String sid = speaksService.findSid();// 取到刚添加说说的说说编号 s10000
 			Speaks outspeaks = speaksService.findSpeaks(sid, speakman);// 取到刚刚添加的说说信息
 			homepageService.addhompage(outspeaks.getSid(), outspeaks.getSpeakman(), outspeaks.getSenddate());
-			return true;
 		}
-		return false;
+		return "redirect:/page/lw-speaks.jsp";
 	}
 
 	@RequestMapping(value = "hpspeaks", method = RequestMethod.POST)

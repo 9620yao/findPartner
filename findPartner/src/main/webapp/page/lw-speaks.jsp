@@ -34,6 +34,7 @@
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
 <link type="text/css" rel="stylesheet"
 	href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
@@ -85,22 +86,85 @@
 	<div id="addSpeaks"></div>
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-12 am-u-sm-12">
-			<article class="am-g blog-entry-article">
-				<div class="editdiv" style="width: 60%;margin-left: 2.5%;">
-					<form id="myspeak" method="post">
-						<textarea id="ueditor" name="ueditor" rows="4" cols="39"
-							placeholder="发表一个说说"></textarea>
-						<input name="content" id="content" type="hidden"> <a
-							href="javascript:void(0)" onclick="return addSpeak()">发表</a>
-					</form>
-				</div>
-			</article>
+			<div>
+				<article class="am-g blog-entry-article">
+					<div class="editdiv" style="width: 60%; margin-left: 2.5%;">
+						<form id="myspeak" action="speaks/insert" method="post">
+							<textarea id="ueditor" name="ueditor" rows="4" cols="39"
+								placeholder="发表一个说说"></textarea>
+							<input name="content" id="content" type="hidden">
+							<a href="javascript:void(0)" onclick="return addSpeak()">发表</a>
+						</form>
+					</div>
+				</article>
+			</div>
+
+			<!-- 显示说说 start -->
 			<div id="speaksInfo"></div>
-			<!-- 显示说说 -->
+			<!-- 显示说说 end -->
 		</div>
 		<div id="page"></div>
 	</div>
 	<!-- content end -->
+
+	<!-- Modal comment -->
+	<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="modal-title" id="myModalLabel">添加评论</span>
+				</div>
+				<div id="comentInfo">
+					<div class="showcomment"">
+						<form id="faddcomment" action="comments/add" method="post">
+							<input name="callid" class="callid" type="hidden"> <input
+								name="detail" class="detail" type="hidden">
+							<div class="democomment" contenteditable="true"></div>
+							<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end comment -->
+
+	<!-- Modal reply -->
+	<div class="modal fade" id="addreply" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<span class="modal-title" id="myModalLabel">添加回复</span>
+				</div>
+				<div id="comentInfo">
+					<form id="rform" action="replys/add" method="post">
+						<input name="rcid" class="rcid" type="hidden"> <input
+							name="rtargetid" class="rtargetid" type="hidden"> <input
+							name="rcontent" class="rcontent" type="hidden">
+						<div class="democomment" contenteditable="true"></div>
+						<a onclick="Getrcontent()" href="javascript:void(0)">提交</a>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end reply -->
 
 	<footer class="blog-footer">
 		<div
@@ -150,6 +214,7 @@
 			under MIT license. Made with love By LWXYFER</div>
 	</footer>
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<!--<![endif]-->

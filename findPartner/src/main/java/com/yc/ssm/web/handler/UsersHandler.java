@@ -35,8 +35,8 @@ public class UsersHandler {
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
 	public Users list(HttpSession session) {
-		String aid = (String) session.getAttribute(ServletUtil.FINALAID);//取到用户id
-		LogManager.getLogger().debug("ServletUtil.FINALAID==>"+aid);
+		String aid = (String) session.getAttribute(ServletUtil.FINALAID);// 取到用户id
+		LogManager.getLogger().debug("ServletUtil.FINALAID==>" + aid);
 		return usersService.listUsersInfoByAid(aid);
 	}
 
@@ -73,14 +73,21 @@ public class UsersHandler {
 		}
 
 	}
-	
+
 	@RequestMapping(value = "mlist", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Users> listUsers(@RequestParam(value="rows",required=false)String rows,@RequestParam(value="page",required=false)String page) {
-		LogManager.getLogger().debug("我进来了listUsers==》 ,rows="+rows+"，page="+page);
+	public PaginationBean<Users> listUsers(@RequestParam(value = "rows", required = false) String rows,
+			@RequestParam(value = "page", required = false) String page) {
+		LogManager.getLogger().debug("我进来了listUsers==》 ,rows=" + rows + "，page=" + page);
 		return usersService.listUsers(rows, page);
 	}
-	
-	
+
+	// 显示个人信息，通过aid取到个人信息
+	@RequestMapping(value = "aid", method = RequestMethod.POST)
+	@ResponseBody
+	public Users byAid(String aid,HttpSession session) {
+		LogManager.getLogger().debug("我进来byAid()   aid==>" + aid);
+		return usersService.listUsersInfoByAid(aid);
+	}
 
 }
