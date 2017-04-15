@@ -77,7 +77,7 @@
 	<hr>
 	<!-- content srart -->
 	<div style="margin-left:200px;">
-		<div id="myfriend"  style="width:500px;height:800px;">
+		<div id="myfriend"  style="width:900px;height:800px;">
 			<!-- 好友列表 -->
 		</div>
 	</div>

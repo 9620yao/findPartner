@@ -46,7 +46,6 @@ function showUser(data) {
 	$("#nickname").val(data.nickname);
 	$("#age").val(data.age);
 	$("#birthday").val(data.birthday);
-	$("#gender").val(data.partner.gender);
 	$("#star").val(data.star);
 	$("#hobby").val(data.hobby);
 	$("#job").val(data.job);

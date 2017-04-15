@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertPar" parameterType="Partner">
-		insert into logining(lid,email,password,regdate,uname) values('a'||seq_logining_lid.nextval,#{email},#{password},to_char(sysdate,'yyyy-MM-dd'),'a'||seq_logining_lid.currval)
+		insert into logining(lid,email,password,regdate,uname,gender) values('a'||seq_logining_lid.nextval,#{email},#{password},to_char(sysdate,'yyyy-MM-dd'),#{uname},#{gender})
 	</insert>
 	
 	<select id="fingEmail" parameterType="Partner" resultType="Partner">

@@ -79,11 +79,9 @@
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-8 am-u-sm-12">
-			
-			<!-- 个人中心和他的主页 start -->
-			<div style="margin-top: 5%;" id="showspeak">
 
-			</div>
+			<!-- 个人中心和他的主页 start -->
+			<div style="margin-top: 5%;" id="showspeak"></div>
 			<!-- 个人中心和他的主页  end -->
 
 			<!-- 分页显示数据 start -->
@@ -186,9 +184,6 @@
 										type="text" id="age" name="age"></li>
 									<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
 										type="text" id="birthday" name="birthday"></li>
-									<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：<input
-										type="text" id="gender" name="gender">
-									</li>
 									<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
 										type="text" id="star" name="star"></li>
 									<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input
@@ -219,6 +214,7 @@
 			</div>
 			<!--模态框 end  -->
 
+
 			<!-- Modal comment -->
 			<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
@@ -234,8 +230,8 @@
 						<div id="comentInfo">
 							<div class="showcomment"">
 								<form id="faddcomment" action="comments/add" method="post">
-									<input name="callid" class="callid" type="hidden">
-									<input name="detail" class="detail" type="hidden">
+									<input name="callid" class="callid" type="hidden"> <input
+										name="detail" class="detail" type="hidden">
 									<div class="democomment" contenteditable="true"></div>
 									<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
 								</form>
@@ -264,9 +260,9 @@
 						</div>
 						<div id="comentInfo">
 							<form id="rform" action="replys/add" method="post">
-								<input name="rcid" class="rcid" type="hidden">
-								<input name="rtargetid" class="rtargetid" type="hidden">
-								<input name="rcontent" class="rcontent" type="hidden">
+								<input name="rcid" class="rcid" type="hidden"> <input
+									name="rtargetid" class="rtargetid" type="hidden"> <input
+									name="rcontent" class="rcontent" type="hidden">
 								<div class="democomment" contenteditable="true"></div>
 								<a onclick="Getrcontent()" href="javascript:void(0)">提交</a>
 							</form>
