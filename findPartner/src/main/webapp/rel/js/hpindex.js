@@ -73,7 +73,6 @@ function selfhomepage(currPage) {
 			}, "json");
 }
 
-
 //避免重复调用
 function homepage(data){
 	//alert(JSON.stringify(data)); // JSON.stringify()

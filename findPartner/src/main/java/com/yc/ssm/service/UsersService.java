@@ -1,5 +1,7 @@
 package com.yc.ssm.service;
 
+import java.util.List;
+
 import com.yc.ssm.entity.PaginationBean;
 import com.yc.ssm.entity.Users;
 
@@ -14,5 +16,7 @@ public interface UsersService {
 	Users listUsersInfoByAid(String aid);
 	
 	PaginationBean<Users> listUsers(String rows, String page);
+
+	List<Users> findUsersByAid(String aid);
 
 }

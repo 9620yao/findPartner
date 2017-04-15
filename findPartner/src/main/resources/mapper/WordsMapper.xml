@@ -72,6 +72,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	<select id="findByName" parameterType="Words" resultType="Words">
-		select * from words where wfrendid like #{wfrendid} or wdate like #{wfrendid}
+		select * from words where wfrendid like '%'||#{wfrendid}||'%' or wdate like '%'||#{wfrendid}||'%'
 	</select>
 </mapper>

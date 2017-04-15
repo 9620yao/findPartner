@@ -1,7 +1,7 @@
 $('#speaksInfo').datagrid({    
 	url:'speaks/showSpeaks',  
 	fitColumns:true,
-	fit:true,
+	//fit:true,
 	singleSelect:true,
 	border:false,
 	pagination :true,
@@ -45,7 +45,7 @@ function unclearQuery(){
 	$('#speaksInfo').datagrid({    
 		url:'speaks/findunclear?speakman='+param,
 		fitColumns:true,
-		fit:true,
+		//fit:true,
 		singleSelect:true,
 		border:false,
 		pagination :true,

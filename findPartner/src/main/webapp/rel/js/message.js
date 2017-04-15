@@ -1,4 +1,4 @@
-/*GetFinallyAid();//判断是否隐藏
+GetFinallyAid();//判断是否隐藏
 function GetFinallyAid(){
 	$.post("friend/finalAid",function(data){
 		//alert(data);
@@ -25,7 +25,7 @@ function GetFinallyAid(){
 	},"json")
 }
 
-function add(){
+/*function add(){
 	UE.getEditor('edit');//<textarea>转变成副文本编辑工具
 	$("#host").dialog("open", true);
 }
@@ -39,7 +39,7 @@ $('#host').dialog({
 	title:'',
 	border:false,
 	modal: true
-});
+});*/
 $(function(){
     $('#myForm').submit();
 })
@@ -56,12 +56,12 @@ function listWords(currPage){
 		// alert(JSON.stringify(data.rows));
 		var wordsStr = "";
 		for (var i = 0; i < data.rows.length; i++) {
-			wordsStr+='<div id="host" style="margin-top: 3%;"><div class="showwords"><ul id="everyLiTag">';
-			wordsStr+='<li style="color: blue;" class="aaa26">'+data.rows[i].waid+'</li>';
-			wordsStr+='<li style="color: blue;" class="name">'+data.rows[i].wfrendid+'</li>';
-			wordsStr+='<li><span>'+data.rows[i].wcontent+'</span></li></ul></div><br>';
-			wordsStr+='<br><li style="color: grey;" class="wdate">'+data.rows[i].wdate+'&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="replyMsg()" id="replyMsg">回复</button></li>';
-			wordsStr+='<div class="showcomment"></div><br><br><div class="showreplys"></div></div>';
+			wordsStr+='<div class="showwords"><img src="images/01.jpg"  class="wordUserPic picSize" />';
+			wordsStr+='<span class="name">'+data.rows[i].wid+'</span>&nbsp;:';
+			wordsStr+='<br><p class="wContent fontColor">'+data.rows[i].wcontent+'</p>';
+			wordsStr+='<span style="color: grey;" class="wdate">'+data.rows[i].wdate+'</span>';
+			wordsStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a></div>';
+			wordsStr+='<hr style="border:1 dotted" id="link"><div class="showcomment'+data.rows[i].wid+'"></div>';
 			// alert(data.rows[i].wid);
 			comments(data.rows[i].wid);//取到所有的说说编号
 		}
@@ -87,14 +87,16 @@ function comments(sid){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		var commentStr = "";
 		for (var i = 0; i < data.length; i++) {
-			commentStr+='<ul class="pinglun"><li style="color: blue;" class="aaa29"></li>';
-			commentStr+='<li style="color: blue;" class="a29name">评论用户'+data[i].comuserid+'</li>';
-			commentStr+='<li><span class="wcontenta29">'+data[i].detail+'</span></li></ul>';
-			commentStr+='<br><br><li style="color: grey;" class="wdate" id="aa29"><br><br>评论时间:'+data[i].comTime+'&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="replyMsg()" id="replyMsg">回复</a></li>';
+			commentStr+='<div>';
+			commentStr+='<img src="images/02.jpg"  class="comUserPic picSize" />';
+			commentStr+='<span style="color: #CC8F14;" class="commId name">'+data[i].comuserid+'</span>&nbsp;:';
+			commentStr+='<br><p class="commContent fontColor">'+data[i].detail+'</p>';
+			commentStr+='<span style="color: grey;" class="commTime" id="commTime">'+data[i].comTime+'</span>';
+			commentStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a></div><br><div class="showreplys"></div>';
 			replys(data[i].cid);//取到所有的评论编号
 			//alert(data[i].cid);
 		}
-		$(".showcomment")[0].innerHTML = commentStr;
+		$(".showcomment"+sid)[0].innerHTML = commentStr;
 	}, "json");
 }
 
@@ -108,37 +110,17 @@ function replys(cid){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
-			replysStr+='<ul class="huifu"><li style="color: blue;" class="huiaa26">'+data[i].ruserid+'</li>';
-			replysStr+='<br><br><br><br><li style="color: blue;" class="huiaa26name"><a href="javascript:void(0)">@用户:'+data[i].rtargetid+'</a></li>';
-			replysStr+='<li><span id="edit" name="edit" class="huiaa26edit">'+data[i].rcontent+'</span></li></ul>';
-			replysStr+='<li style="color: grey;" class="huiaa26wdate">回复时间:'+data[i].rtime+'&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" id="replyMsg" onclick="replyMsg()">回复</a></li>';
-			//replysStr+='<p><a href="">用户:'+data[i].ruserid+'</a><a href="">@用户:'+data[i].rtargetid+'</a></p>';
-			//replysStr+='<p><h2>'+data[i].rcontent+'</h2> <span>回复时间:'+data[i].rtime+'</span></p>';
+			replysStr+='<div><img src="images/03.jpg"  class="replyUserPic picSize"/>';
+			replysStr+='<span style="color: #CC8F14;" class="replayId name">'+data[i].ruserid+'</span> &nbsp;回复';
+			replysStr+='<span style="color: #CC8F14;" class="commId name">'+data[i].rtargetid+'</span>&nbsp;:<br>';
+			replysStr+='<p id="edit" name="edit" class="replayContent fontColor">'+data[i].rcontent+'</p>';
+			replysStr+='<span style="color: grey;" class="replayTime">'+data[i].rtime+'</span>';
+			replysStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a>';
+			replysStr+='</div><hr style="border:1 dotted red" id="link" class="link">';
 		}
 		$(".showreplys")[0].innerHTML = replysStr;
 	}, "json");
 }
-
-$("#leaveMsg").hide();
-
-function replyMsg(){
-	$("#leaveMsg").toggle();
-
-}
-$('#replyMsg').on("click",function(){
-	$("#leaveMsg").toggle();
-})
-$('#replyMsg').dialog({    
-    title: '回复',    
-    width: 400,    
-    height: 200,    
-    closed: false,    
-    cache: false,    
-    href: 'get_content.php',
-    modal: true   
-}); 
-$('#replyMsg').dialog('refresh', 'new_content.php');  */
-
 
 UE.getEditor('fdesc');
 function myadd() {

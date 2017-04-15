@@ -67,7 +67,7 @@ public class SpeaksHandlerTest {
 	@Test
 	public void testFindByUnclearNames() {
 		Speaks speaks=new Speaks();
-		speaks.setSpeakman("a2");
+		speaks.setSpeakman("28");
 		List<Speaks> ss=speaksService.findSpeaksInfoByName(speaks);
 		System.out.println(ss);
 	}
