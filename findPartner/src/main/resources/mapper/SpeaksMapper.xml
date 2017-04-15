@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 		n.*,rownum rn from (
 		select * from speaks where
-		speakman=#{speakman}) n
+		speakman=#{speakman} order by senddate desc) n
 		where ${currPage} *
 		${pageSize} >= rownum) t where
 		rn > (${currPage}-1)
@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into
 		speaks(sid,content,speakman,senddate)
 		values('s'||seq_speaks_sid.nextval,#{content},#{speakman}
-		,to_char(sysdate,'yyyy-MM-dd HH:mi:ss'))
+		,to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'))
 	</insert>
 
 	<select id="findSid" resultType="string">

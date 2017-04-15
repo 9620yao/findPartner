@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="addAlbum" parameterType="com.yc.ssm.entity.Album">
 		insert into album values('ab'||seq_album_abid.nextval,#{abname},#{aaid},#{alcontent},
-		'',to_char(sysdate,'yyyy-MM-dd hh:mi:ss'),'','','')
+		'',to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'),'','','')
 	</insert>
 	
 	<update id="updateAheader" parameterType="java.util.Map" >

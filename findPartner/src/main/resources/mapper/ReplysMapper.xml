@@ -6,4 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="listreplys" parameterType="string" resultType="com.yc.ssm.entity.Replys">
 		select * from replys where rcid = #{_parameter}
 	</select>
+
+	<insert id="addReplys" parameterType="com.yc.ssm.entity.Replys">
+		insert into replys
+		values('r'||seq_replys_rid.nextval,#{rcid},#{ruserid},#{rtargetid},#{rcontent},
+		to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'),'','')
+	</insert>
 </mapper>

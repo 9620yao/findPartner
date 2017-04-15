@@ -8,4 +8,6 @@ public interface ReplysService {
 
 	List<Replys> listreplys(String listrcid);
 
+	void addReplys(Replys replys);
+
 }

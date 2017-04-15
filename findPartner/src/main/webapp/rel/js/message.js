@@ -1,4 +1,4 @@
-GetFinallyAid();//判断是否隐藏
+/*GetFinallyAid();//判断是否隐藏
 function GetFinallyAid(){
 	$.post("friend/finalAid",function(data){
 		//alert(data);
@@ -25,7 +25,7 @@ function GetFinallyAid(){
 	},"json")
 }
 
-/*function add(){
+function add(){
 	UE.getEditor('edit');//<textarea>转变成副文本编辑工具
 	$("#host").dialog("open", true);
 }
@@ -39,14 +39,14 @@ $('#host').dialog({
 	title:'',
 	border:false,
 	modal: true
-});*/
-/*$(function(){
+});
+$(function(){
     $('#myForm').submit();
-})*/
-/*
+})
+
 window.onload= function(){
    document.getElementById('myForm').submit();
-}*/
+}
 var currPage = 1;
 listWords(currPage);
 function listWords(currPage){
@@ -125,10 +125,10 @@ function replyMsg(){
 	$("#leaveMsg").toggle();
 
 }
-/*$('#replyMsg').on("click",function(){
+$('#replyMsg').on("click",function(){
 	$("#leaveMsg").toggle();
-})*/
-/*$('#replyMsg').dialog({    
+})
+$('#replyMsg').dialog({    
     title: '回复',    
     width: 400,    
     height: 200,    
@@ -138,3 +138,14 @@ function replyMsg(){
     modal: true   
 }); 
 $('#replyMsg').dialog('refresh', 'new_content.php');  */
+
+
+UE.getEditor('fdesc');
+function myadd() {
+	alert(1111);
+}
+
+//点击提交的时候
+function addSpeak() {
+	alert(1111);
+}

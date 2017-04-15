@@ -5,9 +5,6 @@
 <base href="${deployName }">
 <meta charset="UTF-8">
 <title>说说管理</title>
-<link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
-<link type="text/css" rel="stylesheet"
-	href="easyui/themes/default/easyui.css">
 </head>
 <body>
 	<div id="search">
@@ -18,6 +15,7 @@
 		<input value="查询" type="button" onclick="unclearQuery()"/>
 	</div>
 	<table id="wordsInfo"></table>
+	<br>
 	<div id="wordsDetail">
 		<form action="#" method="post">
 			<p>
@@ -40,9 +38,7 @@
 			</p>
 		</form>
 	</div>
-	<script src="assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
+	<br><br>
 	<script type="text/javascript" src="rel/js/words_info.js"></script>
 </body>
 </html>

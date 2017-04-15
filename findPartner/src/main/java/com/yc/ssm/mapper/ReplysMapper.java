@@ -8,4 +8,6 @@ public interface ReplysMapper {
 
 	List<Replys> listreplys(String rcid);
 
+	int addReplys(Replys replys);
+
 }

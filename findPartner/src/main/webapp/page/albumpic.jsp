@@ -69,12 +69,6 @@
 	<hr>
 	<!-- nav end -->
 
-	<!-- 模态框 start 
-	Button trigger modal
-	<button type="button" class="btn btn-primary btn-lg"
-		data-toggle="modal" data-target="#myModal">Launch demo modal
-	</button> -->
-
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">

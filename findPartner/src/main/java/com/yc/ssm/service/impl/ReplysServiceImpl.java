@@ -20,4 +20,9 @@ public class ReplysServiceImpl implements ReplysService {
 		return replysMapper.listreplys(listrcid);
 	}
 
+	@Override
+	public void addReplys(Replys replys) {
+		replysMapper.addReplys(replys);
+	}
+
 }
