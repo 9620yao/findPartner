@@ -12,6 +12,8 @@ public interface FriendService {
 	List<Users> listFrienfReq(String aid);
 	//系统推荐好友
 	List<Users> listIntroFriend(String aid);
+
+	int countReq(String aid);
 	
 
 }

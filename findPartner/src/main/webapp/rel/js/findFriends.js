@@ -1,3 +1,12 @@
+function loadFriendReqCount(){
+	$.get("friend/reqCount", function(data){
+		//alert(data);
+		var RequestFriendStr='<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendReq()">好友请求('+data+')</a>';
+		$("#RequestFriend")[0].innerHTML=RequestFriendStr;
+	}, "json");
+}
+loadFriendReqCount();
+
 
 $("#findFriendForm").form({
 	url:"friend/findFriend",
@@ -16,7 +25,7 @@ $("#findFriendForm").form({
 });
 
 function addFriend(aid){
-	alert(aid);
+	//alert(aid);
 	$.post("friend/add",{"aid" : aid},function(data){
 		if (data) {
 			var url = "page/lw-findFriend.jsp";
@@ -29,7 +38,7 @@ function addFriend(aid){
 function friendReq(){
 	$.get("friend/reqAdd", function(data){
 		//alert("请求响应成功。。"+data);
-		alert(JSON.stringify(data));
+		//alert(JSON.stringify(data));
 		var friendReqStr="";//JSON.stringify() ,把json对象转换成json字符串
 		if(data!=null){
 			for (var i = 0; i < data.length; i++) {

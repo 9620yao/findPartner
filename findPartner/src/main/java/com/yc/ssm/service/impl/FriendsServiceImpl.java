@@ -40,6 +40,11 @@ public class FriendsServiceImpl implements FriendService {
 		return friendMapper.findIntroFriend(aid);
 	}
 
+	@Override
+	public int countReq(String aid) {
+		return friendMapper.listCountReq(aid);
+	}
+
 	
 
 	
