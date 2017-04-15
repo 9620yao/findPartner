@@ -111,10 +111,10 @@ function replys(cid){
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
 			replysStr+='<div><img src="images/03.jpg"  class="replyUserPic picSize"/>';
-			replysStr+='<span style="color: #CC8F14;" class="replayId name">回复编号苏苏</span> &nbsp;回复';
-			replysStr+='<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;:<br>';
-			replysStr+='<p id="edit" name="edit" class="replayContent fontColor">你这样评论啊，我看到评论内容了，我来回复一下</p>';
-			replysStr+='<span style="color: grey;" class="replayTime">2017-04-15</span>';
+			replysStr+='<span style="color: #CC8F14;" class="replayId name">'+data[i].ruserid+'</span> &nbsp;回复';
+			replysStr+='<span style="color: #CC8F14;" class="commId name">'+data[i].rtargetid+'</span>&nbsp;:<br>';
+			replysStr+='<p id="edit" name="edit" class="replayContent fontColor">'+data[i].rcontent+'</p>';
+			replysStr+='<span style="color: grey;" class="replayTime">'+data[i].rtime+'</span>';
 			replysStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a>';
 			replysStr+='</div><hr style="border:1 dotted red" id="link" class="link">';
 		}
