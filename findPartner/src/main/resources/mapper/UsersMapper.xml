@@ -123,5 +123,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		l where u.alid=l.lid) n where ${currPage} *${pageSize}>=rownum) t where
 		rn>(${currPage}-1) * ${pageSize}
 	</select>
+	
+	<select id="listUserByAid" parameterType="string" resultMap="UsersMap">
+		select * from users u ,logining l where u.aid like '%'||#{aid}||'%' and
+		u.alid = l.lid
+	</select>
 
 </mapper>

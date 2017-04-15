@@ -1,6 +1,7 @@
 package com.yc.ssm.web.handler;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -81,12 +82,12 @@ public class UsersHandler {
 		LogManager.getLogger().debug("我进来了listUsers==》 ,rows=" + rows + "，page=" + page);
 		return usersService.listUsers(rows, page);
 	}
-	
+	//后台超管根据aid查询用户信息
 	@RequestMapping(value = "find", method = RequestMethod.POST)
 	@ResponseBody
-	public Users findUsers(String aid){
+	public List<Users> findUsers(String aid){
 		LogManager.getLogger().debug("我进来了findUsers==》 ,aid="+aid);
-		return usersService.listUsersInfoByAid(aid);
+		return usersService.findUsersByAid(aid);
 	} 
 	
 	
