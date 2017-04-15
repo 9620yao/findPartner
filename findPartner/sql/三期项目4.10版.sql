@@ -123,7 +123,7 @@ select * from replys;
 --回复表（包括对评论的回复，以及对回复的回复）
 create table replys(
        rid varchar2(40) primary key,--回复编号
-       rcid varchar2(40) CONSTRAINTS fk_replys_cid REFERENCES comments(cid),--(评论编号)
+       rcid varchar2(40),--(评论编号和回复编号)
        ruserid varchar2(40),--当前回复用户的编号  
        rtargetid varchar2(40),--目标用户编号
        rcontent varchar2(500),--回复内容
@@ -131,7 +131,7 @@ create table replys(
      otherreplysone VARCHAR2(40),
      otherreplystwo varchar2(40)
 );
-
+drop table replys;
 --主页显示
 create table homepage(
        hpid varchar2(40),--用来存放说说/图片的编号
