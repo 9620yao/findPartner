@@ -57,11 +57,11 @@ function listWords(currPage){
 		var wordsStr = "";
 		for (var i = 0; i < data.rows.length; i++) {
 			wordsStr+='<div class="showwords"><img src="images/01.jpg"  class="wordUserPic picSize" />';
-			wordsStr+='<span class="name">留言编号李文文</span>&nbsp;:';
-			wordsStr+='<br><p class="wContent fontColor">我来看看你了！我来留言了，我是留言内容</p>';
-			wordsStr+='<span style="color: grey;" class="wdate">2017-04-14</span>';
+			wordsStr+='<span class="name">'+data.rows[i].wid+'</span>&nbsp;:';
+			wordsStr+='<br><p class="wContent fontColor">'+data.rows[i].wcontent+'</p>';
+			wordsStr+='<span style="color: grey;" class="wdate">'+data.rows[i].wdate+'</span>';
 			wordsStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a></div>';
-			wordsStr+='<hr style="border:1 dotted" id="link">';
+			wordsStr+='<hr style="border:1 dotted" id="link"><div class="showcomment'+data.rows[i].wid+'"></div>';
 			// alert(data.rows[i].wid);
 			comments(data.rows[i].wid);//取到所有的说说编号
 		}
@@ -87,17 +87,16 @@ function comments(sid){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		var commentStr = "";
 		for (var i = 0; i < data.length; i++) {
-			
-			commentStr+='<div class="showcomment">';
+			commentStr+='<div>';
 			commentStr+='<img src="images/02.jpg"  class="comUserPic picSize" />';
-			commentStr+='<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;:';
-			commentStr+='<br><p class="commContent fontColor">我看到留言内容了，我来评论一下，哈哈，我是评论内容</p>';
-			commentStr+='<span style="color: grey;" class="commTime" id="commTime">2017-04-15</span>';
-			commentStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a></div><br>';
+			commentStr+='<span style="color: #CC8F14;" class="commId name">'+data[i].comuserid+'</span>&nbsp;:';
+			commentStr+='<br><p class="commContent fontColor">'+data[i].detail+'</p>';
+			commentStr+='<span style="color: grey;" class="commTime" id="commTime">'+data[i].comTime+'</span>';
+			commentStr+='<a href="javascript:void(0)" class="name">&nbsp;回复</a></div><br><div class="showreplys"></div>';
 			replys(data[i].cid);//取到所有的评论编号
 			//alert(data[i].cid);
 		}
-		$(".showcomment")[0].innerHTML = commentStr;
+		$(".showcomment"+sid)[0].innerHTML = commentStr;
 	}, "json");
 }
 
@@ -111,7 +110,7 @@ function replys(cid){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
-			replysStr+='<div class="showreplys"><img src="images/03.jpg"  class="replyUserPic picSize"/>';
+			replysStr+='<div><img src="images/03.jpg"  class="replyUserPic picSize"/>';
 			replysStr+='<span style="color: #CC8F14;" class="replayId name">回复编号苏苏</span> &nbsp;回复';
 			replysStr+='<span style="color: #CC8F14;" class="commId name">评论编号夏敏</span>&nbsp;:<br>';
 			replysStr+='<p id="edit" name="edit" class="replayContent fontColor">你这样评论啊，我看到评论内容了，我来回复一下</p>';
@@ -122,27 +121,6 @@ function replys(cid){
 		$(".showreplys")[0].innerHTML = replysStr;
 	}, "json");
 }
-
-/*$("#leaveMsg").hide();
-
-function replyMsg(){
-	$("#leaveMsg").toggle();
-
-}
-$('#replyMsg').on("click",function(){
-	$("#leaveMsg").toggle();
-})
-$('#replyMsg').dialog({    
-    title: '回复',    
-    width: 400,    
-    height: 200,    
-    closed: false,    
-    cache: false,    
-    href: 'get_content.php',
-    modal: true   
-}); 
-$('#replyMsg').dialog('refresh', 'new_content.php');  */
-
 
 UE.getEditor('fdesc');
 function myadd() {
