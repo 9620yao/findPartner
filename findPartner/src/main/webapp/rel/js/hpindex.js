@@ -99,10 +99,10 @@ function findspeack(sid,speakman,senddate){
 			//console.info(data);
 			var speaksStr = "";
 			//alert(data);
-			speaksStr+='<div><img class="uPic'+data.speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			speaksStr+='<a class="uname'+data.speakman+'" href="javascript:void(0)">'+data.speakman+'</a>';
+			speaksStr+='<div><img onclick="showuser(\''+data.speakman+'\')" class="uPic'+data.speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			speaksStr+='<a onclick="showuser(\''+data.speakman+'\')" class="uname'+data.speakman+'" href="javascript:void(0)">'+data.speakman+'</a>';
 			speaksStr+='<br><span style="margin-left: 5%;">'+data.senddate+'</span>';
-			speaksStr+='<div class="demoEdit" contenteditable="true">'+data.content+'</div>';
+			speaksStr+='<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data.content+'</div>';
 			speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
 			speaksStr+='<a onclick="addcomment(\''+data.sid+'\')" href="javascript:void(0)" style="margin-left: 5%;" data-toggle="modal"';
 			speaksStr+=' data-target="#addcoment">评论</a></p>';
@@ -129,10 +129,10 @@ function comments(sid) {
 		//alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var commentStr = "";
 		for (var i = 0; i < data.length; i++) {
-			commentStr += '<div><img class="uPic'+data[i].comuserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			commentStr += '<a class="uname'+data[i].comuserid+'" href="javascript:void(0)">'+data[i].comuserid+'</a>';
+			commentStr += '<div><img onclick="showuser(\''+data[i].comuserid+'\')" class="uPic'+data[i].comuserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			commentStr += '<a onclick="showuser(\''+data[i].comuserid+'\')" class="uname'+data[i].comuserid+'" href="javascript:void(0)">'+data[i].comuserid+'</a>';
 			commentStr += '<br><span style="margin-left: 5%;">'+data[i].comTime+'</span>';
-			commentStr += '<div class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
+			commentStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
 			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
 			commentStr += '<a onclick="addcr(\''+data[i].cid+'\',\''+data[i].comuserid+'\')" href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			commentStr += ' data-target="#addreply">回复</a>';
@@ -157,11 +157,11 @@ function replys(cid) {
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
-			replysStr += '<div><img class="uPic'+data[i].ruserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			replysStr += '<a class="uname'+data[i].ruserid+'" href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
+			replysStr += '<div><img onclick="showuser(\''+data[i].ruserid+'\')" class="uPic'+data[i].ruserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			replysStr += '<a onclick="showuser(\''+data[i].ruserid+'\')" class="uname'+data[i].ruserid+'" href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
 			replysStr += '<a class="uname'+data[i].rtargetid+'" href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
 			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
-			replysStr += '<div class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
+			replysStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
 			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
 			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			replysStr += ' data-target="#addreply">回复</a></div>';
@@ -187,8 +187,8 @@ function findalbumpic(abid,speakman,apicdate){
 			}
 			//alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 			var imgpic = "";
-			imgpic+='<div><img class="uPic'+speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			imgpic+='<a class="uname'+speakman+'" href="javascript:void(0)">'+speakman+'</a>';
+			imgpic+='<div><img onclick="showuser(\''+speakman+'\')" class="uPic'+speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+			imgpic+='<a onclick="showuser(\''+speakman+'\')" class="uname'+speakman+'" href="javascript:void(0)">'+speakman+'</a>';
 			imgpic+='<br><span style="margin-left: 5%;">'+data.apicdate+'</span>';
 			imgpic+='<div id="imgs" class="imgs">';
 			imgpic+='<img src="'+data.apic+'">';
@@ -250,4 +250,14 @@ function openPicture(aid){
 		$(".uname"+data.aid).html(data.nickname);
 	},"JSON")
 }
+
+//点击用户头像 用户昵称 进入他的主页
+function showuser(date){
+	if (date != null) {
+		var url = "page/lw-index.jsp?aid=" + date;
+		// window.open(url); //打开新的页面并带参数过去
+		window.open(url);
+	}
+}
+
 
