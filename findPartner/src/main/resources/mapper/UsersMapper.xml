@@ -28,6 +28,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<association property="partner" column="alid" javaType="Partner">
 			<id column="alid" property="lid" />
 			<result column="gender" property="gender" />
+			<result column="email" property="email" />
+			<result column="regdate" property="regdate" />
 		</association>
 	</resultMap>
 	<select id="findUsersInfo" parameterType="string" resultMap="UsersMap"

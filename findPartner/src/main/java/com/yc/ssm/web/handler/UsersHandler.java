@@ -81,6 +81,13 @@ public class UsersHandler {
 		return usersService.listUsers(rows, page);
 	}
 	
+	@RequestMapping(value = "find", method = RequestMethod.POST)
+	@ResponseBody
+	public Users findUsers(String aid){
+		LogManager.getLogger().debug("我进来了findUsers==》 ,aid="+aid);
+		return usersService.listUsersInfoByAid(aid);
+	} 
+	
 	
 
 }

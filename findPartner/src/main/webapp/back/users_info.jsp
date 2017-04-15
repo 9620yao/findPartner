@@ -9,6 +9,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div id="search">
+		<select id="selectName">
+			<option value="姓名/时间查询" id="findByName" selected="selected">姓名/时间查询</option>
+		</select>	
+		<input id="paramter" name="paramter">
+		<input value="查询" type="button" onclick="unclearQuery()"/>
+	</div>
 	<table id="dg"></table>
 	<div id="usersDetail">
 		<form action="#" method="post">

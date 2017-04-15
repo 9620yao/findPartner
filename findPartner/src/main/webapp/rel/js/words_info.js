@@ -1,7 +1,7 @@
 $('#wordsInfo').datagrid({    
 	url:'words/showWords',  
 	fitColumns:true,
-	fit:true,
+	//fit:true,
 	singleSelect:true,
 	border:false,
 	pagination :true,
