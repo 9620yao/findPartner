@@ -1,13 +1,3 @@
-UE.getEditor('fdesc');
-function myadd() {
-	alert(1111);
-}
-
-// 点击提交的时候
-function addSpeak() {
-	alert(1111);
-}
-
 function loadAdminInfo() {
 	// 以异步的方式取到个人的信息
 	$.get("user/getByid", function(data) {

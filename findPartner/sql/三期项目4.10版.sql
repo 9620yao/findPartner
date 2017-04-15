@@ -50,7 +50,7 @@ CREATE TABLE friends(
      otherfriendsone VARCHAR2(40),
      otherfriendstwo varchar2(40)
 );
-
+select * from FRIENDS;
 --其他好友表（某用户和没关注的好友）--在两个好友没关注的时候，联系在一起
 CREATE TABLE friendothers(
        aid varchar2(40),--用户编号

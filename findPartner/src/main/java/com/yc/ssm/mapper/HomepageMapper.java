@@ -7,7 +7,7 @@ import com.yc.ssm.entity.PaginationBean;
 
 public interface HomepageMapper {
 
-	void addhomepage(Homepage homepage);
+	int addhomepage(Homepage homepage);
 
 	PaginationBean<Homepage> pblist(Map<String, Object> map);
 

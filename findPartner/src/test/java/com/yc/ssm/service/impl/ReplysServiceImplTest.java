@@ -6,23 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yc.ssm.service.HomepageService;
+import com.yc.ssm.service.ReplysService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
-public class HomepageServiceImplTest {
+public class ReplysServiceImplTest {
 
 	@Autowired
-	private HomepageService homepageService;
+	private ReplysService replysService;
 
 	@Test
-	public void testPbHomepage() {
-		System.out.println(homepageService.pbHomepage("a10056", "2", "10"));
-	}
-
-	@Test
-	public void testselflist() {
-		System.out.println(homepageService.selflist("a10056", "1", "10"));
+	public void testListreplys() {
+		System.out.println(replysService.listreplys("r10047"));
 	}
 
 }

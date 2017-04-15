@@ -79,7 +79,7 @@ CREATE TABLE friends(
 	   otherfriendsone VARCHAR2(40),
 	   otherfriendstwo varchar2(40)
 );
-select * from friends where aid='10000';
+select * from friends where fid='10000';
 select * from users u where u.aid in (select f.fid from friends f where f.aid='10000')
 insert into friends(aid,fid) values('10040','10020');
 insert into friends(aid,fid) values('10000','a10000');

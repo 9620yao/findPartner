@@ -82,86 +82,15 @@
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-8 am-u-sm-12">
-			<article class="am-g blog-entry-article">
-				<div class="editdiv">
-					<form id="myspeak" method="post">
-						<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
-							cols="39" placeholder="发表一个说说"></textarea>
-						<button onclick="addSpeak()">发表</button>
-					</form>
-				</div>
-			</article>
-
-			<!-- start -->
-			<div id="showspeak">
-				<!--<div>
-					<img style="width: 20px; height: 20px;" src="images/01.jpg">
-					<a href="javascript:void(0)">用户名：</a>
-					<div class="demoEdit" contenteditable="true">我发表的说说2222222222222222222222222222222</div>
-					<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
-						onclick="addcom()" href="javascript:void(0)"
-						style="margin-left: 5%;">评论</a>
-					</p>
-				</div> -->
-				<!-- 评论 start -->
-				<!-- <div class="comment" style="margin-left: 5%;">
-					<div>
-						<img style="width: 20px; height: 20px;" src="images/01.jpg">
-						<a href="javascript:void(0)">用户名：</a>
-						<div class="demoEdit" contenteditable="true">
-							我是评论撒旦发射点发的发生暗室逢灯 暗室逢灯爱少2222222222222222222222222222222</div>
-						<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
-							onclick="addrep()" href="javascript:void(0)"
-							style="margin-left: 5%;">回复</a>
-					</div>
-					
-					回复 start
-					<div id="reply" style="margin-left: 5%;">
-						<div>
-							<img style="width: 20px; height: 20px;" src="images/01.jpg">
-							<a href="javascript:void(0)">用户名</a> 回复 <a
-								href="javascript:void(0)">用户名</a>:
-							<div class="demoEdit" contenteditable="true">
-								我是回复撒旦发射点发的发生暗室逢灯 暗室逢灯爱少2222222222222222222222222222222</div>
-							<a style="margin-left: 28%;" href="javascript:void(0)">删除</a> <a
-								onclick="addrep()" href="javascript:void(0)"
-								style="margin-left: 5%;">回复</a>
-						</div>
-					</div> -->
-				<!-- 回复end -->
-				<!-- <!-- <div style="margin-top: 2%;display: none;" class="showreply">
-						<div class="demoEdit" contenteditable="true"></div>
-						<button onclick="closerep()">提交</button>
-					</div>
-				</div>
-				评论 end
-				<div style="margin-top: 2%;display: none;" class="showcomment">
-					<div class="demoEdit" contenteditable="true"></div>
-					<button onclick="closecom()">提交</button>
-				</div> -->
-
-				<div id="showimgspic">
-					<!-- <div>
-						<img style="width: 20px; height: 20px;" src="images/01.jpg">
-						<a href="javascript:void(0)">用户名：</a>
-						<br>
-						<span style="margin-left: 5%;">2017年8.8.8</span>
-						展示相册下面的图片
-						<div id="imgs" class="imgs">
-							<img src="images/1.jpg">
-						</div>
-						<p style="margin-left: 3%;">
-							上传图片到《<a href="javascript:void(0)">相册</a>》
-						</p>
-					</div> -->
-				</div>
+			
+			<!-- 个人中心和他的主页 start -->
+			<div style="margin-top: 5%;" id="showspeak">
 
 			</div>
-			<!-- end -->
+			<!-- 个人中心和他的主页  end -->
 
 			<!-- 分页显示数据 start -->
-			<div id="page">
-			</div>
+			<div id="page"></div>
 			<!-- 分页显示数据 end -->
 		</div>
 
@@ -225,73 +154,136 @@
 							<td id="ihometown"></td>
 						</tr>
 					</table>
-					<button class="updatebtn" data-toggle="modal" data-target="#myModal">修改个人信息</button>
+					<button class="updatebtn" data-toggle="modal"
+						data-target="#myModal">修改个人信息</button>
 				</div>
 				<!-- 显示个人信息 end -->
 			</div>
-			
-			<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
-				</div>
-				<!-- addInfo修改个人信息 -->
-			<div id="addInfo">
-				<h1 id="opt_type">修改个人信息</h1>
-				<form action="user/update" id="updateUserInfo" method="post"
-					enctype="multipart/form-data">
-					<span>个人信息：</span> <input id="aid" name="aid" type="text"
-						style="display: block;" />
-					<ul>
-						<li><input id="pictrue" type="file" name="picData"
-							onchange="chgPic(this)" /><br> <img
-							src="images/not_pic.jpg" class="pic" width="100" height="100"></li>
-						<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：<input
-							type="text" id="nickname" name="nickname"></li>
-						<li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：<input
-							type="text" id="age" name="age"></li>
-						<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
-							type="text" id="birthday" name="birthday"></li>
-						<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：<input
-							type="text" id="gender" name="gender">
-						</li>
-						<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
-							type="text" id="star" name="star"></li>
-						<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input
-							type="text" id="hobby" name="hobby"></li>
-						<li>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;&nbsp;：<input
-							type="text" id="job" name="job"></li>
-						<li>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司&nbsp;&nbsp;：<input
-							type="text" id="company" name="company"></li>
-						<li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校&nbsp;&nbsp;：<input
-							type="text" id="school" name="school"></li>
-						<li>现居地址：<input type="text" id="address" name="address"></li>
-						<li>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡&nbsp;&nbsp;：<input
-							type="text" id="hometown" name="hometown"></li>
-						<li>国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍&nbsp;&nbsp;：<input
-							type="text" id="astate" name="astate"></li>
-					</ul>
-					<!-- <a class="updateBtn" href="javascript:void(0)">修改</a> -->
-					<button>修改</button>
-				</form>
-			</div>
-			<!-- addInfo修改个人信息  end-->
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--模态框 end  -->
 
-			
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">修改个人信息</h4>
+						</div>
+						<!-- addInfo修改个人信息 -->
+						<div id="addInfo">
+							<h1 id="opt_type">修改个人信息</h1>
+							<form action="user/update" id="updateUserInfo" method="post"
+								enctype="multipart/form-data">
+								<span>个人信息：</span> <input id="aid" name="aid" type="text"
+									style="display: block;" />
+								<ul>
+									<li><input id="pictrue" type="file" name="picData"
+										onchange="chgPic(this)" /><br> <img
+										src="images/not_pic.jpg" class="pic" width="100" height="100"></li>
+									<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：<input
+										type="text" id="nickname" name="nickname"></li>
+									<li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：<input
+										type="text" id="age" name="age"></li>
+									<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
+										type="text" id="birthday" name="birthday"></li>
+									<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别&nbsp;&nbsp;：<input
+										type="text" id="gender" name="gender">
+									</li>
+									<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
+										type="text" id="star" name="star"></li>
+									<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input
+										type="text" id="hobby" name="hobby"></li>
+									<li>工&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作&nbsp;&nbsp;：<input
+										type="text" id="job" name="job"></li>
+									<li>公&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;司&nbsp;&nbsp;：<input
+										type="text" id="company" name="company"></li>
+									<li>学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;校&nbsp;&nbsp;：<input
+										type="text" id="school" name="school"></li>
+									<li>现居地址：<input type="text" id="address" name="address"></li>
+									<li>家&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乡&nbsp;&nbsp;：<input
+										type="text" id="hometown" name="hometown"></li>
+									<li>国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;籍&nbsp;&nbsp;：<input
+										type="text" id="astate" name="astate"></li>
+								</ul>
+								<!-- <a class="updateBtn" href="javascript:void(0)">修改</a> -->
+								<button>修改</button>
+							</form>
+						</div>
+						<!-- addInfo修改个人信息  end-->
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框 end  -->
+
+			<!-- Modal comment -->
+			<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span class="modal-title" id="myModalLabel">添加评论</span>
+						</div>
+						<div id="comentInfo">
+							<div class="showcomment"">
+								<form id="faddcomment" action="comments/add" method="post">
+									<input name="callid" class="callid" type="hidden">
+									<input name="detail" class="detail" type="hidden">
+									<div class="democomment" contenteditable="true"></div>
+									<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
+								</form>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框 end comment -->
+
+			<!-- Modal reply -->
+			<div class="modal fade" id="addreply" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<span class="modal-title" id="myModalLabel">添加回复</span>
+						</div>
+						<div id="comentInfo">
+							<form id="rform" action="replys/add" method="post">
+								<input name="rcid" class="rcid" type="hidden">
+								<input name="rtargetid" class="rtargetid" type="hidden">
+								<input name="rcontent" class="rcontent" type="hidden">
+								<div class="democomment" contenteditable="true"></div>
+								<a onclick="Getrcontent()" href="javascript:void(0)">提交</a>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">取消</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--模态框 end reply -->
+
+
 		</div>
 	</div>
 	<!-- content end -->

@@ -47,7 +47,11 @@ $("#dg").datagrid({
 	        		  }
 	        	  }
 	          },
-	          {field:'regdate',title:'注册时间',width:50,align:'center'},
+	          {field:'regdate',title:'注册时间',width:50,align:'center',
+	        	  formatter: function(value,row,index){
+	        		  return row.partner.regdate;
+	        	  }
+	          },
 	          {field:'operator',title:'操作',width:50,align:'center',
 	        	  formatter: function(value,row,index){
 	        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>'+
@@ -71,6 +75,7 @@ function showDetail(index){
 	$("#ibirthday").val(row.birthday);
 	$("#istar").val(row.star);
 	$("#ihobby").val(row.hobby);
+	$("#iregdate").val(row.partner.regdate);
 	$("#ipicture").attr("src",row.picture=="" ? "images/not_pic.jpg":row.picture);
 }
 

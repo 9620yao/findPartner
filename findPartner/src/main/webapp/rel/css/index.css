@@ -1,3 +1,15 @@
+.democomment{
+	border: 1px solid #dddddd;
+	width: 500px;
+	min-height: 40px;
+	_height: 40px;
+	outline: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	_overflow-y: visible;
+	margin-left: 5%;
+}
+
 .demoEdit {
 	border: 1px solid #dddddd;
 	width: 400px;

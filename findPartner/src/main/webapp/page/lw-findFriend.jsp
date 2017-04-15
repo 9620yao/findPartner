@@ -84,11 +84,10 @@
 	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendReq()">好友请求</a>
 	<div style="margin-left: 400px;">
 		<!-- 推荐好友 -->
-
-		<div id="friend">
-			<!-- <img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3>
-			<img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3>
-			<img src="images/01.jpg" style="width:100px;height:100px;float:left;margin-left:20px;"><h3>Agfa</h3> -->
+		
+		<div id="friend" style="width:500px;height:800px;">
+			<!-- <div class="testdiv" style="float:left;"><img src="images/not_pic.jpg" style="border:none;"></div><div style="float:left;margin-left:5px;"><h3>昵称：aa</h3>
+			<span>现居地：湖南长沙</span><br><a href="javascript:void(0)" onclick="addFriend(\''+data[i].aid+'\')" style="color:red;">添加</a><a href="javascript:void(0)" style="color:green;margin-left:8px;">取消</a></div> -->
 		</div>
 	</div>
 	<!-- content end -->

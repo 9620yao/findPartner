@@ -7,4 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.yc.ssm.entity.Comments">
 		select * from comments where callid = #{_parameter}
 	</select>
+
+	<insert id="addComments">
+		insert into comments
+		values('c'||seq_comments_cid.nextval,#{callid},#{detail},#{comuserid},
+		to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'),'','')
+	</insert>
 </mapper>
