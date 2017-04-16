@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Comments;
@@ -30,13 +31,22 @@ public class CommentsHandler {
 		return commentsService.listComments(sid);// 所有的评论
 	}
 	
+	/**
+	 * 添加评论
+	 * @param comments
+	 * @param sesssion
+	 * @return
+	 */
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(Comments comments,HttpSession sesssion) {
-		LogManager.getLogger().debug("我进来了 add()==== comments:"+comments);
+	public String add(@RequestParam("strcomment")String strcomment,Comments comments,HttpSession sesssion) {
+		LogManager.getLogger().debug("我进来了 add()==== comments:"+comments+",strcomment==>"+strcomment);
 		String comuserid = (String) sesssion.getAttribute(ServletUtil.USERAID);
 		comments.setComuserid(comuserid);
-		commentsService.addComments(comments);
-		return "redirect:/page/lw-index.jsp";// 所有的评论
+		commentsService.addComments(comments);// 添加评论
+		if(strcomment!=null){
+			return "redirect:"+strcomment;//根据传过来的添加界面，然后返回什么界面
+		}
+		return "redirect:/page/lw-index.jsp";
 	}
 
 }

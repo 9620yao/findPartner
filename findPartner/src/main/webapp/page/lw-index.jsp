@@ -181,7 +181,8 @@
 									<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：<input
 										type="text" id="nickname" name="nickname"></li>
 									<li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：<input
-										type="text" id="age" name="age"><label id="errAge"  style="color:red;"></label></li>
+										type="text" id="age" name="age"><label id="errAge"
+										style="color: red;"></label></li>
 									<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
 										type="text" id="birthday" name="birthday"></li>
 									<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
@@ -214,7 +215,6 @@
 			</div>
 			<!--模态框 end  -->
 
-
 			<!-- Modal comment -->
 			<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
@@ -230,6 +230,7 @@
 						<div id="comentInfo">
 							<div class="showcomment"">
 								<form id="faddcomment" action="comments/add" method="post">
+									<input name="strcomment" type="hidden" value="/page/lw-index.jsp">
 									<input name="callid" class="callid" type="hidden"> <input
 										name="detail" class="detail" type="hidden">
 									<div class="democomment" contenteditable="true"></div>
@@ -260,6 +261,7 @@
 						</div>
 						<div id="comentInfo">
 							<form id="rform" action="replys/add" method="post">
+								<input name="strreplys" type="hidden" value="/page/lw-index.jsp">
 								<input name="rcid" class="rcid" type="hidden"> <input
 									name="rtargetid" class="rtargetid" type="hidden"> <input
 									name="rcontent" class="rcontent" type="hidden">

@@ -35,12 +35,12 @@ public class SpeaksHandler {
 		String speakman = (String) request.getSession().getAttribute(ServletUtil.FINALAID);
 		return speaksService.listSpeaks(speakman, String.valueOf(currPage), "5");
 	}
-	
+
 	@RequestMapping(value = "showSpeaks", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Speaks> showAllSpeaks(String page,String rows) {
+	public PaginationBean<Speaks> showAllSpeaks(String page, String rows) {
 		LogManager.getLogger().debug("我进来了 showAllSpeaks==>currPage=" + page);
-		return speaksService.listAllSpeaks(page,rows);
+		return speaksService.listAllSpeaks(page, rows);
 	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
@@ -63,11 +63,10 @@ public class SpeaksHandler {
 		return speaksService.findSpeaks(sid, speakman);
 	}
 
-	
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Speaks> findByUnclearNames(Speaks speaks) {
-		speaks.setSenddate(speaks.getSpeakman());		
+		speaks.setSenddate(speaks.getSpeakman());
 		speaks.setSpeakman(speaks.getSpeakman());
 		return speaksService.findSpeaksInfoByName(speaks);
 	}

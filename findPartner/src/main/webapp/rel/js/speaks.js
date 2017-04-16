@@ -136,7 +136,7 @@ function addcomment(obj){
 	$(".callid").attr("value",obj);
 }
 
-//点击提交
+//评论点击提交
 function Getdetail(){
 	var text = $(".democomment").text();
 	//alert(text);
@@ -157,7 +157,7 @@ function addreplys(rid,ruserid){
 	$(".rcid").val(rid);
 	$(".rtargetid").val(ruserid);
 }
-//点击提交
+//回复点击提交
 function Getrcontent(){
 	var text = $(".democomment").text();
 	//alert(text);
