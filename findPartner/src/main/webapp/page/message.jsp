@@ -62,9 +62,10 @@
 
 	<div class="editdiv">
 		<span class="yourWords">发表您的留言&nbsp;|&nbsp;<img src="images/wordsMini.png"></span>
-		<br><form id="myspeak" method="post">
+		<br><form id="myspeak" action="words/insert" method="post">
 			<textarea onclick="myadd()" id="fdesc" name="fdesc" rows="4"
 							cols="39" placeholder="发表一个留言"></textarea>
+				<input name="content" id="content" type="hidden">
 				<button onclick="addSpeak()" class="speakbtn">发表</button>
 		</form>
 	</div><br>

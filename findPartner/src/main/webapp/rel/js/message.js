@@ -122,12 +122,13 @@ function replys(cid){
 	}, "json");
 }
 
-UE.getEditor('fdesc');
 function myadd() {
 	alert(1111);
 }
+var ue = UE.getEditor('fdesc');
 
 //点击提交的时候
 function addSpeak() {
-	alert(1111);
+	$("#content").val(ue.getContentTxt());
+	$("#myspeak").submit();
 }
