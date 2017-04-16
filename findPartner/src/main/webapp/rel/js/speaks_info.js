@@ -39,9 +39,9 @@ function showDetail(index){
 }
 
 
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQuerySpeaks(){
+	var select=$("#SpeakSelectName").val();
+	var param=$("#paramterS").val();
 	$('#speaksInfo').datagrid({    
 		url:'speaks/findunclear?speakman='+param,
 		fitColumns:true,

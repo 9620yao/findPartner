@@ -41,27 +41,19 @@ public class WordsHandler {
 		LogManager.getLogger().debug("我进来了 showAllWords==>currPage=" + page);
 		return wordsService.listAllWords(page, rows);
 	}
-
-	@RequestMapping("addWords")
-	public String add(Words words) {
-		if (wordsService.add(words)) {
-			return "redirect:/page/message.jsp";
-		} else {
-			return "redirect:/page/lw-index.jsp";
-		}
+	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String addWords(Words words,HttpSession session) {
+		LogManager.getLogger().debug("我进来了 addWords==>words:" + words);
+		String wfrendid = (String) session.getAttribute(ServletUtil.USERAID);
+		String waid = (String) session.getAttribute(ServletUtil.FINALAID);
+		words.setWfrendid(wfrendid);
+		words.setWaid(waid);
+		wordsService.add(words);
+		return "redirect:/page/message.jsp";
 	}
 	
-	@RequestMapping(value = "addWords", method = RequestMethod.POST)
-	public String insertWords(Words words, HttpSession session) {
-		LogManager.getLogger().debug("insertWords ==要插入一条留言:" + words);
-		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
-		words.setWfrendid(speakman);//留言人编号
-		
-		if (wordsService.add(words)) {// 如果添加说说成功，添加该数据到主业表用
-			return "redirect:/page/message.jsp";
-		}
-		return "redirect:/page/lw-index.jsp";
-	}
+	
 
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody

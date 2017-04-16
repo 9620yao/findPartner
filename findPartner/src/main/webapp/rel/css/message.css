@@ -35,8 +35,8 @@
 }
 
 .picSize{
-	width:50px;
-	height:50px;
+	width:30px;
+	height:30px;
 	border-radius:50%;
 }
 
@@ -50,10 +50,6 @@
 	margin-left:348px;
 }
 
-.editdiv{
-	margin-left:180px;
-	margin-right:220px;
-}
 .speakbtn{
 	background-color: #E6B85C;
 	color:white;
@@ -63,4 +59,32 @@
 .yourWords{
 	font-size:14px;
 	margin-bottom: 5px;
+}
+.democomment{
+	border: 1px solid #dddddd;
+	width: 500px;
+	min-height: 40px;
+	_height: 40px;
+	outline: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	_overflow-y: visible;
+	margin-left: 5%;
+}
+
+.demoEdit {
+	border: 1px solid #dddddd;
+	width: 400px;
+	min-height: 20px;
+	_height: 20px;
+	outline: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	_overflow-y: visible;
+	margin-left: 5%;
+}
+
+.demoEdit p {
+	margin: 0px;
+	padding: 0px;
 }

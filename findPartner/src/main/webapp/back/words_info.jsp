@@ -7,12 +7,12 @@
 <title>说说管理</title>
 </head>
 <body>
-	<div id="search">
-		<select id="selectName">
+	<div id="searchWords">
+		<select id="WordselectName">
 			<option value="姓名/时间查询" id="findByName" selected="selected">姓名/时间查询</option>
 		</select>	
-		<input id="paramter" name="paramter">
-		<input value="查询" type="button" onclick="unclearQuery()"/>
+		<input id="paramterW" name="paramter">
+		<input value="查询" type="button" onclick="unclearQueryWords()"/>
 	</div>
 	<table id="wordsInfo"></table>
 	<br>

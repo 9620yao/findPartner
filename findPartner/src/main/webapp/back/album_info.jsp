@@ -7,10 +7,10 @@
 <title>说说管理</title>
 </head>
 <body>
-	<div id="search">
-		<input id="selectName" value="姓名/时间查询">
-		<input id="paramter" name="paramter">
-		<input value="查询" type="button" onclick="unclearQuery()"/>
+	<div id="searchAlbum">
+		<input id="AlbumselectName" value="姓名/时间查询">
+		<input id="paramterA" name="paramter">
+		<input value="查询" type="button" onclick="unclearQueryAlbum()"/>
 	</div>
 	<table id="albumInfo"></table>
 	<div id="albumDetail">

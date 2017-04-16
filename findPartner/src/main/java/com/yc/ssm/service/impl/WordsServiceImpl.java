@@ -24,9 +24,8 @@ public class WordsServiceImpl implements WordsService {
 	}
 
 	@Override
-	public boolean add(Words words) {
-		System.out.println("增加留言");
-		return wordsMapper.addWords(words)>0;
+	public void add(Words words) {
+		wordsMapper.addWords(words);
 	}
 
 	@Override
