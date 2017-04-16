@@ -113,7 +113,6 @@ function addword() {
 	$("#wcontent").val(ue.getContentTxt());
 	$("#myword").submit();
 }
-
 //点击评论
 function addcomment(obj){
 	//alert(obj);

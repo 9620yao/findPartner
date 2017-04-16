@@ -25,12 +25,12 @@ $("#dg").datagrid({
 	columns:[[    
 	          {field:'aid',title:'编号',width:50,align:'center'},
 	          {field:'nickname',title:'昵称',width:50,align:'center'},
-	          {field:'gender',title:'性别',width:50,align:'center',
+	          {field:'gender',title:'性别',width:40,align:'center',
 	        	  formatter: function(value,row,index){
 	        		  return row.partner.gender;
 	        	  }
 	          }, 
-	          {field:'email',title:'邮箱',width:100,align:'center',
+	          {field:'email',title:'邮箱',width:90,align:'center',
 	        	  formatter: function(value,row,index){
 	        		  return row.partner.email;
 	        	  }
@@ -52,7 +52,7 @@ $("#dg").datagrid({
 	        		  return row.partner.regdate;
 	        	  }
 	          },
-	          {field:'operator',title:'操作',width:50,align:'center',
+	          {field:'operator',title:'操作',width:70,align:'center',
 	        	  formatter: function(value,row,index){
 	        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>'+
 	        		  '<script>$(".detailBtn").linkbutton({iconCls:"icon-search"});</script>';
@@ -61,10 +61,19 @@ $("#dg").datagrid({
 	          ]]      
 });
 $("#usersDetail").dialog({
-	title:"用户信息",
-	left:10,
-	closed:true,
+	title:"用户详情",
+	closable:false,
+	modal:true,
 });
+$("#usersDetail").dialog("close");
+
+$(".closeBtn").linkbutton({
+	iconCls: "icon-cancel",
+	onClick: function(){
+		$("#usersDetail").dialog("close");
+	} 	
+});
+
 function showDetail(index){
 	$("#usersDetail").dialog("open");
 	var row = $("#dg").datagrid("getRows")[index];
@@ -127,6 +136,7 @@ function unclearQuery(){
 		    ]],     
 	}); 
 }
+
 
 
 

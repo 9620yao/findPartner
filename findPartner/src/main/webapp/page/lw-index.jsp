@@ -181,7 +181,7 @@
 									<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称&nbsp;&nbsp;：<input
 										type="text" id="nickname" name="nickname"></li>
 									<li>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄&nbsp;&nbsp;：<input
-										type="text" id="age" name="age"></li>
+										type="text" id="age" name="age"><label id="errAge"  style="color:red;"></label></li>
 									<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
 										type="text" id="birthday" name="birthday"></li>
 									<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
@@ -201,7 +201,7 @@
 										type="text" id="astate" name="astate"></li>
 								</ul>
 								<!-- <a class="updateBtn" href="javascript:void(0)">修改</a> -->
-								<button>修改</button>
+								<a onclick="updateInfo()" href="javascript:void(0)">修改</a>
 							</form>
 						</div>
 						<!-- addInfo修改个人信息  end-->

@@ -67,3 +67,13 @@ $(function() {
 		$(this).css("background-color", "green");
 	})
 });
+
+function updateInfo(){
+	var age=$("#age").val();
+	alert(age);
+	if(age>=6 && age<=100){
+		$("#updateUserInfo").submit();
+	}else{
+		$("#errAge").html("年龄限制6-100");
+	}
+}
