@@ -63,7 +63,7 @@
 	<hr>
 	<!-- nav end -->
 
-	<div id="divword" style="width: 60%; margin-left: 20%;"">
+	<div id="divword" style="width: 60%; margin-left: 10%;"">
 		<form id="myword" method="post" action="words/add">
 			<textarea id="ueditor" name="ueditor" rows="3" cols="39"
 				placeholder="发表一个留言"></textarea>

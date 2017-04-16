@@ -53,7 +53,7 @@
 					href="page/lw-index.jsp">个人中心</a></li>
 				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
-					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
+					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
 					<ul class="am-dropdown-content">
 						<li><a href="page/lw-friend.jsp">我的好友</a></li>
