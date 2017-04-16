@@ -16,7 +16,7 @@ $('#wordsInfo').datagrid({
 	        	  formatter: function(value,row,index){
 	        		  //alert(row + "==>" + JSON.stringify(row));
 	        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
-	        		  '<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
+	          		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
 	        	  }
 	          }
 	          ]],
@@ -57,7 +57,7 @@ function unclearQueryWords(){
 		        	  formatter: function(value,row,index){
 		        		  //alert(row + "==>" + JSON.stringify(row));
 		        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
-		        		  '<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
+		          		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
 		        	  }
 		          }
 		          ]],

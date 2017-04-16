@@ -10,7 +10,7 @@
 <meta name="keywords" content="">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>LOG-IN | Amaze UI Examples</title>
+<title>LOG-IN | Find Partner</title>
 
 <!-- Set render engine for 360 browser -->
 <meta name="renderer" content="webkit">
@@ -27,7 +27,7 @@
 <!-- Add to homescreen for Safari on iOS -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<meta name="apple-mobile-web-app-title" content="FindPartner" />
 <link rel="apple-touch-icon-precomposed"
 	href="assets/i/app-icon72x72@2x.png">
 
@@ -50,7 +50,7 @@
 	<header>
 		<div class="log-header">
 			<h1>
-				<a href="/">Amaze UI</a>
+				<a href="/">Find Partner</a>
 			</h1>
 		</div>
 		<div class="log-re">
@@ -63,7 +63,7 @@
 		<div class="am-g">
 			<div
 				class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content">
-				<h1 class="log-title am-animation-slide-top">AmazeUI</h1>
+				<h1 class="log-title am-animation-slide-top">Find Partner</h1>
 				<br>
 				<form class="am-form" id="log-form" action="partner/login"
 					method="POST">
@@ -97,18 +97,13 @@
 						class="am-btn-group  am-animation-slide-bottom log-animation-delay-b">
 						<p>使用第三方登录</p>
 						<a href="#" class="am-btn am-btn-secondary am-btn-sm"><i
-							class="am-icon-github am-icon-sm"></i> Github</a> <a href="#"
-							class="am-btn am-btn-success am-btn-sm"><i
-							class="am-icon-google-plus-square am-icon-sm"></i> Google+</a> <a
-							href="#" class="am-btn am-btn-primary am-btn-sm"><i
-							class="am-icon-stack-overflow am-icon-sm"></i> stackOverflow</a>
+							class="am-icon-github am-icon-sm"></i> QQ</a> 
+							 <a href="#" class="am-btn am-btn-primary am-btn-sm"><i
+							class="am-icon-stack-overflow am-icon-sm"></i> WeiXin</a>
 					</div>
 				</form>
 			</div>
-			
 		</div>
-		<footer class="log-footer"> © 2014 AllMobilize, Inc. Licensed
-			under MIT license. </footer>
 	</div>
 
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.service.SpeaksService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,5 +21,13 @@ public class SpeaksServiceImplTest {
 	public void testListSpeaks() {
 		System.out.println(speaksService.listSpeaks("a10056", "1", "10"));
 	}
+	
+	/*@Test
+	public void testDelSpeaks() {
+		Speaks speaks=new Speaks();
+		speaks.setSid("s10039");
+		speaksService.delSpeaks(speaks);
+		System.out.println("删除成功");
+	}*/
 
 }
