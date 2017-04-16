@@ -39,6 +39,7 @@ public class SpeaksServiceTest {
 		speaks.setFiles("");
 		speaks.getSenddate();
 		// speaks.getSenddate();
+		@SuppressWarnings("unused")
 		boolean ss = speaksService.add(speaks);
 		System.out.println(speaks);
 		assertNotNull(speaks);
@@ -53,6 +54,7 @@ public class SpeaksServiceTest {
 	
 	@Test
 	public void testFindSpeaks() {
+		@SuppressWarnings("resource")
 		ApplicationContext ac=new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
 		ac.getBean("");
 		System.out.println();

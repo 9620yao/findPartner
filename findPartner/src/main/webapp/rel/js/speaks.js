@@ -121,11 +121,6 @@ function replys(cid) {
 	}, "json");
 }
 
-function addWinClose() {
-	$("#speakComments").dialog("close", true);
-	return false;
-}
-
 var ue = UE.getEditor('ueditor');
 
 function addSpeak() {

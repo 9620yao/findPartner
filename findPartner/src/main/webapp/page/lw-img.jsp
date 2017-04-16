@@ -26,6 +26,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -66,19 +67,51 @@
 	<hr>
 	<!-- nav end -->
 
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">新建相册</h4>
+				</div>
+				<!-- 新建相册 start -->
+				<div style="margin-left: 3%;" id="builtimgs">
+					<form id="alform" action="album/newimgs" method="post">
+						<p>
+							<input name="abname" placeholder="标题" type="text"
+								required="required"> <input name="alcontent"
+								class="alcontent" type="hidden">
+						</p>
+						<p>
+							<textarea id="ueditor" name="ueditor" rows="2" cols="30"
+								placeholder="描述"></textarea>
+						</p>
+						<p>
+							<a href="javascript:void(0)" onclick="addAlbum()">添加</a>
+						</p>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--模态框 end  -->
+
+
 	<!-- content srart data-am-figure="{  pureview: 'true' }" -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
-		<button class="addimgs" onclick="addImgs()" style="width: 8%;margin-left: 5%;">创建相册</button>
-		<div id="container">
-			<!-- 如果用户没有相册 默认显示添加图片 -->
-			<div>
-				<img onclick="addImgs()" src="images/not_imgs.png">
-			</div>
-			<!-- <div>
-				<img onclick="openpic(111)" src="images/01.jpg">
-				<h3>Agfa</h3>
-			</div>
-			img end  -->
+		<button class="addimgs" data-toggle="modal" data-target="#myModal"
+			style="width: 8%; margin-left: 5%;">创建相册</button>
+		<div id="container" style="margin-top: 5%;font-size: 18px;margin-left: 5%;">
+			<!-- 如果用户没有相册  -->
+			<span>还没有相册哦~~~~~~~</span>
 		</div>
 	</div>
 	<!-- content end -->
@@ -133,15 +166,20 @@
 
 	<!--[if (gte IE 9)|!(IE)]><!-->
 	<script src="assets/js/jquery.min.js"></script>
+	<script src="bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	<!--<![endif]-->
 	<!--[if lte IE 8 ]>
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript" charset="utf-8"
+		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
-	<!-- <script src="assets/js/pinto.min.js"></script>
-	<script src="assets/js/img.js"></script> -->
 	<script src="rel/js/imgs.js"></script>
 </body>
 </html>

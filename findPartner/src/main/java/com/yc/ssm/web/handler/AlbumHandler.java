@@ -37,10 +37,9 @@ public class AlbumHandler {
 		LogManager.getLogger().debug("我是Album list() 我进来了 aaid:" + aaid);
 		Album.setAaid(aaid);
 		if (albumService.addAlbum(Album)) {
-			session.setAttribute(ServletUtil.NEWIMGS_ERROR, "添加相册失败，请确认后添加...");
 			return "redirect:/page/lw-img.jsp";
 		}
-		return "redirect:/page/new-imgs.jsp";
+		return "redirect:/page/lw-img.jsp";
 	}
 
 	@RequestMapping(value = "showAlbums", method = RequestMethod.POST)
