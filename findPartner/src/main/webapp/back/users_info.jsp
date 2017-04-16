@@ -9,8 +9,9 @@
 <title>用户信息</title>
 </head>
 <body>
-	<div id="search">
-		<select id="selectName">
+
+	<div id="searchUsers">
+		<select id="UserselectName">
 			<option value="用户编号查询" id="findByName" selected="selected">用户编号查询</option>
 		</select>	
 		<input id="paramter" name="paramter">

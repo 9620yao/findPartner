@@ -26,7 +26,7 @@ $('#albumInfo').datagrid({
 				//alert(row + "==>" + JSON.stringify(row));
         		return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
         		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
-			}
+        	}
         }
     ]],
 });  
@@ -54,9 +54,9 @@ function showDetail(index){
 	
 }
 
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQueryAlbum(){
+	var select=$("#AlbumselectName").val();
+	var param=$("#paramterA").val();
 	$('#albumInfo').datagrid({    
 		url:'album/findunclear?aaid='+param,
 		fitColumns:true,
@@ -82,9 +82,8 @@ function unclearQuery(){
 		           },
 		           {field:'operator',title:'操作',width:100,align:'center',
 		           	formatter: function(value,row,index){
-		   				//alert(row + "==>" + JSON.stringify(row));
 		           		return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
-		           		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
+		        		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
 		   			}
 		           }
 		       ]],

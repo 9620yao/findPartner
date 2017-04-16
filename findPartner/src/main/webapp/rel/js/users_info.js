@@ -89,7 +89,7 @@ function showDetail(index){
 }
 
 function unclearQuery(){
-	var select=$("#selectName").val();
+	var select=$("#UserselectName").val();
 	var param=$("#paramter").val();
 	$('#dg').datagrid({    
 		url:'user/find?aid='+param,

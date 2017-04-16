@@ -38,10 +38,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<insert id="addWords" parameterType="Words">
 		insert into Words
-		(wid,waid,wfrendid,wcontent,waddress,wdate)
-		values('w'||seq_words_wid.nextval,'a28',#{wfrendid},#{wcontent},#{waddress},to_char(sysdate,'yyyy-MM-dd HH24:mi:ss'))
+		values('w'||seq_words_wid.nextval,#{waid},#{wfrendid},#{wcontent},'',to_char(sysdate,'yyyy-MM-dd
+		HH24:mi:ss'),'','')
 	</insert>
-	
+
 	<resultMap type="PaginationBean" id="PBMap">
 		<collection property="rows"
 			column="{pageSize=pageSize,currPage=currPage}" ofType="com.yc.ssm.entity.Words"
@@ -57,7 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		currPage,${pageSize}
 		pageSize
 		from
-		words 
+		words
 	</select>
 
 	<select id="GetPartWords" resultType="com.yc.ssm.entity.Words">
@@ -66,12 +66,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		n.*,rownum rn from (
 		select * from words) n
 		where
-		${currPage} * ${pageSize} >= rownum) t 
+		${currPage} *
+		${pageSize} >= rownum) t
 		where rn > (${currPage}-1)*${pageSize}
 	</select>
-	
-	
+
+
 	<select id="findByName" parameterType="Words" resultType="Words">
-		select * from words where wfrendid like '%'||#{wfrendid}||'%' or wdate like '%'||#{wfrendid}||'%'
+		select
+		* from words where wfrendid like '%'||#{wfrendid}||'%' or wdate like
+		'%'||#{wfrendid}||'%'
 	</select>
 </mapper>

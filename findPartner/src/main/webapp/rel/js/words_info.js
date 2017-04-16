@@ -16,7 +16,7 @@ $('#wordsInfo').datagrid({
 	        	  formatter: function(value,row,index){
 	        		  //alert(row + "==>" + JSON.stringify(row));
 	        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
-	        		  '<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
+	          		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
 	        	  }
 	          }
 	          ]],
@@ -36,9 +36,9 @@ function showDetail(index){
 	$("#iwaddress").val(row.waddress);
 	$("#iwdate").val(row.wdate);
 }
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQueryWords(){
+	var select=$("#WordselectName").val();
+	var param=$("#paramterW").val();
 	$('#wordsInfo').datagrid({    
 		url:'words/findunclear?wfrendid='+param,
 		fitColumns:true,
@@ -57,7 +57,7 @@ function unclearQuery(){
 		        	  formatter: function(value,row,index){
 		        		  //alert(row + "==>" + JSON.stringify(row));
 		        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
-		        		  '<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
+		          		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
 		        	  }
 		          }
 		          ]],

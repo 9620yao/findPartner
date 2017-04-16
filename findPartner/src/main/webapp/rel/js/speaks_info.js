@@ -17,7 +17,7 @@ $('#speaksInfo').datagrid({
 				//alert(row + "==>" + JSON.stringify(row));
         		return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>' + 
         		'<script>$(".detailBtn").linkbutton({iconCls: "icon-search"});</script>';
-			}
+        	}
         }
     ]],
 });  
@@ -39,9 +39,9 @@ function showDetail(index){
 }
 
 
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQuerySpeaks(){
+	var select=$("#SpeakSelectName").val();
+	var param=$("#paramterS").val();
 	$('#speaksInfo').datagrid({    
 		url:'speaks/findunclear?speakman='+param,
 		fitColumns:true,

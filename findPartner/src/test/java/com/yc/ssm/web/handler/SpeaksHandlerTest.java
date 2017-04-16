@@ -1,7 +1,5 @@
 package com.yc.ssm.web.handler;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.yc.ssm.entity.Comments;
-import com.yc.ssm.entity.Replys;
 import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.service.CommentsService;
 import com.yc.ssm.service.HomepageService;
@@ -25,12 +21,15 @@ public class SpeaksHandlerTest {
 	@Autowired
 	private SpeaksService speaksService;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private CommentsService commentsService;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private ReplysService replysService;
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private HomepageService homepageService;
 
