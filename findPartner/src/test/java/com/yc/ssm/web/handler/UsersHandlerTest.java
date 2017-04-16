@@ -2,7 +2,6 @@ package com.yc.ssm.web.handler;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
-import com.yc.ssm.entity.Words;
 import com.yc.ssm.service.UsersService;
 import com.yc.ssm.service.WordsService;
 
@@ -23,6 +21,7 @@ public class UsersHandlerTest {
 	@Autowired
 	private UsersService usersService;
 
+	@SuppressWarnings("unused")
 	@Autowired
 	private WordsService wordsService;
 

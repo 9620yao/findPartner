@@ -57,9 +57,11 @@ function openpic(date) {
 	}
 }
 
-//点击添加相册
-function addImgs(){
-	var url = "page/new-imgs.jsp";
-	// window.open(url); //打开新的页面并带参数过去
-	self.location = url;// 挑战页面
+//添加相册 form表单提交的时候
+var ue = UE.getEditor('ueditor');
+
+function addAlbum() {
+	// alert(ue.getContentTxt());
+	$(".alcontent").val(ue.getContentTxt());
+	$("#alform").submit();
 }
