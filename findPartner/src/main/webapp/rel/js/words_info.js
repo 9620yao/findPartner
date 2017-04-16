@@ -36,9 +36,9 @@ function showDetail(index){
 	$("#iwaddress").val(row.waddress);
 	$("#iwdate").val(row.wdate);
 }
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQueryWords(){
+	var select=$("#WordselectName").val();
+	var param=$("#paramterW").val();
 	$('#wordsInfo').datagrid({    
 		url:'words/findunclear?wfrendid='+param,
 		fitColumns:true,

@@ -54,9 +54,9 @@ function showDetail(index){
 	
 }
 
-function unclearQuery(){
-	var select=$("#selectName").val();
-	var param=$("#paramter").val();
+function unclearQueryAlbum(){
+	var select=$("#AlbumselectName").val();
+	var param=$("#paramterA").val();
 	$('#albumInfo').datagrid({    
 		url:'album/findunclear?aaid='+param,
 		fitColumns:true,

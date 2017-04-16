@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.ssm.entity.PaginationBean;
+import com.yc.ssm.entity.Speaks;
 import com.yc.ssm.entity.Words;
+import com.yc.ssm.service.HomepageService;
 import com.yc.ssm.service.WordsService;
 import com.yc.ssm.util.ServletUtil;
 
@@ -21,6 +23,9 @@ import com.yc.ssm.util.ServletUtil;
 public class WordsHandler {
 	@Autowired
 	private WordsService wordsService;
+	
+	@Autowired
+	private HomepageService homepageService;
 
 	@RequestMapping("list")
 	@ResponseBody
@@ -47,6 +52,8 @@ public class WordsHandler {
 		wordsService.add(words);
 		return "redirect:/page/message.jsp";
 	}
+	
+	
 
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)
 	@ResponseBody

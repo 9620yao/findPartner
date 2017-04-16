@@ -30,6 +30,8 @@ public class WordsServiceTest {
 		words.setWaid("a30");
 		words.setWcontent("我来留言了。。。。");
 		words.setWfrendid("a28");
+		System.out.println(words);
+		assertNotNull(words);
 	}
 	
 	@Test
