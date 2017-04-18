@@ -116,6 +116,7 @@
 				<div id="comentInfo">
 					<div class="showcomment"">
 						<form id="faddcomment" action="comments/add" method="post">
+							<input name="strcomment" type="hidden" value="/page/lw-speaks.jsp">
 							<input name="callid" class="callid" type="hidden"> <input
 								name="detail" class="detail" type="hidden">
 							<div class="democomment" contenteditable="true"></div>
@@ -145,6 +146,7 @@
 				</div>
 				<div id="comentInfo">
 					<form id="rform" action="replys/add" method="post">
+						<input name="strreplys" type="hidden" value="/page/lw-speaks.jsp">
 						<input name="rcid" class="rcid" type="hidden"> <input
 							name="rtargetid" class="rtargetid" type="hidden"> <input
 							name="rcontent" class="rcontent" type="hidden">

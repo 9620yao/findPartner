@@ -63,7 +63,7 @@
 	<hr>
 	<!-- nav end -->
 
-	<div id="divword" style="width: 60%; margin-left: 20%;"">
+	<div id="divword" style="width: 60%; margin-left: 10%;"">
 		<form id="myword" method="post" action="words/add">
 			<textarea id="ueditor" name="ueditor" rows="3" cols="39"
 				placeholder="发表一个留言"></textarea>
@@ -97,10 +97,11 @@
 					<span class="modal-title" id="myModalLabel">添加评论</span>
 				</div>
 				<div id="comentInfo">
-					<div class="showcomment"">
+					<div class="showcomment">
 						<form id="faddcomment" action="comments/add" method="post">
-							<input name="callid" class="callid" type="hidden"> <input
-								name="detail" class="detail" type="hidden">
+							<input name="strcomment" type="hidden" value="/page/message.jsp" />
+							<input name="callid" class="callid" type="hidden" /> <input
+								name="detail" class="detail" type="hidden" />
 							<div class="democomment" contenteditable="true"></div>
 							<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
 						</form>
@@ -128,6 +129,7 @@
 				</div>
 				<div id="comentInfo">
 					<form id="rform" action="replys/add" method="post">
+						<input name="strreplys" type="hidden" value="/page/message.jsp">
 						<input name="rcid" class="rcid" type="hidden"> <input
 							name="rtargetid" class="rtargetid" type="hidden"> <input
 							name="rcontent" class="rcontent" type="hidden">

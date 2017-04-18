@@ -5,14 +5,14 @@ function GetFinallyAid(){
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		//alert(data.finalaid);
 		if(data.finalaid=="-1"){
-			$(".myfriend").show();
+			$("#myfriend").show();
 			$(".updatepwd").show();//修改密码按钮
 			$(".homepage").attr("href","page/lw-index.jsp");
 			$(".homepage").val("个人中心");
 			//$(".updatebtn").show();//修改个人信息按钮
 			$(".editdiv").show();
 		}else{
-			$(".myfriend").hide();
+			$("#myfriend").hide();
 			$(".updatepwd").hide();
 			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);
 			$(".homepage").html("他的主页");
@@ -41,7 +41,7 @@ function listSpeaks(currPage) {
 				/* var speaksStr2 = ""; */
 				for (var i = 0; i < data.rows.length; i++) {
 					speaksStr+='<div><img onclick="showuser(\''+data.rows[i].speakman+'\')" class="uPic'+data.rows[i].speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-					speaksStr+='<a onclick="showuser(\''+data.rows[i].speakman+'\')" class="uname'+data.rows[i].speakman+'" href="javascript:void(0)">'+data.speakman+'</a>';
+					speaksStr+='<a onclick="showuser(\''+data.rows[i].speakman+'\')" class="uname'+data.rows[i].speakman+'" href="javascript:void(0)">'+data.rows[i].speakman+'</a>';
 					speaksStr+='<br><span style="margin-left: 5%;">'+data.rows[i].senddate+'</span>';
 					speaksStr+='<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data.rows[i].content+'</div>';
 					speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
@@ -136,7 +136,7 @@ function addcomment(obj){
 	$(".callid").attr("value",obj);
 }
 
-//点击提交
+//评论点击提交
 function Getdetail(){
 	var text = $(".democomment").text();
 	//alert(text);
@@ -157,7 +157,7 @@ function addreplys(rid,ruserid){
 	$(".rcid").val(rid);
 	$(".rtargetid").val(ruserid);
 }
-//点击提交
+//回复点击提交
 function Getrcontent(){
 	var text = $(".democomment").text();
 	//alert(text);
