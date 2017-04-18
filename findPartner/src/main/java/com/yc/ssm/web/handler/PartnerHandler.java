@@ -35,12 +35,13 @@ public class PartnerHandler {
 	@RequestMapping("login")
 	public String login(Partner partner, HttpServletRequest request) {
 		partner = partnerService.login(partner);
-		System.out.println("partner====>" + partner);
+		LogManager.getLogger().debug("partner====>" + partner);
 		if (partner == null) {
 			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
 			return "/page/lw-log.jsp";
 		} else {
 			request.getSession().setAttribute(ServletUtil.LOGIN_USER, partner);
+			request.getSession().setAttribute(ServletUtil.LOGINING_ID, partner.getLid());
 			Users users = usersService.listUsersInfo(partner.getLid());
 			if (users != null) {
 				// 取到用户id放到session会话里面

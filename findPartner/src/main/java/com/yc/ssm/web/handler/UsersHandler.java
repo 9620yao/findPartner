@@ -68,7 +68,8 @@ public class UsersHandler {
 			return "/page/lw-modifyPwd.jsp";
 		} else {
 			partner.setPassword(newPassword);
-			partner.setLid(ServletUtil.LOGINING_ID);
+			String lid=(String) request.getSession().getAttribute(ServletUtil.LOGINING_ID);
+			partner.setLid(lid);
 			partnerService.updatePwd(partner);
 			return "redirect:/page/lw-log.jsp";
 		}
