@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.PaginationBean;
@@ -25,10 +26,9 @@ public class WordsHandler {
 
 	@RequestMapping("list")
 	@ResponseBody
-	public PaginationBean<Words> listWords(Integer currPage, String rows, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listWords");
-		String waid = (String) request.getSession().getAttribute(ServletUtil.FINALAID);
-		return wordsService.listWords(waid, String.valueOf(currPage), "5");
+	public PaginationBean<Words> listWords(String faid, Integer currPage, String rows, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listWords,faid=" + faid);
+		return wordsService.listWords(faid, String.valueOf(currPage), "5");
 	}
 
 	@RequestMapping(value = "showWords", method = RequestMethod.POST)
@@ -39,14 +39,16 @@ public class WordsHandler {
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addWords(Words words, HttpSession session) {
+	public String addWords(@RequestParam("strword") String strword, Words words, HttpSession session) {
 		LogManager.getLogger().debug("我进来了 addWords==>words:" + words);
+		// 评论人为登录用户
 		String wfrendid = (String) session.getAttribute(ServletUtil.USERAID);
-		String waid = (String) session.getAttribute(ServletUtil.FINALAID);
 		words.setWfrendid(wfrendid);
-		words.setWaid(waid);
 		wordsService.add(words);
-		return "redirect:/page/message.jsp";
+		if (strword != null) {
+			return "redirect:" + strword.split("/findPartner")[1];
+		}
+		return "redirect:/page/lw-log.jsp";
 	}
 
 	@RequestMapping(value = "findunclear", method = RequestMethod.POST)

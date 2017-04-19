@@ -12,4 +12,6 @@ public interface AlbumpicService {
 
 	Albumpic HpAlbumpic(String abid, String apicdate);
 
+	boolean findAlbumpic(String abid);
+
 }

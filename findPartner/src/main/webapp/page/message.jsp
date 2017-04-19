@@ -40,15 +40,15 @@
 					href="page/lw-index.jsp">个人中心</a></li>
 				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
-					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
+					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
 					<ul class="am-dropdown-content">
-						<li><a href="page/lw-friend.jsp">我的好友</a></li>
-						<li><a href="page/lw-findFriend.jsp">添加好友</a></li>
+						<li><a class="myfriends" href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a class="addfriend" href="page/lw-findFriend.jsp">添加好友</a></li>
 					</ul></li>
-				<li><a href="page/lw-speaks.jsp">说说</a></li>
-				<li><a href="page/message.jsp">留言</a></li>
-				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li><a class="myspeaks" href="page/lw-speaks.jsp">说说</a></li>
+				<li><a class="myword" href="page/message.jsp">留言</a></li>
+				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
@@ -67,6 +67,8 @@
 		<form id="myword" method="post" action="words/add">
 			<textarea id="ueditor" name="ueditor" rows="3" cols="39"
 				placeholder="发表一个留言"></textarea>
+			<input name="waid" class="waid" type="hidden">
+			<input name="strword" class="strword" type="hidden">
 			<input name="wcontent" id="wcontent" type="hidden"> <a
 				onclick="addword()" class="speakbtn">发表</a>
 		</form>
@@ -99,7 +101,7 @@
 				<div id="comentInfo">
 					<div class="showcomment">
 						<form id="faddcomment" action="comments/add" method="post">
-							<input name="strcomment" type="hidden" value="/page/message.jsp" />
+							<input name="strcomment" class="strcomment" type="hidden" />
 							<input name="callid" class="callid" type="hidden" /> <input
 								name="detail" class="detail" type="hidden" />
 							<div class="democomment" contenteditable="true"></div>
@@ -129,7 +131,7 @@
 				</div>
 				<div id="comentInfo">
 					<form id="rform" action="replys/add" method="post">
-						<input name="strreplys" type="hidden" value="/page/message.jsp">
+						<input name="strreplys" class="strreplys" type="hidden">
 						<input name="rcid" class="rcid" type="hidden"> <input
 							name="rtargetid" class="rtargetid" type="hidden"> <input
 							name="rcontent" class="rcontent" type="hidden">

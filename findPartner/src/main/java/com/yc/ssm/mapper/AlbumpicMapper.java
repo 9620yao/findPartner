@@ -12,4 +12,6 @@ public interface AlbumpicMapper {
 
 	Albumpic HpAlbumpic(Albumpic albumpic);
 
+	List<Albumpic> findAlbumpic(String abid);
+
 }

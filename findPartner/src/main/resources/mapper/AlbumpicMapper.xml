@@ -17,7 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType="com.yc.ssm.entity.Albumpic">
 		select *
 		from albumpic where abid = #{abid} and
-		apicdate = #{apicdate}
+		apicdate =
+		#{apicdate}
+	</select>
+
+	<select id="findAlbumpic" parameterType="string" resultType="com.yc.ssm.entity.Albumpic">
+		select *
+		from albumpic
+		where abid = #{_parameter} 
 	</select>
 
 </mapper>

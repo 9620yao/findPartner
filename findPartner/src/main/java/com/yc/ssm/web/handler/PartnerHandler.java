@@ -35,6 +35,7 @@ public class PartnerHandler {
 	@RequestMapping("login")
 	public String login(Partner partner, HttpServletRequest request) {
 		partner = partnerService.login(partner);
+		String aid = "";
 		System.out.println("partner====>" + partner);
 		if (partner == null) {
 			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
@@ -44,11 +45,13 @@ public class PartnerHandler {
 			Users users = usersService.listUsersInfo(partner.getLid());
 			if (users != null) {
 				// 取到用户id放到session会话里面
-				request.getSession().setAttribute(ServletUtil.USERAID, users.getAid());
+				aid = users.getAid();
+				request.getSession().setAttribute(ServletUtil.USERAID,aid);
 			}
-			return "redirect:/page/lw-index.jsp";
+			return "redirect:/page/lw-index.jsp?aid="+aid;
 		}
 	}
+
 
 	@Autowired
 	private JavaMailSender mailSender;

@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+
+import com.yc.ssm.entity.Partner;
 import com.yc.ssm.util.ServletUtil;
 
-@WebFilter("/user/*")
+@WebFilter("/page/*")
 public class ACheckLoginUserFilter extends AbstractFilter {
 
 	@Override
@@ -22,14 +25,15 @@ public class ACheckLoginUserFilter extends AbstractFilter {
 		HttpServletRequest req = (HttpServletRequest) requset;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpSession Session = req.getSession();
+		String url = req.getRequestURI();
+		LogManager.getLogger().debug("url=====" + url);
 
-		Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
-		if (user == null) {
+		Partner partner = (Partner) req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
+		if (!url.endsWith("lw-log.jsp") && partner == null) {
 			if (Session.getAttribute("errorMsg") == null) {
 				Session.setAttribute("errorMsg", "请先登录！");
 			}
-			resp.sendRedirect(req.getServletContext().getContextPath() + "/page/lw-re.jsp");
-			return;
+			resp.sendRedirect(req.getServletContext().getContextPath() + "/page/lw-log.jsp");
 		}
 		chain.doFilter(requset, response);// 继续请求处理
 	}

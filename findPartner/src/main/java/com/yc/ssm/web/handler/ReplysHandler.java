@@ -32,18 +32,20 @@ public class ReplysHandler {
 
 	/**
 	 * 添加回复
+	 * 
 	 * @param replys
 	 * @param session
 	 * @return
 	 */
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String addReplys(@RequestParam("strreplys")String strreplys,Replys replys, HttpSession session) {
-		LogManager.getLogger().debug("我进来了 listReplys==== replys:" + replys+",strreplys==>"+strreplys);
+	public String addReplys(@RequestParam("strreplys") String strreplys, Replys replys, HttpSession session) {
+		LogManager.getLogger().debug("我进来了 listReplys==== replys:" + replys + ",strreplys==>" + strreplys);
+		// 回复人为用户编号
 		String ruserid = (String) session.getAttribute(ServletUtil.USERAID);
 		replys.setRuserid(ruserid);
 		replysService.addReplys(replys);
-		if(strreplys!=null){
-			return "redirect:"+strreplys;
+		if (strreplys != null) {
+			return "redirect:" + strreplys.split("/findPartner")[1];
 		}
 		return "redirect:/page/lw-index.jsp";// 所有的回复
 	}

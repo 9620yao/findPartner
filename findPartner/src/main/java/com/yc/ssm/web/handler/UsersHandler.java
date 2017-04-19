@@ -35,10 +35,9 @@ public class UsersHandler {
 	// 显示个人信息，通过aid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
-	public Users list(HttpSession session) {
-		String aid = (String) session.getAttribute(ServletUtil.FINALAID);// 取到用户id
-		LogManager.getLogger().debug("ServletUtil.FINALAID==>" + aid);
-		return usersService.listUsersInfoByAid(aid);
+	public Users list(String faid,HttpSession session) {
+		LogManager.getLogger().debug("ServletUtil.FINALAID==>" + faid);
+		return usersService.listUsersInfoByAid(faid);
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
@@ -56,7 +55,7 @@ public class UsersHandler {
 			System.out.println("上传图片==》" + users);
 		}
 		usersService.modifyUserInfo(users);
-		return "redirect:/page/lw-index.jsp";
+		return "redirect:/page/lw-index.jsp?aid="+users.getAid();
 	}
 
 	// 修改密码

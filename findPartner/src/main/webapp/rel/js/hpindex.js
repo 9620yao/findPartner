@@ -1,23 +1,37 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+
 GetFinallyAid();
 function GetFinallyAid() {
-	$.post("friend/finalAid", function(data) {
+	$.post("friend/finalAid",{"faid":faid}, function(data) {
 		// alert(data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		// alert(data.finalaid);
-		if (data.finalaid == "-1") {
+		if (data.faid == "-1") {
 			$("#myfriend").show();
 			$(".updatepwd").show();
 			$(".updatebtn").show();
-			$(".homepage").attr("href", "page/lw-index.jsp");
 			$(".homepage").val("个人中心");
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + faid);
 			selfhomepage(currPage);//是自己页面的时候显示个人中心
 		} else {
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
 			$(".updatebtn").hide();
-			$(".homepage").attr("href",
-					"page/lw-index.jsp?aid=" + data.finalaid);
 			$(".homepage").html("他的主页");
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + data.faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + data.faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + data.faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + data.faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + data.faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
 			showhomepage(currPage);//是好友页面的时候显示他的主页
 		}
 	}, "json")
@@ -27,9 +41,7 @@ var currPage = 1;
 //显示他的主页
 function showhomepage(currPage) {
 	$.post("homepage/list",
-			{
-		"currPage" : currPage
-			},
+			{"currPage" : currPage,"faid":faid},
 			function(data) {
 				if (data == null || data == "") {
 					return false;
@@ -52,9 +64,7 @@ function showhomepage(currPage) {
 //显示个人中心
 function selfhomepage(currPage) {
 	$.post("homepage/selflist",
-			{
-		"currPage" : currPage
-			},
+			{"currPage" : currPage,"faid":faid},
 			function(data) {
 				if (data == null || data == "") {
 					return false;
@@ -204,11 +214,11 @@ function findalbumpic(abid,speakman,apicdate){
 function addcomment(obj){
 	//alert(obj);
 	//$(".callid").attr("value",sid);
+	$(".strcomment").val(url);
 	$(".callid").attr("value",obj);
 }
 
-
-//点击提交
+//点击评论的提交
 function Getdetail(){
 	var text = $(".democomment").text();
 	//alert(text);
@@ -220,6 +230,7 @@ function Getdetail(){
 function addcr(cid,comuserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(cid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(comuserid);
 }
 
@@ -227,9 +238,11 @@ function addcr(cid,comuserid){
 function addreplys(rid,ruserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(rid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(ruserid);
 }
 
+//点击回复的提交
 function Getrcontent(){
 	var text = $(".democomment").text();
 	//alert(text);
