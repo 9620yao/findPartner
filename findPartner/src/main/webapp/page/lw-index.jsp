@@ -184,7 +184,7 @@
 										type="text" id="age" name="age"><label id="errAge"
 										style="color: red;"></label></li>
 									<li>生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;：<input
-										type="text" id="birthday" name="birthday"></li>
+										type="text" id="birthday" name="birthday" class="Wdate" onfocus="WdatePicker({lang:'zh-cn',dateFmt:'yyyyMMdd'})"/></li>
 									<li>星&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;座&nbsp;&nbsp;：<input
 										type="text" id="star" name="star"></li>
 									<li>爱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;好&nbsp;&nbsp;：<input
@@ -344,5 +344,6 @@
 	<script type="text/javascript" src="rel/js/hpindex.js"></script>
 	<script type="text/javascript" src="rel/js/index.js"></script>
 	<script type="text/javascript" src="rel/js/indexpic.js"></script>
+	<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 </body>
 </html>
