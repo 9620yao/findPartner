@@ -70,8 +70,8 @@ $(function() {
 
 function updateInfo(){
 	var age=$("#age").val();
-	alert(age);
-	if(age>=6 && age<=100){
+	//alert(age);
+	if((age>=6 && age<=100)||age==""||age==null){
 		$("#updateUserInfo").submit();
 	}else{
 		$("#errAge").html("年龄限制6-100");
