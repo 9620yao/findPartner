@@ -93,8 +93,8 @@
 						enctype="multipart/form-data">
 						<p>
 							<input id="pictrue" type="file" name="picData"
-								onchange="chgPic(this)" />
-							<input name="strpic" class="strpic" type="hidden">
+								onchange="chgPic(this)" /> <input name="strpic" class="strpic"
+								type="hidden">
 						</p>
 						<p>
 							<img src="images/not_pic.jpg" class="pic" width="100"
@@ -120,15 +120,15 @@
 			<div class="box">
 				<div>
 					<p>
-						<a class="amyimg" href="page/lw-img.jsp">相册</a> | &nbsp;&nbsp;<a href="javascript:void(0)">当前相册</a>
+						<a class="amyimg" href="page/lw-img.jsp">相册</a> | &nbsp;&nbsp;<a
+							href="javascript:void(0)">当前相册</a>
 						<button data-toggle="modal" data-target="#myModal"
 							class="addimgbtn">上传图片</button>
 					</p>
 				</div>
 				<div id="imgnotnull">
-					<p>
-						<img class="newimg" src="images/not_albumpic.png">
-					</p>
+					<!-- 如果用户下该相册没有图片  -->
+					<span>还没有图片哦~~~~~~~</span>
 				</div>
 				<!-- 展示相册下面的图片 -->
 				<div id="imgs" class="imgs">
