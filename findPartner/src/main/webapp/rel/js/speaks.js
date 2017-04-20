@@ -59,7 +59,7 @@ function listSpeaks(currPage) {
 					speaksStr+='<a onclick="showuser(\''+data.rows[i].speakman+'\')" class="uname'+data.rows[i].speakman+'" href="javascript:void(0)">'+data.rows[i].speakman+'</a>';
 					speaksStr+='<br><span style="margin-left: 5%;">'+data.rows[i].senddate+'</span>';
 					speaksStr+='<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data.rows[i].content+'</div>';
-					speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+					speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 					speaksStr+='<a onclick="addcomment(\''+data.rows[i].sid+'\')" href="javascript:void(0)" style="margin-left: 5%;" data-toggle="modal"';
 					speaksStr+=' data-target="#addcoment">评论</a></p>';
 					speaksStr+='</div><div class="comment'+data.rows[i].sid+'" style="margin-left: 5%;"></div>';
@@ -97,7 +97,7 @@ function comments(sid) {
 			commentStr += '<a onclick="showuser(\''+data[i].comuserid+'\')" class="uname'+data[i].comuserid+'" href="javascript:void(0)">'+data[i].comuserid+'</a>';
 			commentStr += '<br><span style="margin-left: 5%;">'+data[i].comTime+'</span>';
 			commentStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
-			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 			commentStr += '<a onclick="addcr(\''+data[i].cid+'\',\''+data[i].comuserid+'\')" href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			commentStr += ' data-target="#addreply">回复</a>';
 			commentStr += '</div><div class="reply'+data[i].cid+'" style="margin-left: 5%;"></div>';
@@ -125,7 +125,7 @@ function replys(cid) {
 			replysStr += '<a href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
 			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
 			replysStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';
-			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+			replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			replysStr += ' data-target="#addreply">回复</a></div>';
 			replysStr += '<div class="reply'+data[i].rid+'"></div>';

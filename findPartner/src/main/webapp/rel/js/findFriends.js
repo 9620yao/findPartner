@@ -42,7 +42,7 @@ function addFriend(aid){
 	$.post("friend/add",{"aid" : aid},function(data){
 		if (data) {
 			alert("已发送好友请求");
-			var url = "page/lw-findFriend.jsp";
+			//var url = "page/lw-findFriend.jsp";
 			// window.open(url); //打开新的页面并带参数过去
 			self.location = url;//挑战页面
 		}

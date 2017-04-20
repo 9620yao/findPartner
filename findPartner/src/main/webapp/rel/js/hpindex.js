@@ -157,7 +157,7 @@ function findspeack(sid, speakman, senddate) {
 				+ data.senddate + '</span>';
 			speaksStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 				+ data.content + '</div>';
-			speaksStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+			speaksStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 			speaksStr += '<a onclick="addcomment(\''
 				+ data.sid
 				+ '\')" href="javascript:void(0)" style="margin-left: 5%;" data-toggle="modal"';
@@ -205,7 +205,7 @@ function comments(sid) {
 						+ data[i].comTime + '</span>';
 					commentStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 						+ data[i].detail + '</div>';
-					commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+					commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 					commentStr += '<a onclick="addcr(\''
 						+ data[i].cid
 						+ '\',\''
@@ -257,7 +257,7 @@ function replys(cid) {
 						+ data[i].rtime + '</span>';
 					replysStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 						+ data[i].rcontent + '</div>';
-					replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+					replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 					replysStr += '<a onclick="addreplys(\''
 						+ data[i].rid
 						+ '\',\''
