@@ -11,7 +11,7 @@ public class ServletUtil {
 	public static final String FINALAID = "finalaid";// 存放查看当前用户的用户编号
 	public static final String ALBUMABID = "albumabid";// 相册编号
 	
-	public static final String NEWIMGS_ERROR = "errorNewimgs";//添加图片错误
+	public static final String MODIF_ERROR = "errorpwd";//添加图片错误
 	public static String UPLOAD_DIR;
 	public static String VIRTUAL_UPLOAD_DIR = "/upload03/";
 

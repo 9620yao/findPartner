@@ -1,5 +1,6 @@
 var url = window.location.href;
 var faid = url.split('?')[1].split('=')[1];
+
 if(faid!=null && faid!=""){
 	$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
 	$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
