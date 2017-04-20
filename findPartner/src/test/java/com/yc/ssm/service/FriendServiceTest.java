@@ -3,6 +3,7 @@ package com.yc.ssm.service;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,6 +55,14 @@ public class FriendServiceTest {
 		int count=friendService.countReq("a10081");
 		System.out.println(count);
 		assertNotNull(count);
+	}
+	
+	@Test
+	public void testListFriendsKnow() {
+		List<Map<String, Object>> obj=friendService.listMaybeKnow("10000");
+		System.out.println(obj);
+		assertNotNull(obj);
+		
 	}
 
 }

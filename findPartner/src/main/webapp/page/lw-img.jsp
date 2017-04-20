@@ -48,11 +48,17 @@
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
 				<li class="am-active"><a class="homepage"
 					href="page/lw-index.jsp">个人中心</a></li>
-				<li><a class="myfriend" href="page/lw-friend.jsp">我的好友</a></li>
-				<!-- <li><a href="page/message.jsp">日志</a></li> -->
-				<li><a href="page/lw-speaks.jsp">说说</a></li>
-				<li><a href="page/message.jsp">留言</a></li>
-				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
+					class="am-dropdown-toggle" data-am-dropdown-toggle
+					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
+				</a>
+					<ul class="am-dropdown-content">
+						<li><a class="myfriends" href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a class="addfriend" href="page/lw-findFriend.jsp">添加好友</a></li>
+					</ul></li>
+				<li><a class="myspeaks" href="page/lw-speaks.jsp">说说</a></li>
+				<li><a class="myword" href="page/message.jsp">留言</a></li>
+				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
@@ -86,6 +92,8 @@
 							<input name="abname" placeholder="标题" type="text"
 								required="required"> <input name="alcontent"
 								class="alcontent" type="hidden">
+								<input name="strimg" class="strimg" type="hidden">
+								<input name="aaid" class="aaid" type="hidden">
 						</p>
 						<p>
 							<textarea id="ueditor" name="ueditor" rows="2" cols="30"
@@ -109,7 +117,8 @@
 	<div class="am-g am-g-fixed blog-fixed blog-content">
 		<button class="addimgs" data-toggle="modal" data-target="#myModal"
 			style="width: 8%; margin-left: 5%;">创建相册</button>
-		<div id="container" style="margin-top: 5%;font-size: 18px;margin-left: 5%;">
+		<div id="container"
+			style="margin-top: 5%; font-size: 18px; margin-left: 5%;">
 			<!-- 如果用户没有相册  -->
 			<span>还没有相册哦~~~~~~~</span>
 		</div>

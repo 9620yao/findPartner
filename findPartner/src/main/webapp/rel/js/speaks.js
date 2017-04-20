@@ -1,23 +1,40 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+
 GetFinallyAid();//判断是否隐藏
 function GetFinallyAid(){
-	$.post("friend/finalAid",function(data){
+	$.post("friend/finalAid",{"faid":faid},function(data){
 		//alert(data);
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		//alert(data.finalaid);
-		if(data.finalaid=="-1"){
+		if(data.faid=="-1"){
 			$("#myfriend").show();
 			$(".updatepwd").show();//修改密码按钮
-			$(".homepage").attr("href","page/lw-index.jsp");
 			$(".homepage").val("个人中心");
 			//$(".updatebtn").show();//修改个人信息按钮
 			$(".editdiv").show();
+			
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + faid);
 		}else{
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);
 			$(".homepage").html("他的主页");
 			//$(".updatebtn").hide();
 			$(".editdiv").hide();
+			
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + data.faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + data.faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + data.faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + data.faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + data.faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
 			
 		}
 	},"json")
@@ -26,9 +43,7 @@ function GetFinallyAid(){
 var currPage = 1;
 function listSpeaks(currPage) {
 	$.post("speaks/list",
-			{
-		"currPage" : currPage
-			},
+			{"currPage" : currPage,"faid":faid},
 			function(data) {
 				if(data==null||data==""){
 					return false;
@@ -123,17 +138,20 @@ function replys(cid) {
 
 var ue = UE.getEditor('ueditor');
 
+//点击添加说说
 function addSpeak() {
 	// alert(ue.getContentTxt());
 	$("#content").val(ue.getContentTxt());
+	$("#strspeaks").val(url);
 	$("#myspeak").submit();
 }
 
-//点击评论
+//点击说说的评论
 function addcomment(obj){
 	//alert(obj);
 	//$(".callid").attr("value",sid);
 	$(".callid").attr("value",obj);
+	$(".strcomment").val(url);
 }
 
 //评论点击提交
@@ -148,6 +166,7 @@ function Getdetail(){
 function addcr(cid,comuserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(cid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(comuserid);
 }
 
@@ -155,6 +174,7 @@ function addcr(cid,comuserid){
 function addreplys(rid,ruserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(rid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(ruserid);
 }
 //回复点击提交

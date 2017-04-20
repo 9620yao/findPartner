@@ -35,6 +35,7 @@ public class PartnerHandler {
 	@RequestMapping("login")
 	public String login(Partner partner, HttpServletRequest request) {
 		partner = partnerService.login(partner);
+		String aid = "";
 		LogManager.getLogger().debug("partner====>" + partner);
 		if (partner == null) {
 			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
@@ -45,9 +46,10 @@ public class PartnerHandler {
 			Users users = usersService.listUsersInfo(partner.getLid());
 			if (users != null) {
 				// 取到用户id放到session会话里面
-				request.getSession().setAttribute(ServletUtil.USERAID, users.getAid());
+				aid = users.getAid();
+				request.getSession().setAttribute(ServletUtil.USERAID, aid);
 			}
-			return "redirect:/page/lw-index.jsp";
+			return "redirect:/page/lw-index.jsp?aid=" + aid;
 		}
 	}
 
@@ -68,8 +70,8 @@ public class PartnerHandler {
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	@Transactional
-	public String add(Partner partner,String uname,String gender, HttpServletRequest request) {// 注册
-		LogManager.getLogger().debug("partner:" + partner+"uname:"+uname+"gender:"+gender);
+	public String add(Partner partner, String uname, String gender, HttpServletRequest request) {// 注册
+		LogManager.getLogger().debug("partner:" + partner + "uname:" + uname + "gender:" + gender);
 		List<Partner> listmail = partnerService.findEmail(partner);// 判断是否被注册
 		if (listmail.size() > 0) {// 返回值大于0
 			request.getSession().setAttribute("emailError", "该邮箱已经注册！！！");

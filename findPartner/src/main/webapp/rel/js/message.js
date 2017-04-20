@@ -1,24 +1,41 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+
 GetFinallyAid();//判断是否隐藏
 function GetFinallyAid(){
-	$.post("friend/finalAid",function(data){
+	$.post("friend/finalAid",{"faid":faid},function(data){
 		//alert(data);
 		//alert(JSON.stringify(data));  //JSON.stringify() ,把json对象转换成json字符串
 		//alert(data.finalaid);
-		if(data.finalaid=="-1"){
+		if(data.faid=="-1"){
 			$("#myfriend").show();
 			$(".updatepwd").show();//修改密码按钮
-			$(".homepage").attr("href","page/lw-index.jsp");
 			$(".homepage").val("个人中心");
 			$("#divword").hide();//显示留言添加按钮	message.jsp
+			
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + faid);
 		}else{
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.finalaid);
+			$(".homepage").attr("href","page/lw-index.jsp?aid="+data.faid);
 			$(".homepage").html("他的主页");
 			//$(".updatebtn").hide();
 			//$(".editdiv").hide();
 			$("#divword").show();//隐藏留言添加按钮	message.jsp
 			
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + data.faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + data.faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + data.faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + data.faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + data.faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
 		}
 	},"json")
 }
@@ -26,7 +43,7 @@ function GetFinallyAid(){
 var currPage = 1;
 listWords(currPage);
 function listWords(currPage){
-	$.post("words/list",{"currPage":currPage}, function(data){
+	$.post("words/list",{"currPage":currPage,"faid":faid}, function(data){
 		// alert(data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		//alert(JSON.stringify(data.rows));
@@ -96,12 +113,12 @@ function replys(cid){
 			replysStr +='<span style="color: grey;" class="replayTime">'+data[i].rtime+'</span>';
 			replysStr += '<a onclick="addreplys(\''+data[i].rid+'\',\''+data[i].ruserid+'\')"  href="javascript:void(0)" style="margin-left: 5%;"  data-toggle="modal"';
 			replysStr += ' data-target="#addreply">回复</a></div>';
-			
+			replysStr += '<div class="showreplys'+data[i].rid+'"></div>';
 			replys(data[i].rid);
 			openPicture(''+data[i].ruserid+'');
 		}
-		$(".showreplys"+cid)[0].innerHTML = replysStr;
 		
+		$(".showreplys"+cid)[0].innerHTML = replysStr;
 	}, "json");
 }
 
@@ -111,16 +128,18 @@ var ue = UE.getEditor('ueditor');
 function addword() {
 	// alert(ue.getContentTxt());
 	$("#wcontent").val(ue.getContentTxt());
+	$(".waid").val(faid);
+	$(".strword").val(url);
 	$("#myword").submit();
 }
 //点击评论
 function addcomment(obj){
 	//alert(obj);
-	//$(".callid").attr("value",sid);
+	$(".strcomment").val(url);
 	$(".callid").attr("value",obj);
 }
 
-//点击提交
+//点击评论的提交
 function Getdetail(){
 	var text = $(".democomment").text();
 	//alert(text);
@@ -132,6 +151,7 @@ function Getdetail(){
 function addcr(cid,comuserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(cid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(comuserid);
 }
 
@@ -139,9 +159,11 @@ function addcr(cid,comuserid){
 function addreplys(rid,ruserid){
 	//alert(JSON.stringify(obj)); //JSON.stringify() ,把json对象转换成json字符串
 	$(".rcid").val(rid);
+	$(".strreplys").val(url);
 	$(".rtargetid").val(ruserid);
 }
 
+//点击回复的提交
 function Getrcontent(){
 	var text = $(".democomment").text();
 	//alert(text);

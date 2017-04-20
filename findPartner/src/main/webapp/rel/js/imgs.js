@@ -1,35 +1,45 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+
 GetFinallyAid();// 判断是否隐藏
 function GetFinallyAid() {
-	$.post("friend/finalAid", function(data) {
+	$.post("friend/finalAid",{"faid":faid}, function(data) {
 		// alert(data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		// alert(data.finalaid);
-		if (data.finalaid == "-1") {
-			$(".myfriend").show();
+		if (data.faid == "-1") {
+			$("#myfriend").show();
 			$(".updatepwd").show();// 修改密码按钮
-			$(".homepage").attr("href", "page/lw-index.jsp");
 			$(".homepage").val("个人中心");
-			// $(".updatebtn").show();//修改个人信息按钮 index.jsp
-			// $(".editdiv").show();//显示添加说说按钮 speaks.jsp
-			// $("#Userimag").show();//显示用户头像 message.jsp
 			$(".addimgs").show();//添加相册按钮 imgs.jsp
+
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + faid);
 		} else {
-			$(".myfriend").hide();
+			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").attr("href",
-					"page/lw-index.jsp?aid=" + data.finalaid);
 			$(".homepage").html("他的主页");
-			// $(".updatebtn").hide();
-			// $(".editdiv").hide();
-			// $("#Userimag").hide();//显示用户头像 message.jsp
 			$(".addimgs").hide();
+
+			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
+			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + data.faid);
+			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + data.faid);
+			$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + data.faid);
+			$(".myword").attr("href", "page/message.jsp?aid=" + data.faid);
+			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + data.faid);
+			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
 		}
 	}, "json")
 }
 
 //加载所有相册
 function showalbum() {
-	$.post("album/list", function(data) {
+	$.post("album/list",{"faid":faid}, function(data) {
 		// alert("请求响应成功。。"+data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		if (data == null || data == "") {//当用户没有相册的时候
@@ -51,7 +61,7 @@ showalbum();
 //点击相册
 function openpic(date) {
 	if (date != null) {
-		var url = "page/albumpic.jsp?abid=" + date;
+		var url = "page/albumpic.jsp?aid="+faid+"&abid=" + date;
 		// window.open(url); //打开新的页面并带参数过去
 		self.location = url;// 挑战页面
 	}
@@ -63,5 +73,7 @@ var ue = UE.getEditor('ueditor');
 function addAlbum() {
 	// alert(ue.getContentTxt());
 	$(".alcontent").val(ue.getContentTxt());
+	$(".strimg").val(url);
+	$(".aaid").val(faid);
 	$("#alform").submit();
 }

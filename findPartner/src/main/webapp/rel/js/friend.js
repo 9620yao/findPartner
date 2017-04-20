@@ -1,3 +1,14 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+if(faid!=null && faid!=""){
+	$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
+	$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
+	$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
+	$(".myspeaks").attr("href", "page/lw-speaks.jsp?aid=" + faid);
+	$(".myword").attr("href", "page/message.jsp?aid=" + faid);
+	$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + faid);
+	$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + faid);
+}
 function loadFriendsInfo(){
 	//以异步的方式取到个人的信息
 	$.get("friend/list", function(data){
@@ -10,7 +21,7 @@ function loadFriendsInfo(){
 			friendList+='</div><div style="float:left;margin-left:5px;width:150px;"><h3 style="color:green;">'+data[i].nickname+'</h3>';
 			friendList+='<span style="display:block;">'+data[i].address+'</span><span style="display:block;margin-left:3px;">'+data[i].star+'</span></div></div>'
 		}
-		$("#myfriend")[0].innerHTML = friendList;
+		$("#divmyfriend")[0].innerHTML = friendList;
 
 	}, "json");
 }

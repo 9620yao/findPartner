@@ -56,15 +56,15 @@
 					href="page/lw-index.jsp">个人中心</a></li>
 				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
 					class="am-dropdown-toggle" data-am-dropdown-toggle
-					href="javascript:;">好友信息 <span class="am-icon-caret-down"></span>
+					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
 					<ul class="am-dropdown-content">
-						<li><a href="page/lw-friend.jsp">我的好友</a></li>
-						<li><a href="page/lw-findFriend.jsp">添加好友</a></li>
+						<li><a class="myfriends" href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a class="addfriend" href="page/lw-findFriend.jsp">添加好友</a></li>
 					</ul></li>
-				<li><a href="page/lw-speaks.jsp">说说</a></li>
-				<li><a href="page/message.jsp">留言</a></li>
-				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li><a class="myspeaks" href="page/lw-speaks.jsp">说说</a></li>
+				<li><a class="myword" href="page/message.jsp">留言</a></li>
+				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
@@ -81,6 +81,7 @@
 	<hr>
 	<!-- content srart -->
 	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendIntro()">系统推荐好友</a><br/>
+	<a href="javascript:void(0)" style="margin-left: 100px; color: red;" onclick="friendKnow()">可能认识的人</a><br/>
 	<div id="RequestFriend"></div>
 	<div style="margin-left: 400px;">
 		<!-- 推荐好友 -->

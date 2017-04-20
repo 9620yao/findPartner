@@ -37,4 +37,13 @@ public class AlbumpicServiceImpl implements AlbumpicService {
 		return albumpicMapper.HpAlbumpic(albumpic);
 	}
 
+	@Override
+	public boolean findAlbumpic(String abid) {
+		List<Albumpic> list = albumpicMapper.findAlbumpic(abid);
+		if (list != null && list.size() > 0) {
+			return true;//该相册下有图片
+		}
+		return false;
+	}
+
 }
