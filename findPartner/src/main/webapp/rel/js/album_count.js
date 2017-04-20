@@ -17,7 +17,7 @@ function unclearQueryAlbumCount(){
 	$('#albumInfo').datagrid({    
 		url:'album/findunclearing?aaid='+param,
 		fitColumns:true,
-		fit:true,
+		//fit:true,
 		singleSelect:true,
 		border:false,
 		pagination :true,
