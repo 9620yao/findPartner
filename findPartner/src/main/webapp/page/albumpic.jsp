@@ -50,11 +50,17 @@
 			<ul class="am-nav am-nav-pills am-topbar-nav" id="head">
 				<li class="am-active"><a class="homepage"
 					href="page/lw-index.jsp">个人中心</a></li>
-				<li><a class="myfriend" href="page/lw-friend.jsp">我的好友</a></li>
-				<!-- <li><a href="page/message.jsp">日志</a></li> -->
-				<li><a href="page/lw-speaks.jsp">说说</a></li>
-				<li><a href="page/message.jsp">留言</a></li>
-				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li id="myfriend" class="am-dropdown" data-am-dropdown><a
+					class="am-dropdown-toggle" data-am-dropdown-toggle
+					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
+				</a>
+					<ul class="am-dropdown-content">
+						<li><a class="myfriends" href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a class="addfriend" href="page/lw-findFriend.jsp">添加好友</a></li>
+					</ul></li>
+				<li><a class="myspeaks" href="page/lw-speaks.jsp">说说</a></li>
+				<li><a class="myword" href="page/message.jsp">留言</a></li>
+				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
@@ -83,21 +89,19 @@
 				</div>
 				<!-- 添加图片 start -->
 				<div class="modal-body">
-					<form action="albumpic/newpic" method="post"
+					<form id="fnewpic" action="albumpic/newpic" method="post"
 						enctype="multipart/form-data">
-						<%-- <p>
-							<label style="color: red;">${errorNewimgs}</label>
-						</p> --%>
 						<p>
 							<input id="pictrue" type="file" name="picData"
-								onchange="chgPic(this)" />
+								onchange="chgPic(this)" /> <input name="strpic" class="strpic"
+								type="hidden">
 						</p>
 						<p>
 							<img src="images/not_pic.jpg" class="pic" width="100"
 								height="100">
 						</p>
 						<p>
-							<button>添加</button>
+							<a onclick="newpic()" href="javascript:void(0)">添加</a>
 						</p>
 					</form>
 				</div>
@@ -116,20 +120,15 @@
 			<div class="box">
 				<div>
 					<p>
-						<a href="page/lw-img.jsp">相册</a> | &nbsp;&nbsp;<a href="#">当前相册</a>
+						<a class="amyimg" href="page/lw-img.jsp">相册</a> | &nbsp;&nbsp;<a
+							href="javascript:void(0)">当前相册</a>
 						<button data-toggle="modal" data-target="#myModal"
 							class="addimgbtn">上传图片</button>
 					</p>
 				</div>
 				<div id="imgnotnull">
-					<p>
-						<input class="newimgbtn" type="button" data-toggle="modal"
-							data-target="#myModal" value="上传图片">
-					</p>
-					<p>
-						<img class="newimg" src="images/not_albumpic.png"
-							data-toggle="modal" data-target="#myModal">
-					</p>
+					<!-- 如果用户下该相册没有图片  -->
+					<span>还没有图片哦~~~~~~~</span>
 				</div>
 				<!-- 展示相册下面的图片 -->
 				<div id="imgs" class="imgs">

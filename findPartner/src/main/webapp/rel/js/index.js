@@ -1,6 +1,9 @@
+var url = window.location.href;
+var faid = url.split('?')[1].split('=')[1];
+
 function loadAdminInfo() {
 	// 以异步的方式取到个人的信息
-	$.get("user/getByid", function(data) {
+	$.get("user/getByid",{"faid":faid}, function(data) {
 		// alert("请求响应成功。。"+data);
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 

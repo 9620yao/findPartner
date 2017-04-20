@@ -56,12 +56,12 @@
 					href="javascript:void(0)">好友信息 <span class="am-icon-caret-down"></span>
 				</a>
 					<ul class="am-dropdown-content">
-						<li><a href="page/lw-friend.jsp">我的好友</a></li>
-						<li><a href="page/lw-findFriend.jsp">添加好友</a></li>
+						<li><a class="myfriends" href="page/lw-friend.jsp">我的好友</a></li>
+						<li><a class="addfriend" href="page/lw-findFriend.jsp">添加好友</a></li>
 					</ul></li>
-				<li><a href="page/lw-speaks.jsp">说说</a></li>
-				<li><a href="page/message.jsp">留言</a></li>
-				<li><a href="page/lw-img.jsp">相册</a></li>
+				<li><a class="myspeaks" href="page/lw-speaks.jsp">说说</a></li>
+				<li><a class="myword" href="page/message.jsp">留言</a></li>
+				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
@@ -172,8 +172,8 @@
 							<h1 id="opt_type">修改个人信息</h1>
 							<form action="user/update" id="updateUserInfo" method="post"
 								enctype="multipart/form-data">
-								<span>个人信息：</span> <input id="aid" name="aid" type="text"
-									style="display: block;" />
+								<span style="margin-left: 3%;">个人信息：</span> <input id="aid" name="aid" type="text"
+									style="display: block;margin-left: 3%;" readonly="readonly" />
 								<ul>
 									<li><input id="pictrue" type="file" name="picData"
 										onchange="chgPic(this)" /><br> <img
@@ -230,7 +230,7 @@
 						<div id="comentInfo">
 							<div class="showcomment"">
 								<form id="faddcomment" action="comments/add" method="post">
-									<input name="strcomment" type="hidden" value="/page/lw-index.jsp">
+									<input name="strcomment" class="strcomment" type="hidden">
 									<input name="callid" class="callid" type="hidden"> <input
 										name="detail" class="detail" type="hidden">
 									<div class="democomment" contenteditable="true"></div>
@@ -261,7 +261,7 @@
 						</div>
 						<div id="comentInfo">
 							<form id="rform" action="replys/add" method="post">
-								<input name="strreplys" type="hidden" value="/page/lw-index.jsp">
+								<input name="strreplys" class="strreplys" type="hidden">
 								<input name="rcid" class="rcid" type="hidden"> <input
 									name="rtargetid" class="rtargetid" type="hidden"> <input
 									name="rcontent" class="rcontent" type="hidden">

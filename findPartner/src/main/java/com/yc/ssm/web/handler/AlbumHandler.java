@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Album;
@@ -25,21 +26,19 @@ public class AlbumHandler {
 
 	@RequestMapping("list")
 	@ResponseBody
-	public List<Album> list(HttpSession session) {
-		String aaid = (String) session.getAttribute(ServletUtil.FINALAID);
-		LogManager.getLogger().debug("我是Album list() 我进来了");
-		return albumService.listAlbum(aaid);
+	public List<Album> list(String faid, HttpSession session) {
+		LogManager.getLogger().debug("我是Album list() 我进来了 ,faid=" + faid);
+		return albumService.listAlbum(faid);
 	}
 
 	@RequestMapping("newimgs")
-	public String NewImgs(Album Album, HttpSession session) {
+	public String NewImgs(@RequestParam("strimg") String strimg, Album Album, HttpSession session) {
 		String aaid = (String) session.getAttribute(ServletUtil.FINALAID);
 		LogManager.getLogger().debug("我是Album list() 我进来了 aaid:" + aaid);
-		Album.setAaid(aaid);
 		if (albumService.addAlbum(Album)) {
-			return "redirect:/page/lw-img.jsp";
+			return "redirect:" + strimg.split("/findPartner")[1];
 		}
-		return "redirect:/page/lw-img.jsp";
+		return "redirect:/page/lw-log.jsp";// 取不到返回地址的时候 回到登录界面
 	}
 
 	@RequestMapping(value = "showAlbums", method = RequestMethod.POST)

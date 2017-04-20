@@ -1,9 +1,11 @@
 package com.yc.ssm.web.handler;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
@@ -69,29 +71,39 @@ public class FriendHandler {
 		return friendService.listIntroFriend(aid);
 	}
 
+	/**
+	 * 每个页面都会请求一次，用了判断是当前用户还是好友。并可以判断登录用户的session是否失效
+	 * 
+	 * @param faid
+	 *            取到页面上传过来的用户编号
+	 * @param session
+	 *            根据session取到登录用户的用户编号
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping(value = "finalAid", method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String, String> FinallyAid(HttpSession session) {
+	public Map<String, String> FinallyAid(String faid, HttpServletResponse response, HttpSession session)
+			throws IOException {
 		Map<String, String> map = new HashMap<String, String>();
-		LogManager.getLogger().debug("我进来了 FinallyAid()");
 		String useraid = (String) session.getAttribute(ServletUtil.USERAID);
-		String finalaid = (String) session.getAttribute(ServletUtil.FINALAID);
-		LogManager.getLogger().debug("useraid：" + useraid + ",finalaid:" + finalaid);
-		if (useraid != null && finalaid != null) {
-			if (useraid.intern() == finalaid.intern()) {// 相等说明是用户自己的编号
-				map.put("finalaid", "-1");
+		LogManager.getLogger().debug("我进来了 FinallyAid()" + "useraid：" + useraid + ",faid:" + faid);
+		if (useraid != null && faid != null) {
+			if (useraid.intern() == faid.intern()) {// 相等说明是用户自己的编号
+				map.put("faid", "-1");
 			}
-			if (useraid.intern() != finalaid.intern()) {// 不相等说明是好友编号
-				map.put("finalaid", finalaid);
+			if (useraid.intern() != faid.intern()) {// 不相等说明是好友编号
+				map.put("faid", faid);
 			}
 		}
-		// useraid或者finalaid为空
 		return map;
+
 	}
-	//取到请求添加你为好友的人数
+
+	// 取到请求添加你为好友的人数
 	@RequestMapping(value = "reqCount", method = RequestMethod.GET)
 	@ResponseBody
-	public int reqCount(HttpSession session){
+	public int reqCount(HttpSession session) {
 		LogManager.getLogger().debug("我进来了 friendReq ");
 		String aid = (String) session.getAttribute(ServletUtil.USERAID);
 		return friendService.countReq(aid);

@@ -20,31 +20,34 @@ import com.yc.ssm.util.ServletUtil;
 @Controller("commentsHandler")
 @RequestMapping("comments")
 public class CommentsHandler {
-	
+
 	@Autowired
 	private CommentsService commentsService;
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
 	public List<Comments> listComments(String sid, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listComments==== callid:"+sid);
+		LogManager.getLogger().debug("我进来了 listComments==== callid:" + sid);
 		return commentsService.listComments(sid);// 所有的评论
 	}
-	
+
 	/**
 	 * 添加评论
+	 * 
+	 * @param strcomment 页面的请求地址
 	 * @param comments
 	 * @param sesssion
 	 * @return
 	 */
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(@RequestParam("strcomment")String strcomment,Comments comments,HttpSession sesssion) {
-		LogManager.getLogger().debug("我进来了 add()==== comments:"+comments+",strcomment==>"+strcomment);
+	public String add(@RequestParam("strcomment") String strcomment, Comments comments, HttpSession sesssion) {
+		LogManager.getLogger().debug("我进来了 add()==== comments:" + comments + ",strcomment==>" + strcomment);
+		// 评论人为登录用户
 		String comuserid = (String) sesssion.getAttribute(ServletUtil.USERAID);
 		comments.setComuserid(comuserid);
 		commentsService.addComments(comments);// 添加评论
-		if(strcomment!=null){
-			return "redirect:"+strcomment;//根据传过来的添加界面，然后返回什么界面
+		if (strcomment != null) {
+			return "redirect:" + strcomment.split("/findPartner")[1];// 根据传过来的添加界面，然后返回什么界面
 		}
 		return "redirect:/page/lw-index.jsp";
 	}

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Users;
@@ -30,10 +31,9 @@ public class SpeaksHandler {
 
 	@RequestMapping(value = "list", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationBean<Speaks> listSpeaks(Integer currPage, Users users, HttpServletRequest request) {
-		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage=" + currPage);
-		String speakman = (String) request.getSession().getAttribute(ServletUtil.FINALAID);
-		return speaksService.listSpeaks(speakman, String.valueOf(currPage), "5");
+	public PaginationBean<Speaks> listSpeaks(String faid, Integer currPage, Users users, HttpServletRequest request) {
+		LogManager.getLogger().debug("我进来了 listSpeaks==>currPage=" + currPage + ",faid=" + faid);
+		return speaksService.listSpeaks(faid, String.valueOf(currPage), "5");
 	}
 
 	@RequestMapping(value = "showSpeaks", method = RequestMethod.POST)
@@ -44,8 +44,8 @@ public class SpeaksHandler {
 	}
 
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insertSpeaks(Speaks speaks, HttpSession session) {
-		LogManager.getLogger().debug("insertSpeaks ==要插入一条说说::" + speaks);
+	public String insertSpeaks(@RequestParam("strspeaks") String strspeaks, Speaks speaks, HttpSession session) {
+		LogManager.getLogger().debug("insertSpeaks ==要插入一条说说:" + speaks + ",strspeaks=" + strspeaks);
 		String speakman = (String) session.getAttribute(ServletUtil.USERAID);
 		speaks.setSpeakman(speakman);
 		if (speaksService.add(speaks)) {// 如果添加说说成功，添加该数据到主业表用
@@ -53,7 +53,10 @@ public class SpeaksHandler {
 			Speaks outspeaks = speaksService.findSpeaks(sid, speakman);// 取到刚刚添加的说说信息
 			homepageService.addhompage(outspeaks.getSid(), outspeaks.getSpeakman(), outspeaks.getSenddate());
 		}
-		return "redirect:/page/lw-speaks.jsp";
+		if (strspeaks != null) { // 取到返回地址 然后再返回回去
+			return "redirect:" + strspeaks.split("/findPartner")[1];
+		}
+		return "redirect:/page/lw-log.jsp";// 取不到返回地址的时候 回到登录界面
 	}
 
 	@RequestMapping(value = "hpspeaks", method = RequestMethod.POST)

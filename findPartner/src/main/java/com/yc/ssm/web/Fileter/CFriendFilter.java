@@ -1,4 +1,4 @@
-package com.yc.ssm.web.Fileter;
+/*package com.yc.ssm.web.Fileter;
 
 import java.io.IOException;
 
@@ -14,14 +14,14 @@ import org.apache.logging.log4j.LogManager;
 
 import com.yc.ssm.util.ServletUtil;
 
-/**
+*//**
  *  对所有加载lw-index.jsp进行过滤，
  *  如果取到的取到的好友编号和自己不一致，即显示好友的信息；
  *  如果取到的好友编号和自己一致，即显示自己的信息；
  *  没有取到用户编号，既显示自己的信息
  * @author 姚秋林
  *
- */
+ *//*
 @WebFilter("/page/lw-index.jsp")
 public class CFriendFilter extends AbstractFilter {
 
@@ -54,3 +54,4 @@ public class CFriendFilter extends AbstractFilter {
 		}
 	}
 }
+*/
