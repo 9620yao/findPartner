@@ -1,6 +1,7 @@
 package com.yc.ssm.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yc.ssm.entity.Users;
 
@@ -14,6 +15,9 @@ public interface FriendService {
 	List<Users> listIntroFriend(String aid);
 
 	int countReq(String aid);
+	
+	//可能认识的人
+	List<Map<String, Object>> listMaybeKnow(String aid);
 	
 
 }

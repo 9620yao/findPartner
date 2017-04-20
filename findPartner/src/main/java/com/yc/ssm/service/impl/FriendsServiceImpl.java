@@ -45,6 +45,11 @@ public class FriendsServiceImpl implements FriendService {
 		return friendMapper.listCountReq(aid);
 	}
 
+	@Override
+	public List<Map<String, Object>> listMaybeKnow(String aid) {
+		return friendMapper.findMaybeKnow(aid);
+	}
+
 	
 
 	

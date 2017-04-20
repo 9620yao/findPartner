@@ -10,7 +10,7 @@ function loadFriendsInfo(){
 			friendList+='</div><div style="float:left;margin-left:5px;width:150px;"><h3 style="color:green;">'+data[i].nickname+'</h3>';
 			friendList+='<span style="display:block;">'+data[i].address+'</span><span style="display:block;margin-left:3px;">'+data[i].star+'</span></div></div>'
 		}
-		$("#myfriend")[0].innerHTML = friendList;
+		$("#divmyfriend")[0].innerHTML = friendList;
 
 	}, "json");
 }

@@ -17,4 +17,6 @@ public interface FriendMapper {
 	//取到请求添加你为好友的人数
 	int listCountReq(String aid);
 
+	List<Map<String, Object>> findMaybeKnow(String aid);
+
 }

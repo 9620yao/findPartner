@@ -96,5 +96,14 @@ public class FriendHandler {
 		String aid = (String) session.getAttribute(ServletUtil.USERAID);
 		return friendService.countReq(aid);
 	}
+	
+	// 可能认识的人
+		@RequestMapping(value = "friendKnow", method = RequestMethod.GET)
+		@ResponseBody
+		public List<Map<String, Object>> listFriendKnow(HttpSession session) {
+			LogManager.getLogger().debug("我进来了 listFriendKnow");
+			String aid = (String) session.getAttribute(ServletUtil.USERAID);
+			return friendService.listMaybeKnow(aid);
+		}
 
 }
