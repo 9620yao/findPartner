@@ -1,6 +1,7 @@
 package com.yc.ssm.web.handler;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,5 +56,19 @@ public class AlbumHandler {
 		album.setAldate(album.getAaid());
 		return albumService.findAlbumInfoByName(album);
 	}
+	
+	@RequestMapping(value = "countAlbum", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> countAlbum(String aaid) {
+		LogManager.getLogger().debug("我进来了countSpeaks：" + aaid);
+		return albumService.countAlbum(aaid);
+	}
+	
+	@RequestMapping(value = "findunclearing", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> findByUnclearNames(String aaid) {
+		return albumService.countAlbum(aaid);	
+	}
+
 
 }

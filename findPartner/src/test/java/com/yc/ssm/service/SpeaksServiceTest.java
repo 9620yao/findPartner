@@ -2,7 +2,6 @@ package com.yc.ssm.service;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +57,11 @@ public class SpeaksServiceTest {
 		ApplicationContext ac=new ClassPathXmlApplicationContext(new String[]{"spring.xml"});
 		ac.getBean("");
 		System.out.println();
+	}
+	
+	@Test
+	public void testCountSpeaks() {
+		System.out.println(speaksService.countSpeaks(""));
 	}
 
 }

@@ -33,7 +33,7 @@
 				<label> 上传文件 </label><input id="ifiles" />
 			</p>
 			<p>
-				<label> 日期 </label><input id="isenddate" />
+				<label> 日期 </label><input id="isenddate" sortable="true"/>
 			</p>
 		</form>
 	</div>

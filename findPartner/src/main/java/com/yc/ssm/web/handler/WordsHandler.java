@@ -1,6 +1,7 @@
 package com.yc.ssm.web.handler;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -57,6 +58,19 @@ public class WordsHandler {
 		words.setWfrendid(words.getWfrendid());
 		words.setWdate(words.getWfrendid());
 		return wordsService.findWordsInfoByName(words);
+	}
+	
+	@RequestMapping(value = "countWords", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> countAllWord(String waid) {
+		LogManager.getLogger().debug("我进来了countAllWord：" + waid);
+		return wordsService.countWords(waid);
+	}
+	
+	@RequestMapping(value = "findunclearing", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> findByUnclearNames(String waid) {
+		return wordsService.countWords(waid);	
 	}
 
 }

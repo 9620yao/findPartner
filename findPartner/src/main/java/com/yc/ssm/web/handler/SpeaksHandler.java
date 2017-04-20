@@ -1,6 +1,7 @@
 package com.yc.ssm.web.handler;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -73,4 +74,18 @@ public class SpeaksHandler {
 		speaks.setSpeakman(speaks.getSpeakman());
 		return speaksService.findSpeaksInfoByName(speaks);
 	}
+
+	@RequestMapping(value = "countSpeaks", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> countSpeaks(String speakman) {
+		LogManager.getLogger().debug("我进来了countSpeaks：" + speakman);
+		return speaksService.countSpeaks(speakman);
+	}
+	
+	@RequestMapping(value = "findunclearing", method = RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> findByUnclearNames(String speakman) {
+		return speaksService.countSpeaks(speakman);	
+	}
+
 }

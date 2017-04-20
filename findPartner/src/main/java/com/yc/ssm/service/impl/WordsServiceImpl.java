@@ -59,4 +59,9 @@ public class WordsServiceImpl implements WordsService {
 	public List<Words> findWordsInfoByName(Words words) {
 		return wordsMapper.findByName(words);
 	}
+
+	@Override
+	public List<Map<String, Object>> countWords(String waid) {
+		return wordsMapper.countWords(waid);
+	}
 }

@@ -7,7 +7,7 @@ package com.yc.ssm.entity;
  */
 public class Homepage {
 
-	private String hpid;// 用来存放说说/图片的编号
+	private String hpid;//用来存放说说/图片的编号
 	private String hpuseid;// 用来存放说说/图片发表人的编号
 	private String hpdate;// 用来存放说说/图片 的发表时间
 

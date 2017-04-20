@@ -52,4 +52,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findByName" parameterType="Album" resultType="Album">
 		select * from album where aaid like '%'||#{aaid}||'%' or aldate like '%'||#{aaid}||'%'
 	</select>
+	
+	<select id="countAlbum" parameterType="string" resultMap="listmap">
+		select distinct aaid,count(1) counts  from album 
+		<where>
+			<if test="_parameter!=null">
+				aaid like '%'||#{_parameter}||'%'
+			</if>
+		</where>
+		group by aaid
+	</select>
+	<resultMap type="java.util.Map" id="listmap">
+		<result column="counts" property="counts" />
+		<result column="aaid" property="aaid" />
+	</resultMap>
 </mapper>

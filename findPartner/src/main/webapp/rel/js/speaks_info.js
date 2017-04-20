@@ -10,7 +10,7 @@ $('#speaksInfo').datagrid({
         {field:'speakman',title:'发表人',width:50,align:'center'},
         {field:'content',title:'内容',width:100,align:'center'},   
         {field:'files',title:'文件',width:100,align:'center'},
-        {field:'senddate',title:'时间',width:100,align:'center'},
+        {field:'senddate',title:'时间',width:100,align:'center',sortable:"true"},
         
         {field:'operator',title:'操作',width:100,align:'center',
         	formatter: function(value,row,index){
