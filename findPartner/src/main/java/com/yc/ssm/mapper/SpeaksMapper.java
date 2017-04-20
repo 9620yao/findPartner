@@ -21,5 +21,7 @@ public interface SpeaksMapper {
 	String findSid();
 	
 	List<Speaks> findByName(Speaks speaks);
-
+	
+	List<Map<String,Object>> countSpeaks(String speakman);
+	
 }

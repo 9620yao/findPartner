@@ -1,6 +1,7 @@
 package com.yc.ssm.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.yc.ssm.entity.Album;
 import com.yc.ssm.entity.PaginationBean;
@@ -20,5 +21,8 @@ public interface AlbumService {
 	PaginationBean<Album> listAllAlbums(String page, String rows);
 
 	List<Album> findAlbumInfoByName(Album album);
+	
+	List<Map<String, Object>> countAlbum(String aaid);
+
 
 }

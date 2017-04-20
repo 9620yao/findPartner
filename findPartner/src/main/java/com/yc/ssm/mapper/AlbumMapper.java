@@ -21,5 +21,8 @@ public interface AlbumMapper {
 	PaginationBean<Album> showAlbum(PaginationBean<Album> pBean);
 	
 	List<Album> findByName(Album album);
+	
+	List<Map<String,Object>> countAlbum(String aaid);
+
 
 }

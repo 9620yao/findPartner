@@ -40,4 +40,9 @@ public class WordsServiceTest {
 		System.out.println(ss);
 		assertNotNull(ss);
 	}
+	
+	@Test
+	public void testCountSpeaks() {
+		System.out.println(wordsService.countWords("a28"));
+	}
 }

@@ -77,4 +77,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		* from words where wfrendid like '%'||#{wfrendid}||'%' or wdate like
 		'%'||#{wfrendid}||'%'
 	</select>
+	
+	<select id="countWords" parameterType="string" resultMap="listmap">
+		select distinct waid,count(1) counts  from words 
+		<where>
+			<if test="_parameter!=null">
+				waid like '%'||#{_parameter}||'%'
+			</if>
+		</where>
+		group by waid
+	</select>
+	<resultMap type="java.util.Map" id="listmap">
+		<result column="counts" property="counts" />
+		<result column="waid" property="waid" />
+	</resultMap>
 </mapper>

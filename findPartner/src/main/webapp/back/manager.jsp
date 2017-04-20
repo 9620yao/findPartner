@@ -14,12 +14,9 @@
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'north'" style="height: 100px;">
-		<img style="padding-left: 20px;" height="80px" width="337px" class="mainpage_head_img"
-			alt="公司logo" src="#" />
-
-		<div style="float: right; margin-top: 40px; margin-right: 20px; color: #082C5A;">
+		<div style="float: right; margin-top: 30px; margin-right: 20px; color: #082C5A;">
 			<div>
-				管理员：[<strong style="font-size: 120%; color: green;">苏利</strong>]，欢迎您进入findPartner系统
+				管理员：[<strong style="font-size: 120%; color: green;">哈哈</strong>]，欢迎您进入findPartner系统
 			</div>
 			<div style="margin-top: 8px;">
 				<a href="javascript:void(0);" class="easyui-menubutton"
@@ -50,16 +47,19 @@
 			<div title="说说管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>说说信息</span></li>
+					<li><span>统计说说</span></li>
 				</ul>
 			</div>
 			<div title="留言管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>留言信息</span></li>
+					<li><span>统计留言</span></li>
 				</ul>
 			</div>
 			<div title="相册管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>相册信息</span></li>
+					<li><span>统计相册</span></li>
 				</ul>
 			</div>
 		</div>

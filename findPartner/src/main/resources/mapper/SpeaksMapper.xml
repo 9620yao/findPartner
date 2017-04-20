@@ -8,6 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			column="{pageSize=pageSize,currPage=currPage,speakman=speakman}"
 			ofType="com.yc.ssm.entity.Speaks" select="GetPartTea" />
 	</resultMap>
+
 	<select id="PbeanSpeaks" parameterType="java.util.Map"
 		resultMap="PaginationBeanMap" useCache="false" flushCache="true">
 		select
@@ -24,9 +25,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 		n.*,rownum rn from (
 		select * from speaks where
-		speakman=#{speakman} order by senddate desc) n
+		speakman=#{speakman}
+		order by senddate desc) n
 		where ${currPage} *
-		${pageSize} >= rownum) t where
+		${pageSize} >= rownum) t
+		where
 		rn > (${currPage}-1)
 		* ${pageSize}
 	</select>
@@ -71,9 +74,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		rn > (${currPage}-1)
 		* ${pageSize}
 	</select>
-	
+
 	<select id="findByName" parameterType="Speaks" resultType="Speaks">
-		select * from speaks where speakman like '%'||#{speakman}||'%' or senddate like '%'||#{speakman}||'%'
+		select * from speaks where speakman like '%'||#{speakman}||'%' or
+		senddate like '%'||#{speakman}||'%'
 	</select>
 
+	<select id="countSpeaks" parameterType="string" resultMap="listmap">
+		select distinct speakman,count(1) counts  from speaks 
+		<where>
+			<if test="_parameter!=null">
+				speakman like '%'||#{_parameter}||'%'
+			</if>
+		</where>
+		group by speakman
+	</select>
+	<resultMap type="java.util.Map" id="listmap">
+		<result column="counts" property="counts" />
+		<result column="speakman" property="speakman" />
+	</resultMap>
 </mapper>

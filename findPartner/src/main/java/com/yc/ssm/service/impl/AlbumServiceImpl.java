@@ -66,4 +66,9 @@ public class AlbumServiceImpl implements AlbumService {
 		return albumMapper.findByName(album);
 	}
 
+	@Override
+	public List<Map<String, Object>> countAlbum(String aaid) {
+		return albumMapper.countAlbum(aaid);
+	}
+
 }

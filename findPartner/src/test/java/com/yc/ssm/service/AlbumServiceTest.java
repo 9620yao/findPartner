@@ -24,5 +24,10 @@ public class AlbumServiceTest {
 		System.out.println(ss);
 		assertNotNull(ss);
 	}
+	
+	@Test
+	public void testCountAlbum() {
+		System.out.println(albumService.countAlbum("a30"));
+	}
 
 }

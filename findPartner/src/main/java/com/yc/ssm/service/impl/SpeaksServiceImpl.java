@@ -66,4 +66,9 @@ public class SpeaksServiceImpl implements SpeaksService {
 		return speaksMapper.findByName(speaks);
 	}
 
+	@Override
+	public List<Map<String,Object>> countSpeaks(String speakman) {
+		return speaksMapper.countSpeaks(speakman);
+	}
+
 }

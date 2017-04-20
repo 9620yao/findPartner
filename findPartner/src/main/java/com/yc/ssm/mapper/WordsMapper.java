@@ -16,5 +16,7 @@ public interface WordsMapper {
 	PaginationBean<Words> showWords(PaginationBean<Words> pb);
 
 	List<Words> findByName(Words Words);
+	
+	List<Map<String,Object>> countWords(String waid);
 
 }
