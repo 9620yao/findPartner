@@ -56,8 +56,7 @@ function GetFinallyAid() {
 var currPage = 1;
 //显示他的主页
 function showhomepage(currPage) {
-	$
-	.post(
+	$.post(
 			"homepage/list",
 			{
 				"currPage" : currPage,
@@ -86,8 +85,7 @@ function showhomepage(currPage) {
 
 //显示个人中心
 function selfhomepage(currPage) {
-	$
-	.post(
+	$.post(
 			"homepage/selflist",
 			{
 				"currPage" : currPage,
@@ -126,8 +124,7 @@ function homepage(data) {
 
 //同步发送请求
 function findspeack(sid, speakman, senddate) {
-	$
-	.ajax({
+	$.ajax({
 		type : "POST",
 		url : "speaks/hpspeaks",
 		data : {
@@ -176,8 +173,7 @@ function findspeack(sid, speakman, senddate) {
 
 function comments(sid) {
 	// alert(sid);
-	$
-	.post(
+	$.post(
 			"comments/list",
 			{
 				"sid" : sid
@@ -226,8 +222,7 @@ function comments(sid) {
 //根据评论编号，找到评论编号下的所有回复
 function replys(cid) {
 	// alert(cid);
-	$
-	.post(
+	$.post(
 			"replys/list",
 			{
 				"cid" : cid

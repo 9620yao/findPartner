@@ -27,11 +27,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select
 		n.*,rownum rn from (
 		select * from words where
-		waid=#{waid}) n
+		waid=#{waid} order by
+		wdate desc) n
 		where
 		${currPage} *
 		${pageSize} >= rownum) t where
-		rn > (${currPage}-1)
+		rn >
+		(${currPage}-1)
 		*
 		${pageSize}
 	</select>
@@ -77,9 +79,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		* from words where wfrendid like '%'||#{wfrendid}||'%' or wdate like
 		'%'||#{wfrendid}||'%'
 	</select>
-	
+
 	<select id="countWords" parameterType="string" resultMap="listmap">
-		select distinct waid,count(1) counts  from words 
+		select distinct waid,count(1) counts from words
 		<where>
 			<if test="_parameter!=null">
 				waid like '%'||#{_parameter}||'%'
