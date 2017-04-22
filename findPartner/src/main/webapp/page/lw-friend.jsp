@@ -26,7 +26,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<!-- <link rel="stylesheet" href="rel/css/friend.css"> -->
+<link rel="stylesheet" href="rel/css/indexcss.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -65,6 +65,7 @@
 				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
+			<span class="target"></span>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
 				<div class="am-form-group">
@@ -143,6 +144,7 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/pinto.min.js"></script>
 	<script src="assets/js/img.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script src="rel/js/friend.js"></script>
 </body>
 </html>

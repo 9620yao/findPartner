@@ -23,7 +23,7 @@ function GetFinallyAid() {
 		} else {
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").html("他的主页");
+			$(".homepage").html("TA的主页");
 			$(".addimgs").hide();
 
 			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);

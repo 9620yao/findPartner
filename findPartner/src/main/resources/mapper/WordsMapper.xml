@@ -4,6 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.ssm.mapper.WordsMapper">
 	<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<result property="currPage" column="currPage" />
+		<result property="pageSize" column="pageSize" />
 		<collection property="rows"
 			column="{pageSize=pageSize,currPage=currPage,waid=waid}" ofType="com.yc.ssm.entity.Words"
 			select="GetPartTea" />
