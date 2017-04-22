@@ -82,14 +82,17 @@
 							style="height: 1px; border: none; border-top: 1px solid #555555;" />
 					</div>
 					<div id="divword" style="width: 60%; margin-left: 2.5%;">
-						<form id="myword" method="post" action="words/add">
-							<textarea id="ueditor" name="ueditor" rows="3" cols="39"
-								placeholder="发表一个留言"></textarea>
-							<input name="waid" class="waid" type="hidden"> <input
-								name="strword" class="strword" type="hidden"> <input
-								name="wcontent" id="wcontent" type="hidden"> <a
-								onclick="addword()" class="speakbtn">发表</a>
-						</form>
+						<span>发表您的留言</span>
+						<div style="margin-top: 3%;">
+							<form id="myword" method="post" action="words/add">
+								<textarea id="ueditor" name="ueditor" rows="3" cols="39"
+									placeholder="发表一个留言"></textarea>
+								<input name="waid" class="waid" type="hidden"> <input
+									name="strword" class="strword" type="hidden"> <input
+									name="wcontent" id="wcontent" type="hidden"> <a
+									onclick="addword()" class="speakbtn">发表</a>
+							</form>
+						</div>
 					</div>
 				</article>
 			</div>

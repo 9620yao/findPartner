@@ -93,9 +93,9 @@
 						<p>
 							<input name="abname" placeholder="标题" type="text"
 								required="required"> <input name="alcontent"
-								class="alcontent" type="hidden">
-								<input name="strimg" class="strimg" type="hidden">
-								<input name="aaid" class="aaid" type="hidden">
+								class="alcontent" type="hidden"> <input name="strimg"
+								class="strimg" type="hidden"> <input name="aaid"
+								class="aaid" type="hidden">
 						</p>
 						<p>
 							<textarea id="ueditor" name="ueditor" rows="2" cols="30"
@@ -117,6 +117,11 @@
 
 	<!-- content srart data-am-figure="{  pureview: 'true' }" -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
+		<div style="margin-left: 2.5%; width: 60%;">
+			<span><span class="spanimg">我的</span>相册(<a
+				href="javascript:void(0)" class="spcount">0</a>)</span>
+			<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />
+		</div>
 		<button class="addimgs" data-toggle="modal" data-target="#myModal"
 			style="width: 8%; margin-left: 5%;">创建相册</button>
 		<div id="container"
