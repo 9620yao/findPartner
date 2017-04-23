@@ -346,6 +346,7 @@
 	<script src="rel/layer/jquery.js?v=1.83.min"></script>
 	<script src="rel/layer/layer.min.js"></script>
 	<script type="text/javascript" src="rel/js/indexpower.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 </body>
 </html>

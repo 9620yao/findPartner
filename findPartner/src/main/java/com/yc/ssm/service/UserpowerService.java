@@ -11,4 +11,6 @@ public interface UserpowerService {
 
 	PaginationBean<Userpower> pblist(String rows, String page);
 
+	boolean Updatepower(String faid);
+
 }

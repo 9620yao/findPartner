@@ -65,8 +65,8 @@
 				class="am-u-lg-3 am-u-md-6 am-u-sm-8 am-u-sm-centered log-content">
 				<h1 class="log-title am-animation-slide-top">Find Partner</h1>
 				<br>
-				<form class="am-form" id="log-form" action="administrator/adminLogin"
-					method="POST">
+				<form class="am-form" id="log-form"
+					action="admin/adminLogin" method="POST">
 					<p>
 						<label style="color: red;">${errorMsg}&nbsp;</label>
 					</p>
@@ -81,17 +81,15 @@
 					<div
 						class="am-input-group am-animation-slide-left log-animation-delay">
 						<input type="password" class="am-form-field am-radius log-input"
-							name="bapwd" placeholder="密码" minlength="1" required>
-						<span class="am-input-group-label log-icon am-radius"><i
+							name="bapwd" placeholder="密码" minlength="1" required> <span
+							class="am-input-group-label log-icon am-radius"><i
 							class="am-icon-lock am-icon-sm am-icon-fw"></i></span>
 					</div>
 					<br>
 					<button type="submit"
 						class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay">登
 						录</button>
-					<p class="am-animation-slide-bottom log-animation-delay">
-						
-					</p>
+					<p class="am-animation-slide-bottom log-animation-delay"></p>
 					<div
 						class="am-btn-group  am-animation-slide-bottom log-animation-delay-b">
 					</div>
@@ -111,7 +109,7 @@
 <script src="assets/js/amazeui.ie8polyfill.min.js"></script>
 <![endif]-->
 
-<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="easyui/locale/easyui-lang-zh_CN.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/app.js"></script>

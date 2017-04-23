@@ -38,14 +38,19 @@ public class UserpowerServiceImpl implements UserpowerService {
 
 	@Override
 	public PaginationBean<Userpower> pblist(String rows, String page) {
-		PaginationBean<Users> pb=new PaginationBean<Users>();
-		if(page!=null){
+		PaginationBean<Users> pb = new PaginationBean<Users>();
+		if (page != null) {
 			pb.setCurrPage(Integer.parseInt(page));
 		}
-		if(rows!=null){
+		if (rows != null) {
 			pb.setPageSize(Integer.parseInt(rows));
 		}
 		return userpowerMapper.pblist(pb);
+	}
+
+	@Override
+	public boolean Updatepower(String faid) {
+		return userpowerMapper.Updatepower(faid) > 0;
 	}
 
 }

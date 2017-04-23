@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.ssm.mapper.UserpowerMapper">
 	<select id="userpower" parameterType="string"
-		resultType="com.yc.ssm.entity.Userpower">
+		resultType="com.yc.ssm.entity.Userpower" useCache="false" flushCache="true">
 		select * from userpower
 		<where>
 			<if test="_parameter!=null">
@@ -51,5 +51,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		*
 		${pageSize}
 	</select>
+	
+	<update id="Updatepower" parameterType="string">
+		update userpower set upower = '-0' where upid = #{_parameter}
+	</update>
 
 </mapper>

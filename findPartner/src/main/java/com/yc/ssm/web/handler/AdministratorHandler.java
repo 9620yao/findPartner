@@ -12,11 +12,18 @@ import com.yc.ssm.service.AdministratorService;
 import com.yc.ssm.util.ServletUtil;
 
 @Controller("administratorHandler")
-@RequestMapping("administrator")
+@RequestMapping("admin")
 public class AdministratorHandler {
 
 	@Autowired
 	private AdministratorService administratorService;
+
+	@RequestMapping("in")
+	public String forword( HttpServletRequest request) {
+		LogManager.getLogger().debug("forword()====>"  );
+		return "redirect:/back/adminLogin.jsp";
+
+	}
 
 	@RequestMapping("adminLogin")
 	public String login(Administrator administrator, HttpServletRequest request) {
@@ -26,7 +33,7 @@ public class AdministratorHandler {
 			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
 			return "/back/adminLogin.jsp";
 		} else {
-			request.getSession().setAttribute(ServletUtil.LOGIN_USER, administrator.getBaname());
+			request.getSession().setAttribute(ServletUtil.ADMIN, administrator);
 			return "redirect:/back/manager.jsp";
 		}
 	}

@@ -14,4 +14,6 @@ public interface UserpowerMapper {
 
 	PaginationBean<Userpower> pblist(PaginationBean<Users> pb);
 
+	int Updatepower(String faid);
+
 }

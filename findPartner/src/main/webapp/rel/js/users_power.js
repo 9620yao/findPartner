@@ -8,13 +8,15 @@ $("#powerInfo").datagrid({
 	          {field:'upid',title:'编号',width:50,align:'center'},
 	          {field:'upuid',title:'用户',width:50,align:'center'},
 	          {field:'upower',title:'权限',width:40,align:'center',
-	        	 /* formatter: function(value,row,index){
-	        		  return row.partner.gender;
-	        	  }*/
+	        	  formatter: function(value,row,index){
+	        		  if(row.upower=="-1"){
+	        			  return "封禁状态";
+	        		  }
+	        		  return "解封状态";
+	        	  }
 	          }, 
 	          {field:'updata',title:'权限时间',width:50,align:'center',
 	        	  formatter: function(value,row,index){
-	        		 // alert(JSON.stringify(row)); //JSON.stringify()
 	        		  return row.updata;
 	        	  }
 	          },
@@ -28,24 +30,27 @@ $("#powerInfo").datagrid({
 });
 
 function openpower(index){
-	var row = $("#dg").datagrid("getRows")[index];
-	var faid = row.aid;
+	var row = $("#powerInfo").datagrid("getRows")[index];
+	var upid = row.upid;
+	var faid = row.upuid;
+	//alert(faid);
 	$.post("power/sure",{"faid":faid},function(data){
 		if(data){
-			$.messager.alert('权限提示','该用户有封禁记录，您可以在权限管理查看和解封..');
+			updatepower(upid);
 			return false;
 		}
-		power(faid);
+		$.messager.alert('权限提示','该用户已经处于解封状态，不需要解封！！！');
 	},"json");
 }
 
-function power(faid){
-	$.post("power/add",{"faid":faid},function(data){
+function updatepower(upid){
+	$.post("power/update",{"faid":upid},function(data){
 		if(data){
-			$.messager.alert('权限提示','封禁成功，您可以在权限管理查看..');
+			$.messager.alert('权限提示','解除该用户封禁状态成功..');
+			$('#powerInfo').datagrid("reload");
 			return false;
 		}
-		$.messager.alert('权限提示','封禁失败，请您在确认后操作..');
+		$.messager.alert('权限提示','解除该用户封禁状态失败，请您在确认后操作!!!');
 	},"json");
 }
 

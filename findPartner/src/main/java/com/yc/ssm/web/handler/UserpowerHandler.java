@@ -38,4 +38,11 @@ public class UserpowerHandler {
 		LogManager.getLogger().debug("我进来了 Listpower().. ");
 		return userpowerService.pblist(rows, page);
 	}
+	
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean Updatepower(String faid) {
+		LogManager.getLogger().debug("我进来了Updatepower().. ");
+		return userpowerService.Updatepower(faid);
+	}
 }
