@@ -35,7 +35,7 @@ public class UsersHandler {
 	// 显示个人信息，通过aid取到个人信息
 	@RequestMapping(value = "getByid", method = RequestMethod.GET)
 	@ResponseBody
-	public Users list(String faid,HttpSession session) {
+	public Users list(String faid, HttpSession session) {
 		LogManager.getLogger().debug("ServletUtil.FINALAID==>" + faid);
 		return usersService.listUsersInfoByAid(faid);
 	}
@@ -55,19 +55,21 @@ public class UsersHandler {
 			System.out.println("上传图片==》" + users);
 		}
 		usersService.modifyUserInfo(users);
-		return "redirect:/page/lw-index.jsp?aid="+users.getAid();
+		return "redirect:/page/lw-index.jsp?aid=" + users.getAid();
 	}
 
 	// 修改密码
 	@RequestMapping(value = "mofifyPwd", method = RequestMethod.POST)
-	public String modifyPwd(Partner partner, String newPassword, HttpServletRequest request) {
-		LogManager.getLogger().debug("partner====>" + partner + "newPassword==>" + newPassword);
+	public String modifyPwd(@RequestParam("strmdpwd") String strmdpwd, @RequestParam("newPassword") String newPassword,
+			Partner partner, HttpServletRequest request) {
+		LogManager.getLogger()
+				.debug("partner====>" + partner + ",newPassword==>" + newPassword + ",strmdpwd=" + strmdpwd);
 		if (partnerService.login(partner) == null) {
-			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
-			return "/page/lw-modifyPwd.jsp";
+			request.setAttribute(ServletUtil.MODIF_ERROR, "用户名或密码错误！！！");
+			return "redirect:" + strmdpwd.split("/findPartner")[1];
 		} else {
 			partner.setPassword(newPassword);
-			String lid=(String) request.getSession().getAttribute(ServletUtil.LOGINING_ID);
+			String lid = (String) request.getSession().getAttribute(ServletUtil.LOGINING_ID);
 			partner.setLid(lid);
 			partnerService.updatePwd(partner);
 			return "redirect:/page/lw-log.jsp";
@@ -82,22 +84,35 @@ public class UsersHandler {
 		LogManager.getLogger().debug("我进来了listUsers==》 ,rows=" + rows + "，page=" + page);
 		return usersService.listUsers(rows, page);
 	}
-	//后台超管根据aid查询用户信息
+
+	// 后台超管根据aid查询用户信息
 	@RequestMapping(value = "find", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Users> findUsers(String aid){
-		LogManager.getLogger().debug("我进来了findUsers==》 ,aid="+aid);
+	public List<Users> findUsers(String aid) {
+		LogManager.getLogger().debug("我进来了findUsers==》 ,aid=" + aid);
 		return usersService.findUsersByAid(aid);
-	} 
-	
-	
+	}
 
 	// 显示个人信息，通过aid取到个人信息
 	@RequestMapping(value = "aid", method = RequestMethod.POST)
 	@ResponseBody
-	public Users byAid(String aid,HttpSession session) {
+	public Users byAid(String aid, HttpSession session) {
 		LogManager.getLogger().debug("我进来byAid()   aid==>" + aid);
 		return usersService.listUsersInfoByAid(aid);
+	}
+
+	// 显示个人信息，通过aid取到个人信息
+	@RequestMapping(value = "sure", method = RequestMethod.POST)
+	@ResponseBody
+	public boolean blSurePwd(String email, String password, HttpSession session) {
+		LogManager.getLogger().debug("我进来blSurePwd()   email==>" + email + ",password=" + password);
+		Partner partner = new Partner();
+		partner.setEmail(email);
+		partner.setPassword(password);
+		if (partnerService.login(partner) == null) {// 等于空说说密码或者账号错误
+			return false;
+		}
+		return true;
 	}
 
 }

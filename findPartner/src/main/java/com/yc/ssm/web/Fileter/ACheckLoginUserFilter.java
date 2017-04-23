@@ -29,7 +29,7 @@ public class ACheckLoginUserFilter extends AbstractFilter {
 		LogManager.getLogger().debug("url=====" + url);
 
 		Partner partner = (Partner) req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
-		if (!url.endsWith("lw-log.jsp") && partner == null) {
+		if (!url.endsWith("lw-log.jsp") && !url.endsWith("lw-re.jsp") && partner == null) {
 			if (Session.getAttribute("errorMsg") == null) {
 				Session.setAttribute("errorMsg", "请先登录！");
 			}

@@ -1,5 +1,6 @@
 var url = window.location.href;
 var faid = url.split('?')[1].split('=')[1];
+
 if(faid!=null && faid!=""){
 	$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
 	$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
@@ -41,7 +42,7 @@ function addFriend(aid){
 	$.post("friend/add",{"aid" : aid},function(data){
 		if (data) {
 			alert("已发送好友请求");
-			var url = "page/lw-findFriend.jsp";
+			//var url = "page/lw-findFriend.jsp";
 			// window.open(url); //打开新的页面并带参数过去
 			self.location = url;//挑战页面
 		}
@@ -94,7 +95,7 @@ function friendKnow(){
 		if(data!=null){
 			for (var i = 0; i < data.length; i++) {
 				friendKnowStr+='<div style="width:300px;float:left;margin-top:10px;"><div class="testdiv" style="float:left;">';
-				friendKnowStr+=data[i].PICTURE==null?'<img style="width:100px;height:100px;border:none;" src="images/not_pic.jpg">':'<img style="width:100px;height:100px;border:none;" src="'+data[i].picture+'">';
+				friendKnowStr+=data[i].PICTURE==null?'<img style="width:100px;height:100px;border:none;" src="images/not_pic.jpg">':'<img style="width:100px;height:100px;border:none;" src="'+data[i].PICTURE+'">';
 				friendKnowStr+='</div><div style="float:left;margin-left:5px;width:150px;"><h3>昵称：'+data[i].NICKNAME+'</h3><span>与你有'+data[i].C+'个共同好友</span><br>';
 				friendKnowStr+='<a href="javascript:void(0)" onclick="addFriend(\''+data[i].AID+'\')" style="color:red;">添加</a>';
 				friendKnowStr+='<a href="javascript:void(0)" style="color:green;margin-left:8px;">取消</a></div></div>';

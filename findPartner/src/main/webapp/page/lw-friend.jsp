@@ -26,17 +26,18 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<!-- <link rel="stylesheet" href="rel/css/friend.css"> -->
+<link rel="stylesheet" href="rel/css/indexcss.css">
 </head>
 
 <body id="blog-article-sidebar">
 	<!-- header start -->
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
-			<img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" />
-			<h2 class="am-hide-sm-only">中国首个开源 HTML5 跨屏前端框架</h2>
+			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
+			<h2 class="am-hide-sm-only">findPartner | 校园首个交互网站</h2>
 		</div>
 	</header>
+	<hr>
 	<!-- header end -->
 	<hr>
 
@@ -65,6 +66,7 @@
 				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
+			<span class="target"></span>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
 				<div class="am-form-group">
@@ -143,6 +145,7 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="assets/js/pinto.min.js"></script>
 	<script src="assets/js/img.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script src="rel/js/friend.js"></script>
 </body>
 </html>

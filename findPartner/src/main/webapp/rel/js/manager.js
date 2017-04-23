@@ -65,6 +65,13 @@ $(".treeNav").tree({
 				iconCls:"icon-mini-add",
 				closable:true,
 			});
+		}else if(nodeContent == "权限管理"){
+			$("#main").tabs('add',{
+				title: nodeContent,
+				href:"back/album_count.jsp",
+				iconCls:"icon-mini-add",
+				closable:true,
+			});
 		}
 	}
 });

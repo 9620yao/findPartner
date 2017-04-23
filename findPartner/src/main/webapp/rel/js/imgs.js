@@ -11,6 +11,7 @@ function GetFinallyAid() {
 			$("#myfriend").show();
 			$(".updatepwd").show();// 修改密码按钮
 			$(".homepage").val("个人中心");
+			$(".spanimg").html("我的");
 			$(".addimgs").show();//添加相册按钮 imgs.jsp
 
 			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
@@ -23,7 +24,8 @@ function GetFinallyAid() {
 		} else {
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").html("他的主页");
+			$(".homepage").html("TA的主页");
+			$(".spanimg").html("TA的");
 			$(".addimgs").hide();
 
 			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
@@ -35,6 +37,17 @@ function GetFinallyAid() {
 			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
 		}
 	}, "json")
+}
+
+imgcount();
+function imgcount(){
+	$.post("album/countAlbum",{"aaid":faid},function(data){
+		if(data==null||data==""){
+			return false;
+		}
+		//alert(data[0].counts);
+		$(".spcount").html(data[0].counts);
+	},"json");
 }
 
 //加载所有相册

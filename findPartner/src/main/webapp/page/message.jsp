@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,15 +12,23 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>index | findPartner</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="assets/i/favicon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
 <link rel="stylesheet" href="rel/css/message.css">
 <link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
+<link rel="stylesheet" href="rel/css/indexcss.css">
 </head>
 <body>
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
-			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
 			<h2 class="am-hide-sm-only">findPartner | 校园首个交互网站</h2>
 		</div>
 	</header>
@@ -51,6 +58,7 @@
 				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
+			<span class="target"></span>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
 				<div class="am-form-group">
@@ -63,28 +71,43 @@
 	<hr>
 	<!-- nav end -->
 
-	<div id="divword" style="width: 60%; margin-left: 10%;"">
-		<form id="myword" method="post" action="words/add">
-			<textarea id="ueditor" name="ueditor" rows="3" cols="39"
-				placeholder="发表一个留言"></textarea>
-			<input name="waid" class="waid" type="hidden">
-			<input name="strword" class="strword" type="hidden">
-			<input name="wcontent" id="wcontent" type="hidden"> <a
-				onclick="addword()" class="speakbtn">发表</a>
-		</form>
-	</div>
-	<br>
-	<hr style="border: 1 dotted red" id="link" class="link">
+	<div class="am-g am-g-fixed blog-fixed">
+		<div class="am-u-md-12 am-u-sm-12">
+			<div>
+				<article class="am-g blog-entry-article">
+					<div style="margin-left: 2.5%; width: 60%;">
+						<span><span class="spanword">我的</span>留言(<a
+							href="javascript:void(0)" class="spcount">0</a>)</span>
+						<hr
+							style="height: 1px; border: none; border-top: 1px solid #555555;" />
+					</div>
+					<div id="divword" style="width: 60%; margin-left: 2.5%;">
+						<span>发表您的留言</span>
+						<div style="margin-top: 3%;">
+							<form id="myword" method="post" action="words/add">
+								<textarea id="ueditor" name="ueditor" rows="3" cols="39"
+									placeholder="发表一个留言"></textarea>
+								<input name="waid" class="waid" type="hidden"> <input
+									name="strword" class="strword" type="hidden"> <input
+									name="wcontent" id="wcontent" type="hidden"> <a
+									onclick="addword()" class="speakbtn">发表</a>
+							</form>
+						</div>
+					</div>
+				</article>
+			</div>
 
-	<div>
-		<!-- 留言 start -->
-		<div id="hostAll" style="margin-top: 3%;"></div>
-		<!-- 留言 end -->
+			<!-- 留言 start -->
+			<div id="hostAll" style="margin-top: 2.5%;"></div>
+			<!-- 留言 end -->
 
-		<!-- 分页 start -->
-		<div style="margin-left: 20%; margin-top: 3%;" id="page"></div>
-		<!-- 分页 end -->
+			<!-- 分页 start -->
+			<div style="margin-left: 20%; margin-top: 3%;" id="page"></div>
+			<!-- 分页 end -->
+		</div>
+		<div id="page"></div>
 	</div>
+
 
 	<!-- Modal comment -->
 	<div class="modal fade" id="addcoment" tabindex="-1" role="dialog"
@@ -101,8 +124,8 @@
 				<div id="comentInfo">
 					<div class="showcomment">
 						<form id="faddcomment" action="comments/add" method="post">
-							<input name="strcomment" class="strcomment" type="hidden" />
-							<input name="callid" class="callid" type="hidden" /> <input
+							<input name="strcomment" class="strcomment" type="hidden" /> <input
+								name="callid" class="callid" type="hidden" /> <input
 								name="detail" class="detail" type="hidden" />
 							<div class="democomment" contenteditable="true"></div>
 							<a onclick="Getdetail()" href="javascript:void(0)">提交</a>
@@ -131,8 +154,8 @@
 				</div>
 				<div id="comentInfo">
 					<form id="rform" action="replys/add" method="post">
-						<input name="strreplys" class="strreplys" type="hidden">
-						<input name="rcid" class="rcid" type="hidden"> <input
+						<input name="strreplys" class="strreplys" type="hidden"> <input
+							name="rcid" class="rcid" type="hidden"> <input
 							name="rtargetid" class="rtargetid" type="hidden"> <input
 							name="rcontent" class="rcontent" type="hidden">
 						<div class="democomment" contenteditable="true"></div>
@@ -211,5 +234,6 @@
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="rel/js/message.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 </body>
 </html>

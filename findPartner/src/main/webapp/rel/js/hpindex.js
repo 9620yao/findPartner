@@ -33,7 +33,7 @@ function GetFinallyAid() {
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
 			$(".updatebtn").hide();
-			$(".homepage").html("他的主页");
+			$(".homepage").html("TA的主页");
 			$(".homepage").attr("href",
 					"page/lw-index.jsp?aid=" + data.faid);
 			$(".myfriends").attr("href",
@@ -56,8 +56,7 @@ function GetFinallyAid() {
 var currPage = 1;
 //显示他的主页
 function showhomepage(currPage) {
-	$
-	.post(
+	$.post(
 			"homepage/list",
 			{
 				"currPage" : currPage,
@@ -86,8 +85,7 @@ function showhomepage(currPage) {
 
 //显示个人中心
 function selfhomepage(currPage) {
-	$
-	.post(
+	$.post(
 			"homepage/selflist",
 			{
 				"currPage" : currPage,
@@ -126,8 +124,7 @@ function homepage(data) {
 
 //同步发送请求
 function findspeack(sid, speakman, senddate) {
-	$
-	.ajax({
+	$.ajax({
 		type : "POST",
 		url : "speaks/hpspeaks",
 		data : {
@@ -146,18 +143,18 @@ function findspeack(sid, speakman, senddate) {
 			// alert(data);
 			speaksStr += '<div><img onclick="showuser(\''
 				+ data.speakman
-				+ '\')" class="uPic'
+				+ '\')" class="picture uPic'
 				+ data.speakman
-				+ '" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+				+ '" src="images/timg.jpg">';
 			speaksStr += '<a onclick="showuser(\'' + data.speakman
 			+ '\')" class="uname' + data.speakman
-			+ '" href="javascript:void(0)">' + data.speakman
+			+ '" href="javascript:void(0)" style="margin-left: 1%;">' + data.speakman
 			+ '</a>';
 			speaksStr += '<br><span style="margin-left: 5%;">'
 				+ data.senddate + '</span>';
 			speaksStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 				+ data.content + '</div>';
-			speaksStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+			speaksStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 			speaksStr += '<a onclick="addcomment(\''
 				+ data.sid
 				+ '\')" href="javascript:void(0)" style="margin-left: 5%;" data-toggle="modal"';
@@ -176,8 +173,7 @@ function findspeack(sid, speakman, senddate) {
 
 function comments(sid) {
 	// alert(sid);
-	$
-	.post(
+	$.post(
 			"comments/list",
 			{
 				"sid" : sid
@@ -193,19 +189,19 @@ function comments(sid) {
 				for (var i = 0; i < data.length; i++) {
 					commentStr += '<div><img onclick="showuser(\''
 						+ data[i].comuserid
-						+ '\')" class="uPic'
+						+ '\')" class="picture uPic'
 						+ data[i].comuserid
-						+ '" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+						+ '" src="images/timg.jpg">';
 					commentStr += '<a onclick="showuser(\''
 						+ data[i].comuserid + '\')" class="uname'
 						+ data[i].comuserid
-						+ '" href="javascript:void(0)">'
+						+ '" href="javascript:void(0)" style="margin-left: 1%;">'
 						+ data[i].comuserid + '</a>';
 					commentStr += '<br><span style="margin-left: 5%;">'
 						+ data[i].comTime + '</span>';
 					commentStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 						+ data[i].detail + '</div>';
-					commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+					commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 					commentStr += '<a onclick="addcr(\''
 						+ data[i].cid
 						+ '\',\''
@@ -226,8 +222,7 @@ function comments(sid) {
 //根据评论编号，找到评论编号下的所有回复
 function replys(cid) {
 	// alert(cid);
-	$
-	.post(
+	$.post(
 			"replys/list",
 			{
 				"cid" : cid
@@ -242,22 +237,22 @@ function replys(cid) {
 				for (var i = 0; i < data.length; i++) {
 					replysStr += '<div><img onclick="showuser(\''
 						+ data[i].ruserid
-						+ '\')" class="uPic'
+						+ '\')" class="picture uPic'
 						+ data[i].ruserid
-						+ '" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+						+ '" src="images/timg.jpg">';
 					replysStr += '<a onclick="showuser(\''
 						+ data[i].ruserid + '\')" class="uname'
 						+ data[i].ruserid
-						+ '" href="javascript:void(0)">'
+						+ '" href="javascript:void(0)" style="margin-left: 1%;">'
 						+ data[i].ruserid + '</a> 回复';
 					replysStr += '<a class="uname' + data[i].rtargetid
-					+ '" href="javascript:void(0)">'
+					+ '" href="javascript:void(0)" style="margin-left: 1%;">'
 					+ data[i].rtargetid + '</a>:';
 					replysStr += '<br><span style="margin-left: 5%;">'
 						+ data[i].rtime + '</span>';
 					replysStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'
 						+ data[i].rcontent + '</div>';
-					replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)">删除</a>';
+					replysStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
 					replysStr += '<a onclick="addreplys(\''
 						+ data[i].rid
 						+ '\',\''
@@ -293,12 +288,12 @@ function findalbumpic(abid, speakman, apicdate) {
 			var imgpic = "";
 			imgpic += '<div><img onclick="showuser(\''
 				+ speakman
-				+ '\')" class="uPic'
+				+ '\')" class="picture uPic'
 				+ speakman
-				+ '" style="width: 20px; height: 20px;" src="images/timg.jpg">';
+				+ '" src="images/timg.jpg">';
 			imgpic += '<a onclick="showuser(\'' + speakman
 			+ '\')" class="uname' + speakman
-			+ '" href="javascript:void(0)">' + speakman
+			+ '" href="javascript:void(0)" style="margin-left: 1%;">' + speakman
 			+ '</a>';
 			imgpic += '<br><span style="margin-left: 5%;">'
 				+ data.apicdate + '</span>';
@@ -387,7 +382,7 @@ function showuser(date) {
 function openpic(speakman,date) {
 	if (date != null) {
 		var url = "page/albumpic.jsp?aid=" + speakman + "&abid=" + date;
-		// window.open(url); //打开新的页面并带参数过去
-		self.location = url;// 挑战页面
+		window.open(url); //打开新的页面并带参数过去
+		//self.location = url;// 挑战页面
 	}
 }
