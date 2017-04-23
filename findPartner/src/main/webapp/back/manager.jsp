@@ -3,20 +3,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="${deployName }">
+<base href="${deployName}">
 <meta charset="UTF-8">
 <title>后台管理</title>
 <link type="text/css" rel="stylesheet" href="easyui/themes/icon.css">
 <link type="text/css" rel="stylesheet"
 	href="easyui/themes/default/easyui.css">
-<link rel="shortcut icon" href="images/favicon.ico" />
+<!-- <link rel="shortcut icon" href="images/favicon.ico" /> -->
 <link href="rel/css/manager.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="easyui-layout">
+<c:choose>
+		<c:when test="${loginUser==null }">
+			<script type="text/javascript">
+			alert("请先登录!");
+			window.location=${deployName}+"back/adminLogin.jsp";
+		</script>
+		</c:when>
+		<c:when test="${loginUser=='' }">
+			<script type="text/javascript">
+			alert("请先登录!");
+			window.location=${deployName}+"back/adminLogin.jsp";
+		</script>
+		</c:when>
+	</c:choose>
 	<div data-options="region:'north'" style="height: 100px;">
 		<div style="float: right; margin-top: 30px; margin-right: 20px; color: #082C5A;">
 			<div>
-				管理员：[<strong style="font-size: 120%; color: green;">哈哈</strong>]，欢迎您进入findPartner系统
+				管理员：[<strong style="font-size: 120%; color: green;">${loginUser}</strong>]，欢迎您进入findPartner系统
 			</div>
 			<div style="margin-top: 8px;">
 				<a href="javascript:void(0);" class="easyui-menubutton"
@@ -75,7 +89,7 @@
 		<div id="main" style="width: 500px; height: 400px;">
 			<div title="欢迎"  data-options="iconCls:'icon-mini-add'">
 				<h1 style="width: 100%; text-align: center; margin-top: 80px">
-					<label> 欢迎【<span>${loginUser.uname}</span>】使用findPartner系统
+					<label> 欢迎【<span>${loginUser}</span>】使用findPartner系统
 					</label>
 				</h1>
 			</div>

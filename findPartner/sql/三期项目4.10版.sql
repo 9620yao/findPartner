@@ -146,3 +146,18 @@ select * from album
 insert into homepage values('ab10000','a10056','2017-04-07 12:21:20','','')
 
 --aaid 用户编号 a10056 a10057 a10055
+
+create table backadmin(
+       baid varchar2(20),--管理员编号
+       baemail varchar2(20),--管理员邮箱
+       baname varchar2(40),--管理员姓名
+       bapwd varchar2(40),--管理员密码
+       badate varchar2(100), --注册时间
+       otherbackadminone VARCHAR2(40),
+       otherbackadmintwo varchar2(40)
+);
+
+create sequence seq_backadmin_baid start with 10000;--管理员表
+
+select * from backadmin;
+
