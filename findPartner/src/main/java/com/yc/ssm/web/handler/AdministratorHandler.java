@@ -8,9 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yc.ssm.entity.Administrator;
-import com.yc.ssm.entity.Users;
 import com.yc.ssm.service.AdministratorService;
-import com.yc.ssm.service.UsersService;
 import com.yc.ssm.util.ServletUtil;
 
 @Controller("administratorHandler")
@@ -20,10 +18,6 @@ public class AdministratorHandler {
 	@Autowired
 	private AdministratorService administratorService;
 
-	@Autowired
-	private UsersService usersService;
-
-	
 	@RequestMapping("adminLogin")
 	public String login(Administrator administrator, HttpServletRequest request) {
 		administrator = administratorService.adminLogin(administrator);
