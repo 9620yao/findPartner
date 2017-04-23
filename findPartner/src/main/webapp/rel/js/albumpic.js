@@ -35,7 +35,7 @@ function GetFinallyAid() {
 				} else {
 					$("#myfriend").hide();
 					$(".updatepwd").hide();
-					$(".homepage").html("他的主页");
+					$(".homepage").html("TA的主页");
 					$(".addimgbtn").hide();
 					$(".newimgbtn").hide();
 
@@ -96,9 +96,7 @@ function newpic(){
 		layer.ext = function() {
 			layer.photosPage({
 				html : '<div style="padding:20px;">'
-						+ ($("apiccontent").html())
 						+ '<p>相册支持左右方向键，支持Esc关闭</p><p id="change"></p></div>',
-				title : '快捷模式-获取页面元素包含的所有图片',
 				id : 100, // 相册id，可选
 				parent : '#imgs'
 			});

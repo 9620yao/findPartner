@@ -27,6 +27,7 @@
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="rel/css/indexcss.css">
 </head>
 
 <body id="blog-article-sidebar">
@@ -61,6 +62,7 @@
 				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
+			<span class="target"></span>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
 				<div class="am-form-group">
@@ -91,9 +93,9 @@
 						<p>
 							<input name="abname" placeholder="标题" type="text"
 								required="required"> <input name="alcontent"
-								class="alcontent" type="hidden">
-								<input name="strimg" class="strimg" type="hidden">
-								<input name="aaid" class="aaid" type="hidden">
+								class="alcontent" type="hidden"> <input name="strimg"
+								class="strimg" type="hidden"> <input name="aaid"
+								class="aaid" type="hidden">
 						</p>
 						<p>
 							<textarea id="ueditor" name="ueditor" rows="2" cols="30"
@@ -115,6 +117,11 @@
 
 	<!-- content srart data-am-figure="{  pureview: 'true' }" -->
 	<div class="am-g am-g-fixed blog-fixed blog-content">
+		<div style="margin-left: 2.5%; width: 60%;">
+			<span><span class="spanimg">我的</span>相册(<a
+				href="javascript:void(0)" class="spcount">0</a>)</span>
+			<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />
+		</div>
 		<button class="addimgs" data-toggle="modal" data-target="#myModal"
 			style="width: 8%; margin-left: 5%;">创建相册</button>
 		<div id="container"
@@ -189,6 +196,7 @@
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script src="rel/js/imgs.js"></script>
 </body>
 </html>

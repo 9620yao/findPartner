@@ -29,6 +29,7 @@
 <link rel="stylesheet" href="assets/css/app.css">
 <link rel="stylesheet" href="rel/css/speak.css">
 <link rel="stylesheet" href="bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="rel/css/indexcss.css">
 </head>
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
@@ -63,6 +64,7 @@
 				<li><a class="myalbum" href="page/lw-img.jsp">相册</a></li>
 				<li><a class="updatepwd" href="page/lw-modifyPwd.jsp">修改密码</a></li>
 			</ul>
+			<span class="target"></span>
 			<form class="am-topbar-form am-topbar-right am-form-inline"
 				role="search">
 				<div class="am-form-group">
@@ -82,6 +84,11 @@
 		<div class="am-u-md-12 am-u-sm-12">
 			<div>
 				<article class="am-g blog-entry-article">
+					<div style="margin-left: 2.5%; width: 60%;">
+						<span><span class="spanspeak">我的</span>说说(<a href="javascript:void(0)" class="spcount">0</a>)</span>
+						<hr
+							style="height: 1px; border: none; border-top: 1px solid #555555;" />
+					</div>
 					<div class="editdiv" style="width: 60%; margin-left: 2.5%;">
 						<form id="myspeak" action="speaks/insert" method="post">
 							<textarea id="ueditor" name="ueditor" rows="4" cols="39"
@@ -147,8 +154,8 @@
 				</div>
 				<div id="comentInfo">
 					<form id="rform" action="replys/add" method="post">
-						<input name="strreplys" class="strreplys" type="hidden">
-						<input name="rcid" class="rcid" type="hidden"> <input
+						<input name="strreplys" class="strreplys" type="hidden"> <input
+							name="rcid" class="rcid" type="hidden"> <input
 							name="rtargetid" class="rtargetid" type="hidden"> <input
 							name="rcontent" class="rcontent" type="hidden">
 						<div class="democomment" contenteditable="true"></div>
@@ -226,5 +233,6 @@
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" src="rel/js/speaks.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 </body>
 </html>

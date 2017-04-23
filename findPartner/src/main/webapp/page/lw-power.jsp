@@ -34,6 +34,7 @@
 <body id="blog">
 	<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
 		<div class="am-u-sm-8 am-u-sm-centered">
+			<!-- <img width="200" src="assets/i/amazeui-b.png" alt="Amaze UI Logo" /> -->
 			<h2 class="am-hide-sm-only">findPartner | 校园首个交互网站</h2>
 		</div>
 	</header>
@@ -80,6 +81,7 @@
 	<!-- content srart -->
 	<div class="am-g am-g-fixed blog-fixed">
 		<div class="am-u-md-8 am-u-sm-12">
+			<div class="alert alert-danger" role="alert">该用户已经被封禁</div>
 			<!-- 个人中心和他的主页 start -->
 			<div style="margin-top: 5%;" id="showspeak"></div>
 			<!-- 个人中心和他的主页  end -->
@@ -343,9 +345,7 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="rel/layer/jquery.js?v=1.83.min"></script>
 	<script src="rel/layer/layer.min.js"></script>
-	<script type="text/javascript" src="rel/js/hpindex.js"></script>
-	<script type="text/javascript" src="rel/js/index.js"></script>
-	<script type="text/javascript" src="rel/js/indexpic.js"></script>
+	<script type="text/javascript" src="rel/js/indexpower.js"></script>
 	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script type="text/javascript" src="My97DatePicker/WdatePicker.js"></script>
 </body>

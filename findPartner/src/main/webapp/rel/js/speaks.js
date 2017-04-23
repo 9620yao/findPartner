@@ -11,9 +11,10 @@ function GetFinallyAid(){
 			$("#myfriend").show();
 			$(".updatepwd").show();//修改密码按钮
 			$(".homepage").val("个人中心");
+			$(".spanspeak").html("我的");
 			//$(".updatebtn").show();//修改个人信息按钮
 			$(".editdiv").show();
-			
+
 			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + faid);
 			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + faid);
 			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + faid);
@@ -24,10 +25,11 @@ function GetFinallyAid(){
 		}else{
 			$("#myfriend").hide();
 			$(".updatepwd").hide();
-			$(".homepage").html("他的主页");
+			$(".homepage").html("TA的主页");
+			$(".spanspeak").html("TA的");
 			//$(".updatebtn").hide();
 			$(".editdiv").hide();
-			
+
 			$(".homepage").attr("href", "page/lw-index.jsp?aid=" + data.faid);
 			$(".myfriends").attr("href", "page/lw-friend.jsp?aid=" + data.faid);
 			$(".addfriend").attr("href", "page/lw-findFriend.jsp?aid=" + data.faid);
@@ -35,9 +37,20 @@ function GetFinallyAid(){
 			$(".myword").attr("href", "page/message.jsp?aid=" + data.faid);
 			$(".myalbum").attr("href", "page/lw-img.jsp?aid=" + data.faid);
 			$(".updatepwd").attr("href", "page/lw-modifyPwd.jsp?aid=" + data.faid);
-			
+
 		}
 	},"json")
+}
+speakcount();
+function speakcount(){
+	$.post("speaks/countSpeaks",{"speakman":faid},function(data){
+		//alert(JSON.stringify(data));
+		//alert(data[0].counts);
+		if(data==null ||data==""){
+			return false;
+		}
+		$(".spcount").html(data[0].counts);
+	},"json");
 }
 
 var currPage = 1;
@@ -55,8 +68,8 @@ function listSpeaks(currPage) {
 				var speaksStr = "";
 				/* var speaksStr2 = ""; */
 				for (var i = 0; i < data.rows.length; i++) {
-					speaksStr+='<div><img onclick="showuser(\''+data.rows[i].speakman+'\')" class="uPic'+data.rows[i].speakman+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-					speaksStr+='<a onclick="showuser(\''+data.rows[i].speakman+'\')" class="uname'+data.rows[i].speakman+'" href="javascript:void(0)">'+data.rows[i].speakman+'</a>';
+					speaksStr+='<div><img onclick="showuser(\''+data.rows[i].speakman+'\')" class="picture uPic'+data.rows[i].speakman+'" src="images/timg.jpg">';
+					speaksStr+='<a onclick="showuser(\''+data.rows[i].speakman+'\')" class="uname'+data.rows[i].speakman+'" href="javascript:void(0)" style="margin-left: 1%;">'+data.rows[i].speakman+'</a>';
 					speaksStr+='<br><span style="margin-left: 5%;">'+data.rows[i].senddate+'</span>';
 					speaksStr+='<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data.rows[i].content+'</div>';
 					speaksStr+='<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
@@ -68,7 +81,7 @@ function listSpeaks(currPage) {
 					openPicture(''+data.rows[i].speakman+'');
 				}
 				$("#speaksInfo")[0].innerHTML = speaksStr;
-				
+
 				var pagination="";
 				pagination+='<label>当前第'+currPage+' 页，共'+data.totalPage+' 页</label>';
 				pagination+='<a href="javascript:void(0)" onclick="listSpeaks(1)">首页</a>';
@@ -93,8 +106,8 @@ function comments(sid) {
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var commentStr = "";
 		for (var i = 0; i < data.length; i++) {
-			commentStr += '<div><img onclick="showuser(\''+data[i].comuserid+'\')" class="uPic'+data[i].comuserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			commentStr += '<a onclick="showuser(\''+data[i].comuserid+'\')" class="uname'+data[i].comuserid+'" href="javascript:void(0)">'+data[i].comuserid+'</a>';
+			commentStr += '<div><img onclick="showuser(\''+data[i].comuserid+'\')" class="picture uPic'+data[i].comuserid+'" src="images/timg.jpg">';
+			commentStr += '<a onclick="showuser(\''+data[i].comuserid+'\')" class="uname'+data[i].comuserid+'" href="javascript:void(0)" style="margin-left: 1%;">'+data[i].comuserid+'</a>';
 			commentStr += '<br><span style="margin-left: 5%;">'+data[i].comTime+'</span>';
 			commentStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].detail+'</div>';
 			commentStr += '<a style="margin-left: 23%;" href="javascript:void(0)"> </a>';
@@ -120,8 +133,8 @@ function replys(cid) {
 		// alert(JSON.stringify(data)); //JSON.stringify() ,把json对象转换成json字符串
 		var replysStr = "";
 		for (var i = 0; i < data.length; i++) {
-			replysStr += '<div><img onclick="showuser(\''+data[i].ruserid+'\')" class="uPic'+data[i].ruserid+'" style="width: 20px; height: 20px;" src="images/timg.jpg">';
-			replysStr += '<a onclick="showuser(\''+data[i].ruserid+'\')" class="uname'+data[i].ruserid+'" href="javascript:void(0)">'+data[i].ruserid+'</a> 回复';
+			replysStr += '<div><img onclick="showuser(\''+data[i].ruserid+'\')" class="picture uPic'+data[i].ruserid+'"  src="images/timg.jpg">';
+			replysStr += '<a onclick="showuser(\''+data[i].ruserid+'\')" class="uname'+data[i].ruserid+'" href="javascript:void(0)" style="margin-left: 1%;">'+data[i].ruserid+'</a> 回复';
 			replysStr += '<a href="javascript:void(0)">'+data[i].rtargetid+'</a>:';
 			replysStr += '<br><span style="margin-left: 5%;">'+data[i].rtime+'</span>';
 			replysStr += '<div value="onfocus=this.blur()" onfocus="this.blur()" class="demoEdit" contenteditable="true">'+data[i].rcontent+'</div>';

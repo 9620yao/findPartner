@@ -38,15 +38,14 @@ public class UsersServiceImpl implements UsersService {
 
 	@Override
 	public PaginationBean<Users> listUsers(String rows, String page) {
-		PaginationBean<Users> pb=new PaginationBean<Users>();
-		if(page!=null){
+		PaginationBean<Users> pb = new PaginationBean<Users>();
+		if (page != null) {
 			pb.setCurrPage(Integer.parseInt(page));
 		}
-		if(rows!=null){
+		if (rows != null) {
 			pb.setPageSize(Integer.parseInt(rows));
 		}
-		
-		pb=UsersMapper.partUsers(pb);
+		pb = UsersMapper.partUsers(pb);
 		return pb;
 	}
 

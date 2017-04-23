@@ -5,9 +5,7 @@
 	heigth:60px;
 }
 #hostAll{
-	border: solid 1px #c0c0c0;
-	width:640px;
-	margin-left:180px;
+	margin-left:2.5%;
 }
 #leaveMsg{
 	margin-top:25px;
@@ -26,8 +24,8 @@
 }
 
 .picSize{
-	width:30px;
-	height:30px;
+	width:50px;
+	height:50px;
 	border-radius:50%;
 }
 
