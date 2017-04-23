@@ -233,7 +233,7 @@
 	<script type="text/javascript" charset="utf-8"
 		src="rel/ueditor/lang/zh-cn/zh-cn.js"></script>
 	<script src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script type="text/javascript" src="rel/js/message.js"></script>
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 </body>
 </html>

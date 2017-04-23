@@ -1,4 +1,14 @@
-var target = document.querySelector(".target");
+userpower();
+function userpower(){
+	$.post("power/sure",{"faid":faid},function(data){
+		//alert(data);
+		if(data){
+			self.location="page/lw-index-power.jsp?aid="+faid;
+		}
+	},"json");
+}
+
+/*var target = document.querySelector(".target");
 var links = document.querySelectorAll("#head a");
 var colors = ["deepskyblue", "orange", "firebrick", "gold", "magenta", "black", "darkblue"];
 
@@ -45,4 +55,4 @@ function resizeFunc() {
 	}
 }
 
-window.addEventListener("resize", resizeFunc);
+window.addEventListener("resize", resizeFunc);*/

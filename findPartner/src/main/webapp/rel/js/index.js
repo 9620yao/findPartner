@@ -1,6 +1,3 @@
-var url = window.location.href;
-var faid = url.split('?')[1].split('=')[1];
-
 function loadAdminInfo() {
 	// 以异步的方式取到个人的信息
 	$.get("user/getByid",{"faid":faid}, function(data) {
