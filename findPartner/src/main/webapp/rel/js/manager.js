@@ -68,7 +68,7 @@ $(".treeNav").tree({
 		}else if(nodeContent == "权限管理"){
 			$("#main").tabs('add',{
 				title: nodeContent,
-				href:"back/album_count.jsp",
+				href:"back/userpower.jsp",
 				iconCls:"icon-mini-add",
 				closable:true,
 			});

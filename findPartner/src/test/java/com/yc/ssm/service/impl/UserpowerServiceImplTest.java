@@ -19,5 +19,10 @@ public class UserpowerServiceImplTest {
 	public void testUserpower() {
 		System.out.println(userpowerService.userpower("a10099"));
 	}
+	
+	@Test
+	public void pblist() {
+		System.out.println(userpowerService.pblist("2", "1"));
+	}
 
 }

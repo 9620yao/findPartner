@@ -3,8 +3,53 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yc.ssm.mapper.UserpowerMapper">
-	<select id="userpower" parameterType="string" resultType="com.yc.ssm.entity.Userpower">
-		select * from userpower where upuid = #{_parameter}
+	<select id="userpower" parameterType="string"
+		resultType="com.yc.ssm.entity.Userpower">
+		select * from userpower
+		<where>
+			<if test="_parameter!=null">
+				upuid = #{_parameter}
+			</if>
+		</where>
+	</select>
+
+	<insert id="addpower" parameterType="string">
+		insert into userpower
+		values('up'||seq_userpower_upid.nextval,#{_parameter},'-1',to_char(sysdate,'yyyy-MM-dd
+		HH24:mi:ss'),'','')
+	</insert>
+
+	<resultMap type="PaginationBean" id="PaginationBeanMap">
+		<result property="currPage" column="currPage" />
+		<result property="pageSize" column="pageSize" />
+		<collection property="rows"
+			column="{pageSize=pageSize,currPage=currPage}" ofType="com.yc.ssm.entity.Userpower"
+			select="GetPartTea" />
+	</resultMap>
+
+	<select id="pblist" parameterType="PaginationBean" resultMap="PaginationBeanMap"
+		useCache="false" flushCache="true">
+		select
+		count(1) total,ceil(count(1) /
+		${pageSize})
+		totalPage,${currPage}
+		currPage,${pageSize}
+		pageSize
+		from
+		userpower
+	</select>
+	<select id="GetPartTea" resultType="com.yc.ssm.entity.Userpower">
+		select t.* from (
+		select
+		n.*,rownum rn from (
+		select * from userpower
+		order by updata desc) n
+		where ${currPage} *
+		${pageSize} >= rownum) t
+		where
+		rn > (${currPage}-1)
+		*
+		${pageSize}
 	</select>
 
 </mapper>

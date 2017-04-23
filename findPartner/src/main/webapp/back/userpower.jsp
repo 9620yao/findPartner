@@ -7,7 +7,7 @@
 <title>权限管理</title>
 </head>
 <body>
-	<table id="speaksInfo"></table>
-	<script type="text/javascript" src=""></script>
+	<table id="powerInfo"></table>
+	<script type="text/javascript" src="rel/js/users_power.js"></script>
 </body>
 </html>
