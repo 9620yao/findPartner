@@ -119,8 +119,7 @@
 						</p>
 					</div>
 					<br>
-					<button type="submit"
-						class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay-b">注
+					<button class="am-btn am-btn-primary am-btn-block am-btn-lg am-radius am-animation-slide-bottom log-animation-delay-b">注
 						册</button>
 					<br>
 				</form>

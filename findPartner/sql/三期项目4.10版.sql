@@ -118,7 +118,9 @@ CREATE table comments(
      othercommentsone VARCHAR2(40),
      othercommentstwo varchar2(40)     
 );
-
+alter table words modify( wdate varchar2(100));
+alter table comments modify( comTime varchar2(100));
+alter table replys modify( rtime varchar2(100))
 select * from replys;
 --回复表（包括对评论的回复，以及对回复的回复）
 create table replys(

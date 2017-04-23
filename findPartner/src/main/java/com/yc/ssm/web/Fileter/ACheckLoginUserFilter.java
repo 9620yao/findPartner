@@ -27,9 +27,8 @@ public class ACheckLoginUserFilter extends AbstractFilter {
 		HttpSession Session = req.getSession();
 		String url = req.getRequestURI();
 		LogManager.getLogger().debug("url=====" + url);
-
 		Partner partner = (Partner) req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
-		if (!url.endsWith("lw-log.jsp") && !url.endsWith("lw-re.jsp") && partner == null) {
+		if (!url.endsWith("lw-log.jsp") && !url.endsWith("lw-re.jsp")&& !url.endsWith("forgetPassword.jsp")&&!url.endsWith("lw-newPwd.jsp") && partner == null) {
 			if (Session.getAttribute("errorMsg") == null) {
 				Session.setAttribute("errorMsg", "请先登录！");
 			}

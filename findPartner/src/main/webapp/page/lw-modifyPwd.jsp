@@ -86,10 +86,8 @@
 							<label style="color: red;">${errorpwd}&nbsp;</label>
 						</p>
 						<p>
-							<input name="strmdpwd" class="strmdpwd" type="hidden"> <label
-								for="email">用户名：</label><input style="margin-left: 2%;"
-								type="text" id="email" name="email" placeholder="请输入邮箱"
-								required="required">
+							<input name="strmdpwd" class="strmdpwd" type="hidden"><input style="margin-left: 2%;"
+								type="hidden" id="email" name="email" value="${loginUser.email }">
 						</p>
 						<p>
 							<label for="password">原密码：</label><input style="margin-left: 2%;"

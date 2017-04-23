@@ -65,7 +65,7 @@ function listSpeaks(currPage) {
 					speaksStr+='</div><div class="comment'+data.rows[i].sid+'" style="margin-left: 5%;"></div>';
 					//alert(data[i].sid);
 					comments(data.rows[i].sid);//取到所有的说说编号
-					openPicture(''+data.speakman+'');
+					openPicture(''+data.rows[i].speakman+'');
 				}
 				$("#speaksInfo")[0].innerHTML = speaksStr;
 				

@@ -24,7 +24,7 @@ function strupdate() {
 		if (data) {
 			$(".fmodifyPwd").submit();
 		} else {
-			alert("用户名或者密码错误！！！");
+			alert("原密码错误！！！");
 		}
 	});
 }
