@@ -1,5 +1,6 @@
 var url = window.location.href;
 var faid = url.split('?')[1].split('&')[0].split('=')[1];
+
 if (faid != null && faid != "") {
 	$(".amyimg").attr("href", "page/lw-img.jsp?aid=" + faid);
 }

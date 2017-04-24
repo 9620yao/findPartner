@@ -76,10 +76,11 @@ function friendIntro(){
 			for (var i = 0; i < data.length; i++) {
 				friendIntoStr+='<div style="width:300px;float:left;margin-top:10px;"><div class="testdiv" style="float:left;">';
 				friendIntoStr+=data[i].picture==null?'<img style="width:100px;height:100px;border:none;" src="images/not_pic.jpg">':'<img style="width:100px;height:100px;border:none;" src="'+data[i].picture+'">';
-				friendIntoStr+='</div><div style="float:left;margin-left:5px;width:150px;"><h3>昵称：'+data[i].nickname+'</h3><span>现居地址：'+data[i].address+'</span><br>';
+				friendIntoStr+='</div><div style="float:left;margin-left:5px;width:150px;"><h3>昵称：'+data[i].nickname+'</h3><span>现居地址：'+data[i].address+'</span><br><span>兴趣爱好：'+data[i].hobby+'</span><br>';
 				friendIntoStr+='<a href="javascript:void(0)" onclick="addFriend(\''+data[i].aid+'\')" style="color:red;">添加</a>';
 				friendIntoStr+='<a href="javascript:void(0)" style="color:green;margin-left:8px;">取消</a></div></div>';
 			}
+			friendIntoStr+='<div style="margin-top:10px;"><a href="javascript:void(0)" style="color:red;" onclick="friendIntro()">换一批</a></div>';
 			//$("#friend").append(friendIntoStr);
 			$("#friend")[0].innerHTML = friendIntoStr;
 		}

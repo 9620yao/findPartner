@@ -1,21 +1,3 @@
-
-//function Query() {
-//var wellNo = $('#dg').val(); //得到查询关键字--井号
-//alert(wellNo);
-
-////var opts = $('#dg').datagrid('options');
-////var page = opts.pageNumber;//获取页码
-////var pageSize = opts.pageSize;//获取每页多少记录
-////alert()
-////var handler = "Ajax/GetWellListHandler.ashx?wellNo=" + escape(wellNo) + "&page=" + escape(page)+ "&pageSize=" + escape(pageSize);
-
-////$('#dg').datagrid('options').url = handler; //设置表格数据的来源URL
-////$('#dg').datagrid('reload'); //重新加载表格
-//}
-/*$.post("",function(data){
-	alert(11111);
-},"json");*/
-
 $("#dg").datagrid({
 	url : 'user/mlist',
 	fitColumns:true,
@@ -56,6 +38,12 @@ $("#dg").datagrid({
 	        	  formatter: function(value,row,index){
 	        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>'+
 	        		  '<script>$(".detailBtn").linkbutton({iconCls:"icon-search"});</script>';
+	        	  }
+	          },
+	          {field:'power',title:'权限',width:70,align:'center',
+	        	  formatter: function(value,row,index){
+	        		  return '<a class="power" href="javascript:void(0)" onclick="openpower(\''+index+'\')">权限</a>'+
+	        		  '<script>$(".power").linkbutton({iconCls:"icon-lock"});</script>';
 	        	  }
 	          }
 	          ]]      
@@ -132,11 +120,36 @@ function unclearQuery(){
 		        		  return '<a class="detailBtn" href="javascript:void(0)" onclick="showDetail('+index+')">详情</a>'+
 		        		  '<script>$(".detailBtn").linkbutton({iconCls:"icon-search"});</script>';
 		        	  }
+		          },
+		          {field:'power',title:'权限',width:70,align:'center',
+		        	  formatter: function(value,row,index){
+		        		  return '<a class="power" href="javascript:void(0)" onclick="openpower(\''+index+'\')">权限</a>'+
+		        		  '<script>$(".power").linkbutton({iconCls:"icon-lock"});</script>';
+		        	  }
 		          }
 		    ]],     
 	}); 
 }
 
+function openpower(index){
+	var row = $("#dg").datagrid("getRows")[index];
+	var faid = row.aid;
+	$.post("power/sure",{"faid":faid},function(data){
+		if(data){
+			$.messager.alert('权限提示','该用户有封禁记录，您可以在权限管理查看和解封..');
+			return false;
+		}
+		power(faid);
+	},"json");
+}
 
-
+function power(faid){
+	$.post("power/add",{"faid":faid},function(data){
+		if(data){
+			$.messager.alert('权限提示','封禁成功，您可以在权限管理查看..');
+			return false;
+		}
+		$.messager.alert('权限提示','封禁失败，请您在确认后操作..');
+	},"json");
+}
 

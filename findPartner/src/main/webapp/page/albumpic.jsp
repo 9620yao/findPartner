@@ -205,8 +205,7 @@
 	<script src="assets/js/amazeui.min.js"></script>
 	<script src="rel/layer/jquery.js?v=1.83.min"></script>
 	<script src="rel/layer/layer.min.js"></script>
-	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 	<script src="rel/js/albumpic.js"></script>
-
+	<script type="text/javascript" src="rel/js/indexcss.js"></script>
 </body>
 </html>

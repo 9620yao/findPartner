@@ -35,4 +35,10 @@ public class PartnerServiceImpl implements PartnerService {
 		return partnerMapper.modifyPwd(partner) > 0;
 	}
 
+	@Override
+	public void updateNewPwd(Partner partner) {
+		partnerMapper.newPwd(partner);
+		
+	}
+
 }

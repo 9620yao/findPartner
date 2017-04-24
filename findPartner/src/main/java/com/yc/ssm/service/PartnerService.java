@@ -13,4 +13,6 @@ public interface PartnerService {
 
 	boolean updatePwd(Partner partner);
 
+	void updateNewPwd(Partner partner);
+
 }

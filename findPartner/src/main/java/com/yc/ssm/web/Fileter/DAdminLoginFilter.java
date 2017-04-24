@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.logging.log4j.LogManager;
+
+import com.yc.ssm.entity.Administrator;
 import com.yc.ssm.util.ServletUtil;
 
-@WebFilter("/user/*")
-public class CheckLoginUserFilter extends AbstractFilter {
+@WebFilter("/back/*")
+public class DAdminLoginFilter extends AbstractFilter {
 
 	@Override
 	public void doFilter(ServletRequest requset, ServletResponse response, FilterChain chain)
@@ -22,14 +25,14 @@ public class CheckLoginUserFilter extends AbstractFilter {
 		HttpServletRequest req = (HttpServletRequest) requset;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		HttpSession Session = req.getSession();
-
-		Object user = req.getSession().getAttribute(ServletUtil.LOGIN_USER);// loginUser
-		if (user == null) {
+		String url = req.getRequestURI();
+		LogManager.getLogger().debug("url=====" + url);
+		Administrator admin = (Administrator) req.getSession().getAttribute(ServletUtil.ADMIN);// loginUser
+		if (!url.endsWith("adminLogin.jsp") && admin == null) {
 			if (Session.getAttribute("errorMsg") == null) {
 				Session.setAttribute("errorMsg", "请先登录！");
 			}
-			resp.sendRedirect(req.getServletContext().getContextPath() + "/page/lw-re.jsp");
-			return;
+			resp.sendRedirect(req.getServletContext().getContextPath() + "/back/adminLogin.jsp");
 		}
 		chain.doFilter(requset, response);// 继续请求处理
 	}

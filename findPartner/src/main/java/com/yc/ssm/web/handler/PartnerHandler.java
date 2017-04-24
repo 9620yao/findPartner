@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.ssm.entity.Partner;
 import com.yc.ssm.entity.Users;
@@ -87,6 +89,45 @@ public class PartnerHandler {
 			return "redirect:/page/lw-log.jsp";
 		}
 		return "/page/lw-re.jsp";
+	}
+
+	@RequestMapping("sendForgetMail")
+	public void sendForgetMail(ModelMap map, Partner partner, PrintWriter out, HttpServletRequest request) {
+		LogManager.getLogger().debug(partner);
+		Integer yzm = RandomNumUtil.getRandomNumber();// 生成六位不重复随机数
+		request.getSession().setAttribute("yzm", yzm.toString());
+		SendMailutil.activeAccountMail(mailSender, "findPartner忘记密码验证信息", "您的验证码是：" + yzm + ",请认真确认后在是您的操作之后，在执行操作",
+				"15675456193@163.com", partner.getEmail());
+		out.print(yzm);
+		out.flush();
+		out.close();
+	}
+
+	@RequestMapping("emailExist")
+	@ResponseBody
+	public boolean emailExist(String email) {
+		Partner partner = new Partner();
+		partner.setEmail(email);
+		List<Partner> listmail = partnerService.findEmail(partner);// 判断是否存在该用户
+		if (listmail.size() > 0) {
+			return true;
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "forget", method = RequestMethod.POST)
+	public String newPwd(String email) {
+		return "redirect:/page/lw-newPwd.jsp?email=" + email;
+	}
+
+	@RequestMapping(value = "newPwd", method = RequestMethod.POST)
+	public String newPwd(@RequestParam("newemail") String newemail, @RequestParam("newpwd") String newpwd) {
+		LogManager.getLogger().debug("newemail==>" + newemail + "newpwd==>" + newpwd);
+		Partner partner = new Partner();
+		partner.setEmail(newemail);
+		partner.setPassword(newpwd);
+		partnerService.updateNewPwd(partner);
+		return "/page/lw-log.jsp";
 	}
 
 }

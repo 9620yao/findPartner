@@ -43,10 +43,9 @@ public class FriendServiceTest {
 	
 	@Test
 	public void testListFriendsIntro() {
-		List<Users> users=friendService.listIntroFriend("10000");
+		List<Users> users=friendService.listIntroFriend("a10100");
 		System.out.println(users);
 		assertNotNull(users);
-		
 	}
 	
 
