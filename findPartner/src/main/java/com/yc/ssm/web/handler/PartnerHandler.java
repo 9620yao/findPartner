@@ -4,7 +4,6 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,31 +105,29 @@ public class PartnerHandler {
 
 	@RequestMapping("emailExist")
 	@ResponseBody
-	public boolean emailExist(String email){
-		Partner partner=new Partner();
+	public boolean emailExist(String email) {
+		Partner partner = new Partner();
 		partner.setEmail(email);
 		List<Partner> listmail = partnerService.findEmail(partner);// 判断是否存在该用户
-		if(listmail.size() > 0){
+		if (listmail.size() > 0) {
 			return true;
 		}
 		return false;
 	}
-	
+
 	@RequestMapping(value = "forget", method = RequestMethod.POST)
 	public String newPwd(String email) {
-		return "redirect:/page/lw-newPwd.jsp?email="+email;
+		return "redirect:/page/lw-newPwd.jsp?email=" + email;
 	}
-	
+
 	@RequestMapping(value = "newPwd", method = RequestMethod.POST)
-	public String newPwd(@RequestParam("newemail")String newemail,@RequestParam("newpwd")String newpwd) {
-		LogManager.getLogger().debug("newemail==>"+newemail+"newpwd==>"+newpwd);
-		Partner partner=new Partner();
+	public String newPwd(@RequestParam("newemail") String newemail, @RequestParam("newpwd") String newpwd) {
+		LogManager.getLogger().debug("newemail==>" + newemail + "newpwd==>" + newpwd);
+		Partner partner = new Partner();
 		partner.setEmail(newemail);
 		partner.setPassword(newpwd);
 		partnerService.updateNewPwd(partner);
 		return "/page/lw-log.jsp";
 	}
-	
-	
 
 }
