@@ -32,7 +32,7 @@ public class AdministratorHandler {
 			request.setAttribute(ServletUtil.ERROR_MESSAGE, "用户名或密码错误！！！");
 			return "/back/adminLogin.jsp";
 		} else {
-			request.getSession().setAttribute(ServletUtil.LOGIN_USER, administrator.getBaname());
+			request.getSession().setAttribute(ServletUtil.LOGIN_ADMIN, administrator.getBaname());
 			return "redirect:/back/manager.jsp";
 		}
 	}

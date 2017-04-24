@@ -23,6 +23,13 @@ $(".treeNav").tree({
 				iconCls:"icon-mini-add",
 				closable:true
 			});
+		}else if(nodeContent == "用户分布"){
+			$("#main").tabs('add',{
+				title: nodeContent,
+				href:"back/pie.jsp",
+				iconCls:"icon-mini-add",
+				closable:true,
+			});
 		}else if(nodeContent == "说说信息"){
 			$("#main").tabs('add',{
 				title: nodeContent,

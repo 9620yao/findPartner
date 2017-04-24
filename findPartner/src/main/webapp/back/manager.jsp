@@ -14,13 +14,13 @@
 </head>
 <body class="easyui-layout">
 <c:choose>
-		<c:when test="${loginUser==null }">
+		<c:when test="${loginAdmin==null}">
 			<script type="text/javascript">
 			alert("请先登录!");
 			window.location=${deployName}+"back/adminLogin.jsp";
 		</script>
 		</c:when>
-		<c:when test="${loginUser=='' }">
+		<c:when test="${loginAdmin==''}">
 			<script type="text/javascript">
 			alert("请先登录!");
 			window.location=${deployName}+"back/adminLogin.jsp";
@@ -30,7 +30,7 @@
 	<div data-options="region:'north'" style="height: 100px;">
 		<div style="float: right; margin-top: 30px; margin-right: 20px; color: #082C5A;">
 			<div>
-				管理员：[<strong style="font-size: 120%; color: green;">${loginUser}</strong>]，欢迎您进入findPartner系统
+				管理员：[<strong style="font-size: 120%; color: green;">${loginAdmin}</strong>]，欢迎您进入findPartner系统
 			</div>
 			<div style="margin-top: 8px;">
 				<a href="javascript:void(0);" class="easyui-menubutton"
@@ -56,6 +56,7 @@
 			<div title="用户管理" data-options="iconCls:'icon-mini-add'">
 				<ul class="treeNav">
 					<li><span>用户信息</span></li>
+					<li><span>用户分布</span></li>
 				</ul>
 			</div>
 			<div title="说说管理" data-options="iconCls:'icon-mini-add'">
@@ -89,7 +90,7 @@
 		<div id="main" style="width: 500px; height: 400px;">
 			<div title="欢迎"  data-options="iconCls:'icon-mini-add'">
 				<h1 style="width: 100%; text-align: center; margin-top: 80px">
-					<label> 欢迎【<span>${loginUser}</span>】使用findPartner系统
+					<label> 欢迎【<span>${loginAdmin}</span>】使用findPartner系统
 					</label>
 				</h1>
 			</div>

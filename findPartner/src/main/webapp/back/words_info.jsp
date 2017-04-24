@@ -11,8 +11,12 @@
 		<select id="WordselectName">
 			<option value="姓名/时间查询" id="findByName" selected="selected">姓名/时间查询</option>
 		</select>	
-		<input id="paramterW" name="paramter">
-		<input value="查询" type="button" onclick="unclearQueryWords()"/>
+		<input id="paramterW" name="paramter" class="input_search_key" placeholder="请输入关键词直接搜索">
+		<input value="搜索" type="button" class="search_btn" onclick="unclearQueryWords()"/>
+		 <div class="search_suggest" id="gov_search_suggest">  
+                <ul>  
+                </ul>  
+            </div>
 	</div>
 	<table id="wordsInfo"></table>
 	<br>
